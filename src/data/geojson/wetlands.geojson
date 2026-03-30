@@ -1,0 +1,167 @@
+{
+  "type": "FeatureCollection",
+  "name": "kashmir_wetlands",
+  "description": "Major wetlands of Kashmir Valley including Ramsar sites",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hokersar-wetland",
+        "name": "Hokersar Wetland",
+        "type": "wetland",
+        "category": "Ramsar Wetland",
+        "area_km2": 13.75,
+        "elevation_m": 1585,
+        "district": "Srinagar",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "ramsarSite": true,
+        "slug": "hokersar-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8500, 34.2500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shallabugh-wetland",
+        "name": "Shallabugh Wetland",
+        "type": "wetland",
+        "category": "Ramsar Wetland",
+        "area_km2": 7.5,
+        "elevation_m": 1585,
+        "district": "Ganderbal",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "ramsarSite": true,
+        "slug": "shallabugh-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.7500, 34.3500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hygam-wetland",
+        "name": "Hygam Wetland",
+        "type": "wetland",
+        "category": "Conservation Wetland",
+        "area_km2": 5.2,
+        "elevation_m": 1585,
+        "district": "Baramulla",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "moderate",
+        "ramsarSite": false,
+        "slug": "hygam-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.5500, 34.3500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "wular-wetland",
+        "name": "Wular Wetland System",
+        "type": "wetland",
+        "category": "Ramsar Wetland",
+        "area_km2": 189,
+        "elevation_m": 1575,
+        "district": "Bandipora",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "ramsarSite": true,
+        "slug": "wular-wetland-system"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.6333, 34.4167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mirgund-wetland",
+        "name": "Mirgund Wetland",
+        "type": "wetland",
+        "category": "Conservation Wetland",
+        "area_km2": 2.1,
+        "elevation_m": 1580,
+        "district": "Srinagar",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "moderate",
+        "ramsarSite": false,
+        "slug": "mirgund-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8200, 34.2300]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kalgochh-wetland",
+        "name": "Kalgochh Wetland",
+        "type": "wetland",
+        "category": "Conservation Wetland",
+        "area_km2": 1.8,
+        "elevation_m": 1578,
+        "district": "Anantnag",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "ramsarSite": false,
+        "slug": "kalgochh-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.9800, 33.9500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kheer-bhawani",
+        "name": "Kheer Bhawani Spring Wetland",
+        "type": "wetland",
+        "category": "Sacred Wetland",
+        "area_km2": 0.5,
+        "elevation_m": 1585,
+        "district": "Ganderbal",
+        "watershed": "Sind Basin",
+        "waterQualityStatus": "good",
+        "ramsarSite": false,
+        "slug": "kheer-bhawani-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8100, 34.2100]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "malchibugh-wetland",
+        "name": "Malchibugh Wetland",
+        "type": "wetland",
+        "category": "Conservation Wetland",
+        "area_km2": 3.2,
+        "elevation_m": 1582,
+        "district": "Srinagar",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "moderate",
+        "ramsarSite": false,
+        "slug": "malchibugh-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8400, 34.2100]
+      }
+    }
+  ]
+}

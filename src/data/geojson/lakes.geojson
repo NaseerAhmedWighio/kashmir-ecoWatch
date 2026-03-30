@@ -1,0 +1,254 @@
+{
+  "type": "FeatureCollection",
+  "name": "kashmir_lakes",
+  "description": "Major lakes of Kashmir Valley",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dal-lake",
+        "name": "Dal Lake",
+        "type": "lake",
+        "category": "Urban Lake",
+        "area_km2": 18,
+        "elevation_m": 1583,
+        "district": "Srinagar",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "moderate",
+        "slug": "dal-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8290, 34.1150]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "wular-lake",
+        "name": "Wular Lake",
+        "type": "lake",
+        "category": "Freshwater Lake",
+        "area_km2": 189,
+        "elevation_m": 1575,
+        "district": "Bandipora",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "slug": "wular-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.6333, 34.4167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nigeen-lake",
+        "name": "Nigeen Lake",
+        "type": "lake",
+        "category": "Urban Lake",
+        "area_km2": 2.8,
+        "elevation_m": 1583,
+        "district": "Srinagar",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "slug": "nigeen-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8167, 34.1333]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "manasbal-lake",
+        "name": "Manasbal Lake",
+        "type": "lake",
+        "category": "Freshwater Lake",
+        "area_km2": 2.8,
+        "elevation_m": 1583,
+        "district": "Ganderbal",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "slug": "manasbal-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.7167, 34.1667]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "anu-char",
+        "name": "Anu Char Lake",
+        "type": "lake",
+        "category": "High-Altitude Lake",
+        "area_km2": 0.8,
+        "elevation_m": 3200,
+        "district": "Bandipora",
+        "watershed": "Kishanganga Basin",
+        "waterQualityStatus": "excellent",
+        "slug": "anu-char"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8000, 34.6833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tarsar-lake",
+        "name": "Tarsar Lake",
+        "type": "lake",
+        "category": "Alpine Lake",
+        "area_km2": 0.5,
+        "elevation_m": 3800,
+        "district": "Anantnag",
+        "watershed": "Lidder Basin",
+        "waterQualityStatus": "excellent",
+        "slug": "tarsar-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.2833, 33.9167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "marsar-lake",
+        "name": "Marsar Lake",
+        "type": "lake",
+        "category": "Alpine Lake",
+        "area_km2": 0.4,
+        "elevation_m": 3900,
+        "district": "Anantnag",
+        "watershed": "Lidder Basin",
+        "waterQualityStatus": "excellent",
+        "slug": "marsar-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.3000, 33.9333]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gangabal-lake",
+        "name": "Gangabal Lake",
+        "type": "lake",
+        "category": "Glacial Lake",
+        "area_km2": 0.6,
+        "elevation_m": 3570,
+        "district": "Ganderbal",
+        "watershed": "Sind Basin",
+        "waterQualityStatus": "excellent",
+        "slug": "gangabal-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8500, 34.2833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "krishansar-lake",
+        "name": "Krishansar Lake",
+        "type": "lake",
+        "category": "Glacial Lake",
+        "area_km2": 0.3,
+        "elevation_m": 3750,
+        "district": "Ganderbal",
+        "watershed": "Sind Basin",
+        "waterQualityStatus": "excellent",
+        "slug": "krishansar-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8667, 34.3000]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "vishansar-lake",
+        "name": "Vishansar Lake",
+        "type": "lake",
+        "category": "Glacial Lake",
+        "area_km2": 0.35,
+        "elevation_m": 3650,
+        "district": "Ganderbal",
+        "watershed": "Sind Basin",
+        "waterQualityStatus": "excellent",
+        "slug": "vishansar-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8583, 34.2917]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "sheer-kol",
+        "name": "Sheer Kol",
+        "type": "lake",
+        "category": "High-Altitude Lake",
+        "area_km2": 0.6,
+        "elevation_m": 3400,
+        "district": "Bandipora",
+        "watershed": "Kishanganga Basin",
+        "waterQualityStatus": "excellent",
+        "slug": "sheer-kol"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8500, 34.7000]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pant-chowk-lake",
+        "name": "Pant Chowk Lake",
+        "type": "lake",
+        "category": "Rural Lake",
+        "area_km2": 1.2,
+        "elevation_m": 1590,
+        "district": "Ganderbal",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "slug": "pant-chowk-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.7500, 34.2167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hokersar-lake",
+        "name": "Hokersar Lake",
+        "type": "lake",
+        "category": "Wetland Lake",
+        "area_km2": 8.5,
+        "elevation_m": 1585,
+        "district": "Srinagar",
+        "watershed": "Jhelum Basin",
+        "waterQualityStatus": "good",
+        "slug": "hokersar-lake"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.8500, 34.2500]
+      }
+    }
+  ]
+}

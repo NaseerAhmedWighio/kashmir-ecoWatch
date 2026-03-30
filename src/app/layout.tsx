@@ -1,0 +1,42 @@
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'Kashmir Environmental Intelligence Platform',
+  description: 'A unified scientific platform for ecological systems, biodiversity, environmental monitoring, and conservation intelligence across Kashmir',
+  keywords: [
+    'Kashmir',
+    'Environment',
+    'Biodiversity',
+    'Ecology',
+    'Conservation',
+    'Monitoring',
+    'GIS',
+    'Climate',
+    'Wildlife',
+    'Wetlands',
+  ],
+  authors: [{ name: 'Kashmir Environmental Intelligence Platform' }],
+  openGraph: {
+    title: 'Kashmir Environmental Intelligence Platform',
+    description: 'A unified scientific platform for ecological systems, biodiversity, environmental monitoring, and conservation intelligence across Kashmir',
+    type: 'website',
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        {children}
+      </body>
+    </html>
+  );
+}

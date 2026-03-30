@@ -1,0 +1,245 @@
+{
+  "type": "FeatureCollection",
+  "name": "kashmir_protected_areas",
+  "description": "Protected areas of Kashmir including National Parks, Wildlife Sanctuaries, and Reserves",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dachigam",
+        "name": "Dachigam National Park",
+        "category": "national_park",
+        "area_km2": 141,
+        "district": "Srinagar",
+        "established": 1981,
+        "keySpecies": ["hangul", "himlayan-monals", "brown-bear", "leopard"],
+        "slug": "dachigam-national-park"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.05, 34.15]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hemis",
+        "name": "Hemis National Park",
+        "category": "national_park",
+        "area_km2": 4400,
+        "district": "Leh",
+        "established": 1981,
+        "keySpecies": ["snow-leopard", "tibetan-argali", "kiang", "blue-sheep"],
+        "slug": "hemis-national-park"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.65, 33.75]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kishtwar",
+        "name": "Kishtwar High Altitude National Park",
+        "category": "national_park",
+        "area_km2": 400,
+        "district": "Kishtwar",
+        "established": 1981,
+        "keySpecies": ["snow-leopard", "musk-deer", "brown-bear"],
+        "slug": "kishtwar-national-park"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.75, 33.35]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "overa-aru",
+        "name": "Overa-Aru Wildlife Sanctuary",
+        "category": "wildlife_sanctuary",
+        "area_km2": 511,
+        "district": "Anantnag",
+        "established": 1981,
+        "keySpecies": ["hangul", "kashmir-flycatcher", "western-tragopan"],
+        "slug": "overa-aru-wildlife-sanctuary"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.15, 33.95]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hirpora",
+        "name": "Hirpora Wildlife Sanctuary",
+        "category": "wildlife_sanctuary",
+        "area_km2": 341,
+        "district": "Kulgam",
+        "established": 1987,
+        "keySpecies": ["markhor", "musk-deer", "leopard"],
+        "slug": "hirpora-wildlife-sanctuary"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.05, 33.65]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gulmarg",
+        "name": "Gulmarg Wildlife Sanctuary",
+        "category": "wildlife_sanctuary",
+        "area_km2": 180,
+        "district": "Baramulla",
+        "established": 1987,
+        "keySpecies": ["himlayan-monals", "musk-deer", "brown-bear"],
+        "slug": "gulmarg-wildlife-sanctuary"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.38, 34.05]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "limber",
+        "name": "Limber Wildlife Sanctuary",
+        "category": "wildlife_sanctuary",
+        "area_km2": 125,
+        "district": "Baramulla",
+        "established": 1987,
+        "keySpecies": ["black-bear", "leopard", "himlayan-monals"],
+        "slug": "limber-wildlife-sanctuary"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.45, 34.15]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "lachipora",
+        "name": "Lachipora Wildlife Sanctuary",
+        "category": "wildlife_sanctuary",
+        "area_km2": 234,
+        "district": "Kupwara",
+        "established": 1987,
+        "keySpecies": ["markhor", "musk-deer", "brown-bear"],
+        "slug": "lachipora-wildlife-sanctuary"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.25, 34.35]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rajparian",
+        "name": "Rajparian Wildlife Sanctuary",
+        "category": "wildlife_sanctuary",
+        "area_km2": 167,
+        "district": "Anantnag",
+        "established": 1981,
+        "keySpecies": ["hangul", "musk-deer", "leopard"],
+        "slug": "rajparian-wildlife-sanctuary"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.25, 33.85]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hokersar-wls",
+        "name": "Hokersar Wildlife Sanctuary",
+        "category": "wildlife_sanctuary",
+        "area_km2": 18.5,
+        "district": "Srinagar",
+        "established": 1986,
+        "keySpecies": ["migratory-waterfowl", "wetland-birds"],
+        "slug": "hokersar-wildlife-sanctuary"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.86, 34.26]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hokersar",
+        "name": "Hokersar Wetland Reserve",
+        "category": "wetland_reserve",
+        "area_km2": 13.75,
+        "district": "Srinagar",
+        "established": 1986,
+        "keySpecies": ["migratory-waterfowl", "wetland-birds"],
+        "slug": "hokersar-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.85, 34.25]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shallabugh",
+        "name": "Shallabugh Wetland Reserve",
+        "category": "wetland_reserve",
+        "area_km2": 7.5,
+        "district": "Ganderbal",
+        "established": 1986,
+        "keySpecies": ["migratory-waterfowl", "wetland-birds"],
+        "slug": "shallabugh-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.75, 34.35]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hygam",
+        "name": "Hygam Wetland Reserve",
+        "category": "wetland_reserve",
+        "area_km2": 5.2,
+        "district": "Baramulla",
+        "established": 1986,
+        "keySpecies": ["wetland-birds", "migratory-species"],
+        "slug": "hygam-wetland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.55, 34.35]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "wular",
+        "name": "Wular Wetland System",
+        "category": "wetland_reserve",
+        "area_km2": 189,
+        "district": "Bandipora",
+        "established": 1990,
+        "keySpecies": ["migratory-waterfowl", "wetland-birds", "bar-headed-goose"],
+        "slug": "wular-wetland-system"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.65, 34.45]
+      }
+    }
+  ]
+}
