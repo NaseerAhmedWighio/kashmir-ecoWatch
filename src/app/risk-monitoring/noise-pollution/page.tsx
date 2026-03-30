@@ -30,12 +30,22 @@ const noiseCategories = [
   { category: 'Wildlife Habitats', avgLevel: '35-50 dB', impact: 'Low-Moderate', description: 'Protected area buffers' },
 ];
 
-const districtSummary = [
-  { district: 'Srinagar', avgLevel: 68, trend: 'increasing' as const, hotspots: 15, sensitiveZones: 8 },
-  { district: 'Baramulla', avgLevel: 54, trend: 'stable' as const, hotspots: 5, sensitiveZones: 4 },
-  { district: 'Anantnag', avgLevel: 52, trend: 'stable' as const, hotspots: 4, sensitiveZones: 5 },
-  { district: 'Ganderbal', avgLevel: 48, trend: 'stable' as const, hotspots: 3, sensitiveZones: 6 },
-  { district: 'Budgam', avgLevel: 58, trend: 'increasing' as const, hotspots: 6, sensitiveZones: 3 },
+type TrendType = 'increasing' | 'decreasing' | 'stable';
+
+interface DistrictSummary {
+  district: string;
+  avgLevel: number;
+  trend: TrendType;
+  hotspots: number;
+  sensitiveZones: number;
+}
+
+const districtSummary: DistrictSummary[] = [
+  { district: 'Srinagar', avgLevel: 68, trend: 'increasing', hotspots: 15, sensitiveZones: 8 },
+  { district: 'Baramulla', avgLevel: 54, trend: 'decreasing', hotspots: 5, sensitiveZones: 4 },
+  { district: 'Anantnag', avgLevel: 52, trend: 'stable', hotspots: 4, sensitiveZones: 5 },
+  { district: 'Ganderbal', avgLevel: 48, trend: 'stable', hotspots: 3, sensitiveZones: 6 },
+  { district: 'Budgam', avgLevel: 58, trend: 'increasing', hotspots: 6, sensitiveZones: 3 },
 ];
 
 const healthImpacts = [
