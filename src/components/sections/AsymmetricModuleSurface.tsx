@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { intelligenceCards } from '@/lib/data';
 import { Button } from '@/components/ui/Button';
+import { useRouter } from 'next/navigation';
 import {
   Map, Leaf, Shield, Droplet, Cloud, Sun, Footprints, Book,
   ArrowRight, Layers, Activity, Zap
@@ -30,6 +31,7 @@ const colorMap: Record<string, string> = {
 
 export function AsymmetricModuleSurface() {
   const [hoveredModule, setHoveredModule] = useState<string | null>(null);
+  const router = useRouter();
 
   // Create asymmetric layout by varying sizes
   const getModuleSize = (index: number) => {
@@ -77,11 +79,17 @@ export function AsymmetricModuleSurface() {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 rounded-lg glass-light border border-white/10 text-sm text-slate-300 hover:text-white hover:border-forest-500/50 transition-all">
+              <button 
+                onClick={() => router.push('/risk-monitoring')}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg glass-light border border-white/10 text-sm text-slate-300 hover:text-white hover:border-forest-500/50 transition-all"
+              >
                 <Layers className="w-4 h-4" />
                 <span>View All Modules</span>
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 rounded-lg glass-light border border-white/10 text-sm text-slate-300 hover:text-white hover:border-forest-500/50 transition-all">
+              <button 
+                onClick={() => router.push('/risk-monitoring/dashboards')}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg glass-light border border-white/10 text-sm text-slate-300 hover:text-white hover:border-forest-500/50 transition-all"
+              >
                 <Activity className="w-4 h-4" />
                 <span>Activity Log</span>
               </button>
@@ -154,11 +162,17 @@ export function AsymmetricModuleSurface() {
 
                     {/* Action bar */}
                     <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
-                      <button className="flex items-center gap-2 text-sm font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn">
+                      <button 
+                        onClick={() => router.push(card.link)}
+                        className="flex items-center gap-2 text-sm font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
+                      >
                         <span>Access Module</span>
                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </button>
-                      <div className="w-8 h-8 rounded-lg glass-light border border-white/10 flex items-center justify-center group-hover:border-forest-500/50 transition-colors">
+                      <div 
+                        onClick={() => router.push(card.link)}
+                        className="w-8 h-8 rounded-lg glass-light border border-white/10 flex items-center justify-center group-hover:border-forest-500/50 transition-colors cursor-pointer"
+                      >
                         <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-forest-400 transition-colors" />
                       </div>
                     </div>
@@ -190,7 +204,11 @@ export function AsymmetricModuleSurface() {
               <p className="text-sm text-slate-400">Access all 24 intelligence modules across 5 ecological pillars</p>
             </div>
           </div>
-          <Button variant="outline" className="border-white/20 text-white hover:border-forest-400">
+          <Button 
+            variant="outline" 
+            className="border-white/20 text-white hover:border-forest-400"
+            onClick={() => router.push('/risk-monitoring')}
+          >
             Browse Directory
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>

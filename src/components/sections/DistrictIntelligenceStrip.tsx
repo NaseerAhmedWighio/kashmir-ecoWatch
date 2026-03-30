@@ -4,6 +4,7 @@ import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { useRouter } from 'next/navigation';
 import {
   Map, TrendingUp, Award, AlertTriangle, Leaf, Droplet,
   ArrowRight, Shield, Activity
@@ -93,6 +94,8 @@ const superlatives = [
 ];
 
 export function DistrictIntelligenceStrip() {
+  const router = useRouter();
+
   return (
     <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900 relative overflow-hidden">
       {/* Background */}
@@ -129,6 +132,7 @@ export function DistrictIntelligenceStrip() {
               size="sm"
               className="border-white/20 text-white hover:border-blue-400"
               icon={<Map className="w-4 h-4" />}
+              onClick={() => router.push('/districts')}
             >
               View All Districts
             </Button>
@@ -257,7 +261,7 @@ export function DistrictIntelligenceStrip() {
                   size="sm"
                   variant="outline"
                   className="w-full border-white/20 text-white hover:border-blue-400 group-hover:bg-blue-500/10"
-                  onClick={() => window.location.href = district.route}
+                  onClick={() => router.push(district.route)}
                 >
                   <span>View Profile</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

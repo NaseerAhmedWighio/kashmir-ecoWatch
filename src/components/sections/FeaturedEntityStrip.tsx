@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { useRouter } from 'next/navigation';
 import { featuredEntities } from '@/lib/data';
 import {
   MapPin, Mountain, Trees, Flower2, Footprints, Building2,
@@ -66,6 +67,7 @@ const tabs = [
 ];
 
 export function FeaturedEntityStrip() {
+  const router = useRouter();
   const [hoveredEntity, setHoveredEntity] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState('all');
 
@@ -111,7 +113,7 @@ export function FeaturedEntityStrip() {
                 environmental features with deep intelligence profiles.
               </p>
             </div>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border-forest-400" icon={<ArrowRight className="w-5 h-5" />}>
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border-forest-400" icon={<ArrowRight className="w-5 h-5" />} onClick={() => router.push('/biodiversity')}>
               Browse All Entities
             </Button>
           </div>
@@ -260,7 +262,7 @@ export function FeaturedEntityStrip() {
                               variant="outline"
                               size="sm"
                               className="border-white/20 text-white hover:border-forest-400 flex-1 mr-3"
-                              onClick={() => window.location.href = entity.link}
+                              onClick={() => router.push(entity.link)}
                             >
                               View Details
                             </Button>

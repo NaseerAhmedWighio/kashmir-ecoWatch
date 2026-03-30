@@ -3,6 +3,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { useRouter } from 'next/navigation';
 import {
   Map, BookOpen, Leaf, ArrowRight, Compass, Layers, Search
 } from 'lucide-react';
@@ -57,6 +58,8 @@ const quickStartTips = [
 ];
 
 export function OnboardingStrip() {
+  const router = useRouter();
+
   return (
     <section className="py-16 bg-slate-950 relative overflow-hidden">
       {/* Background */}
@@ -121,6 +124,7 @@ export function OnboardingStrip() {
                   <Button
                     size="sm"
                     className={`w-full bg-gradient-to-r ${pathway.color} hover:opacity-90 text-white`}
+                    onClick={() => router.push(pathway.route)}
                   >
                     <span>Start Exploring</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

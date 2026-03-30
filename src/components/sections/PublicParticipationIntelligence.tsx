@@ -4,6 +4,7 @@ import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { useRouter } from 'next/navigation';
 import {
   AlertTriangle, Eye, Database, Users, ArrowRight,
   TrendingUp, CheckCircle2, Clock, MapPin
@@ -87,6 +88,8 @@ const districtParticipation = [
 ];
 
 export function PublicParticipationIntelligence() {
+  const router = useRouter();
+
   return (
     <section className="py-24 bg-slate-950 relative overflow-hidden">
       {/* Background */}
@@ -234,7 +237,7 @@ export function PublicParticipationIntelligence() {
                   <Button
                     size="sm"
                     className={`w-full bg-gradient-to-r ${pathway.color} hover:opacity-90 text-white`}
-                    onClick={() => window.location.href = pathway.route}
+                    onClick={() => router.push(pathway.route)}
                   >
                     <span>Get Involved</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

@@ -4,22 +4,23 @@ import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import { 
+import {
   LineChart, Line, BarChart, Bar, AreaChart, Area, ComposedChart,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine,
   ScatterChart, Scatter, Cell
 } from 'recharts';
-import { 
+import {
   Wind, Droplets, Flower, PawPrint, TrendingUp, ArrowRight,
   AlertTriangle, Activity, Zap, Target
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { 
-  airQualityData, 
-  waterQualityData, 
-  bloomActivityData, 
+import { useRouter } from 'next/navigation';
+import {
+  airQualityData,
+  waterQualityData,
+  bloomActivityData,
   sightingActivityData,
-  districtComparisonData 
+  districtComparisonData
 } from '@/lib/data';
 
 const chartColors = {
@@ -31,6 +32,8 @@ const chartColors = {
 };
 
 export function NextGenDashboardPreview() {
+  const router = useRouter();
+
   return (
     <section className="py-24 bg-slate-900 relative overflow-hidden">
       {/* Background */}
@@ -62,7 +65,7 @@ export function NextGenDashboardPreview() {
                 predictive modeling, and spatial intelligence integration.
               </p>
             </div>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border-forest-400" icon={<ArrowRight className="w-5 h-5" />}>
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border-forest-400" icon={<ArrowRight className="w-5 h-5" />} onClick={() => router.push('/risk-monitoring/dashboards')}>
               All Dashboards
             </Button>
           </div>

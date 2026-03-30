@@ -3,14 +3,16 @@
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
 import { insightPanels } from '@/lib/data';
-import { 
-  ChevronDown, 
-  ChevronUp, 
-  AlertTriangle, 
-  Flower, 
-  PawPrint, 
-  Wind, 
+import { useRouter } from 'next/navigation';
+import {
+  ChevronDown,
+  ChevronUp,
+  AlertTriangle,
+  Flower,
+  PawPrint,
+  Wind,
   Droplets,
   MapPin,
   Calendar,
@@ -18,7 +20,8 @@ import {
   Bell,
   Activity,
   TrendingUp,
-  ExternalLink
+  ExternalLink,
+  Settings
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -54,6 +57,7 @@ const iconConfig: Record<string, React.ComponentType<{ className?: string }>> = 
 };
 
 export function ExpandableLivePanels() {
+  const router = useRouter();
   const [expandedPanel, setExpandedPanel] = useState<string | null>('wetland-stress');
   const [activeTab, setActiveTab] = useState<'all' | 'critical' | 'warning'>('all');
 
@@ -280,11 +284,20 @@ export function ExpandableLivePanels() {
 
                           {/* View all link */}
                           <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
-                            <button className="flex items-center gap-2 text-sm font-medium text-forest-400 hover:text-forest-300 transition-colors group">
+                            <button 
+                              onClick={() => router.push('/risk-monitoring/live-alerts-advisories')}
+                              className="flex items-center gap-2 text-sm font-medium text-forest-400 hover:text-forest-300 transition-colors group"
+                            >
                               View All {panel.title.toLowerCase()}
                               <ChevronDown className="w-4 h-4 -rotate-90 group-hover:translate-x-1 transition-transform" />
                             </button>
-                            <Button variant="outline" size="sm" className="border-white/20 text-white hover:border-forest-400" icon={<TrendingUp className="w-4 h-4" />}>
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="border-white/20 text-white hover:border-forest-400" 
+                              icon={<TrendingUp className="w-4 h-4" />}
+                              onClick={() => router.push('/risk-monitoring/dashboards')}
+                            >
                               Analytics
                             </Button>
                           </div>
@@ -321,10 +334,19 @@ export function ExpandableLivePanels() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="outline" className="border-white/20 text-white hover:border-forest-400" icon={<Settings className="w-4 h-4" />}>
+              <Button 
+                variant="outline" 
+                className="border-white/20 text-white hover:border-forest-400" 
+                icon={<Settings className="w-4 h-4" />}
+                onClick={() => router.push('/alerts')}
+              >
                 Settings
               </Button>
-              <Button className="bg-gradient-to-r from-forest-600 to-forest-500" icon={<Bell className="w-4 h-4" />}>
+              <Button 
+                className="bg-gradient-to-r from-forest-600 to-forest-500" 
+                icon={<Bell className="w-4 h-4" />}
+                onClick={() => router.push('/alerts')}
+              >
                 Subscribe to Alerts
               </Button>
             </div>
@@ -334,7 +356,3 @@ export function ExpandableLivePanels() {
     </section>
   );
 }
-
-// Import missing components
-import { Button } from '@/components/ui/Button';
-import { Settings } from 'lucide-react';

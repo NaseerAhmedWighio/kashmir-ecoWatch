@@ -4,8 +4,9 @@ import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { useRouter } from 'next/navigation';
 import { alerts } from '@/lib/data';
-import { 
+import {
   AlertTriangle, Bell, MapPin, Calendar, Clock, ChevronRight,
   Filter, CheckCircle2, Shield, Zap, Radio, Activity, ExternalLink,
   TrendingUp, AlertCircle
@@ -13,6 +14,7 @@ import {
 import { motion } from 'framer-motion';
 
 export function AlertResponseSystem() {
+  const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<'all' | 'high' | 'medium' | 'low'>('all');
 
   const filteredAlerts = alerts.filter(alert => {
@@ -101,10 +103,10 @@ export function AlertResponseSystem() {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm" className="border-white/20 text-white hover:border-forest-400" icon={<Filter className="w-4 h-4" />}>
+              <Button variant="outline" size="sm" className="border-white/20 text-white hover:border-forest-400" icon={<Filter className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
                 Filter
               </Button>
-              <Button size="sm" className="bg-gradient-to-r from-red-600 to-red-500" icon={<Bell className="w-4 h-4" />}>
+              <Button size="sm" className="bg-gradient-to-r from-red-600 to-red-500" icon={<Bell className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
                 Subscribe to Alerts
               </Button>
             </div>
@@ -212,7 +214,7 @@ export function AlertResponseSystem() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="mt-6"
             >
-              <Button variant="outline" className="w-full border-white/20 text-white hover:border-forest-400" icon={<Bell className="w-4 h-4" />}>
+              <Button variant="outline" className="w-full border-white/20 text-white hover:border-forest-400" icon={<Bell className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
                 View All Alerts
               </Button>
             </motion.div>
@@ -307,7 +309,7 @@ export function AlertResponseSystem() {
                       </button>
                     ))}
                   </div>
-                  <Button className="w-full mt-4 bg-gradient-to-r from-forest-600 to-forest-500" icon={<AlertTriangle className="w-4 h-4" />}>
+                  <Button className="w-full mt-4 bg-gradient-to-r from-forest-600 to-forest-500" icon={<AlertTriangle className="w-4 h-4" />} onClick={() => router.push('/report-issue')}>
                     Submit Report
                   </Button>
                 </CardContent>

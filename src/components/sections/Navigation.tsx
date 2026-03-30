@@ -34,12 +34,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
   { label: 'Home', href: '/', icon: Home },
-  { label: 'Protected Areas', href: '/protected-network', icon: Shield, hasDropdown: true },
-  { label: 'Biodiversity', href: '/biodiversity', icon: Leaf, hasDropdown: true },
+  { label: 'Protected Areas', href: '/protected-network', hasDropdown: true },
+  { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
-  { label: 'Seasonal Ecology', href: '/seasonal-ecology', icon: Calendar, hasDropdown: true },
-  { label: 'Trails & Sightings', href: '/trails-sightings', icon: Footprints, hasDropdown: true },
-  { label: 'Risk & Monitoring', href: '/risk-monitoring', icon: AlertTriangle, hasDropdown: true },
+  { label: 'Seasonal Ecology', href: '/seasonal-ecology', hasDropdown: true },
+  { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
+  { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
 
 export function Navigation() {

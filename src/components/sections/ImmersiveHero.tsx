@@ -241,6 +241,7 @@ export function ImmersiveHero() {
               size="lg"
               icon={<Map className="w-5 h-5" />}
               className="group relative overflow-hidden bg-gradient-to-r from-forest-600 to-forest-500 hover:from-forest-500 hover:to-forest-400 text-white shadow-2xl glow-forest"
+              onClick={() => router.push('/atlas')}
             >
               <span className="relative z-10">Open Atlas</span>
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform relative z-10" />
@@ -252,6 +253,7 @@ export function ImmersiveHero() {
               variant="outline"
               icon={<Leaf className="w-5 h-5" />}
               className="border-white/20 text-white hover:border-forest-400 hover:text-forest-300 glass-light backdrop-blur-xl"
+              onClick={() => router.push('/risk-monitoring')}
             >
               Explore Intelligence
             </Button>
@@ -261,6 +263,7 @@ export function ImmersiveHero() {
               variant="outline"
               icon={<BarChart3 className="w-5 h-5" />}
               className="border-white/20 text-white hover:border-glacier-400 hover:text-glacier-300 glass-light backdrop-blur-xl"
+              onClick={() => router.push('/risk-monitoring/dashboards')}
             >
               Live Dashboards
             </Button>
