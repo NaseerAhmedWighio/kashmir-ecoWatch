@@ -64,6 +64,14 @@ export default function SoilPollutionPage() {
             transition={{ duration: 0.6 }}
             className="max-w-5xl"
           >
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
+              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
+              <span>/</span>
+              <a href="/risk-monitoring/pollution-stress" className="hover:text-white transition-colors">Pollution & Stress</a>
+              <span>/</span>
+              <span className="text-white font-medium">Soil Pollution</span>
+            </div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-600 to-yellow-700 flex items-center justify-center shadow-2xl">
                 <Sprout className="w-8 h-8 text-white" />
@@ -93,10 +101,18 @@ export default function SoilPollutionPage() {
                 size="lg"
                 variant="outline"
                 className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring')}
+                onClick={() => router.push('/risk-monitoring/pollution-stress')}
               >
                 <ArrowRight className="w-5 h-5 mr-2" />
-                Back to Risk Monitoring
+                Back to Pollution & Stress
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/5"
+                onClick={() => router.push('/risk-monitoring')}
+              >
+                Overview
               </Button>
             </div>
           </motion.div>

@@ -359,7 +359,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-72 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 mt-2 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -377,22 +377,48 @@ export function Navigation() {
                         <span className="font-medium">⚠️ Overview</span>
                         <span className="block text-xs text-slate-500 mt-0.5">Risk monitoring dashboard</span>
                       </Link>
-                      {[
-                        { name: 'Disaster Risks', href: '/risk-monitoring/disaster-risks', desc: 'Multi-hazard assessment' },
-                        { name: 'Flood Risks', href: '/risk-monitoring/flood-flash-flood-risks', desc: 'Flood & flash flood zones' },
-                        { name: 'Landslide Risks', href: '/risk-monitoring/landslide-slope-risks', desc: 'Slope stability monitoring' },
-                        { name: 'Live Alerts', href: '/risk-monitoring/live-alerts-advisories', desc: 'Real-time warnings' },
-                        { name: 'Dashboards', href: '/risk-monitoring/dashboards', desc: 'Risk monitoring dashboards' },
-                      ].map((subitem) => (
-                        <Link
-                          key={subitem.name}
-                          href={subitem.href}
-                          className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
-                        >
-                          <span className="font-medium">{subitem.name}</span>
-                          <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
-                        </Link>
-                      ))}
+                      <Link
+                        href="/risk-monitoring/hazard-risks"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🏔️ Hazard Risks</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Multi-hazard risk systems</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/pollution-stress"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🌫️ Pollution & Stress</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Environmental pressure monitoring</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/biodiversity-risks"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🦌 Biodiversity Risks</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Ecological vulnerability tracking</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/response-operations"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🚨 Response & Operations</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Response and operational intelligence</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/live-alerts-advisories"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🔔 Live Alerts</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Real-time warnings</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/dashboards"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                      >
+                        <span className="font-medium">📊 Dashboards</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Risk monitoring dashboards</span>
+                      </Link>
                     </div>
                   </motion.div>
                 )}
@@ -768,34 +794,40 @@ export function Navigation() {
                         ⚠️ Overview
                       </Link>
                       <Link
-                        href="/risk-monitoring/flood-flash-flood-risks"
+                        href="/risk-monitoring/hazard-risks"
                         className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
                       >
-                        Flood Risk
+                        🏔️ Hazard Risks
                       </Link>
                       <Link
-                        href="/risk-monitoring/forest-fire-risks"
+                        href="/risk-monitoring/pollution-stress"
                         className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
                       >
-                        Wildfire Monitoring
+                        🌫️ Pollution & Stress
                       </Link>
                       <Link
-                        href="/risk-monitoring/landslide-slope-risks"
+                        href="/risk-monitoring/biodiversity-risks"
                         className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
                       >
-                        Landslide Risk
+                        🦌 Biodiversity Risks
                       </Link>
                       <Link
-                        href="/risk-monitoring/disaster-risks"
+                        href="/risk-monitoring/response-operations"
                         className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
                       >
-                        Climate Hazards
+                        🚨 Response & Operations
                       </Link>
                       <Link
                         href="/risk-monitoring/live-alerts-advisories"
                         className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
                       >
-                        Early Warning
+                        🔔 Live Alerts
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/dashboards"
+                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
+                      >
+                        📊 Dashboards
                       </Link>
                     </div>
                   )}

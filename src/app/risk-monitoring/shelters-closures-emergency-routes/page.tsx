@@ -24,13 +24,24 @@ export default function SheltersClosuresEmergencyRoutesPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-green-950/50 via-emerald-950/30 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
+              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
+              <span>/</span>
+              <a href="/risk-monitoring/response-operations" className="hover:text-white transition-colors">Response & Operations</a>
+              <span>/</span>
+              <span className="text-white font-medium">Shelters, Closures & Emergency Routes</span>
+            </div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-2xl"><Map className="w-8 h-8 text-white" /></div>
               <Badge variant="success" size="lg">Emergency Planning</Badge>
             </div>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Shelters, <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Closures & Emergency Routes</span></h1>
             <p className="text-xl text-slate-400 mb-8">Emergency shelter locations, road closures, and evacuation route planning</p>
-            <Button size="lg" className="bg-gradient-to-r from-green-500 to-emerald-600" onClick={() => router.push('/risk-monitoring')}><ArrowRight className="w-5 h-5 mr-2" />Back to Risk Monitoring</Button>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button size="lg" className="bg-gradient-to-r from-green-500 to-emerald-600" onClick={() => router.push('/risk-monitoring/response-operations')}><ArrowRight className="w-5 h-5 mr-2" />Back to Response & Operations</Button>
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => router.push('/risk-monitoring')}>Overview</Button>
+            </div>
           </motion.div>
         </div>
       </section>

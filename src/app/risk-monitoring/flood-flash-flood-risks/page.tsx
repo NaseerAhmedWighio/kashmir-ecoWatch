@@ -24,13 +24,24 @@ export default function FloodFlashFloodRisksPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950/50 via-cyan-950/30 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
+              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
+              <span>/</span>
+              <a href="/risk-monitoring/hazard-risks" className="hover:text-white transition-colors">Hazard Risks</a>
+              <span>/</span>
+              <span className="text-white font-medium">Flood & Flash Flood Risks</span>
+            </div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-2xl"><Droplets className="w-8 h-8 text-white" /></div>
               <Badge variant="info" size="lg">Water Hazards</Badge>
             </div>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Flood & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Flash Flood Risks</span></h1>
             <p className="text-xl text-slate-400 mb-8">River flooding, flash flood corridors, and GLOF risk monitoring</p>
-            <Button size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-600" onClick={() => router.push('/risk-monitoring')}><ArrowRight className="w-5 h-5 mr-2" />Back to Risk Monitoring</Button>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-600" onClick={() => router.push('/risk-monitoring/hazard-risks')}><ArrowRight className="w-5 h-5 mr-2" />Back to Hazard Risks</Button>
+              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => router.push('/risk-monitoring')}>Overview</Button>
+            </div>
           </motion.div>
         </div>
       </section>
