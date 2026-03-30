@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import {
   Wind, ArrowRight, Map, AlertTriangle, Activity, Thermometer,
-  TrendingUp, Filter, Layers
+  TrendingUp, Filter, Layers, Droplets
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
