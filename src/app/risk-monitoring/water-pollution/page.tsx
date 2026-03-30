@@ -223,15 +223,12 @@ export default function WaterPollutionPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <TrendingUp className={`w-4 h-4 ${
-                      item.trend === 'declining' ? 'text-red-400' :
-                      item.trend === 'improving' ? 'text-emerald-400' : 'text-slate-400'
+                      item.trend === 'declining' ? 'text-red-400' : 'text-slate-400'
                     }`} />
                     <span className={`text-sm ${
-                      item.trend === 'declining' ? 'text-red-400' :
-                      item.trend === 'improving' ? 'text-emerald-400' : 'text-slate-400'
+                      item.trend === 'declining' ? 'text-red-400' : 'text-slate-400'
                     }`}>
-                      {item.trend === 'declining' ? 'Declining' :
-                       item.trend === 'improving' ? 'Improving' : 'Stable'}
+                      {item.trend === 'declining' ? 'Declining' : 'Stable'}
                     </span>
                   </div>
                   <div className="mt-2 text-xs text-slate-500">

@@ -260,7 +260,7 @@ export function FeaturedEntityStrip() {
                               variant="outline"
                               size="sm"
                               className="border-white/20 text-white hover:border-forest-400 flex-1 mr-3"
-                              onClick={() => window.location.href = `/${entity.type === 'protected_area' ? 'protected-network' : entity.type === 'lake' ? 'water-systems/lakes' : entity.type === 'species' ? 'biodiversity' : entity.type === 'district' ? 'districts' : 'trails-sightings'}/${entity.slug}`}
+                              onClick={() => window.location.href = entity.link}
                             >
                               View Details
                             </Button>

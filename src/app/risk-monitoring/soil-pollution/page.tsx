@@ -225,15 +225,12 @@ export default function SoilPollutionPage() {
                   </div>
                   <div className="flex items-center gap-2 mb-2">
                     <TrendingUp className={`w-4 h-4 ${
-                      item.trend === 'worsening' ? 'text-red-400' :
-                      item.trend === 'improving' ? 'text-emerald-400' : 'text-slate-400'
+                      item.trend === 'worsening' ? 'text-red-400' : 'text-slate-400'
                     }`} />
                     <span className={`text-sm ${
-                      item.trend === 'worsening' ? 'text-red-400' :
-                      item.trend === 'improving' ? 'text-emerald-400' : 'text-slate-400'
+                      item.trend === 'worsening' ? 'text-red-400' : 'text-slate-400'
                     }`}>
-                      {item.trend === 'worsening' ? 'Worsening' :
-                       item.trend === 'improving' ? 'Improving' : 'Stable'}
+                      {item.trend === 'worsening' ? 'Worsening' : 'Stable'}
                     </span>
                   </div>
                   <div className="text-xs text-slate-500">
