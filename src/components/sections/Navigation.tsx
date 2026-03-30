@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
-import { GlobalSearch } from '@/components/common/GlobalSearch';
 import Link from 'next/link';
 import {
   Leaf,
@@ -403,9 +402,6 @@ export function Navigation() {
 
           {/* Right side actions */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Global Search */}
-            <GlobalSearch />
-
             {/* Alerts */}
             <Button variant="ghost" size="sm" className="relative text-slate-300 hover:text-white">
               <Bell className="w-5 h-5" />

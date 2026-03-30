@@ -8,12 +8,14 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import {
   AlertTriangle, Activity, Bell, Map, TrendingUp, ArrowRight,
-  Shield, Droplets, Mountain, Flame, Zap, Waves
+  Shield, Droplets, Mountain, Flame, Zap, Waves, Wind, Thermometer,
+  Sprout, Leaf, Bird, Fish, Target
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
-const riskModules = [
+// Layer 1: Hazard Risk Systems
+const hazardRiskModules = [
   {
     id: 'disaster-risks',
     title: 'Disaster Risks',
@@ -88,7 +90,8 @@ const riskModules = [
   },
 ];
 
-const monitoringModules = [
+// Layer 2: Pollution and Environmental Stress
+const pollutionEnvironmentalModules = [
   {
     id: 'environmental-monitoring',
     title: 'Environmental Monitoring',
@@ -98,6 +101,149 @@ const monitoringModules = [
     route: '/risk-monitoring/environmental-monitoring',
     features: ['Air Quality', 'Water Quality', 'Ecosystem Health', 'Pollution Tracking']
   },
+  {
+    id: 'air-pollution',
+    title: 'Air Pollution',
+    description: 'District-wise AQI intelligence, seasonal inversion, and transport corridor pollution',
+    icon: Wind,
+    color: 'from-gray-500 to-slate-600',
+    route: '/risk-monitoring/air-pollution',
+    features: ['AQI Monitoring', 'District Profiles', 'Seasonal Patterns', 'Health Overlap']
+  },
+  {
+    id: 'water-pollution',
+    title: 'Water Pollution',
+    description: 'Lake eutrophication, sewage/runoff indicators, and wetland degradation',
+    icon: Droplets,
+    color: 'from-blue-500 to-cyan-600',
+    route: '/risk-monitoring/water-pollution',
+    features: ['WQI Monitoring', 'Lake Health', 'Contamination', 'Eutrophication']
+  },
+  {
+    id: 'noise-pollution',
+    title: 'Noise Pollution',
+    description: 'Urban/tourism corridor noise and wildlife habitat disturbance',
+    icon: Activity,
+    color: 'from-amber-500 to-orange-600',
+    route: '/risk-monitoring/noise-pollution',
+    features: ['Noise Levels', 'Traffic Corridors', 'Wildlife Impact', 'Tourism Zones']
+  },
+  {
+    id: 'soil-pollution',
+    title: 'Soil Pollution',
+    description: 'Agricultural/industrial contamination and land degradation hotspots',
+    icon: Sprout,
+    color: 'from-amber-600 to-yellow-700',
+    route: '/risk-monitoring/soil-pollution',
+    features: ['Contamination', 'Land Degradation', 'Agricultural', 'Industrial']
+  },
+  {
+    id: 'climate-change',
+    title: 'Climate Change',
+    description: 'Glacier retreat, snowline shifts, and seasonal instability signals',
+    icon: Thermometer,
+    color: 'from-red-500 to-orange-600',
+    route: '/risk-monitoring/climate-change',
+    features: ['Temp Trends', 'Glacier Retreat', 'Seasonal Shifts', 'Impact Areas']
+  },
+  {
+    id: 'global-warming-impacts',
+    title: 'Global Warming Impacts',
+    description: 'Warming-linked impacts on glaciers, springs, wetlands, and species',
+    icon: Thermometer,
+    color: 'from-orange-500 to-red-600',
+    route: '/risk-monitoring/global-warming-impacts',
+    features: ['Ecosystem Response', 'Biodiversity', 'Hydrology', 'Cross-System']
+  },
+  {
+    id: 'algal-bloom-monitoring',
+    title: 'Algal Bloom Monitoring',
+    description: 'Eutrophication-prone wetland monitoring and bloom alerts',
+    icon: Waves,
+    color: 'from-emerald-500 to-green-600',
+    route: '/risk-monitoring/algal-bloom-monitoring',
+    features: ['Bloom Alerts', 'Water Quality', 'Seasonality', 'Fish Kill Link']
+  },
+];
+
+// Layer 3: Biodiversity and Ecological Risk
+const biodiversityEcologicalModules = [
+  {
+    id: 'biodiversity-risk-intelligence',
+    title: 'Biodiversity Risk Intelligence',
+    description: 'Habitat vulnerability, threatened species, and ecological pressure tracking',
+    icon: Leaf,
+    color: 'from-emerald-500 to-green-600',
+    route: '/risk-monitoring/biodiversity-risk-intelligence',
+    features: ['Habitat Risk', 'Species Threat', 'Protected Areas', 'Cross-Link']
+  },
+  {
+    id: 'red-data-species-vulnerability',
+    title: 'Red Data / Species Vulnerability',
+    description: 'Threatened Kashmir fauna/flora and habitat vulnerability assessments',
+    icon: Shield,
+    color: 'from-amber-500 to-red-600',
+    route: '/risk-monitoring/red-data-species-vulnerability',
+    features: ['IUCN Status', 'Population', 'Habitat', 'Threat Overlap']
+  },
+  {
+    id: 'human-wildlife-conflict',
+    title: 'Human-Wildlife Conflict',
+    description: 'Leopard/bear conflict, livestock depredation, and settlement-edge risk',
+    icon: AlertTriangle,
+    color: 'from-amber-500 to-orange-600',
+    route: '/risk-monitoring/human-wildlife-conflict',
+    features: ['Conflict Records', 'District Profiles', 'Response', 'Mitigation']
+  },
+  {
+    id: 'wildlife-mortality-kill-records',
+    title: 'Wildlife Mortality / Kill Records',
+    description: 'Roadkill, poaching, electrocution, and conflict-linked deaths',
+    icon: Target,
+    color: 'from-red-500 to-orange-600',
+    route: '/risk-monitoring/wildlife-mortality-kill-records',
+    features: ['Mortality Records', 'Cause Analysis', 'District Profile', 'Hotspots']
+  },
+  {
+    id: 'fish-kill-monitoring',
+    title: 'Fish Kill Monitoring',
+    description: 'Lake/river fish mortality, oxygen depletion, and pollution-linked kills',
+    icon: Fish,
+    color: 'from-blue-500 to-cyan-600',
+    route: '/risk-monitoring/fish-kill-monitoring',
+    features: ['Kill Events', 'Cause Analysis', 'Economic Loss', 'Bloom Link']
+  },
+  {
+    id: 'bird-migration-monitoring',
+    title: 'Bird Migration Monitoring',
+    description: 'Hokersar, Hygam, Shallabugh, Wular wetland migration tracking',
+    icon: Bird,
+    color: 'from-blue-500 to-indigo-600',
+    route: '/risk-monitoring/bird-migration-monitoring',
+    features: ['Migration Windows', 'Wetland Status', 'Species', 'Routes']
+  },
+  {
+    id: 'bird-mortality-kill-monitoring',
+    title: 'Bird Mortality / Kill Monitoring',
+    description: 'Wetland bird mortality, poisoning, collision, and disease clusters',
+    icon: Bird,
+    color: 'from-red-500 to-orange-600',
+    route: '/risk-monitoring/bird-mortality-kill-monitoring',
+    features: ['Mortality Records', 'Cause Analysis', 'Wetland Risk', 'Disease']
+  },
+  {
+    id: 'ecosystem-stress-mortality-signals',
+    title: 'Ecosystem Stress & Mortality',
+    description: 'Cross-system ecological stress and integrated mortality signal detection',
+    icon: Activity,
+    color: 'from-red-500 to-amber-600',
+    route: '/risk-monitoring/ecosystem-stress-mortality-signals',
+    features: ['Stress Signals', 'Mortality Trends', 'District Profile', 'Cross-System']
+  },
+];
+
+// Layer 4: Response and Operational Intelligence
+const responseOperationalModules = [
   {
     id: 'live-alerts-advisories',
     title: 'Live Alerts & Advisories',
@@ -245,7 +391,7 @@ export default function RiskMonitoringPage() {
         </div>
       </section>
 
-      {/* Risk Modules */}
+      {/* Layer 1: Hazard Risk Systems */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <motion.div
@@ -254,12 +400,19 @@ export default function RiskMonitoringPage() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            <h2 className="text-3xl font-bold text-white mb-3">Risk Monitoring</h2>
-            <p className="text-slate-400">Natural hazard risk assessment and monitoring systems</p>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center">
+                <AlertTriangle className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Layer 1: Hazard Risk Systems</h2>
+                <p className="text-slate-400">Natural hazard risk assessment and monitoring systems</p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {riskModules.map((module, index) => (
+            {hazardRiskModules.map((module, index) => (
               <motion.div
                 key={module.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -301,7 +454,7 @@ export default function RiskMonitoringPage() {
         </div>
       </section>
 
-      {/* Monitoring Modules */}
+      {/* Layer 2: Pollution and Environmental Stress */}
       <section className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
           <motion.div
@@ -310,12 +463,19 @@ export default function RiskMonitoringPage() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            <h2 className="text-3xl font-bold text-white mb-3">Environmental Monitoring</h2>
-            <p className="text-slate-400">Real-time monitoring, alerts, and response coordination</p>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                <Activity className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Layer 2: Pollution and Environmental Stress</h2>
+                <p className="text-slate-400">Environmental quality and ecological stress monitoring</p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {monitoringModules.map((module, index) => (
+            {pollutionEnvironmentalModules.map((module, index) => (
               <motion.div
                 key={module.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -347,6 +507,132 @@ export default function RiskMonitoringPage() {
                     ))}
                   </div>
                   <div className="flex items-center text-xs font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors">
+                    <span>Access Module</span>
+                    <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Layer 3: Biodiversity and Ecological Risk */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                <Leaf className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Layer 3: Biodiversity and Ecological Risk</h2>
+                <p className="text-slate-400">Species, habitat, mortality, and vulnerability intelligence</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {biodiversityEcologicalModules.map((module, index) => (
+              <motion.div
+                key={module.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <Card
+                  className="glass-intense border-white/10 hover:border-emerald-500/30 transition-all p-5 h-full cursor-pointer group"
+                  onClick={() => router.push(module.route)}
+                >
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${module.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
+                      <module.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors line-clamp-2">
+                        {module.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-400 mb-3 line-clamp-2 leading-relaxed">
+                    {module.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {module.features.slice(0, 2).map((feature, fIdx) => (
+                      <Badge key={fIdx} variant="outline" size="sm" className="text-xs border-white/10">
+                        {feature}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="flex items-center text-xs font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors">
+                    <span>Access Module</span>
+                    <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Layer 4: Response and Operational Intelligence */}
+      <section className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Layer 4: Response and Operational Intelligence</h2>
+                <p className="text-slate-400">Operational response, alerts, and emergency coordination</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {responseOperationalModules.map((module, index) => (
+              <motion.div
+                key={module.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <Card
+                  className="glass-light border-white/10 hover:border-purple-500/30 transition-all p-5 h-full cursor-pointer group"
+                  onClick={() => router.push(module.route)}
+                >
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${module.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
+                      <module.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-bold text-white group-hover:text-purple-400 transition-colors line-clamp-2">
+                        {module.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-400 mb-3 line-clamp-2 leading-relaxed">
+                    {module.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {module.features.slice(0, 2).map((feature, fIdx) => (
+                      <Badge key={fIdx} variant="outline" size="sm" className="text-xs border-white/10">
+                        {feature}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="flex items-center text-xs font-medium text-purple-400 group-hover:text-purple-300 transition-colors">
                     <span>Access Module</span>
                     <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
                   </div>
