@@ -25,7 +25,7 @@ const migrationData = [
 const migratorySpecies = [
   { species: 'Common Teal', origin: 'Siberia/Central Asia', arrival: 'October', departure: 'March', peakCount: '25,000+', conservationStatus: 'Least Concern' },
   { species: 'Mallard', origin: 'Northern Asia', arrival: 'October', departure: 'March', peakCount: '18,000+', conservationStatus: 'Least Concern' },
-  { species: 'Northern Pintail', origin: 'Siberia', arrival: 'November', departure: 'February', peakCount: '20,000+', conservationStatus': 'Least Concern' },
+  { species: 'Northern Pintail', origin: 'Siberia', arrival: 'November', departure: 'February', peakCount: '20,000+', conservationStatus: 'Least Concern' },
   { species: 'Greylag Goose', origin: 'Central Asia', arrival: 'November', departure: 'February', peakCount: '8,000+', conservationStatus: 'Least Concern' },
   { species: 'Common Pochard', origin: 'Northern Europe/Asia', arrival: 'November', departure: 'March', peakCount: '6,000+', conservationStatus: 'Vulnerable' },
   { species: 'Red-Crested Pochard', origin: 'Southern Europe/Asia', arrival: 'October', departure: 'March', peakCount: '4,000+', conservationStatus: 'Least Concern' },

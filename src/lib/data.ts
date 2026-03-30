@@ -64,14 +64,14 @@ export const intelligenceCards: IntelligenceCard[] = [
   },
   {
     id: 'pollution',
-    title: 'Pollution & Waste',
-    description: 'Air, water, soil quality monitoring and waste management tracking',
+    title: 'Pollution & Environmental Stress',
+    description: 'Air, water, soil, noise pollution monitoring and environmental stress assessment',
     icon: 'cloud',
     metrics: [
-      { label: 'Stations', value: 234 },
-      { label: 'Hotspots', value: 23 },
+      { label: 'Monitoring Stations', value: 234 },
+      { label: 'Pollution Hotspots', value: 23 },
     ],
-    link: '/pollution',
+    link: '/risk-monitoring',
     color: 'slate',
   },
   {
@@ -144,27 +144,27 @@ export const insightPanels: InsightPanel[] = [
   },
   {
     id: 'bloom-activity',
-    title: 'Bloom Activity',
-    status: 'info',
-    description: 'Current flowering and bloom patterns across ecological zones',
+    title: 'Algal Bloom Activity',
+    status: 'warning',
+    description: 'Seasonal algal bloom patterns across Kashmir\'s five major lakes',
     items: [
       {
         id: '1',
-        title: 'Almond Bloom - Peak Season',
-        location: 'Srinagar, Pulwama',
-        timestamp: new Date('2024-03-26'),
+        title: 'Dal Lake - Moderate Bloom',
+        location: 'Srinagar',
+        timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000), // 1 hour ago
       },
       {
         id: '2',
-        title: 'Cherry Blossom - Emerging',
-        location: 'Anantnag, Shopian',
-        timestamp: new Date('2024-03-25'),
+        title: 'Anchar Lake - High Bloom Activity',
+        location: 'Srinagar',
+        timestamp: new Date(Date.now() - 3 * 60 * 60 * 1000), // 3 hours ago
       },
       {
         id: '3',
-        title: 'Wild Tulip Meadows - Active',
-        location: 'Kishtwar, Poonch',
-        timestamp: new Date('2024-03-24'),
+        title: 'Manasbal Lake - Developing Bloom',
+        location: 'Ganderbal',
+        timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
       },
     ],
   },
@@ -346,7 +346,7 @@ export const alerts: Alert[] = [
     description: 'Illegal construction detected near protected wetland boundary',
     severity: 'high',
     location: 'Hokersar Wetland, Srinagar',
-    timestamp: new Date('2024-03-26T08:30:00'),
+    timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
   },
   {
     id: '2',
@@ -355,7 +355,7 @@ export const alerts: Alert[] = [
     description: 'Moderate AQI levels expected due to temperature inversion',
     severity: 'medium',
     location: 'Srinagar Urban Area',
-    timestamp: new Date('2024-03-26T07:00:00'),
+    timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000), // 5 hours ago
   },
   {
     id: '3',
@@ -364,7 +364,7 @@ export const alerts: Alert[] = [
     description: 'Temporary closure due to unstable terrain after rainfall',
     severity: 'high',
     location: 'Kolahoi Base Camp Trail',
-    timestamp: new Date('2024-03-25T16:45:00'),
+    timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
   },
   {
     id: '4',
@@ -373,7 +373,7 @@ export const alerts: Alert[] = [
     description: 'Elevated turbidity levels detected at monitoring station',
     severity: 'medium',
     location: 'Jhelum River, Sangam',
-    timestamp: new Date('2024-03-25T12:00:00'),
+    timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
   },
   {
     id: '5',
@@ -382,7 +382,7 @@ export const alerts: Alert[] = [
     description: 'High avalanche risk in higher altitude zones',
     severity: 'high',
     location: 'Gulmarg High Range',
-    timestamp: new Date('2024-03-25T09:00:00'),
+    timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
   },
 ];
 

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
-import { Map, Leaf, BarChart3, ArrowRight, Radar, Satellite, Activity, Search, X, Shield, Droplet, Footprints, AlertTriangle, Book } from 'lucide-react';
+import { Map, Leaf, BarChart3, ArrowRight, Radar, Satellite, Activity, Search, X, Shield, Droplet, Footprints, AlertTriangle, Book, Database } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { searchAll } from '@/data';
 import { useRouter } from 'next/navigation';
@@ -198,7 +198,7 @@ export function ImmersiveHero() {
             <Radar className="w-4 h-4 text-emerald-400" />
           </motion.div>
 
-          {/* Main title */}
+          {/* Main title - Unified Branding */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -206,16 +206,25 @@ export function ImmersiveHero() {
             className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tight"
           >
             Kashmir{' '}
-            <span className="gradient-text text-glow">Environmental</span>{' '}
-            Intelligence Platform
+            <span className="gradient-text text-glow">EcoWatch</span>
           </motion.h1>
 
-          {/* Positioning statement */}
+          {/* Positioning statement - Full institutional line */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-slate-400 mb-12 max-w-3xl leading-relaxed text-balance"
+            className="text-lg md:text-xl text-slate-400 mb-4 max-w-3xl leading-relaxed text-balance"
+          >
+            by Dr. Kumar Foundation USA — Environmental Intelligence Platform for Kashmir
+          </motion.p>
+          
+          {/* Product descriptor */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-base md:text-lg text-slate-500 mb-12 max-w-3xl leading-relaxed text-balance"
           >
             A scientific, spatial, and real-time ecological intelligence system for biodiversity,
             water, pollution, seasonal ecology, and disaster monitoring across Kashmir
@@ -596,6 +605,21 @@ export function ImmersiveHero() {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+          
+          {/* Source/Status credibility line */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="mt-8 max-w-4xl"
+          >
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-light border border-white/10">
+              <Database className="w-4 h-4 text-blue-400" />
+              <span className="text-xs text-slate-400">
+                Source-integrated metrics updated by module — mix of reference inventories, field surveys, and live monitoring layers
+              </span>
+            </div>
           </motion.div>
         </div>
       </div>
