@@ -78,7 +78,7 @@ export default function ResponseOperationsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-purple-950/30 to-slate-950" />
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
 

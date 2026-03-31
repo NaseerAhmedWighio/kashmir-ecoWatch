@@ -22,7 +22,7 @@ export default function DistrictPage() {
     return (
       <main className="min-h-screen bg-slate-950">
         <Navigation />
-        <div className="pt-32 text-center">
+        <div className="pt-48 text-center">
           <h1 className="text-3xl font-bold text-white mb-4">District not found</h1>
           <Button onClick={() => window.history.back()}>Go Back</Button>
         </div>

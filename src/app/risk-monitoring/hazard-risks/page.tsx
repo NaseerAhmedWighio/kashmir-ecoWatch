@@ -96,7 +96,7 @@ export default function HazardRisksPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-950/50 via-orange-950/30 to-slate-950" />
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
 
