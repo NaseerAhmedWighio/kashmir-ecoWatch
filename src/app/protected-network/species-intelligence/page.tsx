@@ -28,7 +28,7 @@ export default function SpeciesIntelligencePage() {
       <Navigation />
 
       {/* Header */}
-      <div className="pt-24 pb-12 container mx-auto px-6">
+      <div className="pt-48 pb-12 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export default function SpeciesIntelligencePage() {
       </div>
 
       {/* Metrics */}
-      <div className="container mx-auto px-6 mt-10 relative z-20">
+      <div className="container mx-auto px-6 -mt-8 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

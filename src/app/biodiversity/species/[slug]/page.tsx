@@ -73,7 +73,7 @@ export default function SpeciesDetailPage() {
       <Navigation />
       
       {/* Hero */}
-      <div className="relative pt-24 pb-16 overflow-hidden">
+      <div className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-slate-900 to-slate-950" />
         <div className="absolute inset-0 bg-grid opacity-20" />
         

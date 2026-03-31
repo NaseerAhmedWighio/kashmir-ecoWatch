@@ -61,7 +61,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
       <Navigation />
 
       {/* Hero */}
-      <div className="relative pt-24 pb-12 overflow-hidden">
+      <div className="relative pt-48 pb-12 overflow-hidden">
         <div className={`absolute inset-0 bg-gradient-to-br from-amber-600/15 to-slate-900`} />
         <div className="absolute inset-0 bg-grid opacity-20" />
 
@@ -158,7 +158,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
       </div>
 
       {/* Metrics Bar */}
-      <div className="container mx-auto px-6 mt-10 relative z-20">
+      <div className="container mx-auto px-6 -mt-8 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

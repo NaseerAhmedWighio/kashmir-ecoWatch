@@ -35,7 +35,7 @@ export function NextGenDashboardPreview() {
   const router = useRouter();
 
   return (
-    <section className="pt-16 md:pt-20 pb-16 md:pb-12 bg-slate-900 relative overflow-hidden">
+    <section className="pt-16 md:pt-20 pb-16 md:pb-20 bg-slate-900 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-20" />
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />

@@ -35,7 +35,7 @@ export default function DistrictPage() {
       <Navigation />
       
       {/* Hero header */}
-      <div className="relative pt-24 pb-16 overflow-hidden">
+      <div className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-forest-900/20 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div

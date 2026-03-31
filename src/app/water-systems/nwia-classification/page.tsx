@@ -153,7 +153,7 @@ export default function NwiaClassificationExplorerPage() {
       <Navigation />
 
       {/* Hero */}
-      <div className="relative pt-24 pb-12 overflow-hidden">
+      <div className="relative pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-cyan-600/20 to-indigo-600/20 opacity-50" />
         <div className="absolute inset-0 bg-grid opacity-20" />
 
@@ -218,7 +218,7 @@ export default function NwiaClassificationExplorerPage() {
       </div>
 
       {/* Metrics Bar */}
-      <div className="container mx-auto px-6 mt-10 relative z-20">
+      <div className="container mx-auto px-6 -mt-8 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

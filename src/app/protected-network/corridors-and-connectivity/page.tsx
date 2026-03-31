@@ -37,7 +37,7 @@ export default function CorridorsPage() {
     <main className="min-h-screen bg-slate-950">
       <Navigation />
 
-      <div className="pt-24 pb-12 container mx-auto px-6">
+      <div className="pt-48 pb-12 container mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">

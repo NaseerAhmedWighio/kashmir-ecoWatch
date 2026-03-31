@@ -17,7 +17,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-slate-950">
       <Navigation />
 
-      <section className="relative pt-20 md:pt-28 pb-16 md:pb-12 overflow-hidden">
+      <section className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-teal-950/30 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">

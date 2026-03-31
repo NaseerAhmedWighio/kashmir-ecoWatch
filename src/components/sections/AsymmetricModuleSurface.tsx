@@ -50,7 +50,7 @@ export function AsymmetricModuleSurface() {
   const isWideCard = (index: number) => index === 3 || index === 6;
 
   return (
-    <section className="pt-20 md:pt-24 pb-16 md:pb-12 bg-slate-950 relative overflow-hidden">
+    <section className="pt-20 md:pt-48 pb-16 md:pb-20 bg-slate-950 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-forest-500/5 rounded-full blur-3xl" />

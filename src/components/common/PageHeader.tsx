@@ -18,7 +18,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ icon, title, subtitle, breadcrumbs, actions }: PageHeaderProps) {
   return (
-    <div className="pt-20 md:pt-28 pb-12 md:pb-16 container mx-auto px-6">
+    <div className="pt-20 md:pt-48 pb-12 md:pb-16 container mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
