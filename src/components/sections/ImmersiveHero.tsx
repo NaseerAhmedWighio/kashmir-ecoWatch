@@ -22,7 +22,17 @@ export function ImmersiveHero() {
   const [results, setResults] = useState<SearchResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const router = useRouter();
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useEffect(() => {
     if (query.length >= 2) {
@@ -89,94 +99,64 @@ export function ImmersiveHero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
-      {/* Animated terrain background */}
-      <div className="absolute inset-0 bg-terrain" />
-      <div className="absolute inset-0 bg-grid" />
-      <div className="absolute inset-0 bg-topo" />
-
-      {/* Floating gradient orbs */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-forest-500/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3]
+      {/* Layer 1: Base Kashmir satellite-relief terrain - dark aerial environmental intelligence surface */}
+      <div 
+        className="absolute inset-0 hero-satellite-relief" 
+        style={{
+          backgroundImage: `url('/background.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
-        transition={{ duration: 8, repeat: Infinity }}
       />
-      <motion.div
-        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-glacier-500/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.4, 0.3, 0.4]
+
+      {/* Layer 2: Eco intelligence overlay - topo + hydrology combined */}
+      <div className="absolute inset-0 hero-kashmir-eco-overlay" />
+
+      {/* Layer 3: Top atmospheric fade - subtle depth from top */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-950/40" />
+
+      {/* Layer 4: Content protection gradient - left to right dark fade for readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/60" />
+
+      {/* Layer 5: Bottom fade for smooth content transition */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
+
+      {/* Layer 6: Cursor spotlight effect - reveals background on hover */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle 250px at ${cursorPos.x}px ${cursorPos.y}px, transparent 0%, rgba(2, 6, 23, 0.85) 100%)`,
         }}
-        transition={{ duration: 10, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-800/20 rounded-full blur-3xl"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
       />
 
-      {/* Map-like grid overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="heroGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#heroGrid)" />
-        </svg>
-      </div>
-
-      {/* Animated signal lines */}
+      {/* Layer 7: Minimal live monitoring nodes - 5 strategic locations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(5)].map((_, i) => (
+        {[
+          { top: '24%', left: '62%' },  // Northern region
+          { top: '36%', left: '71%' },  // Eastern region
+          { top: '48%', left: '66%' },  // Central region
+          { top: '58%', left: '78%' },  // Southern region
+          { top: '67%', left: '59%' },  // Western region
+        ].map((pos, i) => (
           <motion.div
             key={i}
-            className="absolute h-px bg-gradient-to-r from-transparent via-forest-500/30 to-transparent"
+            className="absolute w-2.5 h-2.5 rounded-full bg-emerald-400/80 shadow-[0_0_18px_rgba(52,211,153,0.35)]"
             style={{
-              top: `${20 + i * 15}%`,
-              left: 0,
-              right: 0,
+              top: pos.top,
+              left: pos.left,
             }}
-            initial={{ x: '-100%' }}
-            animate={{ x: '100%' }}
+            initial={{ opacity: 0.45, scale: 1 }}
+            animate={{ opacity: [0.45, 1, 0.45], scale: [1, 1.35, 1] }}
             transition={{
-              duration: 3 + i * 0.5,
+              duration: 3.2 + i * 0.35,
               repeat: Infinity,
-              delay: i * 0.3,
-              ease: 'linear'
+              delay: i * 0.4,
+              ease: 'easeInOut'
             }}
           />
         ))}
       </div>
-
-      {/* Floating intelligence markers */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-emerald-400 rounded-full marker-pulse"
-            style={{
-              top: `${10 + (i * 7) % 80}%`,
-              left: `${10 + (i * 13) % 80}%`,
-            }}
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.5, 1, 0.5]
-            }}
-            transition={{
-              duration: 2 + (i % 3),
-              repeat: Infinity,
-              delay: i * 0.2
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Scan line effect */}
-      <div className="absolute inset-0 scan-line pointer-events-none opacity-20" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32">

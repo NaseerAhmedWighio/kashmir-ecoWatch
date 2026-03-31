@@ -76,27 +76,28 @@ body {
   background-clip: text;
 }
 
-/* Animated background patterns */
-.bg-terrain {
-  background-image: 
-    radial-gradient(at 40% 20%, rgba(45, 143, 111, 0.15) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(45, 127, 176, 0.15) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(45, 143, 111, 0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 50%, rgba(148, 163, 184, 0.05) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(45, 127, 176, 0.15) 0px, transparent 50%);
+/* Kashmir Satellite-Relief Background - Environmental Intelligence Surface */
+.hero-satellite-relief {
+  /* Background is set inline in ImmersiveHero.tsx to use /background.png */
+  /* This class provides base styling only */
+  background-color: #020617;
+  transform: scale(1.03);
 }
 
-.bg-grid {
-  background-size: 60px 60px;
-  background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+/* Eco Intelligence Overlay - combined topo + hydrology */
+.hero-kashmir-eco-overlay {
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(45,143,111,0.05)' stroke-width='0.5'%3E%3Cpath d='M0,220 Q150,200 300,220 T600,220'/%3E%3Cpath d='M0,260 Q150,240 300,260 T600,260'/%3E%3Cpath d='M0,300 Q150,280 300,300 T600,300'/%3E%3Cpath d='M0,180 Q150,160 300,180 T600,180'/%3E%3C/g%3E%3Cg fill='none' stroke='rgba(45,127,176,0.06)' stroke-width='0.6'%3E%3Cpath d='M140,0 Q160,150 130,300 T150,600'/%3E%3Cpath d='M280,0 Q260,180 290,350 T270,600'/%3E%3Cpath d='M460,0 Q480,200 450,380 T480,600'/%3E%3Cellipse cx='360' cy='290' rx='75' ry='50' stroke='rgba(45,127,176,0.12)' fill='none' stroke-width='0.8'/%3E%3Cellipse cx='375' cy='300' rx='50' ry='35' stroke='rgba(45,127,176,0.08)' fill='none' stroke-width='0.6'/%3E%3C/svg%3E");
+  background-size: 600px 600px;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  opacity: 0.34;
+  mix-blend-mode: screen;
 }
 
-.bg-topo {
-  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,100 Q40,80 60,100 T100,100 T140,100 T180,100' stroke='rgba(45,143,111,0.05)' fill='none' stroke-width='1'/%3E%3Cpath d='M20,120 Q40,100 60,120 T100,120 T140,120 T180,120' stroke='rgba(45,143,111,0.03)' fill='none' stroke-width='1'/%3E%3Cpath d='M20,80 Q40,60 60,80 T100,80 T140,80 T180,80' stroke='rgba(45,127,176,0.05)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
-  opacity: 0.5;
-}
+/* Subtle GIS grid - removed, not needed for satellite-relief system */
+
+/* Monitoring nodes use inline styles with Tailwind classes */
 
 /* Pulse animations */
 @keyframes pulse-glow {
@@ -128,15 +129,6 @@ body {
   }
 }
 
-@keyframes scan {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
 .pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
 }
@@ -147,18 +139,6 @@ body {
 
 .float {
   animation: float 6s ease-in-out infinite;
-}
-
-/* Scan line effect */
-.scan-line::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(45, 143, 111, 0.3), transparent);
-  animation: scan 3s linear infinite;
 }
 
 /* Card hover - premium */
