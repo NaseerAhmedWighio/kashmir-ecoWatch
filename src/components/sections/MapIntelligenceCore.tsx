@@ -85,7 +85,7 @@ export function MapIntelligenceCore() {
   const currentFeature = selectedFeature ? getFeatureData(selectedFeature) : null;
 
   return (
-    <section className="py-24 bg-slate-900 relative">
+    <section className="pt-16 md:pt-20 pb-16 md:pb-12 bg-slate-900 relative">
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-20" />
 

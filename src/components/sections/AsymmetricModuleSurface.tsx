@@ -46,8 +46,11 @@ export function AsymmetricModuleSurface() {
     return 'col-span-1';
   };
 
+  const isFeaturedCard = (index: number) => index === 0;
+  const isWideCard = (index: number) => index === 3 || index === 6;
+
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden">
+    <section className="pt-20 md:pt-24 pb-16 md:pb-12 bg-slate-950 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-forest-500/5 rounded-full blur-3xl" />
@@ -98,7 +101,7 @@ export function AsymmetricModuleSurface() {
         </motion.div>
 
         {/* Asymmetric grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]">
           {intelligenceCards.map((card, index) => {
             const sizeClass = getModuleSize(index);
             const isHovered = hoveredModule === card.id;
@@ -114,68 +117,87 @@ export function AsymmetricModuleSurface() {
                 className={`${sizeClass} group`}
                 onMouseEnter={() => setHoveredModule(card.id)}
                 onMouseLeave={() => setHoveredModule(null)}
+                onClick={() => router.push(card.link)}
               >
-                <div className={`relative h-full glass-light rounded-2xl border border-white/5 overflow-hidden card-intelligence ${
-                  index === 0 ? 'bg-gradient-to-br from-forest-900/20 to-slate-900/20' : ''
-                }`}>
+                <div
+                  className={`relative h-full glass-light rounded-2xl border border-white/5 overflow-hidden card-intelligence cursor-pointer ${
+                    index === 0 ? 'bg-gradient-to-br from-forest-900/20 to-slate-900/20' : ''
+                  }`}
+                >
                   {/* Gradient accent */}
                   <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${colorMap[card.color]} opacity-5 rounded-bl-full transition-opacity duration-500 ${isHovered && 'opacity-15'}`} />
 
                   {/* Content container */}
-                  <div className="relative h-full p-6 flex flex-col">
-                    {/* Icon and header */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colorMap[card.color]} text-white flex items-center justify-center shadow-lg ${index === 0 ? 'glow-forest' : ''}`}>
-                        {Icon}
+                  <div className="relative h-full p-6 flex flex-col justify-between">
+                    {/* Top section: Icon, Title, Description */}
+                    <div>
+                      {/* Icon and header */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colorMap[card.color]} text-white flex items-center justify-center shadow-lg ${index === 0 ? 'glow-forest' : ''}`}>
+                          {Icon}
+                        </div>
+                        {index === 0 && (
+                          <div className="flex items-center gap-1 px-2 py-1 rounded-full glass-light border border-white/10">
+                            <Zap className="w-3 h-3 text-amber-400" />
+                            <span className="text-xs text-amber-400 font-medium">Featured</span>
+                          </div>
+                        )}
                       </div>
-                      {index === 0 && (
-                        <div className="flex items-center gap-1 px-2 py-1 rounded-full glass-light border border-white/10">
-                          <Zap className="w-3 h-3 text-amber-400" />
-                          <span className="text-xs text-amber-400 font-medium">Featured</span>
+
+                      {/* Title and description */}
+                      <div className="mb-4">
+                        <h3 className={`font-bold text-white mb-2 group-hover:text-forest-300 transition-colors ${index === 0 ? 'text-2xl' : 'text-xl'}`}>
+                          {card.title}
+                        </h3>
+                        <p className={`text-slate-400 leading-relaxed ${index === 0 ? 'text-base' : 'text-sm'}`}>
+                          {card.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Bottom section: Metrics, Action bar with Access Button - only for featured card */}
+                    {isFeaturedCard(index) && (
+                      <div className="space-y-4">
+                        {/* Metrics with top border */}
+                        <div className="flex items-center gap-4 pt-4 border-t border-white/5">
+                          {card.metrics.map((metric, idx) => (
+                            <div key={idx}>
+                              <div className="text-2xl font-bold text-white tabular-nums">
+                                {metric.value.toLocaleString()}
+                              </div>
+                              <div className="text-xs text-slate-500 uppercase tracking-wider">
+                                {metric.unit || metric.label}
+                              </div>
+                            </div>
+                          ))}
                         </div>
-                      )}
-                    </div>
 
-                    {/* Title and description */}
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-forest-300 transition-colors">
-                        {card.title}
-                      </h3>
-                      <p className="text-sm text-slate-400 leading-relaxed line-clamp-2">
-                        {card.description}
-                      </p>
-                    </div>
-
-                    {/* Metrics */}
-                    <div className="flex items-center gap-4 mt-4 pt-4 border-t border-white/5">
-                      {card.metrics.map((metric, idx) => (
-                        <div key={idx}>
-                          <div className="text-lg font-bold text-white tabular-nums">
-                            {metric.value.toLocaleString()}
-                          </div>
-                          <div className="text-xs text-slate-500 uppercase tracking-wider">
-                            {metric.unit || metric.label}
+                        {/* Action bar with top border - Access Module button on left, arrow on right */}
+                        <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                          <button
+                            className="flex items-center gap-2 text-sm font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
+                          >
+                            <span>Access Module</span>
+                            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                          </button>
+                          <div
+                            className="w-10 h-10 rounded-lg glass-light border border-white/10 flex items-center justify-center group-hover:border-forest-500/50 transition-colors"
+                          >
+                            <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-forest-400 transition-colors" />
                           </div>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    )}
 
-                    {/* Action bar */}
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
-                      <button 
-                        onClick={() => router.push(card.link)}
+                    {/* Access Module Button - for non-featured cards only */}
+                    {!isFeaturedCard(index) && (
+                      <button
                         className="flex items-center gap-2 text-sm font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
                       >
                         <span>Access Module</span>
                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                       </button>
-                      <div 
-                        onClick={() => router.push(card.link)}
-                        className="w-8 h-8 rounded-lg glass-light border border-white/10 flex items-center justify-center group-hover:border-forest-500/50 transition-colors cursor-pointer"
-                      >
-                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-forest-400 transition-colors" />
-                      </div>
-                    </div>
+                    )}
 
                   </div>
 

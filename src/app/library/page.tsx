@@ -33,7 +33,7 @@ export default function ResearchLibraryPage() {
     <main className="min-h-screen bg-slate-950">
       <Navigation />
 
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-20 md:pt-28 pb-16 md:pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/50 via-purple-950/30 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
@@ -65,7 +65,7 @@ export default function ResearchLibraryPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
             <h2 className="text-3xl font-bold text-white mb-6">Browse by Category</h2>
@@ -85,7 +85,7 @@ export default function ResearchLibraryPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-between mb-8">
             <div>

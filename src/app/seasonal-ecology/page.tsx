@@ -90,7 +90,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* Metrics Ribbon */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 relative z-10">
         <Card className="glass-intense border-slate-700/50">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 p-4">
             {seasonalEcologyMetrics.map((metric, idx) => {

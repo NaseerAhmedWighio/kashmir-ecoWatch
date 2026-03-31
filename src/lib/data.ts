@@ -47,7 +47,7 @@ export const intelligenceCards: IntelligenceCard[] = [
       { label: 'Areas', value: 47 },
       { label: 'Coverage', value: 12.8, unit: '%' },
     ],
-    link: '/protected-areas',
+    link: '/protected-network',
     color: 'earth',
   },
   {
@@ -95,7 +95,7 @@ export const intelligenceCards: IntelligenceCard[] = [
       { label: 'Trails', value: 156 },
       { label: 'Sightings', value: 4521 },
     ],
-    link: '/trails',
+    link: '/trails-sightings',
     color: 'forest',
   },
   {
@@ -107,7 +107,7 @@ export const intelligenceCards: IntelligenceCard[] = [
       { label: 'Reports', value: 1893 },
       { label: 'Datasets', value: 456 },
     ],
-    link: '/research',
+    link: '/library',
     color: 'glacier',
   },
 ];

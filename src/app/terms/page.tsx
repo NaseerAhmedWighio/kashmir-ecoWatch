@@ -64,7 +64,7 @@ export default function TermsPage() {
     <main className="min-h-screen bg-slate-950">
       <Navigation />
 
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-20 md:pt-28 pb-16 md:pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/50 via-slate-950/30 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
@@ -87,7 +87,7 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <Card className="glass-light border-white/10 p-8 mb-8">

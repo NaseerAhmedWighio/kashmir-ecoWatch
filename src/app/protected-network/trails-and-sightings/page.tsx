@@ -58,7 +58,7 @@ export default function TrailsAndSightingsPage() {
       </div>
 
       {/* Metrics */}
-      <div className="container mx-auto px-6 -mt-8 relative z-20">
+      <div className="container mx-auto px-6 mt-10 relative z-20">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
           <Card className="glass-intense border-white/10 p-6" padding="none">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

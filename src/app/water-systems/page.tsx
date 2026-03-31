@@ -134,7 +134,7 @@ export default function WaterSystemsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative pt-24 pb-16 overflow-hidden">
+      <div className="relative pt-20 md:pt-28 pb-16 md:pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-cyan-600/20 to-indigo-600/20 opacity-50" />
         <div className="absolute inset-0 bg-grid opacity-20" />
 
@@ -175,7 +175,7 @@ export default function WaterSystemsPage() {
       </div>
 
       {/* Metrics Bar */}
-      <div className="container mx-auto px-6 -mt-8 relative z-20">
+      <div className="container mx-auto px-6 mt-10 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

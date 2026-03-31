@@ -251,3 +251,58 @@ body {
 .break-word {
   word-break: break-word;
 }
+
+/* =============================================
+   LAYOUT SPACING SYSTEM - SaaS Dashboard Standard
+   =============================================
+   Consistent vertical spacing for all pages
+   Navbar height: 80px (h-20) + padding
+   ============================================= */
+
+/* Main content wrapper spacing - accounts for fixed navbar */
+.main-content-spacing {
+  padding-top: theme('spacing.24'); /* 96px for desktop */
+}
+
+@media (min-width: 768px) {
+  .main-content-spacing {
+    padding-top: theme('spacing.28'); /* 112px for tablet/desktop */
+  }
+}
+
+/* Hero section spacing - prevents overlap with navbar */
+.hero-section-spacing {
+  padding-top: theme('spacing.24'); /* 96px */
+  padding-bottom: theme('spacing.16'); /* 64px */
+}
+
+@media (min-width: 768px) {
+  .hero-section-spacing {
+    padding-top: theme('spacing.28'); /* 112px */
+    padding-bottom: theme('spacing.20'); /* 80px */
+  }
+}
+
+/* Section spacing - consistent gap between sections */
+.section-spacing {
+  padding-top: theme('spacing.16'); /* 64px */
+  padding-bottom: theme('spacing.16'); /* 64px */
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: theme('spacing.20'); /* 80px */
+    padding-bottom: theme('spacing.20'); /* 80px */
+  }
+}
+
+/* Section margin top for stacked layouts */
+.section-margin-top {
+  margin-top: theme('spacing.16'); /* 64px */
+}
+
+@media (min-width: 768px) {
+  .section-margin-top {
+    margin-top: theme('spacing.20'); /* 80px */
+  }
+}

@@ -27,13 +27,11 @@ import {
   AlertTriangle,
   Hammer,
   Calendar,
-  Footprints,
-  Home
+  Footprints
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
-  { label: 'Home', href: '/', icon: Home },
   { label: 'Protected Areas', href: '/protected-network', hasDropdown: true },
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
@@ -96,7 +94,6 @@ export function Navigation() {
                     item.hasDropdown ? 'hover:bg-white/10' : ''
                   }`}
                 >
-                  {item.icon && <item.icon className="w-4 h-4" />}
                   {item.label}
                   {item.hasDropdown && (
                     <ChevronDown
@@ -113,7 +110,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-72 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -158,7 +155,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -214,7 +211,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -266,7 +263,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -315,7 +312,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-72 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -359,7 +356,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -476,7 +473,6 @@ export function Navigation() {
                     className="flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      {item.icon && <item.icon className="w-5 h-5" />}
                       {item.label}
                     </div>
                     {item.hasDropdown && (
