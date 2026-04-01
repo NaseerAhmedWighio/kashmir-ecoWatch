@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import {
   getHabitatBySlug,
   getHabitatSpeciesList,
@@ -12,20 +12,32 @@ import VulnerabilityTrendChart from '@/components/biodiversity/intelligence/Vuln
 import SourceVerificationBadge from '@/components/biodiversity/intelligence/SourceVerificationBadge';
 import { BiodiversityCard } from '@/components/common/BiodiversityCard';
 
-interface HabitatDetailPageProps {
-  params: {
-    slug: string;
-  };
-}
+const HabitatDetailPage: React.FC = () => {
+  const params = useParams();
+  const slug = params?.slug as string;
+  
+  const [habitat, setHabitat] = useState<any>(null);
+  const [speciesList, setSpeciesList] = useState<any[]>([]);
 
-const HabitatDetailPage: React.FC<HabitatDetailPageProps> = ({ params }) => {
-  const habitat = getHabitatBySlug(params.slug);
+  useEffect(() => {
+    if (slug) {
+      const habitatData = getHabitatBySlug(slug);
+      if (!habitatData) {
+        notFound();
+        return;
+      }
+      setHabitat(habitatData);
+      setSpeciesList(getHabitatSpeciesList(slug));
+    }
+  }, [slug]);
 
   if (!habitat) {
-    notFound();
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-gray-600">Loading...</div>
+      </div>
+    );
   }
-
-  const speciesList = getHabitatSpeciesList(params.slug);
 
   return (
     <div className="min-h-screen bg-gray-50">

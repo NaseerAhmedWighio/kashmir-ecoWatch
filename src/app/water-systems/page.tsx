@@ -22,6 +22,17 @@ import {
 import { KASHMIR_VALLEY_TOTALS, NWIA_SOURCE_METADATA } from '@/data/nwia-references';
 import { NwiaClassificationPanel } from '@/components/water/NwiaClassificationPanel';
 
+// Hydrological Intelligence
+import {
+  getAllLakeHealthScores,
+  getAllSpringVulnerability,
+  getAllWetlandConditions,
+  getAllRiverCorridorStress,
+  getDistrictWaterIntelligence,
+} from '@/data/hydrological-intelligence';
+import LakeHealthScorecardComponent from '@/components/water/LakeHealthScorecard';
+import DistrictWaterCard from '@/components/water/DistrictWaterCard';
+
 const submodules = [
   {
     id: 'lakes',
@@ -355,6 +366,223 @@ export default function WaterSystemsPage() {
             </div>
           </Card>
         </motion.div>
+      </div>
+
+      {/* =========================================================
+          HYDROLOGICAL INTELLIGENCE BANDS
+          ========================================================= */}
+      
+      {/* Lake Health Scorecards */}
+      <div className="container mx-auto px-6 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-2">Lake Health Scorecards</h2>
+              <p className="text-slate-400">Composite health assessment integrating water quality, trophic state, biodiversity, and threats</p>
+            </div>
+            <Button
+              variant="outline"
+              className="border-white/20 text-white"
+              onClick={() => router.push('/water-systems/lakes')}
+            >
+              View All Lakes
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {getAllLakeHealthScores().slice(0, 6).map((scorecard) => (
+            <LakeHealthScorecardComponent
+              key={scorecard.lakeSlug}
+              scorecard={scorecard}
+              compact
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* District Water Intelligence */}
+      <div className="container mx-auto px-6 py-12 bg-gradient-to-b from-slate-950 to-blue-950/20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-2">District Water Intelligence</h2>
+              <p className="text-slate-400">Water body distribution, health scores, and restoration investments by district</p>
+            </div>
+            <Button
+              variant="outline"
+              className="border-white/20 text-white"
+              onClick={() => router.push('/water-systems')}
+            >
+              View All Districts
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {['Srinagar', 'Anantnag', 'Baramulla', 'Kupwara'].map((district) => (
+            <DistrictWaterCard
+              key={district}
+              intelligence={getDistrictWaterIntelligence(district)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Spring Vulnerability & Wetland Condition Summary */}
+      <div className="container mx-auto px-6 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+              <Droplet className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-white">Spring & Wetland Assessment</h2>
+              <p className="text-slate-400">Vulnerability and condition monitoring for critical water systems</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Springs Summary */}
+          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+            <h3 className="text-xl font-bold text-white mb-4">Spring Vulnerability</h3>
+            <div className="space-y-3">
+              {getAllSpringVulnerability().slice(0, 5).map((vuln) => (
+                <div
+                  key={vuln.springSlug}
+                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
+                >
+                  <div>
+                    <div className="font-medium text-white">{vuln.springName}</div>
+                    <div className="text-xs text-slate-400">
+                      Discharge: {vuln.dischargeTrend} • Climate: {vuln.climateSensitivity}
+                    </div>
+                  </div>
+                  <div
+                    className={`px-3 py-1 rounded-full text-xs font-bold ${
+                      vuln.classification === 'critical'
+                        ? 'bg-red-500/20 text-red-400'
+                        : vuln.classification === 'vulnerable'
+                        ? 'bg-orange-500/20 text-orange-400'
+                        : 'bg-green-500/20 text-green-400'
+                    }`}
+                  >
+                    {vuln.classification.toUpperCase()}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Wetlands Summary */}
+          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+            <h3 className="text-xl font-bold text-white mb-4">Wetland Condition</h3>
+            <div className="space-y-3">
+              {getAllWetlandConditions().slice(0, 5).map((cond) => (
+                <div
+                  key={cond.wetlandSlug}
+                  className="flex items-center justify-between p-3 bg-white/5 rounded-lg"
+                >
+                  <div>
+                    <div className="font-medium text-white">{cond.wetlandName}</div>
+                    <div className="text-xs text-slate-400">
+                      Score: {cond.conditionScore} • Ramsar: {cond.ramsarCriteria ? 'Yes' : 'No'}
+                    </div>
+                  </div>
+                  <div
+                    className={`px-3 py-1 rounded-full text-xs font-bold ${
+                      cond.conditionClass === 'critical'
+                        ? 'bg-red-500/20 text-red-400'
+                        : cond.conditionClass === 'poor'
+                        ? 'bg-orange-500/20 text-orange-400'
+                        : cond.conditionClass === 'fair'
+                        ? 'bg-yellow-500/20 text-yellow-400'
+                        : 'bg-green-500/20 text-green-400'
+                    }`}
+                  >
+                    {cond.conditionClass.toUpperCase()}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* River Corridor Stress */}
+      <div className="container mx-auto px-6 py-12 bg-gradient-to-b from-slate-950 to-purple-950/20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+              <Waves className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-2">River Corridor Stress</h2>
+              <p className="text-slate-400">Riparian buffer, land use, flow regulation, and sediment load analysis</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {getAllRiverCorridorStress().slice(0, 6).map((stress) => (
+            <div
+              key={stress.riverSlug}
+              className="bg-white/5 border border-white/10 rounded-xl p-5"
+            >
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="font-bold text-white">{stress.riverName}</h4>
+                <span
+                  className={`px-2 py-1 rounded text-xs font-bold ${
+                    stress.classification === 'critical'
+                      ? 'bg-red-500/20 text-red-400'
+                      : stress.classification === 'high'
+                      ? 'bg-orange-500/20 text-orange-400'
+                      : 'bg-green-500/20 text-green-400'
+                  }`}
+                >
+                  {stress.classification.toUpperCase()}
+                </span>
+              </div>
+              <div className="space-y-2 text-xs text-slate-400">
+                <div className="flex justify-between">
+                  <span>Buffer Width:</span>
+                  <span className="text-white">{stress.riparianBuffer.averageWidth}m</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Urban Coverage:</span>
+                  <span className="text-white">{stress.landUseStress.urbanCoverage}%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Dams:</span>
+                  <span className="text-white">{stress.flowRegulation.dams}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* NWIA Classification Section */}

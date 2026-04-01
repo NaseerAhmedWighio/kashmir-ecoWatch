@@ -1,25 +1,37 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import { getDistrictBySlug, getDistrictSpeciesList } from '@/data/biodiversity-access';
 import SourceVerificationBadge from '@/components/biodiversity/intelligence/SourceVerificationBadge';
 
-interface DistrictDetailPageProps {
-  params: {
-    slug: string;
-  };
-}
+const DistrictDetailPage: React.FC = () => {
+  const params = useParams();
+  const slug = params?.slug as string;
+  
+  const [district, setDistrict] = useState<any>(null);
+  const [speciesList, setSpeciesList] = useState<any[]>([]);
 
-const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
-  const district = getDistrictBySlug(params.slug);
+  useEffect(() => {
+    if (slug) {
+      const districtData = getDistrictBySlug(slug);
+      if (!districtData) {
+        notFound();
+        return;
+      }
+      setDistrict(districtData);
+      setSpeciesList(getDistrictSpeciesList(slug));
+    }
+  }, [slug]);
 
   if (!district) {
-    notFound();
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-gray-600">Loading...</div>
+      </div>
+    );
   }
-
-  const speciesList = getDistrictSpeciesList(params.slug);
 
   // Format district name for display
   const displayName = district.district;
@@ -64,7 +76,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold mb-4 text-gray-800">Primary Habitats</h2>
             <div className="flex flex-wrap gap-2">
-              {district.primaryHabitats.map((habitat) => (
+              {district.primaryHabitats.map((habitat: string) => (
                 <Link
                   key={habitat}
                   href={`/biodiversity/habitat/${getHabitatSlug(habitat)}`}
@@ -79,7 +91,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
             <div className="mt-6">
               <h3 className="font-semibold text-gray-700 mb-3">Habitat Distribution</h3>
               <div className="space-y-2">
-                {district.primaryHabitats.map((habitat, index) => (
+                {district.primaryHabitats.map((habitat: string, index: number) => (
                   <div key={habitat} className="flex items-center gap-3">
                     <div
                       className={`w-4 h-4 rounded ${getHabitatColor(habitat)}`}
@@ -149,7 +161,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
 
           {district.relatedProtectedAreas.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
-              {district.relatedProtectedAreas.map((pa) => (
+              {district.relatedProtectedAreas.map((pa: string) => (
                 <Link
                   key={pa}
                   href={`/protected-areas/${pa}`}
@@ -169,7 +181,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
               Biodiversity Hotspots
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {district.biodiversityHotspots.map((hotspot, index) => (
+              {district.biodiversityHotspots.map((hotspot: string, index: number) => (
                 <div
                   key={index}
                   className="p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200"
@@ -199,7 +211,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
               {speciesList
                 .filter((s) => district.endemicSpeciesList.includes(s.slug))
                 .slice(0, 4)
-                .map((species) => (
+                .map((species: any) => (
                   <Link
                     key={species.id}
                     href={`/biodiversity/species/${species.slug}`}
@@ -233,7 +245,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
               {speciesList
                 .filter((s) => district.threatenedSpeciesList.includes(s.slug))
                 .slice(0, 4)
-                .map((species) => (
+                .map((species: any) => (
                   <Link
                     key={species.id}
                     href={`/biodiversity/species/${species.slug}`}
@@ -263,7 +275,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
           </h2>
           {speciesList.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {speciesList.slice(0, 12).map((species) => (
+              {speciesList.slice(0, 12).map((species: any) => (
                 <Link
                   key={species.id}
                   href={`/biodiversity/species/${species.slug}`}
@@ -313,7 +325,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
               Related Trails
             </h2>
             <div className="flex flex-wrap gap-2">
-              {district.relatedTrails.map((trail) => (
+              {district.relatedTrails.map((trail: string) => (
                 <Link
                   key={trail}
                   href={`/trails/${trail}`}
@@ -343,7 +355,7 @@ const DistrictDetailPage: React.FC<DistrictDetailPageProps> = ({ params }) => {
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <div className="text-sm text-gray-600 mb-2">Monitoring Sites</div>
                   <ul className="space-y-1">
-                    {district.monitoringSites.map((site, index) => (
+                    {district.monitoringSites.map((site: string, index: number) => (
                       <li key={index} className="text-gray-800 flex items-center gap-1">
                         <span>✓</span>
                         <span>{site}</span>
