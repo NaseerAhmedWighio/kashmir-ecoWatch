@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     title: 'Kashmir Environmental Intelligence Platform',
     description: 'A unified scientific platform for ecological systems, biodiversity, environmental monitoring, and conservation intelligence across Kashmir',
     type: 'website',
+    images: ['/kew_LOGO.png'],
   },
 };
 

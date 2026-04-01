@@ -65,10 +65,11 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-4 group">
-            <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-forest-500 to-glacier-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 glow-forest">
-              <Leaf className="w-7 h-7 text-white" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full signal-pulse" />
-            </div>
+            <img
+              src="/kew_LOGO.png"
+              alt="Kashmir EcoWatch Logo"
+              className="w-12 h-12 object-contain"
+            />
             <div className="hidden md:block">
               <h1 className="text-base font-bold text-white tracking-wide">
                 Kashmir EcoWatch
