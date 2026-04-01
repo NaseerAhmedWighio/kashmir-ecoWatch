@@ -44,6 +44,26 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [expandedMobileSubmenus, setExpandedMobileSubmenus] = useState<Set<string>>(new Set());
+
+  // Body scroll lock when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      // Prevent iOS rubber band scrolling
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +72,18 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMobileSubmenu = (label: string) => {
+    setExpandedMobileSubmenus(prev => {
+      const next = new Set(prev);
+      if (next.has(label)) {
+        next.delete(label);
+      } else {
+        next.add(label);
+      }
+      return next;
+    });
+  };
 
   return (
     <header
@@ -64,19 +96,21 @@ export function Navigation() {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-4 group">
+          <a href="/" className="relative flex items-center group">
             <img
               src="/kew_LOGO.png"
               alt="Kashmir EcoWatch Logo"
-              className="w-12 h-12 object-contain"
+              className="w-12 h-12 scale-125 object-contain relative z-10"
             />
-            <div className="hidden md:block">
+            <div
+              className="hidden md:block absolute top-5 -left-[1.5px] whitespace-nowrap opacity-0 translate-y-0 group-hover:opacity-100 group-hover:translate-y-5 transition-all duration-[2000ms] ease-in-out"
+            >
               <h1 className="text-base font-bold text-white tracking-wide">
                 Kashmir EcoWatch
               </h1>
-              <p className="text-xs text-slate-400 tracking-wide">
+              {/* <p className="text-xs text-slate-400 tracking-wide">
                 by Dr. Kumar Foundation USA
-              </p>
+              </p> */}
             </div>
           </a>
 
@@ -447,6 +481,9 @@ export function Navigation() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 rounded-lg hover:bg-white/5 transition-colors"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu-drawer"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6 text-white" />
@@ -457,393 +494,317 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu overlay and drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass-intense border-t border-white/10"
-          >
-            <div className="container mx-auto px-6 py-6 space-y-3">
-              {navItems.map((item) => (
-                <div key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
-                  >
-                    <div className="flex items-center gap-3">
-                      {item.label}
-                    </div>
-                    {item.hasDropdown && (
-                      <ChevronDown className="w-4 h-4" />
-                    )}
-                  </Link>
-                  {/* Protected Areas Mobile Submenu */}
-                  {item.hasDropdown && item.label === 'Protected Areas' && (
-                    <div className="ml-8 mt-2 space-y-1">
-                      <Link
-                        href="/protected-network"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        🗺️ Network Overview
-                      </Link>
-                      <Link
-                        href="/protected-network/atlas"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        📍 Protected Area Atlas
-                      </Link>
-                      <Link
-                        href="/protected-network/national-parks"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        National Parks
-                      </Link>
-                      <Link
-                        href="/protected-network/wildlife-sanctuaries"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Wildlife Sanctuaries
-                      </Link>
-                      <Link
-                        href="/protected-network/wetland-reserves"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Wetland Reserves
-                      </Link>
-                      <Link
-                        href="/protected-network/conservation-reserves"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Conservation Reserves
-                      </Link>
-                      <Link
-                        href="/protected-network/bird-and-habitat-areas"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Bird & Habitat Areas
-                      </Link>
-                      <Link
-                        href="/protected-network/species-intelligence"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Species Intelligence
-                      </Link>
-                      <Link
-                        href="/protected-network/corridors-and-connectivity"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Corridors & Connectivity
-                      </Link>
-                      <Link
-                        href="/protected-network/trails-and-sightings"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Trails & Sightings
-                      </Link>
-                      <Link
-                        href="/protected-network/monitoring-and-threats"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Monitoring & Threats
-                      </Link>
-                      <Link
-                        href="/protected-network/reports-and-plans"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Reports & Plans
-                      </Link>
-                    </div>
-                  )}
-                  {/* Biodiversity Mobile Submenu */}
-                  {item.hasDropdown && item.label === 'Biodiversity' && (
-                    <div className="ml-8 mt-2 space-y-1">
-                      <Link
-                        href="/biodiversity"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        📊 All Species
-                      </Link>
-                      <Link
-                        href="/biodiversity/mammals"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Mammals
-                      </Link>
-                      <Link
-                        href="/biodiversity/birds"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Birds
-                      </Link>
-                      <Link
-                        href="/biodiversity/fish"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Fish
-                      </Link>
-                      <Link
-                        href="/biodiversity/plants"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Plants
-                      </Link>
-                      <Link
-                        href="/biodiversity/medicinal-plants"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Medicinal Plants
-                      </Link>
-                      <Link
-                        href="/biodiversity/threatened-species"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Threatened Species
-                      </Link>
-                    </div>
-                  )}
-                  {/* Water Systems Mobile Submenu */}
-                  {item.hasDropdown && item.label === 'Water Systems' && (
-                    <div className="ml-8 mt-2 space-y-1">
-                      <Link
-                        href="/water-systems"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        💧 Overview
-                      </Link>
-                      <Link
-                        href="/water-systems/lakes"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        All Lakes
-                      </Link>
-                      <Link
-                        href="/water-systems/wetlands"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        All Wetlands
-                      </Link>
-                      <Link
-                        href="/water-systems/rivers"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Rivers & Streams
-                      </Link>
-                      <Link
-                        href="/water-systems/springs"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        All Springs
-                      </Link>
-                      <Link
-                        href="/water-systems/watersheds"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        All Watersheds
-                      </Link>
-                      <Link
-                        href="/water-systems/glaciers"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Glaciers & Cryosphere
-                      </Link>
-                      <Link
-                        href="/water-systems/water-quality"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Water Quality
-                      </Link>
-                      <Link
-                        href="/water-systems/fisheries"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Fisheries & Aquatic Life
-                      </Link>
-                      <Link
-                        href="/water-systems/flood-risk"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Flood & Hydrological Risk
-                      </Link>
-                      <Link
-                        href="/water-systems/restoration"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Restoration & Rejuvenation
-                      </Link>
-                    </div>
-                  )}
-                  {/* Seasonal Ecology Mobile Submenu */}
-                  {item.hasDropdown && item.label === 'Seasonal Ecology' && (
-                    <div className="ml-8 mt-2 space-y-1">
-                      <Link
-                        href="/seasonal-ecology"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        🍂 Overview
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/seasonal-landscapes"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Seasonal Landscapes
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/bloom-mapping"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Bloom Mapping
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/migration-windows"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Migration Windows
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/pollinator-windows"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Pollinator Windows
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/phenology-records"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Phenology Records
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/habitat-signals"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Habitat Signals
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/water-transitions"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Water Transitions
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/species-activity"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Species Activity
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/climate-windows"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Climate Windows
-                      </Link>
-                      <Link
-                        href="/seasonal-ecology/reports-references"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Reports & References
-                      </Link>
-                    </div>
-                  )}
-                  {/* Trails & Sightings Mobile Submenu */}
-                  {item.hasDropdown && item.label === 'Trails & Sightings' && (
-                    <div className="ml-8 mt-2 space-y-1">
-                      <Link
-                        href="/trails-sightings"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        👣 Overview
-                      </Link>
-                      <Link
-                        href="/trails-sightings/sightings"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        All Sightings
-                      </Link>
-                      <Link
-                        href="/trails-sightings/trails"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Ecological Trails
-                      </Link>
-                      <Link
-                        href="/trails-sightings/submit"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Submit Sighting
-                      </Link>
-                      <Link
-                        href="/trails-sightings/maps"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        Trail Maps
-                      </Link>
-                    </div>
-                  )}
-                  {/* Risk & Monitoring Mobile Submenu */}
-                  {item.hasDropdown && item.label === 'Risk & Monitoring' && (
-                    <div className="ml-8 mt-2 space-y-1">
-                      <Link
-                        href="/risk-monitoring"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        ⚠️ Overview
-                      </Link>
-                      <Link
-                        href="/risk-monitoring/hazard-risks"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        🏔️ Hazard Risks
-                      </Link>
-                      <Link
-                        href="/risk-monitoring/pollution-stress"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        🌫️ Pollution & Stress
-                      </Link>
-                      <Link
-                        href="/risk-monitoring/biodiversity-risks"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        🦌 Biodiversity Risks
-                      </Link>
-                      <Link
-                        href="/risk-monitoring/response-operations"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        🚨 Response & Operations
-                      </Link>
-                      <Link
-                        href="/risk-monitoring/live-alerts-advisories"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        🔔 Live Alerts
-                      </Link>
-                      <Link
-                        href="/risk-monitoring/dashboards"
-                        className="block px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        📊 Dashboards
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              ))}
+          <>
+            {/* Overlay backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/60 z-50 lg:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-hidden="true"
+            />
 
-              <div className="pt-6 border-t border-white/10 space-y-4">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="w-full px-4 py-3 pl-10 rounded-lg glass-light border border-white/10 outline-none text-sm text-white"
+            {/* Drawer panel */}
+            <motion.div
+              id="mobile-menu-drawer"
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-slate-900 z-[51] lg:hidden shadow-2xl flex flex-col h-dvh"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation menu"
+            >
+              {/* Drawer header - shrink-0 to prevent shrinking */}
+              <div className="shrink-0 flex items-center justify-between px-4 py-4 border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/kew_LOGO.png"
+                    alt="Kashmir EcoWatch"
+                    className="w-10 h-10 object-contain"
                   />
-                  <Search className="w-5 h-5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <span className="font-bold text-white text-lg">Kashmir EcoWatch</span>
                 </div>
-                <Button className="w-full">Access Platform</Button>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-lg hover:bg-white/10 transition-colors text-slate-400 hover:text-white"
+                  aria-label="Close menu"
+                >
+                  <X className="w-6 h-6" />
+                </button>
               </div>
-            </div>
-          </motion.div>
+
+              {/* Scrollable menu content - flex-1 min-h-0 overflow-y-auto for proper scrolling */}
+              <nav
+                className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 py-4 space-y-1 [webkit-overflow-scrolling:touch]"
+                role="navigation"
+                aria-label="Mobile navigation"
+              >
+                {navItems.map((item) => {
+                  const isExpanded = expandedMobileSubmenus.has(item.label);
+                  return (
+                    <div key={item.label} className="border-b border-white/5 last:border-0">
+                      {/* Parent menu item */}
+                      {item.hasDropdown ? (
+                        <>
+                          <button
+                            onClick={() => toggleMobileSubmenu(item.label)}
+                            className="w-full flex items-center justify-between gap-3 px-3 py-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors cursor-pointer text-base font-medium"
+                            aria-expanded={isExpanded}
+                            aria-controls={`submenu-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
+                          >
+                            <span>{item.label}</span>
+                            <ChevronDown
+                              className={`w-5 h-5 transition-transform duration-200 ${
+                                isExpanded ? 'rotate-180' : ''
+                              }`}
+                            />
+                          </button>
+
+                          {/* Collapsible submenu */}
+                          <AnimatePresence>
+                            {isExpanded && (
+                              <motion.div
+                                id={`submenu-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden"
+                                role="menu"
+                                aria-label={`${item.label} submenu`}
+                              >
+                                <div className="ml-4 mt-2 mb-3 space-y-1">
+                                  {/* Render submenu items based on category */}
+                                  {item.label === 'Protected Areas' && (
+                                    <>
+                                      <Link href="/protected-network" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        🗺️ Network Overview
+                                      </Link>
+                                      <Link href="/protected-network/atlas" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        📍 Protected Area Atlas
+                                      </Link>
+                                      <Link href="/protected-network/national-parks" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        National Parks
+                                      </Link>
+                                      <Link href="/protected-network/wildlife-sanctuaries" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Wildlife Sanctuaries
+                                      </Link>
+                                      <Link href="/protected-network/wetland-reserves" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Wetland Reserves
+                                      </Link>
+                                      <Link href="/protected-network/conservation-reserves" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Conservation Reserves
+                                      </Link>
+                                      <Link href="/protected-network/bird-and-habitat-areas" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Bird & Habitat Areas
+                                      </Link>
+                                      <Link href="/protected-network/species-intelligence" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Species Intelligence
+                                      </Link>
+                                      <Link href="/protected-network/corridors-and-connectivity" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Corridors & Connectivity
+                                      </Link>
+                                      <Link href="/protected-network/trails-and-sightings" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Trails & Sightings
+                                      </Link>
+                                      <Link href="/protected-network/monitoring-and-threats" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Monitoring & Threats
+                                      </Link>
+                                      <Link href="/protected-network/reports-and-plans" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Reports & Plans
+                                      </Link>
+                                    </>
+                                  )}
+
+                                  {item.label === 'Biodiversity' && (
+                                    <>
+                                      <Link href="/biodiversity" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        📊 All Species
+                                      </Link>
+                                      <Link href="/biodiversity/mammals" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Mammals
+                                      </Link>
+                                      <Link href="/biodiversity/birds" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Birds
+                                      </Link>
+                                      <Link href="/biodiversity/fish" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Fish
+                                      </Link>
+                                      <Link href="/biodiversity/plants" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Plants
+                                      </Link>
+                                      <Link href="/biodiversity/medicinal-plants" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Medicinal Plants
+                                      </Link>
+                                      <Link href="/biodiversity/threatened-species" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Threatened Species
+                                      </Link>
+                                    </>
+                                  )}
+
+                                  {item.label === 'Water Systems' && (
+                                    <>
+                                      <Link href="/water-systems" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        💧 Overview
+                                      </Link>
+                                      <Link href="/water-systems/lakes" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        All Lakes
+                                      </Link>
+                                      <Link href="/water-systems/wetlands" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        All Wetlands
+                                      </Link>
+                                      <Link href="/water-systems/rivers" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Rivers & Streams
+                                      </Link>
+                                      <Link href="/water-systems/springs" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        All Springs
+                                      </Link>
+                                      <Link href="/water-systems/watersheds" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        All Watersheds
+                                      </Link>
+                                      <Link href="/water-systems/glaciers" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Glaciers & Cryosphere
+                                      </Link>
+                                      <Link href="/water-systems/water-quality" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Water Quality
+                                      </Link>
+                                      <Link href="/water-systems/fisheries" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Fisheries & Aquatic Life
+                                      </Link>
+                                      <Link href="/water-systems/flood-risk" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Flood & Hydrological Risk
+                                      </Link>
+                                      <Link href="/water-systems/restoration" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Restoration & Rejuvenation
+                                      </Link>
+                                    </>
+                                  )}
+
+                                  {item.label === 'Seasonal Ecology' && (
+                                    <>
+                                      <Link href="/seasonal-ecology" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        🍂 Overview
+                                      </Link>
+                                      <Link href="/seasonal-ecology/seasonal-landscapes" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Seasonal Landscapes
+                                      </Link>
+                                      <Link href="/seasonal-ecology/bloom-mapping" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Bloom Mapping
+                                      </Link>
+                                      <Link href="/seasonal-ecology/migration-windows" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Migration Windows
+                                      </Link>
+                                      <Link href="/seasonal-ecology/pollinator-windows" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Pollinator Windows
+                                      </Link>
+                                      <Link href="/seasonal-ecology/phenology-records" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Phenology Records
+                                      </Link>
+                                      <Link href="/seasonal-ecology/habitat-signals" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Habitat Signals
+                                      </Link>
+                                      <Link href="/seasonal-ecology/water-transitions" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Water Transitions
+                                      </Link>
+                                      <Link href="/seasonal-ecology/species-activity" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Species Activity
+                                      </Link>
+                                      <Link href="/seasonal-ecology/climate-windows" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Climate Windows
+                                      </Link>
+                                      <Link href="/seasonal-ecology/reports-references" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Reports & References
+                                      </Link>
+                                    </>
+                                  )}
+
+                                  {item.label === 'Trails & Sightings' && (
+                                    <>
+                                      <Link href="/trails-sightings" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        👣 Overview
+                                      </Link>
+                                      <Link href="/trails-sightings/hiking-trails" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Hiking Trails
+                                      </Link>
+                                      <Link href="/trails-sightings/birding-trails" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Birding Trails
+                                      </Link>
+                                      <Link href="/trails-sightings/wildlife-sightings" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Wildlife Sightings
+                                      </Link>
+                                      <Link href="/trails-sightings/bird-sightings" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Bird Sightings
+                                      </Link>
+                                      <Link href="/submit-sighting" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Submit Sighting
+                                      </Link>
+                                    </>
+                                  )}
+
+                                  {item.label === 'Risk & Monitoring' && (
+                                    <>
+                                      <Link href="/risk-monitoring" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        ⚠️ Overview
+                                      </Link>
+                                      <Link href="/risk-monitoring/hazard-risks" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        🏔️ Hazard Risks
+                                      </Link>
+                                      <Link href="/risk-monitoring/pollution-stress" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        🌫️ Pollution & Stress
+                                      </Link>
+                                      <Link href="/risk-monitoring/biodiversity-risks" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        🦌 Biodiversity Risks
+                                      </Link>
+                                      <Link href="/risk-monitoring/response-operations" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        🚨 Response & Operations
+                                      </Link>
+                                      <Link href="/risk-monitoring/live-alerts-advisories" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        🔔 Live Alerts
+                                      </Link>
+                                      <Link href="/risk-monitoring/dashboards" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        📊 Dashboards
+                                      </Link>
+                                    </>
+                                  )}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="block px-3 py-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-base font-medium"
+                        >
+                          {item.label}
+                        </Link>
+                      )}
+                    </div>
+                  );
+                })}
+
+                {/* Footer actions */}
+                <div className="pt-6 mt-6 border-t border-white/10 space-y-4">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="Search..."
+                      className="w-full px-4 py-3 pl-10 rounded-lg bg-white/5 border border-white/10 outline-none text-sm text-white placeholder:text-slate-500 focus:border-white/20 focus:bg-white/10 transition-colors"
+                    />
+                    <Search className="w-5 h-5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                  </div>
+                  <Button className="w-full">Access Platform</Button>
+                </div>
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
