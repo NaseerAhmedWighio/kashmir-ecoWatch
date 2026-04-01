@@ -98,7 +98,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="mx-auto min-h-screen bg-slate-950">
       <Navigation />
 
       {/* Hero Section */}
@@ -111,7 +111,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
-        <div className="relative mx-auto">
+        <div className="relative max-w-[93rem] mx-auto">
           <PageHeader
             breadcrumbs={[
               { label: 'Home', href: '/' },
@@ -124,7 +124,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
           />
 
           {/* Metrics Bar */}
-          <Card className="mx-6 mt-8 border border-white/5 bg-slate-900/50 backdrop-blur-sm">
+          <Card className="relative mt-8 border border-white/5 bg-slate-900/50 backdrop-blur-sm">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 p-4">
               {metrics.map((metric, idx) => {
                 const MetricIcon = (Icons as any)[metric.icon] || Icons.Mountain;
@@ -146,7 +146,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
       </div>
 
       {/* Main Content */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="relative max-w-[93rem] mx-auto pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Filters Sidebar */}
           <div className="lg:col-span-1">

@@ -38,7 +38,7 @@ export default function SeasonalEcologyHubPage() {
         <div className="absolute bottom-20 right-1/4 w-[600px] h-[600px] bg-teal-500/15 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-2000" />
 
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
             <Link href="/" className="hover:text-emerald-400 transition-colors">Home</Link>
@@ -47,7 +47,7 @@ export default function SeasonalEcologyHubPage() {
           </nav>
 
           {/* Hero Content */}
-          <div className="max-w-4xl">
+          <div className="max-w-[97rem] mx-auto">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 border border-white/10">
                 <Icons.Calendar className="w-8 h-8 text-white" />
@@ -90,7 +90,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* Metrics Ribbon */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
         <Card className="glass-intense border-slate-700/50">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 p-4">
             {seasonalEcologyMetrics.map((metric, idx) => {
@@ -112,7 +112,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* Navigation Grid */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-white mb-2">
             Explore Seasonal Ecology Across Kashmir
@@ -164,7 +164,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* Featured Landscapes */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-white mb-2">
@@ -222,7 +222,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* Current Seasonal Signals */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-white mb-2">
@@ -268,7 +268,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* District Season Highlights */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-white mb-2">
             Kashmir District Season Highlights
@@ -323,7 +323,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* Related Dashboards Preview */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-white mb-2">
             Related Dashboards
@@ -391,7 +391,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* Reports & References */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-white mb-2">
@@ -442,7 +442,7 @@ export default function SeasonalEcologyHubPage() {
       </div>
 
       {/* CTA Section */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <Card className="glass-intense border-slate-700/50 bg-gradient-to-r from-emerald-950/50 to-teal-950/50">
           <div className="p-8 md:p-12 text-center">
             <Icons.Calendar className="w-16 h-16 text-emerald-400 mx-auto mb-6" />

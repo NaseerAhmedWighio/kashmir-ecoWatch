@@ -8,14 +8,29 @@ import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { EntityDrawer } from '@/components/common/EntityDrawer';
 import { BiodiversityCard } from '@/components/common/BiodiversityCard';
-import { 
-  Leaf, Map, Activity, Eye, TrendingUp, ArrowRight, 
-  Shield, Droplet, Mountain, Flower2, Search, Filter
+import {
+  Leaf, Map, Activity, Eye, TrendingUp, ArrowRight,
+  Shield, Droplet, Mountain, Flower2, Search, Filter,
+  Layers, Building2, Calendar, BookOpen
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { biodiversityMetrics, mammalsData, birdsData, getBiodiversityData } from '@/data/biodiversity';
 import { RED_DATA_METRICS, PRIORITY_KASHMIR_SPECIES } from '@/data/red-data-book-kashmir';
 import { useRouter } from 'next/navigation';
+
+// New Components
+import { HabitatIntelligenceCard } from '@/components/biodiversity/HabitatIntelligenceCard';
+import { ConservationAnalyticsPanel } from '@/components/biodiversity/ConservationAnalyticsPanel';
+import { EnhancedExploreModeCard } from '@/components/biodiversity/EnhancedExploreModeCard';
+import { CrossModuleLinkStrip } from '@/components/sections/CrossModuleLinkStrip';
+
+// New Data
+import {
+  getHabitatBiodiversity,
+  getDistrictBiodiversity,
+  getConservationAnalytics,
+  biodiversityIntelligenceMetrics
+} from '@/data/biodiversity-intelligence';
 
 const categoryCards = [
   {
@@ -81,12 +96,66 @@ const categoryCards = [
 ];
 
 const exploreModes = [
-  { id: 'habitat', label: 'By Habitat', icon: Leaf, href: '/biodiversity?filter=habitat' },
-  { id: 'protected-area', label: 'By Protected Area', icon: Map, href: '/protected-areas' },
-  { id: 'district', label: 'By District', icon: Map, href: '/districts' },
-  { id: 'season', label: 'By Season', icon: TrendingUp, href: '/seasonal-ecology' },
-  { id: 'conservation', label: 'By Conservation Status', icon: Shield, href: '/biodiversity/threatened-species' },
-  { id: 'sightings', label: 'By Sightings', icon: Eye, href: '/trails-sightings/sightings' },
+  { 
+    id: 'habitat', 
+    label: 'By Habitat', 
+    icon: Leaf, 
+    href: '/biodiversity?filter=habitat',
+    description: 'Explore species by ecosystem type',
+    count: 5,
+    countLabel: 'habitats',
+    color: 'from-emerald-500 to-teal-600'
+  },
+  { 
+    id: 'protected-area', 
+    label: 'By Protected Area', 
+    icon: Map, 
+    href: '/protected-areas',
+    description: 'Biodiversity within PAs',
+    count: 47,
+    countLabel: 'areas',
+    color: 'from-amber-500 to-orange-600'
+  },
+  { 
+    id: 'district', 
+    label: 'By District', 
+    icon: Building2, 
+    href: '/districts',
+    description: 'District-level biodiversity',
+    count: 16,
+    countLabel: 'districts',
+    color: 'from-violet-500 to-purple-600'
+  },
+  { 
+    id: 'season', 
+    label: 'By Season', 
+    icon: Calendar, 
+    href: '/seasonal-ecology',
+    description: 'Seasonal occurrence patterns',
+    count: 4,
+    countLabel: 'seasons',
+    color: 'from-pink-500 to-rose-600'
+  },
+  { 
+    id: 'conservation', 
+    label: 'By Conservation Status', 
+    icon: Shield, 
+    href: '/biodiversity/threatened-species',
+    description: 'IUCN & WLPA filtering',
+    count: 89,
+    countLabel: 'threatened',
+    color: 'from-red-500 to-rose-600'
+  },
+  { 
+    id: 'sightings', 
+    label: 'By Sightings', 
+    icon: Eye, 
+    href: '/trails-sightings',
+    description: 'Field observations',
+    count: 4521,
+    countLabel: 'records',
+    color: 'from-sky-500 to-blue-600'
+  },
 ];
 
 export default function BiodiversityPage() {
@@ -282,41 +351,76 @@ export default function BiodiversityPage() {
         </div>
       </div>
 
-      {/* Explore by Intelligence Mode */}
-      <div className="container mx-auto px-6 py-16 bg-slate-900/50">
+      {/* =========================================================
+          HABITAT INTELLIGENCE BAND
+          ========================================================= */}
+      <div className="container mx-auto px-6 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-2 h-2 bg-glacier-500 rounded-full" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Alternative Exploration
-            </span>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                <Layers className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Habitat Intelligence</h2>
+                <p className="text-slate-400">Ecosystem-level biodiversity patterns</p>
+              </div>
+            </div>
+            <Button
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/biodiversity?filter=habitat')}
+            >
+              View All Habitats
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Explore by Intelligence Mode
-          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {getHabitatBiodiversity.all().map((habitat, index) => (
+            <HabitatIntelligenceCard 
+              key={habitat.id} 
+              habitat={habitat}
+              onClick={(h) => router.push(`/biodiversity/habitats/${h.slug}`)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* =========================================================
+          EXPLORE BY INTELLIGENCE MODE (ENHANCED)
+          ========================================================= */}
+      <div className="container mx-auto px-6 py-16 bg-gradient-to-b from-slate-950 to-slate-900">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+              <Filter className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-white">Distribution Intelligence</h2>
+              <p className="text-slate-400">Multiple pathways to explore biodiversity</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {exploreModes.map((mode, index) => (
-            <motion.a
+            <EnhancedExploreModeCard
               key={mode.id}
-              href={mode.href}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="group p-6 rounded-xl glass-light border border-white/5 hover:border-forest-500/50 transition-all card-intelligence text-center"
-            >
-              <mode.icon className="w-8 h-8 text-slate-500 group-hover:text-forest-400 transition-colors mx-auto mb-3" />
-              <div className="text-sm font-medium text-white group-hover:text-forest-300 transition-colors">
-                {mode.label}
-              </div>
-            </motion.a>
+              {...mode}
+              delay={index * 0.05}
+            />
           ))}
         </div>
       </div>
@@ -365,7 +469,9 @@ export default function BiodiversityPage() {
         </div>
       </div>
 
-      {/* Red Data Book - Threatened Species */}
+      {/* =========================================================
+          CONSERVATION INTELLIGENCE (RED DATA BOOK UPGRADE)
+          ========================================================= */}
       <div className="container mx-auto px-6 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -373,142 +479,32 @@ export default function BiodiversityPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-2 h-2 bg-red-500 rounded-full" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Conservation Priority
-            </span>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center">
+              <Shield className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-white">Conservation Intelligence</h2>
+              <p className="text-slate-400">Threatened species, legal protection, and vulnerability patterns</p>
+            </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Red Data Book Threatened Fauna
-          </h2>
-          <p className="text-slate-400 max-w-2xl">
-            Species facing extinction threats in Kashmir. Source: Red Data Book on Jammu and Kashmir Fauna.
-          </p>
         </motion.div>
 
-        {/* Red Data Metrics */}
-        <Card className="bg-gradient-to-r from-red-500/10 via-amber-500/10 to-orange-500/10 border border-red-500/30 p-6 mb-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">{RED_DATA_METRICS.total}</div>
-              <div className="text-xs text-slate-400 uppercase">Threatened Species</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">{RED_DATA_METRICS.byTaxon.mammals}</div>
-              <div className="text-xs text-slate-400 uppercase">Mammals</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">{RED_DATA_METRICS.byTaxon.birds}</div>
-              <div className="text-xs text-slate-400 uppercase">Birds</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">{RED_DATA_METRICS.byIUCNStatus.endangered}</div>
-              <div className="text-xs text-slate-400 uppercase">Endangered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">{RED_DATA_METRICS.prioritySpecies}</div>
-              <div className="text-xs text-slate-400 uppercase">Priority Species</div>
-            </div>
-          </div>
-        </Card>
-
-        {/* Priority Species Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PRIORITY_KASHMIR_SPECIES.slice(0, 6).map((species, idx) => (
-            <motion.div
-              key={species.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-            >
-              <Card className="glass-intense border-emerald-500/30 p-6 bg-emerald-500/5 h-full">
-                <div className="flex items-start justify-between mb-3">
-                  <Badge variant="success" size="sm">
-                    <Shield className="w-3 h-3 mr-1" />
-                    Priority Kashmir Species
-                  </Badge>
-                  <Badge variant="danger" size="sm">{species.iucn1996Status}</Badge>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{species.commonName}</h3>
-                <div className="text-sm text-slate-400 mb-4">{species.conservationTheme}</div>
-                <div className="flex items-center gap-2 text-xs">
-                  <Badge variant="outline" size="sm" className="border-white/20 text-white">
-                    WLPA: {species.wildlifeProtectionAct1972Status}
-                  </Badge>
-                  <Badge variant="outline" size="sm" className="border-white/20 text-white capitalize">
-                    {species.taxonGroup}
-                  </Badge>
-                </div>
-                <Button
-                  size="sm"
-                  className="w-full mt-4 bg-gradient-to-r from-emerald-600 to-emerald-500"
-                  icon={<ArrowRight className="w-4 h-4" />}
-                  onClick={() => router.push(`/biodiversity/threatened-species`)}
-                >
-                  View Details
-                </Button>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-8 text-center">
-          <Button
-            variant="outline"
-            className="border-red-500/30 text-red-400 hover:bg-red-500/10"
-            icon={<ArrowRight className="w-5 h-5" />}
-            onClick={() => router.push('/biodiversity/threatened-species')}
-          >
-            Explore All Threatened Species
-          </Button>
-        </div>
+        <ConservationAnalyticsPanel 
+          analytics={getConservationAnalytics()}
+          onViewAll={() => router.push('/biodiversity/threatened-species')}
+        />
       </div>
 
-      {/* Related Intelligence */}
+      {/* =========================================================
+          CROSS-MODULE INTELLIGENCE (EXPANDED)
+          ========================================================= */}
       <div className="container mx-auto px-6 py-16 bg-slate-900/50">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-2 h-2 bg-purple-500 rounded-full" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Cross-Module Integration
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Related Intelligence
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { title: 'Protected Areas', count: 47, href: '/protected-areas', description: 'National Parks, Sanctuaries, Reserves' },
-            { title: 'Water Systems', count: 1253, href: '/water-systems', description: 'Lakes, Wetlands, Rivers, Springs' },
-            { title: 'Sightings', count: 4521, href: '/trails-sightings/sightings', description: 'Wildlife observations & records' },
-            { title: 'Research Library', count: 1893, href: '/research-library', description: 'Scientific reports & studies' },
-          ].map((item, idx) => (
-            <motion.a
-              key={idx}
-              href={item.href}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="group p-6 rounded-xl glass-light border border-white/5 hover:border-forest-500/50 transition-all card-intelligence"
-            >
-              <div className="text-3xl font-bold text-white mb-2 group-hover:text-forest-300 transition-colors">
-                {item.count.toLocaleString()}
-              </div>
-              <div className="text-lg font-semibold text-white mb-2">{item.title}</div>
-              <div className="text-sm text-slate-400">{item.description}</div>
-            </motion.a>
-          ))}
-        </div>
+        <CrossModuleLinkStrip 
+          context={{
+            habitat: 'temperate-forest',
+          }}
+        />
       </div>
 
       {/* Entity Drawer */}

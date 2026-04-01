@@ -8,10 +8,11 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import {
   Waves, ArrowRight, Map, AlertTriangle, Activity, Droplets,
-  TrendingUp, Filter, Layers, Eye
+  TrendingUp, Filter, Layers, Eye, Leaf, Flower2
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const algalBloomData = [
   { id: 'ab-1', waterbody: 'Dal Lake', district: 'Srinagar', bloomStatus: 'Active', severity: 'High', coverage: '35%', dominant: 'Microcystis' },
@@ -415,6 +416,61 @@ export default function AlgalBloomMonitoringPage() {
         </div>
       </section>
 
+      {/* Cross-Link Card: Seasonal Ecology - Floral Bloom */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          <Link href="/seasonal-ecology/bloom-mapping">
+            <Card className="glass-intense border-pink-500/30 hover:border-pink-500/50 transition-all cursor-pointer group overflow-hidden">
+              <div className="relative p-6 md:p-8">
+                {/* Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-950/50 via-rose-950/50 to-slate-950/50" />
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+                
+                <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+                  {/* Icon */}
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center shadow-2xl">
+                      <Flower2 className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <Badge variant="outline" className="border-pink-500/50 text-pink-400">
+                        Related Intelligence
+                      </Badge>
+                      <Badge variant="success" size="sm">
+                        Seasonal Ecology
+                      </Badge>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
+                      Explore Floral Bloom Zones & Flowering Landscapes
+                    </h3>
+                    <p className="text-slate-300 mb-4 max-w-3xl">
+                      While algal blooms indicate water stress, floral blooms represent Kashmir's seasonal 
+                      phenology and flowering cycles. Explore orchard bloom belts, alpine meadow flowering, 
+                      medicinal plant zones, and pollinator-linked bloom timing across Kashmir's diverse ecosystems.
+                    </p>
+                    <div className="flex items-center gap-2 text-pink-400 font-medium">
+                      <span>View Floral Bloom Mapping</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="hidden md:flex flex-shrink-0 items-center">
+                    <div className="w-12 h-12 rounded-full bg-pink-500/20 border border-pink-500/30 flex items-center justify-center group-hover:bg-pink-500/30 transition-all">
+                      <ArrowRight className="w-6 h-6 text-pink-400" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </Link>
+        </div>
+      </section>
+
       {/* Related Intelligence */}
       <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
@@ -429,6 +485,18 @@ export default function AlgalBloomMonitoringPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card
+              className="glass-light border-white/10 hover:border-emerald-500/30 transition-all p-5 cursor-pointer group"
+              onClick={() => router.push('/seasonal-ecology')}
+            >
+              <Leaf className="w-8 h-8 text-emerald-400 mb-3 group-hover:scale-110 transition-transform" />
+              <h3 className="text-sm font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                Seasonal Ecology
+              </h3>
+              <p className="text-xs text-slate-400">
+                Seasonal drivers, lake seasonality, ecological timing
+              </p>
+            </Card>
             <Card
               className="glass-light border-white/10 hover:border-blue-500/30 transition-all p-5 cursor-pointer group"
               onClick={() => router.push('/risk-monitoring/water-pollution')}
@@ -463,18 +531,6 @@ export default function AlgalBloomMonitoringPage() {
               </h3>
               <p className="text-xs text-slate-400">
                 Comprehensive waterbody database
-              </p>
-            </Card>
-            <Card
-              className="glass-light border-white/10 hover:border-blue-500/30 transition-all p-5 cursor-pointer group"
-              onClick={() => router.push('/risk-monitoring/dashboards')}
-            >
-              <Activity className="w-8 h-8 text-blue-400 mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-sm font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                Risk Dashboards
-              </h3>
-              <p className="text-xs text-slate-400">
-                Water quality dashboards
               </p>
             </Card>
           </div>

@@ -131,7 +131,7 @@ export function ImmersiveHero() {
       />
 
       {/* Layer 7: Minimal live monitoring nodes - 5 strategic locations */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[
           { top: '24%', left: '62%' },  // Northern region
           { top: '36%', left: '71%' },  // Eastern region
@@ -156,11 +156,11 @@ export function ImmersiveHero() {
             }}
           />
         ))}
-      </div>
+      </div> */}
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[96rem] mx-auto">
           {/* Status badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
