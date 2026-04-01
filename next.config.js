@@ -4,13 +4,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Disable Turbopack until GeoJSON support is stable
-  // turbopack configuration handled by webpack below
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
+    // Handle GeoJSON files
     config.module.rules.push({
       test: /\.geojson$/,
       type: 'json',
     });
+    
     return config;
   },
 }
