@@ -27,17 +27,18 @@ import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import {
+import type {
   AlertDisplay,
-  AlertCategory,
-  AlertSeverity,
   AlertConfidenceState,
-  ConfirmationActionType,
+  ReconfirmationAction,
+} from '@/types/alerts';
+import { AlertCategory, AlertSeverity, ConfirmationActionType } from '@/types/alerts';
+import {
   RECONFIRMATION_ACTIONS,
   ALERT_CATEGORY_METADATA,
   SEVERITY_METADATA,
   CONFIDENCE_METADATA,
-} from '@/types/alerts';
+} from '@/lib/alert-utils';
 
 // ============================================================================
 // Icon Mapping
@@ -125,10 +126,14 @@ interface SeverityBadgeProps {
 
 function SeverityBadge({ severity }: SeverityBadgeProps) {
   const metadata = SEVERITY_METADATA[severity];
-  
+  const IconComponent = metadata.icon === 'TriangleAlert' ? TriangleAlert :
+                        metadata.icon === 'OctagonAlert' ? ShieldAlert :
+                        metadata.icon === 'Triangle' ? TriangleAlert :
+                        CircleCheck;
+
   return (
     <Badge variant={severity === AlertSeverity.CRITICAL ? 'danger' : severity === AlertSeverity.SERIOUS ? 'warning' : 'info'}>
-      <metadata.icon className="w-3 h-3 mr-1" />
+      <IconComponent className="w-3 h-3 mr-1" />
       {metadata.label}
     </Badge>
   );

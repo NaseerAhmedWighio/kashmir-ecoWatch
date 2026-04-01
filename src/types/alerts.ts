@@ -422,6 +422,8 @@ export interface ReconfirmationAction {
   description: string;
   icon: string;
   color: string;
+  bgColor: string;
+  borderColor: string;
   requiresNote: boolean;
   requiresEvidence: boolean;
 }
@@ -534,4 +536,88 @@ export type AlertExpiryConfig = {
     maxMinutes: number;
     refreshThresholdMinutes: number;
   };
+};
+
+// ============================================================================
+// Reconfirmation Action Configurations
+// ============================================================================
+
+export const RECONFIRMATION_ACTIONS: Record<ConfirmationActionType, ReconfirmationAction> = {
+  [ConfirmationActionType.STILL_ACTIVE]: {
+    type: ConfirmationActionType.STILL_ACTIVE,
+    label: 'Still Active',
+    description: 'The situation remains unchanged',
+    icon: 'CircleCheck',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    bgColor: 'bg-emerald-500/10',
+    borderColor: 'border-emerald-500/30',
+    requiresNote: false,
+    requiresEvidence: false,
+  },
+  [ConfirmationActionType.WORSENED]: {
+    type: ConfirmationActionType.WORSENED,
+    label: 'Worsened',
+    description: 'The situation has intensified',
+    icon: 'TrendingUp',
+    color: 'text-red-600 dark:text-red-400',
+    bgColor: 'bg-red-500/10',
+    borderColor: 'border-red-500/30',
+    requiresNote: false,
+    requiresEvidence: false,
+  },
+  [ConfirmationActionType.REDUCED]: {
+    type: ConfirmationActionType.REDUCED,
+    label: 'Reduced',
+    description: 'The situation is improving',
+    icon: 'TrendingDown',
+    color: 'text-amber-600 dark:text-amber-400',
+    bgColor: 'bg-amber-500/10',
+    borderColor: 'border-amber-500/30',
+    requiresNote: false,
+    requiresEvidence: false,
+  },
+  [ConfirmationActionType.CLEARED]: {
+    type: ConfirmationActionType.CLEARED,
+    label: 'Cleared',
+    description: 'The issue has been resolved',
+    icon: 'Check',
+    color: 'text-green-600 dark:text-green-400',
+    bgColor: 'bg-green-500/10',
+    borderColor: 'border-green-500/30',
+    requiresNote: false,
+    requiresEvidence: false,
+  },
+  [ConfirmationActionType.MOVED_SLIGHTLY]: {
+    type: ConfirmationActionType.MOVED_SLIGHTLY,
+    label: 'Moved',
+    description: 'Location has shifted slightly',
+    icon: 'Move',
+    color: 'text-blue-600 dark:text-blue-400',
+    bgColor: 'bg-blue-500/10',
+    borderColor: 'border-blue-500/30',
+    requiresNote: true,
+    requiresEvidence: false,
+  },
+  [ConfirmationActionType.INCORRECT_REPORT]: {
+    type: ConfirmationActionType.INCORRECT_REPORT,
+    label: 'Incorrect',
+    description: 'This report is inaccurate',
+    icon: 'CircleX',
+    color: 'text-slate-600 dark:text-slate-400',
+    bgColor: 'bg-slate-500/10',
+    borderColor: 'border-slate-500/30',
+    requiresNote: true,
+    requiresEvidence: false,
+  },
+  [ConfirmationActionType.ADD_UPDATE]: {
+    type: ConfirmationActionType.ADD_UPDATE,
+    label: 'Add Update',
+    description: 'Share new information or evidence',
+    icon: 'Plus',
+    color: 'text-indigo-600 dark:text-indigo-400',
+    bgColor: 'bg-indigo-500/10',
+    borderColor: 'border-indigo-500/30',
+    requiresNote: false,
+    requiresEvidence: true,
+  },
 };

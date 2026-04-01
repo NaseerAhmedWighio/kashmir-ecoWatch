@@ -26,6 +26,7 @@ import { Card } from '@/components/ui/Card';
 import {
   Alert,
   AlertDisplay,
+  AlertSeverity,
   ConfirmationActionType,
   RECONFIRMATION_ACTIONS,
   AlertEvidence,
@@ -205,11 +206,11 @@ function EvidenceUpload({ onFileSelect, existingEvidence }: EvidenceUploadProps)
         />
         <label
           htmlFor="evidence-upload"
-          className="inline-block mt-3"
+          className="inline-block mt-3 cursor-pointer"
         >
-          <Button variant="outline" size="sm" asChild>
-            <span>Browse Files</span>
-          </Button>
+          <span className="inline-flex items-center justify-center text-sm font-medium rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 h-9 px-4 py-2">
+            Browse Files
+          </span>
         </label>
       </div>
 
