@@ -430,7 +430,7 @@ export function getMonitoringProtocols(speciesSlug?: string): MonitoringProtocol
       responsibleAgency: 'J&K Wildlife Department',
       indicators: ['Population count', 'Fawn recruitment', 'Habitat quality'],
       lastAssessment: '2023-09-01',
-      nextAssessment: '2024-09-01',
+      nextAssessment: '2026-09-01',
       status: 'on-time',
     },
     {
@@ -440,7 +440,7 @@ export function getMonitoringProtocols(speciesSlug?: string): MonitoringProtocol
       responsibleAgency: 'Bombay Natural History Society',
       indicators: ['Nest count', 'Breeding success', 'Habitat occupancy'],
       lastAssessment: '2023-08-01',
-      nextAssessment: '2024-04-01',
+      nextAssessment: '2026-04-01',
       status: 'upcoming',
     },
     {
@@ -450,7 +450,7 @@ export function getMonitoringProtocols(speciesSlug?: string): MonitoringProtocol
       responsibleAgency: 'Snow Leopard Trust',
       indicators: ['Individual identification', 'Population density', 'Prey abundance'],
       lastAssessment: '2023-06-01',
-      nextAssessment: '2024-06-01',
+      nextAssessment: '2026-06-01',
       status: 'on-time',
     },
   ];

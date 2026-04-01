@@ -11,10 +11,10 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 const reports = [
-  { id: 'fr-1', title: 'Monthly Environmental Bulletin - March 2024', type: 'Monthly Report', author: 'EcoWatch Team', date: '2024-03-25', pages: 42 },
-  { id: 'fr-2', title: 'Winter Wildlife Survey 2023-24', type: 'Field Report', author: 'Wildlife Dept', date: '2024-03-15', pages: 78 },
-  { id: 'fr-3', title: 'Wetland Health Assessment - Dal-Nigeen', type: 'Technical Report', author: 'LAWDA', date: '2024-03-10', pages: 56 },
-  { id: 'fr-4', title: 'Forest Fire Season Preview 2024', type: 'Risk Assessment', author: 'Forest Dept', date: '2024-03-01', pages: 34 },
+  { id: 'fr-1', title: 'Monthly Environmental Bulletin - March 2024', type: 'Monthly Report', author: 'EcoWatch Team', date: '2026-03-25', pages: 42 },
+  { id: 'fr-2', title: 'Winter Wildlife Survey 2023-24', type: 'Field Report', author: 'Wildlife Dept', date: '2026-03-15', pages: 78 },
+  { id: 'fr-3', title: 'Wetland Health Assessment - Dal-Nigeen', type: 'Technical Report', author: 'LAWDA', date: '2026-03-10', pages: 56 },
+  { id: 'fr-4', title: 'Forest Fire Season Preview 2024', type: 'Risk Assessment', author: 'Forest Dept', date: '2026-03-01', pages: 34 },
 ];
 
 export default function FieldReportsPage() {

@@ -95,7 +95,7 @@ export function getClimateShiftIndicators(): ClimateShiftIndicator[] {
       indicator: 'Spring Onset',
       unit: 'days from Jan 1',
       baseline: { period: '1980-2010', value: 90 },
-      current: { year: 2024, value: 85 },
+      current: { year: 2026, value: 85 },
       trend: {
         changePerDecade: -1.7,
         direction: 'decreasing',
@@ -108,7 +108,7 @@ export function getClimateShiftIndicators(): ClimateShiftIndicator[] {
       indicator: 'Autumn Arrival',
       unit: 'days from Jan 1',
       baseline: { period: '1980-2010', value: 270 },
-      current: { year: 2024, value: 275 },
+      current: { year: 2026, value: 275 },
       trend: {
         changePerDecade: 1.5,
         direction: 'increasing',
@@ -121,7 +121,7 @@ export function getClimateShiftIndicators(): ClimateShiftIndicator[] {
       indicator: 'Growing Season Length',
       unit: 'days',
       baseline: { period: '1980-2010', value: 180 },
-      current: { year: 2024, value: 190 },
+      current: { year: 2026, value: 190 },
       trend: {
         changePerDecade: 3.3,
         direction: 'increasing',
@@ -134,7 +134,7 @@ export function getClimateShiftIndicators(): ClimateShiftIndicator[] {
       indicator: 'Average Temperature',
       unit: '°C',
       baseline: { period: '1980-2010', value: 13.2 },
-      current: { year: 2024, value: 14.1 },
+      current: { year: 2026, value: 14.1 },
       trend: {
         changePerDecade: 0.3,
         direction: 'increasing',
@@ -147,7 +147,7 @@ export function getClimateShiftIndicators(): ClimateShiftIndicator[] {
       indicator: 'Snowpack Depth',
       unit: 'cm',
       baseline: { period: '1980-2010', value: 120 },
-      current: { year: 2024, value: 95 },
+      current: { year: 2026, value: 95 },
       trend: {
         changePerDecade: -8.3,
         direction: 'decreasing',
@@ -160,7 +160,7 @@ export function getClimateShiftIndicators(): ClimateShiftIndicator[] {
       indicator: 'Precipitation',
       unit: 'mm/year',
       baseline: { period: '1980-2010', value: 650 },
-      current: { year: 2024, value: 620 },
+      current: { year: 2026, value: 620 },
       trend: {
         changePerDecade: -10,
         direction: 'decreasing',
@@ -173,7 +173,7 @@ export function getClimateShiftIndicators(): ClimateShiftIndicator[] {
       indicator: 'Extreme Heat Days',
       unit: 'days/year >30°C',
       baseline: { period: '1980-2010', value: 15 },
-      current: { year: 2024, value: 22 },
+      current: { year: 2026, value: 22 },
       trend: {
         changePerDecade: 2.3,
         direction: 'increasing',
@@ -186,7 +186,7 @@ export function getClimateShiftIndicators(): ClimateShiftIndicator[] {
       indicator: 'Glacier Mass Balance',
       unit: 'm water equivalent',
       baseline: { period: '1980-2010', value: -0.5 },
-      current: { year: 2024, value: -0.8 },
+      current: { year: 2026, value: -0.8 },
       trend: {
         changePerDecade: -0.1,
         direction: 'decreasing',
@@ -371,7 +371,7 @@ export function getPollinatorAlignmentStatus(): { aligned: number; mismatchRisk:
 export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
   const alerts: SeasonalAlert[] = [
     {
-      id: 'frost-risk-spring-2024',
+      id: 'frost-risk-spring-2026',
       type: 'frost-risk',
       severity: 'high',
       title: 'Late Frost Risk During Orchard Bloom',
@@ -379,8 +379,8 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       affectedDistricts: ['srinagar', 'pulwama', 'budgam'],
       affectedSeasons: ['spring'],
       affectedEntities: ['almond-srinagar', 'cherry-srinagar'],
-      validFrom: '2024-03-15',
-      validUntil: '2024-04-15',
+      validFrom: '2026-03-15',
+      validUntil: '2026-04-15',
       recommendedActions: [
         'Deploy frost protection measures (smudge pots, sprinklers)',
         'Monitor temperature forecasts daily',
@@ -389,7 +389,7 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       linkedRiskMonitoring: '/risk-monitoring/hydrological-risks',
     },
     {
-      id: 'migration-peak-hokersar-2024',
+      id: 'migration-peak-hokersar-2026',
       type: 'migration-peak',
       severity: 'moderate',
       title: 'Peak Migration at Hokersar Wetland',
@@ -397,8 +397,8 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       affectedDistricts: ['srinagar'],
       affectedSeasons: ['spring'],
       affectedEntities: ['hokersar-migration'],
-      validFrom: '2024-02-01',
-      validUntil: '2024-03-31',
+      validFrom: '2026-02-01',
+      validUntil: '2026-03-31',
       recommendedActions: [
         'Plan birding visits during early morning hours',
         'Maintain safe distances from roosting areas',
@@ -407,7 +407,7 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       linkedRiskMonitoring: '/risk-monitoring/bird-migration-monitoring',
     },
     {
-      id: 'fire-risk-summer-2024',
+      id: 'fire-risk-summer-2026',
       type: 'fire-risk',
       severity: 'high',
       title: 'Elevated Forest Fire Risk',
@@ -415,8 +415,8 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       affectedDistricts: ['kupwara', 'baramulla', 'anantnag'],
       affectedSeasons: ['summer'],
       affectedEntities: ['forest-landscape-kupwara'],
-      validFrom: '2024-06-01',
-      validUntil: '2024-08-31',
+      validFrom: '2026-06-01',
+      validUntil: '2026-08-31',
       recommendedActions: [
         'Avoid open flames in forest areas',
         'Report smoke or fire immediately',
@@ -425,7 +425,7 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       linkedRiskMonitoring: '/risk-monitoring/forest-fire-risks',
     },
     {
-      id: 'access-closure-winter-2024',
+      id: 'access-closure-winter-2026',
       type: 'access-closure',
       severity: 'critical',
       title: 'High-Altitude Route Closures',
@@ -433,8 +433,8 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       affectedDistricts: ['anantnag', 'kishtwar'],
       affectedSeasons: ['winter'],
       affectedEntities: ['tarsar-marsar-trek', 'kolahoi-glacier-expedition'],
-      validFrom: '2024-11-01',
-      validUntil: '2024-05-31',
+      validFrom: '2026-11-01',
+      validUntil: '2026-05-31',
       recommendedActions: [
         'Do not attempt closed routes',
         'Check with local authorities before travel',
@@ -443,7 +443,7 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       linkedRiskMonitoring: '/risk-monitoring/glacier-cryosphere-risks',
     },
     {
-      id: 'pollinator-mismatch-2024',
+      id: 'pollinator-mismatch-2026',
       type: 'pollinator-mismatch',
       severity: 'moderate',
       title: 'Bloom-Pollinator Timing Mismatch Risk',
@@ -451,8 +451,8 @@ export function getSeasonalAlerts(season?: SeasonType): SeasonalAlert[] {
       affectedDistricts: ['srinagar', 'pulwama'],
       affectedSeasons: ['spring'],
       affectedEntities: ['cherry-srinagar'],
-      validFrom: '2024-03-01',
-      validUntil: '2024-04-30',
+      validFrom: '2026-03-01',
+      validUntil: '2026-04-30',
       recommendedActions: [
         'Consider managed pollinator deployment',
         'Monitor pollinator activity daily',

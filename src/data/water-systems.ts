@@ -146,7 +146,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 4.2,
       totalDissolvedSolids: 185,
       fecalColiform: 850,
-      lastTested: '2024-03-15',
+      lastTested: '2026-03-15',
       status: 'moderate',
       trends: { pH: 'stable', dissolvedOxygen: 'declining', turbidity: 'declining' }
     },
@@ -164,8 +164,8 @@ export const lakesData: WaterEntity[] = [
     nwiaCode: '1101',
     nwiaSignificance: 'Iconic urban lake and second largest in J&K. Famous for houseboats, shikaras, and floating gardens. Critical for tourism, fisheries, and local livelihoods. Aquatic vegetation: 6,254 ha (district total post-monsoon).',
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-26T07:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-26T07:00:00Z',
   },
   {
     id: 'wular-lake',
@@ -190,7 +190,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 2.8,
       totalDissolvedSolids: 142,
       fecalColiform: 320,
-      lastTested: '2024-03-10',
+      lastTested: '2026-03-10',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'improving' }
     },
@@ -208,8 +208,8 @@ export const lakesData: WaterEntity[] = [
     nwiaCode: '1101',
     nwiaSignificance: 'Largest freshwater lake in South Asia. Ramsar site. 69% of Baramulla district wetland area. Critical for flood regulation, fisheries, and migratory waterfowl. High turbidity in pre-monsoon, low in post-monsoon.',
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-25T10:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-25T10:00:00Z',
   },
   {
     id: 'nigeen-lake',
@@ -234,7 +234,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 3.5,
       totalDissolvedSolids: 168,
       fecalColiform: 520,
-      lastTested: '2024-03-18',
+      lastTested: '2026-03-18',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -252,8 +252,8 @@ export const lakesData: WaterEntity[] = [
     nwiaCode: '1101',
     nwiaSignificance: 'Pristine urban lake connected to Dal Lake. Known for clear waters and houseboat tourism. Ecologically linked to Dal ecosystem.',
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-20T14:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-20T14:00:00Z',
   },
   {
     id: 'manasbal-lake',
@@ -278,7 +278,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 2.2,
       totalDissolvedSolids: 135,
       fecalColiform: 180,
-      lastTested: '2024-03-12',
+      lastTested: '2026-03-12',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'improving', turbidity: 'stable' }
     },
@@ -296,8 +296,8 @@ export const lakesData: WaterEntity[] = [
     nwiaCode: '1101',
     nwiaSignificance: 'Deepest lake in Kashmir Valley. Important for lotus cultivation, fisheries, and wintering waterfowl. Surrounded by Mughal gardens. High water quality with excellent clarity.',
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-22T09:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-22T09:00:00Z',
   },
   {
     id: 'anu-char',
@@ -322,7 +322,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 1.2,
       totalDissolvedSolids: 65,
       fecalColiform: 10,
-      lastTested: '2024-03-05',
+      lastTested: '2026-03-05',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -337,8 +337,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-18T11:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-18T11:00:00Z',
   },
   {
     id: 'tarsar-lake',
@@ -363,7 +363,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 0.8,
       totalDissolvedSolids: 48,
       fecalColiform: 5,
-      lastTested: '2024-02-28',
+      lastTested: '2026-02-28',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -378,8 +378,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-10T16:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-10T16:00:00Z',
   },
   {
     id: 'marsar-lake',
@@ -404,7 +404,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 0.7,
       totalDissolvedSolids: 45,
       fecalColiform: 3,
-      lastTested: '2024-02-28',
+      lastTested: '2026-02-28',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -419,8 +419,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-10T16:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-10T16:00:00Z',
   },
   {
     id: 'gangabal-lake',
@@ -445,7 +445,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 1.0,
       totalDissolvedSolids: 55,
       fecalColiform: 25,
-      lastTested: '2024-03-01',
+      lastTested: '2026-03-01',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -460,8 +460,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-15T12:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-15T12:00:00Z',
   },
   {
     id: 'krishansar-lake',
@@ -486,7 +486,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 0.8,
       totalDissolvedSolids: 50,
       fecalColiform: 8,
-      lastTested: '2024-03-01',
+      lastTested: '2026-03-01',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -501,8 +501,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-15T12:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-15T12:00:00Z',
   },
   {
     id: 'vishansar-lake',
@@ -527,7 +527,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 0.9,
       totalDissolvedSolids: 52,
       fecalColiform: 10,
-      lastTested: '2024-03-01',
+      lastTested: '2026-03-01',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -542,8 +542,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-15T12:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-15T12:00:00Z',
   },
   {
     id: 'sheer-kol',
@@ -568,7 +568,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 1.1,
       totalDissolvedSolids: 58,
       fecalColiform: 12,
-      lastTested: '2024-02-25',
+      lastTested: '2026-02-25',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -583,8 +583,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-20T00:00:00Z',
-    updatedAt: '2024-03-12T10:00:00Z',
+    createdAt: '2026-01-20T00:00:00Z',
+    updatedAt: '2026-03-12T10:00:00Z',
   },
   {
     id: 'pant-chowk-lake',
@@ -609,7 +609,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 2.5,
       totalDissolvedSolids: 148,
       fecalColiform: 280,
-      lastTested: '2024-03-08',
+      lastTested: '2026-03-08',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -625,8 +625,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-25T00:00:00Z',
-    updatedAt: '2024-03-20T08:00:00Z',
+    createdAt: '2026-01-25T00:00:00Z',
+    updatedAt: '2026-03-20T08:00:00Z',
   },
   {
     id: 'hokersar-lake',
@@ -651,7 +651,7 @@ export const lakesData: WaterEntity[] = [
       biologicalOxygenDemand: 2.4,
       totalDissolvedSolids: 145,
       fecalColiform: 220,
-      lastTested: '2024-03-10',
+      lastTested: '2026-03-10',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'improving' }
     },
@@ -667,8 +667,8 @@ export const lakesData: WaterEntity[] = [
       floodRisk: 'moderate'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-18T15:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-18T15:00:00Z',
   },
 ];
 
@@ -700,7 +700,7 @@ export const wetlandsData: WaterEntity[] = [
       biologicalOxygenDemand: 2.4,
       totalDissolvedSolids: 145,
       fecalColiform: 220,
-      lastTested: '2024-03-10',
+      lastTested: '2026-03-10',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'improving' }
     },
@@ -717,8 +717,8 @@ export const wetlandsData: WaterEntity[] = [
     nwiaCode: '1104',
     nwiaSignificance: 'Ramsar site and most important wetland in Kashmir for migratory waterfowl. Critical stopover on Central Asian Flyway. Supports over 100,000 wintering birds.',
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-25T16:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-25T16:00:00Z',
   },
   {
     id: 'shallabugh-wetland',
@@ -743,7 +743,7 @@ export const wetlandsData: WaterEntity[] = [
       biologicalOxygenDemand: 2.8,
       totalDissolvedSolids: 152,
       fecalColiform: 280,
-      lastTested: '2024-03-12',
+      lastTested: '2026-03-12',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -760,8 +760,8 @@ export const wetlandsData: WaterEntity[] = [
     nwiaCode: '1104',
     nwiaSignificance: 'Important Ramsar wetland for wintering waterfowl. Second largest wetland in Kashmir after Wular. Critical for biodiversity and flood regulation.',
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-22T14:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-22T14:00:00Z',
   },
   {
     id: 'hygam-wetland',
@@ -786,7 +786,7 @@ export const wetlandsData: WaterEntity[] = [
       biologicalOxygenDemand: 3.2,
       totalDissolvedSolids: 165,
       fecalColiform: 350,
-      lastTested: '2024-03-14',
+      lastTested: '2026-03-14',
       status: 'moderate',
       trends: { pH: 'stable', dissolvedOxygen: 'declining', turbidity: 'declining' }
     },
@@ -803,8 +803,8 @@ export const wetlandsData: WaterEntity[] = [
     nwiaCode: '1104',
     nwiaSignificance: 'Wetland reserve in northern Kashmir. Important for wintering waterfowl and resident species. Community-managed conservation area.',
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-20T11:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-20T11:00:00Z',
   },
   {
     id: 'mirgund-wetland',
@@ -829,7 +829,7 @@ export const wetlandsData: WaterEntity[] = [
       biologicalOxygenDemand: 2.6,
       totalDissolvedSolids: 148,
       fecalColiform: 240,
-      lastTested: '2024-03-16',
+      lastTested: '2026-03-16',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -844,8 +844,8 @@ export const wetlandsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-18T09:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-18T09:00:00Z',
   },
   {
     id: 'khozibugh-wetland',
@@ -870,7 +870,7 @@ export const wetlandsData: WaterEntity[] = [
       biologicalOxygenDemand: 3.0,
       totalDissolvedSolids: 158,
       fecalColiform: 310,
-      lastTested: '2024-03-11',
+      lastTested: '2026-03-11',
       status: 'moderate',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -885,8 +885,8 @@ export const wetlandsData: WaterEntity[] = [
       floodRisk: 'moderate'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-19T13:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-19T13:00:00Z',
   },
   {
     id: 'saderkoot-wetland',
@@ -911,7 +911,7 @@ export const wetlandsData: WaterEntity[] = [
       biologicalOxygenDemand: 2.7,
       totalDissolvedSolids: 150,
       fecalColiform: 260,
-      lastTested: '2024-03-13',
+      lastTested: '2026-03-13',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -926,8 +926,8 @@ export const wetlandsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-17T10:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-17T10:00:00Z',
   },
   {
     id: 'chandergund-wetland',
@@ -952,7 +952,7 @@ export const wetlandsData: WaterEntity[] = [
       biologicalOxygenDemand: 2.4,
       totalDissolvedSolids: 142,
       fecalColiform: 200,
-      lastTested: '2024-03-09',
+      lastTested: '2026-03-09',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -967,8 +967,8 @@ export const wetlandsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-18T00:00:00Z',
-    updatedAt: '2024-03-16T14:00:00Z',
+    createdAt: '2026-01-18T00:00:00Z',
+    updatedAt: '2026-03-16T14:00:00Z',
   },
   {
     id: 'pampore-wetland',
@@ -993,7 +993,7 @@ export const wetlandsData: WaterEntity[] = [
       biologicalOxygenDemand: 3.5,
       totalDissolvedSolids: 172,
       fecalColiform: 420,
-      lastTested: '2024-03-07',
+      lastTested: '2026-03-07',
       status: 'moderate',
       trends: { pH: 'stable', dissolvedOxygen: 'declining', turbidity: 'declining' }
     },
@@ -1008,8 +1008,8 @@ export const wetlandsData: WaterEntity[] = [
       floodRisk: 'moderate'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-20T00:00:00Z',
-    updatedAt: '2024-03-15T11:00:00Z',
+    createdAt: '2026-01-20T00:00:00Z',
+    updatedAt: '2026-03-15T11:00:00Z',
   },
 ];
 
@@ -1041,7 +1041,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 3.8,
       totalDissolvedSolids: 178,
       fecalColiform: 650,
-      lastTested: '2024-03-20',
+      lastTested: '2026-03-20',
       status: 'moderate',
       trends: { pH: 'stable', dissolvedOxygen: 'declining', turbidity: 'declining' }
     },
@@ -1057,8 +1057,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'high'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-25T08:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-25T08:00:00Z',
   },
   {
     id: 'indus-river',
@@ -1083,7 +1083,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 1.8,
       totalDissolvedSolids: 125,
       fecalColiform: 85,
-      lastTested: '2024-03-18',
+      lastTested: '2026-03-18',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1099,8 +1099,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'moderate'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-22T10:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-22T10:00:00Z',
   },
   {
     id: 'kishanganga-river',
@@ -1125,7 +1125,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 2.0,
       totalDissolvedSolids: 118,
       fecalColiform: 120,
-      lastTested: '2024-03-15',
+      lastTested: '2026-03-15',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1141,8 +1141,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'moderate'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-20T14:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-20T14:00:00Z',
   },
   {
     id: 'lidder-river',
@@ -1167,7 +1167,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 2.2,
       totalDissolvedSolids: 128,
       fecalColiform: 180,
-      lastTested: '2024-03-17',
+      lastTested: '2026-03-17',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1183,8 +1183,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'moderate'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-08T00:00:00Z',
-    updatedAt: '2024-03-19T11:00:00Z',
+    createdAt: '2026-01-08T00:00:00Z',
+    updatedAt: '2026-03-19T11:00:00Z',
   },
   {
     id: 'sind-river',
@@ -1209,7 +1209,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 2.6,
       totalDissolvedSolids: 142,
       fecalColiform: 280,
-      lastTested: '2024-03-16',
+      lastTested: '2026-03-16',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1225,8 +1225,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'high'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-21T09:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-21T09:00:00Z',
   },
   {
     id: 'rumshu-river',
@@ -1251,7 +1251,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 2.8,
       totalDissolvedSolids: 148,
       fecalColiform: 320,
-      lastTested: '2024-03-14',
+      lastTested: '2026-03-14',
       status: 'moderate',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1267,8 +1267,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'moderate'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-18T15:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-18T15:00:00Z',
   },
   {
     id: 'bringi-river',
@@ -1293,7 +1293,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 2.5,
       totalDissolvedSolids: 145,
       fecalColiform: 280,
-      lastTested: '2024-03-13',
+      lastTested: '2026-03-13',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1309,8 +1309,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'moderate'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-17T12:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-17T12:00:00Z',
   },
   {
     id: 'veshaw-river',
@@ -1335,7 +1335,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 3.2,
       totalDissolvedSolids: 158,
       fecalColiform: 380,
-      lastTested: '2024-03-12',
+      lastTested: '2026-03-12',
       status: 'moderate',
       trends: { pH: 'stable', dissolvedOxygen: 'declining', turbidity: 'declining' }
     },
@@ -1351,8 +1351,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'high'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-18T00:00:00Z',
-    updatedAt: '2024-03-16T10:00:00Z',
+    createdAt: '2026-01-18T00:00:00Z',
+    updatedAt: '2026-03-16T10:00:00Z',
   },
   {
     id: 'romshi-stream',
@@ -1377,7 +1377,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 1.5,
       totalDissolvedSolids: 95,
       fecalColiform: 45,
-      lastTested: '2024-03-10',
+      lastTested: '2026-03-10',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1393,8 +1393,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-20T00:00:00Z',
-    updatedAt: '2024-03-14T09:00:00Z',
+    createdAt: '2026-01-20T00:00:00Z',
+    updatedAt: '2026-03-14T09:00:00Z',
   },
   {
     id: 'arapath-stream',
@@ -1419,7 +1419,7 @@ export const riversData: WaterEntity[] = [
       biologicalOxygenDemand: 1.8,
       totalDissolvedSolids: 105,
       fecalColiform: 65,
-      lastTested: '2024-03-11',
+      lastTested: '2026-03-11',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1435,8 +1435,8 @@ export const riversData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-22T00:00:00Z',
-    updatedAt: '2024-03-13T14:00:00Z',
+    createdAt: '2026-01-22T00:00:00Z',
+    updatedAt: '2026-03-13T14:00:00Z',
   },
 ];
 // Water Systems Data - Part 2 (Springs and Data Access)
@@ -1465,7 +1465,7 @@ export const springsData: WaterEntity[] = [
       biologicalOxygenDemand: 1.2,
       totalDissolvedSolids: 112,
       fecalColiform: 35,
-      lastTested: '2024-03-18',
+      lastTested: '2026-03-18',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1480,8 +1480,8 @@ export const springsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-22T10:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-22T10:00:00Z',
   },
   {
     id: 'achabal-spring',
@@ -1506,7 +1506,7 @@ export const springsData: WaterEntity[] = [
       biologicalOxygenDemand: 1.4,
       totalDissolvedSolids: 118,
       fecalColiform: 45,
-      lastTested: '2024-03-16',
+      lastTested: '2026-03-16',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1521,8 +1521,8 @@ export const springsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-08T00:00:00Z',
-    updatedAt: '2024-03-20T14:00:00Z',
+    createdAt: '2026-01-08T00:00:00Z',
+    updatedAt: '2026-03-20T14:00:00Z',
   },
   {
     id: 'verinag-spring',
@@ -1547,7 +1547,7 @@ export const springsData: WaterEntity[] = [
       biologicalOxygenDemand: 1.6,
       totalDissolvedSolids: 125,
       fecalColiform: 55,
-      lastTested: '2024-03-15',
+      lastTested: '2026-03-15',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1562,8 +1562,8 @@ export const springsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-19T11:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-19T11:00:00Z',
   },
   {
     id: 'sheshnag-spring',
@@ -1588,7 +1588,7 @@ export const springsData: WaterEntity[] = [
       biologicalOxygenDemand: 0.8,
       totalDissolvedSolids: 58,
       fecalColiform: 8,
-      lastTested: '2024-03-05',
+      lastTested: '2026-03-05',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1603,8 +1603,8 @@ export const springsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-15T09:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-15T09:00:00Z',
   },
   {
     id: 'dareng-spring',
@@ -1629,7 +1629,7 @@ export const springsData: WaterEntity[] = [
       biologicalOxygenDemand: 1.8,
       totalDissolvedSolids: 132,
       fecalColiform: 85,
-      lastTested: '2024-03-12',
+      lastTested: '2026-03-12',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1644,8 +1644,8 @@ export const springsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-17T13:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-17T13:00:00Z',
   },
   {
     id: 'malikpora-spring',
@@ -1670,7 +1670,7 @@ export const springsData: WaterEntity[] = [
       biologicalOxygenDemand: 2.0,
       totalDissolvedSolids: 138,
       fecalColiform: 120,
-      lastTested: '2024-03-10',
+      lastTested: '2026-03-10',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
@@ -1685,8 +1685,8 @@ export const springsData: WaterEntity[] = [
       floodRisk: 'low'
     },
     verificationStatus: 'verified',
-    createdAt: '2024-01-18T00:00:00Z',
-    updatedAt: '2024-03-16T10:00:00Z',
+    createdAt: '2026-01-18T00:00:00Z',
+    updatedAt: '2026-03-16T10:00:00Z',
   },
 ];
 
@@ -1730,8 +1730,8 @@ export const watershedsData: WaterEntity[] = [
     },
     threats: ['pollution', 'encroachment', 'deforestation', 'climate-change', 'sand-mining'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-25T08:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-25T08:00:00Z',
   },
   {
     id: 'indus-basin',
@@ -1753,8 +1753,8 @@ export const watershedsData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'hydropower-development'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-22T10:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-22T10:00:00Z',
   },
   {
     id: 'kishanganga-basin',
@@ -1776,8 +1776,8 @@ export const watershedsData: WaterEntity[] = [
     },
     threats: ['hydropower-development', 'climate-change', 'glacial-retreat'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-20T14:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-20T14:00:00Z',
   },
   {
     id: 'lidder-basin',
@@ -1799,8 +1799,8 @@ export const watershedsData: WaterEntity[] = [
     },
     threats: ['tourism-pressure', 'pollution', 'overfishing', 'climate-change'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-08T00:00:00Z',
-    updatedAt: '2024-03-19T11:00:00Z',
+    createdAt: '2026-01-08T00:00:00Z',
+    updatedAt: '2026-03-19T11:00:00Z',
   },
   {
     id: 'sind-basin',
@@ -1822,8 +1822,8 @@ export const watershedsData: WaterEntity[] = [
     },
     threats: ['pollution', 'sand-mining', 'encroachment', 'hydropower-development'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-21T09:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-21T09:00:00Z',
   },
   {
     id: 'dal-nigeen-catchment',
@@ -1845,8 +1845,8 @@ export const watershedsData: WaterEntity[] = [
     },
     threats: ['urbanization', 'pollution', 'encroachment', 'sewage-discharge'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-20T16:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-20T16:00:00Z',
   },
   {
     id: 'wular-catchment',
@@ -1868,8 +1868,8 @@ export const watershedsData: WaterEntity[] = [
     },
     threats: ['siltation', 'invasive-species', 'catchment-degradation', 'overfishing'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-18T12:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-18T12:00:00Z',
   },
   {
     id: 'upper-jhelum-catchment',
@@ -1891,8 +1891,8 @@ export const watershedsData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'grazing-pressure'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-18T00:00:00Z',
-    updatedAt: '2024-03-15T10:00:00Z',
+    createdAt: '2026-01-18T00:00:00Z',
+    updatedAt: '2026-03-15T10:00:00Z',
   },
 ];
 
@@ -1920,8 +1920,8 @@ export const glaciersData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'black-carbon-deposition', 'tourism-pressure'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-22T14:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-22T14:00:00Z',
   },
   {
     id: 'machoi-glacier',
@@ -1942,8 +1942,8 @@ export const glaciersData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'black-carbon-deposition'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-08T00:00:00Z',
-    updatedAt: '2024-03-20T11:00:00Z',
+    createdAt: '2026-01-08T00:00:00Z',
+    updatedAt: '2026-03-20T11:00:00Z',
   },
   {
     id: 'harmukh-glacier',
@@ -1964,8 +1964,8 @@ export const glaciersData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'pilgrimage-pressure'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-18T09:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-18T09:00:00Z',
   },
   {
     id: 'sheshnag-glacier',
@@ -1986,8 +1986,8 @@ export const glaciersData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'pilgrimage-pressure', 'waste-accumulation'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-16T15:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-16T15:00:00Z',
   },
   {
     id: 'kajinag-glacier',
@@ -2008,8 +2008,8 @@ export const glaciersData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'grazing-pressure'],
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-14T10:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-14T10:00:00Z',
   },
   {
     id: 'tarsar-glacial-system',
@@ -2030,8 +2030,8 @@ export const glaciersData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'trekking-pressure'],
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-18T00:00:00Z',
-    updatedAt: '2024-03-12T14:00:00Z',
+    createdAt: '2026-01-18T00:00:00Z',
+    updatedAt: '2026-03-12T14:00:00Z',
   },
   {
     id: 'gurez-glacial-complex',
@@ -2052,8 +2052,8 @@ export const glaciersData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'strategic-development'],
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-20T00:00:00Z',
-    updatedAt: '2024-03-10T11:00:00Z',
+    createdAt: '2026-01-20T00:00:00Z',
+    updatedAt: '2026-03-10T11:00:00Z',
   },
   {
     id: 'karanag-glacier',
@@ -2074,8 +2074,8 @@ export const glaciersData: WaterEntity[] = [
     },
     threats: ['climate-change', 'glacial-retreat', 'black-carbon-deposition'],
     verificationStatus: 'reviewed',
-    createdAt: '2024-01-22T00:00:00Z',
-    updatedAt: '2024-03-08T16:00:00Z',
+    createdAt: '2026-01-22T00:00:00Z',
+    updatedAt: '2026-03-08T16:00:00Z',
   },
 ];
 
@@ -2106,14 +2106,14 @@ export const waterQualitySites: WaterEntity[] = [
       biologicalOxygenDemand: 4.2,
       totalDissolvedSolids: 185,
       fecalColiform: 850,
-      lastTested: '2024-03-15',
+      lastTested: '2026-03-15',
       status: 'moderate',
       trends: { pH: 'stable', dissolvedOxygen: 'declining', turbidity: 'declining' }
     },
     threats: ['eutrophication', 'sewage-discharge', 'agricultural-runoff', 'tourism-pressure'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-26T07:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-26T07:00:00Z',
   },
   {
     id: 'wq-wular-lake-northern',
@@ -2137,14 +2137,14 @@ export const waterQualitySites: WaterEntity[] = [
       biologicalOxygenDemand: 2.8,
       totalDissolvedSolids: 142,
       fecalColiform: 320,
-      lastTested: '2024-03-10',
+      lastTested: '2026-03-10',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'improving' }
     },
     threats: ['siltation', 'invasive-species', 'catchment-degradation'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-25T10:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-25T10:00:00Z',
   },
   {
     id: 'wq-jhelum-srinagar',
@@ -2168,14 +2168,14 @@ export const waterQualitySites: WaterEntity[] = [
       biologicalOxygenDemand: 5.5,
       totalDissolvedSolids: 195,
       fecalColiform: 1200,
-      lastTested: '2024-03-20',
+      lastTested: '2026-03-20',
       status: 'poor',
       trends: { pH: 'stable', dissolvedOxygen: 'declining', turbidity: 'declining' }
     },
     threats: ['sewage-discharge', 'solid-waste', 'encroachment', 'industrial-effluent'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-25T08:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-25T08:00:00Z',
   },
   {
     id: 'wq-kokernag-spring',
@@ -2199,14 +2199,14 @@ export const waterQualitySites: WaterEntity[] = [
       biologicalOxygenDemand: 1.2,
       totalDissolvedSolids: 112,
       fecalColiform: 35,
-      lastTested: '2024-03-18',
+      lastTested: '2026-03-18',
       status: 'excellent',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
     threats: ['tourism-pressure', 'local-pollution'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-08T00:00:00Z',
-    updatedAt: '2024-03-22T10:00:00Z',
+    createdAt: '2026-01-08T00:00:00Z',
+    updatedAt: '2026-03-22T10:00:00Z',
   },
   {
     id: 'wq-hokersar-wetland',
@@ -2230,14 +2230,14 @@ export const waterQualitySites: WaterEntity[] = [
       biologicalOxygenDemand: 2.4,
       totalDissolvedSolids: 145,
       fecalColiform: 220,
-      lastTested: '2024-03-10',
+      lastTested: '2026-03-10',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'improving' }
     },
     threats: ['eutrophication', 'agricultural-runoff', 'encroachment'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-18T15:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-18T15:00:00Z',
   },
   {
     id: 'wq-lidder-river-pahalgam',
@@ -2261,14 +2261,14 @@ export const waterQualitySites: WaterEntity[] = [
       biologicalOxygenDemand: 2.2,
       totalDissolvedSolids: 128,
       fecalColiform: 180,
-      lastTested: '2024-03-17',
+      lastTested: '2026-03-17',
       status: 'good',
       trends: { pH: 'stable', dissolvedOxygen: 'stable', turbidity: 'stable' }
     },
     threats: ['tourism-pressure', 'seasonal-pollution'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-19T11:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-19T11:00:00Z',
   },
 ];
 
@@ -2300,13 +2300,13 @@ export const fisheriesData: WaterEntity[] = [
       pH: 7.2,
       dissolvedOxygen: 6.8,
       turbidity: 12,
-      lastTested: '2024-03-15',
+      lastTested: '2026-03-15',
       status: 'moderate'
     },
     threats: ['eutrophication', 'overfishing', 'invasive-species', 'pollution'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-26T07:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-26T07:00:00Z',
   },
   {
     id: 'fishery-wular-lake',
@@ -2331,13 +2331,13 @@ export const fisheriesData: WaterEntity[] = [
       pH: 7.6,
       dissolvedOxygen: 7.8,
       turbidity: 8,
-      lastTested: '2024-03-10',
+      lastTested: '2026-03-10',
       status: 'good'
     },
     threats: ['siltation', 'overfishing', 'invasive-species'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-25T10:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-25T10:00:00Z',
   },
   {
     id: 'fishery-kokernag-trout',
@@ -2362,13 +2362,13 @@ export const fisheriesData: WaterEntity[] = [
       pH: 7.6,
       dissolvedOxygen: 9.5,
       turbidity: 2,
-      lastTested: '2024-03-18',
+      lastTested: '2026-03-18',
       status: 'excellent'
     },
     threats: ['disease-outbreaks', 'climate-change', 'water-temperature-rise'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-22T10:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-22T10:00:00Z',
   },
   {
     id: 'fishery-lidder-river',
@@ -2393,13 +2393,13 @@ export const fisheriesData: WaterEntity[] = [
       pH: 7.5,
       dissolvedOxygen: 8.0,
       turbidity: 8,
-      lastTested: '2024-03-17',
+      lastTested: '2026-03-17',
       status: 'good'
     },
     threats: ['overfishing', 'tourism-pressure', 'pollution'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-08T00:00:00Z',
-    updatedAt: '2024-03-19T11:00:00Z',
+    createdAt: '2026-01-08T00:00:00Z',
+    updatedAt: '2026-03-19T11:00:00Z',
   },
   {
     id: 'fishery-jhelum-river',
@@ -2424,13 +2424,13 @@ export const fisheriesData: WaterEntity[] = [
       pH: 7.4,
       dissolvedOxygen: 7.5,
       turbidity: 15,
-      lastTested: '2024-03-20',
+      lastTested: '2026-03-20',
       status: 'moderate'
     },
     threats: ['pollution', 'overfishing', 'flow-regulation', 'sand-mining'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-25T08:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-25T08:00:00Z',
   },
   {
     id: 'fishery-manasbal-lake',
@@ -2455,13 +2455,13 @@ export const fisheriesData: WaterEntity[] = [
       pH: 7.8,
       dissolvedOxygen: 8.2,
       turbidity: 4,
-      lastTested: '2024-03-12',
+      lastTested: '2026-03-12',
       status: 'good'
     },
     threats: ['tourism-pressure', 'invasive-species'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-22T09:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-22T09:00:00Z',
   },
 ];
 
@@ -2498,8 +2498,8 @@ export const floodRiskZones: WaterEntity[] = [
     },
     threats: ['encroachment', 'wetland-loss', 'drainage-blockage', 'climate-change'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-26T08:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-26T08:00:00Z',
   },
   {
     id: 'flood-wular-buffer',
@@ -2528,8 +2528,8 @@ export const floodRiskZones: WaterEntity[] = [
     },
     threats: ['siltation', 'encroachment', 'loss-of-buffer-capacity'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-25T10:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-25T10:00:00Z',
   },
   {
     id: 'flood-lidder-flash',
@@ -2558,8 +2558,8 @@ export const floodRiskZones: WaterEntity[] = [
     },
     threats: ['glacial-melt', 'cloudbursts', 'encroachment', 'deforestation'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-08T00:00:00Z',
-    updatedAt: '2024-03-19T11:00:00Z',
+    createdAt: '2026-01-08T00:00:00Z',
+    updatedAt: '2026-03-19T11:00:00Z',
   },
   {
     id: 'flood-sind-riverine',
@@ -2588,8 +2588,8 @@ export const floodRiskZones: WaterEntity[] = [
     },
     threats: ['sedimentation', 'encroachment', 'deforestation', 'climate-change'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-21T09:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-21T09:00:00Z',
   },
   {
     id: 'flood-kishanganga-gurez',
@@ -2618,8 +2618,8 @@ export const floodRiskZones: WaterEntity[] = [
     },
     threats: ['glacial-melt', 'landslides', 'infrastructure-damage'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-20T14:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-20T14:00:00Z',
   },
   {
     id: 'flood-waterlogging-sopore',
@@ -2648,8 +2648,8 @@ export const floodRiskZones: WaterEntity[] = [
     },
     threats: ['poor-drainage', 'high-water-table', 'siltation'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-18T16:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-18T16:00:00Z',
   },
 ];
 
@@ -2682,8 +2682,8 @@ export const restorationSites: WaterEntity[] = [
     },
     threats: ['continued-pollution', 'encroachment', 'funding-gaps'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-01T00:00:00Z',
-    updatedAt: '2024-03-26T07:00:00Z',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-03-26T07:00:00Z',
   },
   {
     id: 'restore-wular-siltation',
@@ -2709,8 +2709,8 @@ export const restorationSites: WaterEntity[] = [
     },
     threats: ['continued-siltation', 'invasive-species', 'catchment-degradation'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-05T00:00:00Z',
-    updatedAt: '2024-03-25T10:00:00Z',
+    createdAt: '2026-01-05T00:00:00Z',
+    updatedAt: '2026-03-25T10:00:00Z',
   },
   {
     id: 'restore-hokersar-wetland',
@@ -2736,8 +2736,8 @@ export const restorationSites: WaterEntity[] = [
     },
     threats: ['eutrophication', 'encroachment', 'agricultural-runoff'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-08T00:00:00Z',
-    updatedAt: '2024-03-18T15:00:00Z',
+    createdAt: '2026-01-08T00:00:00Z',
+    updatedAt: '2026-03-18T15:00:00Z',
   },
   {
     id: 'restore-kokernag-spring',
@@ -2763,8 +2763,8 @@ export const restorationSites: WaterEntity[] = [
     },
     threats: ['tourism-pressure', 'climate-change', 'pollution'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-10T00:00:00Z',
-    updatedAt: '2024-03-22T10:00:00Z',
+    createdAt: '2026-01-10T00:00:00Z',
+    updatedAt: '2026-03-22T10:00:00Z',
   },
   {
     id: 'restore-jhelum-riverbank',
@@ -2790,8 +2790,8 @@ export const restorationSites: WaterEntity[] = [
     },
     threats: ['continued-encroachment', 'pollution', 'funding-gaps'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-12T00:00:00Z',
-    updatedAt: '2024-03-25T08:00:00Z',
+    createdAt: '2026-01-12T00:00:00Z',
+    updatedAt: '2026-03-25T08:00:00Z',
   },
   {
     id: 'restore-sind-catchment',
@@ -2817,8 +2817,8 @@ export const restorationSites: WaterEntity[] = [
     },
     threats: ['grazing-pressure', 'deforestation', 'climate-change'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-15T00:00:00Z',
-    updatedAt: '2024-03-21T09:00:00Z',
+    createdAt: '2026-01-15T00:00:00Z',
+    updatedAt: '2026-03-21T09:00:00Z',
   },
   {
     id: 'restore-achabal-spring',
@@ -2845,8 +2845,8 @@ export const restorationSites: WaterEntity[] = [
     },
     threats: ['tourism-pressure', 'maintenance-needs'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-18T00:00:00Z',
-    updatedAt: '2024-03-20T14:00:00Z',
+    createdAt: '2026-01-18T00:00:00Z',
+    updatedAt: '2026-03-20T14:00:00Z',
   },
   {
     id: 'restore-manasbal-shoreline',
@@ -2872,8 +2872,8 @@ export const restorationSites: WaterEntity[] = [
     },
     threats: ['tourism-pressure', 'wave-erosion'],
     verificationStatus: 'verified',
-    createdAt: '2024-01-20T00:00:00Z',
-    updatedAt: '2024-03-22T09:00:00Z',
+    createdAt: '2026-01-20T00:00:00Z',
+    updatedAt: '2026-03-22T09:00:00Z',
   },
 ];
 

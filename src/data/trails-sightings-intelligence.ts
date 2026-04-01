@@ -165,7 +165,7 @@ const trailConditionReports: TrailConditionReport[] = [
     id: 'tcr-001',
     trailSlug: 'dachigam-hangul-trail',
     reportedBy: 'field-team-1',
-    reportedDate: '2024-03-15',
+    reportedDate: '2026-03-15',
     condition: {
       overall: 'good',
       surface: 'dry',
@@ -176,7 +176,7 @@ const trailConditionReports: TrailConditionReport[] = [
       { type: 'steep', severity: 'moderate', location: 'Km 2.5', description: 'Steep ascent with loose rocks' },
     ],
     photos: [
-      { url: '/photos/trail-condition-1.jpg', caption: 'Trail condition at Km 2', timestamp: '2024-03-15' },
+      { url: '/photos/trail-condition-1.jpg', caption: 'Trail condition at Km 2', timestamp: '2026-03-15' },
     ],
     maintenance: {
       needed: true,
@@ -185,13 +185,13 @@ const trailConditionReports: TrailConditionReport[] = [
     },
     verified: true,
     verifiedBy: 'ranger-srinagar',
-    verificationDate: '2024-03-16',
+    verificationDate: '2026-03-16',
   },
   {
     id: 'tcr-002',
     trailSlug: 'hokersar-wetland-boardwalk',
     reportedBy: 'expert-ornithologist',
-    reportedDate: '2024-03-18',
+    reportedDate: '2026-03-18',
     condition: {
       overall: 'excellent',
       surface: 'dry',
@@ -211,7 +211,7 @@ const trailConditionReports: TrailConditionReport[] = [
     id: 'tcr-003',
     trailSlug: 'kolahoi-glacier-expedition',
     reportedBy: 'guide-kashmir',
-    reportedDate: '2024-03-10',
+    reportedDate: '2026-03-10',
     condition: {
       overall: 'hazardous',
       surface: 'snow-covered',
@@ -231,7 +231,7 @@ const trailConditionReports: TrailConditionReport[] = [
     },
     verified: true,
     verifiedBy: 'mountain-guide-association',
-    verificationDate: '2024-03-11',
+    verificationDate: '2026-03-11',
   },
 ];
 
@@ -280,7 +280,7 @@ const observerProfiles: ObserverProfile[] = [
       districtsVisited: 12,
       trailsVisited: 28,
       contributionStreak: 45,
-      lastActive: '2024-03-20',
+      lastActive: '2026-03-20',
     },
     expertise: {
       taxonomicGroups: ['birds', 'mammals'],
@@ -305,7 +305,7 @@ const observerProfiles: ObserverProfile[] = [
       districtsVisited: 8,
       trailsVisited: 22,
       contributionStreak: 28,
-      lastActive: '2024-03-19',
+      lastActive: '2026-03-19',
     },
     expertise: {
       taxonomicGroups: ['plants', 'medicinal-plants'],
@@ -330,7 +330,7 @@ const observerProfiles: ObserverProfile[] = [
       districtsVisited: 4,
       trailsVisited: 12,
       contributionStreak: 12,
-      lastActive: '2024-03-18',
+      lastActive: '2026-03-18',
     },
     expertise: {
       taxonomicGroups: ['birds'],
@@ -381,11 +381,11 @@ export function calculateObserverLevel(sightings: number): ObserverLevel {
 const anomalyRecords: AnomalyRecord[] = [
   {
     id: 'anomaly-001',
-    sightingSlug: 'snow-leopard-kishtwar-2024',
+    sightingSlug: 'snow-leopard-kishtwar-2026',
     anomalyType: 'critically-endangered',
     speciesName: 'Snow Leopard',
     district: 'kishtwar',
-    observationDate: '2024-03-05',
+    observationDate: '2026-03-05',
     anomalyDetails: {
       expectedRange: 'High altitude zones above 3000m',
       observedLocation: 'Kishtwar National Park, 2800m',
@@ -393,7 +393,7 @@ const anomalyRecords: AnomalyRecord[] = [
     },
     expertReview: {
       reviewedBy: 'Dr. Javaid Iqbal',
-      reviewDate: '2024-03-06',
+      reviewDate: '2026-03-06',
       assessment: 'confirmed',
       notes: 'Camera trap confirmation. First record in this sector in 5 years.',
     },
@@ -402,11 +402,11 @@ const anomalyRecords: AnomalyRecord[] = [
   },
   {
     id: 'anomaly-002',
-    sightingSlug: 'kashmir-flycatcher-early-2024',
+    sightingSlug: 'kashmir-flycatcher-early-2026',
     anomalyType: 'phenology-anomaly',
     speciesName: 'Kashmir Flycatcher',
     district: 'anantnag',
-    observationDate: '2024-03-01',
+    observationDate: '2026-03-01',
     anomalyDetails: {
       expectedRange: 'Typical arrival: mid-April',
       observedLocation: 'Overa-Aru Wildlife Sanctuary',
@@ -415,7 +415,7 @@ const anomalyRecords: AnomalyRecord[] = [
     },
     expertReview: {
       reviewedBy: 'Dr. Javaid Iqbal',
-      reviewDate: '2024-03-02',
+      reviewDate: '2026-03-02',
       assessment: 'confirmed',
       notes: 'Earliest arrival on record. 45 days earlier than historical average. Potential climate indicator.',
     },
@@ -424,11 +424,11 @@ const anomalyRecords: AnomalyRecord[] = [
   },
   {
     id: 'anomaly-003',
-    sightingSlug: 'hangul-budgam-2024',
+    sightingSlug: 'hangul-budgam-2026',
     anomalyType: 'first-district',
     speciesName: 'Hangul (Kashmir Stag)',
     district: 'budgam',
-    observationDate: '2024-02-28',
+    observationDate: '2026-02-28',
     anomalyDetails: {
       expectedRange: 'Srinagar, Ganderbal, Anantnag only',
       observedLocation: 'Budgam district, forest zone',
@@ -437,7 +437,7 @@ const anomalyRecords: AnomalyRecord[] = [
     },
     expertReview: {
       reviewedBy: 'Wildlife Department',
-      reviewDate: '2024-03-01',
+      reviewDate: '2026-03-01',
       assessment: 'questionable',
       notes: 'Requires additional verification. Possible dispersal from Dachigam population.',
     },
@@ -529,7 +529,7 @@ const fieldNotes: FieldNote[] = [
       lng: 75.0833,
       elevation: 2400,
     },
-    timestamp: '2024-03-10T08:30:00Z',
+    timestamp: '2026-03-10T08:30:00Z',
     visibility: 'research-only',
   },
   {
@@ -564,7 +564,7 @@ const fieldNotes: FieldNote[] = [
       lng: 74.8167,
       elevation: 1585,
     },
-    timestamp: '2024-03-15T07:30:00Z',
+    timestamp: '2026-03-15T07:30:00Z',
     visibility: 'public',
   },
 ];

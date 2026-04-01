@@ -10,11 +10,19 @@ import { Bell, AlertTriangle, Clock, Calendar, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
+// Current date for fresh content
+const now = new Date();
+const formatDate = (offsetDays: number, hour: string) => {
+  const date = new Date(now);
+  date.setDate(date.getDate() + offsetDays);
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')} ${hour}`;
+};
+
 const alerts = [
-  { id: 'a1', type: 'Flood Advisory', location: 'Jhelum Basin', severity: 'moderate' as const, issued: '2024-03-28 10:00', expires: '2024-03-29 18:00', status: 'active' as const },
-  { id: 'a2', type: 'Landslide Warning', location: 'Z-Morh Corridor', severity: 'high' as const, issued: '2024-03-28 08:30', expires: '2024-03-28 20:00', status: 'active' as const },
-  { id: 'a3', type: 'Heatwave Alert', location: 'Srinagar Valley', severity: 'moderate' as const, issued: '2024-03-27 14:00', expires: '2024-03-28 18:00', status: 'monitoring' as const },
-  { id: 'a4', type: 'Avalanche Warning', location: 'Zoji La Pass', severity: 'high' as const, issued: '2024-03-26 06:00', expires: '2024-03-28 06:00', status: 'expired' as const },
+  { id: 'a1', type: 'Flood Advisory', location: 'Jhelum Basin', severity: 'moderate' as const, issued: formatDate(0, '10:00'), expires: formatDate(1, '18:00'), status: 'active' as const },
+  { id: 'a2', type: 'Landslide Warning', location: 'Z-Morh Corridor', severity: 'high' as const, issued: formatDate(-1, '08:30'), expires: formatDate(0, '20:00'), status: 'active' as const },
+  { id: 'a3', type: 'Heatwave Alert', location: 'Srinagar Valley', severity: 'moderate' as const, issued: formatDate(-2, '14:00'), expires: formatDate(-1, '18:00'), status: 'monitoring' as const },
+  { id: 'a4', type: 'Avalanche Warning', location: 'Zoji La Pass', severity: 'high' as const, issued: formatDate(-5, '06:00'), expires: formatDate(-3, '06:00'), status: 'expired' as const },
 ];
 
 export default function AlertsPage() {

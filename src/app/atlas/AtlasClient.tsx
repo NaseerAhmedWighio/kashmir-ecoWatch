@@ -170,7 +170,7 @@ export default function AtlasClient() {
       />
 
       {/* Map container - Full screen */}
-      <div className={`h-[calc(100vh-64px)] w-full ${layerRailOpen ? 'ml-80' : ''} transition-all duration-300`}>
+      <div className={`h-[calc(100vh-64px)] w-full transition-all duration-300 ${layerRailOpen ? 'md:ml-80' : ''}`}>
         <AtlasMap onMapReady={setMapInstance}>
           {/* GIS Layers */}
           <DistrictLayer
@@ -211,7 +211,7 @@ export default function AtlasClient() {
           />
 
           {/* Map Controls - Must be inside MapContainer */}
-          <MapControls />
+          <MapControls onToggleLayers={() => setLayerRailOpen(!layerRailOpen)} />
           <CoordinateDisplay />
           <ScaleBar />
         </AtlasMap>
@@ -220,8 +220,8 @@ export default function AtlasClient() {
       {/* Floating Chips */}
       <FloatingChips chips={chips} position="bottom-left" />
 
-      {/* Legend Card */}
-      <div className="fixed bottom-20 right-20 z-[350]">
+      {/* Legend Card - Higher z-index on large screens */}
+      <div className="fixed bottom-20 right-4 md:bottom-20 md:right-20 z-[350] md:z-[500]">
         <LegendCard items={legendItems} visible={showLegend} />
       </div>
 

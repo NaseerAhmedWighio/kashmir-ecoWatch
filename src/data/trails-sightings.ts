@@ -162,7 +162,8 @@ export interface SightingIntelligence {
   speciesName: string;
   speciesSlug: string;
   taxonomicGroup: TaxonomicGroup;
-  
+  category: 'bird-sightings' | 'wildlife-sightings' | 'plant-phenology-sightings' | 'aquatic-wetland-sightings';
+
   // Geographic Context
   district: KashmirDistrict;
   location: string;
@@ -331,7 +332,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 650, unit: 'meters' },
     routeCondition: {
       status: 'good',
-      lastUpdated: '2024-03-20',
+      lastUpdated: '2026-03-20',
       notes: 'Well-maintained trail with some steep sections'
     },
     observerActivity: {
@@ -343,7 +344,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Premier ecological trail through Dachigam National Park, offering opportunities to observe the endangered Hangul (Kashmir Stag) in its natural habitat. This flagship trail showcases temperate forest ecosystems and provides interpretive signage about conservation efforts.',
     features: ['Hangul Habitat', 'Interpretive Trail', 'Watchtowers', 'Photography Points', 'Forest Walk'],
     imageUrl: '/images/trails/dachigam-hangul-trail.jpg',
-    lastVerified: '2024-03-20'
+    lastVerified: '2026-03-20'
   },
   
   {
@@ -378,7 +379,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 1200, unit: 'meters' },
     routeCondition: {
       status: 'fair',
-      lastUpdated: '2024-03-18',
+      lastUpdated: '2026-03-18',
       notes: 'Some sections require scrambling; alpine meadows accessible only in summer',
       hazards: ['Steep sections', 'Loose rocks', 'Weather exposure']
     },
@@ -391,7 +392,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Multi-day wildlife circuit through Overa-Aru Wildlife Sanctuary, traversing diverse habitats from dense forests to alpine meadows. Excellent for observing Hangul, Musk Deer, and rare pheasants like the Western Tragopan.',
     features: ['Multi-day Trek', 'Wildlife Corridors', 'Alpine Meadows', 'Forest Camps', 'Rare Species'],
     imageUrl: '/images/trails/overa-aru-circuit.jpg',
-    lastVerified: '2024-03-18'
+    lastVerified: '2026-03-18'
   },
 
   // WETLAND TRAILS
@@ -426,7 +427,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 5, unit: 'meters' },
     routeCondition: {
       status: 'excellent',
-      lastUpdated: '2024-03-22',
+      lastUpdated: '2026-03-22',
       notes: 'Well-maintained boardwalk with viewing hides'
     },
     observerActivity: {
@@ -438,7 +439,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Accessible boardwalk trail through Hokersar Wetland, a Ramsar site and critical habitat for migratory waterbirds. Best visited during winter months (October-March) when migratory populations peak.',
     features: ['Boardwalk', 'Bird Hides', 'Interpretive Center', 'Photography Blinds', 'Wheelchair Accessible'],
     imageUrl: '/images/trails/hokersar-boardwalk.jpg',
-    lastVerified: '2024-03-22'
+    lastVerified: '2026-03-22'
   },
 
   {
@@ -473,7 +474,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 10, unit: 'meters' },
     routeCondition: {
       status: 'good',
-      lastUpdated: '2024-03-21',
+      lastUpdated: '2026-03-21',
       notes: 'Earthen trail with some muddy sections'
     },
     observerActivity: {
@@ -485,7 +486,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Specialized birding trail through Shallabugh Wetland, famous for wintering Sarus Cranes. Access is restricted to guided tours to minimize disturbance to these magnificent birds.',
     features: ['Crane Viewing', 'Guided Tours', 'Wetland Ecology', 'Photography Opportunities'],
     imageUrl: '/images/trails/shallabugh-crane-trail.jpg',
-    lastVerified: '2024-03-21'
+    lastVerified: '2026-03-21'
   },
 
   // BIRDING TRAILS
@@ -519,7 +520,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 120, unit: 'meters' },
     routeCondition: {
       status: 'good',
-      lastUpdated: '2024-03-19',
+      lastUpdated: '2026-03-19',
       notes: 'Lakeside path with some uneven sections'
     },
     observerActivity: {
@@ -531,7 +532,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Comprehensive birding circuit around Manasbal Lake, known as the "Birdwatcher\'s Paradise" of Kashmir. Excellent for both resident and migratory species, with over 200 bird species recorded.',
     features: ['Lake Circuit', 'Bird Hides', 'Photography Points', 'Boat Access', 'Interpretive Signage'],
     imageUrl: '/images/trails/manasbal-birding.jpg',
-    lastVerified: '2024-03-19'
+    lastVerified: '2026-03-19'
   },
 
   // SEASONAL BLOOM TRAILS
@@ -566,7 +567,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 1400, unit: 'meters' },
     routeCondition: {
       status: 'fair',
-      lastUpdated: '2024-03-15',
+      lastUpdated: '2026-03-15',
       notes: 'High-altitude trek; weather-dependent access',
       hazards: ['Altitude sickness', 'Weather exposure', 'Stream crossings']
     },
@@ -579,7 +580,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Spectacular high-altitude bloom trek to Tarsar and Marsar alpine lakes. Best visited June-August when alpine meadows are carpeted with wildflowers including primulas, gentians, and rare endemic species.',
     features: ['Alpine Lakes', 'Wildflower Meadows', 'High-Altitude Trek', 'Camping Sites', 'Glacier Views'],
     imageUrl: '/images/trails/tarsar-marsar-bloom.jpg',
-    lastVerified: '2024-03-15'
+    lastVerified: '2026-03-15'
   },
 
   // HIGH-ALTITUDE TRAILS
@@ -614,7 +615,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 2425, unit: 'meters' },
     routeCondition: {
       status: 'good',
-      lastUpdated: '2024-03-10',
+      lastUpdated: '2026-03-10',
       notes: 'Glacier conditions variable; crampons and ice axe required',
       hazards: ['Crevasses', 'Avalanche risk', 'Altitude sickness', 'Extreme weather']
     },
@@ -627,7 +628,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Technical high-altitude expedition to Kolahoi Glacier, the "Goddess of Light" glacier feeding the Lidder River. This challenging trek requires mountaineering experience and proper equipment.',
     features: ['Glacier Trek', 'Technical Climbing', 'Base Camp', 'High-Altitude Ecology', 'Expedition Route'],
     imageUrl: '/images/trails/kolahoi-glacier.jpg',
-    lastVerified: '2024-03-10'
+    lastVerified: '2026-03-10'
   },
 
   // FOREST & MEADOW TRAILS
@@ -660,7 +661,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 250, unit: 'meters' },
     routeCondition: {
       status: 'excellent',
-      lastUpdated: '2024-03-20',
+      lastUpdated: '2026-03-20',
       notes: 'Well-maintained path; family-friendly'
     },
     observerActivity: {
@@ -672,7 +673,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Scenic valley walk through lush alpine meadows surrounded by snow-capped peaks. Popular filming location and family-friendly destination with stunning views of the Lidder Valley.',
     features: ['Alpine Meadows', 'Valley Views', 'Photography', 'Family-Friendly', 'Picnic Areas'],
     imageUrl: '/images/trails/betaab-valley.jpg',
-    lastVerified: '2024-03-20'
+    lastVerified: '2026-03-20'
   },
 
   // SENSITIVE TRAILS
@@ -708,7 +709,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     elevationGain: { value: 900, unit: 'meters' },
     routeCondition: {
       status: 'fair',
-      lastUpdated: '2024-03-12',
+      lastUpdated: '2026-03-12',
       notes: 'Rugged terrain; experienced hikers only',
       hazards: ['Steep slopes', 'Loose rocks', 'Weather exposure']
     },
@@ -721,7 +722,7 @@ export const trailIntelligenceData: TrailIntelligence[] = [
     description: 'Highly restricted sanctuary trail for observing the magnificent Markhor (world\'s largest wild goat) in its natural habitat. Access is strictly controlled to protect this vulnerable species.',
     features: ['Markhor Habitat', 'Restricted Access', 'Expert Guide Required', 'Conservation Focus'],
     imageUrl: '/images/trails/hirpora-markhor.jpg',
-    lastVerified: '2024-03-12'
+    lastVerified: '2026-03-12'
   },
 ];
 
@@ -737,15 +738,16 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Hangul (Kashmir Stag)',
     speciesSlug: 'hangul',
     taxonomicGroup: 'mammals',
+    category: 'wildlife-sightings',
     district: 'Srinagar',
     location: 'Dachigam National Park - Upper Region',
     habitat: 'temperate-forest',
     altitude: { value: 2400, unit: 'meters' },
-    observationDate: '2024-03-26',
+    observationDate: '2026-03-26',
     season: 'spring',
     verificationStatus: 'verified',
     verifiedBy: 'Dr. A. Rashid',
-    verificationDate: '2024-03-27',
+    verificationDate: '2026-03-27',
     isSensitive: true,
     sensitivityReason: 'Critically endangered species - location obfuscated',
     observerType: 'expert',
@@ -765,18 +767,19 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     notes: 'Adult male with impressive antlers; healthy condition',
     isKashmirOnly: true
   },
-  
+
   {
     id: 'snow-leopard-kishtwar-001',
     slug: 'snow-leopard-kishtwar-001',
     speciesName: 'Snow Leopard',
     speciesSlug: 'snow-leopard',
     taxonomicGroup: 'mammals',
+    category: 'wildlife-sightings',
     district: 'Kishtwar',
     location: 'Kishtwar National Park - High Valley',
     habitat: 'high-altitude-desert',
     altitude: { value: 4200, unit: 'meters' },
-    observationDate: '2024-03-24',
+    observationDate: '2026-03-24',
     season: 'spring',
     verificationStatus: 'reviewed',
     verifiedBy: 'Field Team Alpha',
@@ -804,15 +807,16 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Markhor',
     speciesSlug: 'markhor',
     taxonomicGroup: 'mammals',
+    category: 'wildlife-sightings',
     district: 'Kupwara',
     location: 'Hirpora Wildlife Sanctuary',
     habitat: 'rocky-slope',
     altitude: { value: 3200, unit: 'meters' },
-    observationDate: '2024-03-22',
+    observationDate: '2026-03-22',
     season: 'spring',
     verificationStatus: 'verified',
     verifiedBy: 'Wildlife Warden Kupwara',
-    verificationDate: '2024-03-23',
+    verificationDate: '2026-03-23',
     isSensitive: true,
     sensitivityReason: 'Vulnerable species in restricted area',
     observerType: 'field-team',
@@ -838,15 +842,16 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Himalayan Monal',
     speciesSlug: 'himalayan-monals',
     taxonomicGroup: 'birds',
+    category: 'bird-sightings',
     district: 'Anantnag',
     location: 'Overa-Aru Wildlife Sanctuary',
     habitat: 'alpine-meadow',
     altitude: { value: 3100, unit: 'meters' },
-    observationDate: '2024-03-25',
+    observationDate: '2026-03-25',
     season: 'spring',
     verificationStatus: 'verified',
     verifiedBy: 'Bird Conservation Society',
-    verificationDate: '2024-03-26',
+    verificationDate: '2026-03-26',
     isSensitive: false,
     observerType: 'citizen-scientist',
     observerName: 'Citizen Scientist',
@@ -872,15 +877,16 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Western Tragopan',
     speciesSlug: 'western-tragopan',
     taxonomicGroup: 'birds',
+    category: 'bird-sightings',
     district: 'Anantnag',
     location: 'Overa-Aru Wildlife Sanctuary - Oak Forest',
     habitat: 'oak-forest',
     altitude: { value: 2800, unit: 'meters' },
-    observationDate: '2024-03-23',
+    observationDate: '2026-03-23',
     season: 'spring',
     verificationStatus: 'verified',
     verifiedBy: 'Dr. S. Ahmed',
-    verificationDate: '2024-03-24',
+    verificationDate: '2026-03-24',
     isSensitive: true,
     sensitivityReason: 'Vulnerable pheasant - disturbance risk',
     observerType: 'expert',
@@ -906,15 +912,16 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Sarus Crane',
     speciesSlug: 'sarus-crane',
     taxonomicGroup: 'birds',
+    category: 'bird-sightings',
     district: 'Ganderbal',
     location: 'Shallabugh Wetland',
     habitat: 'wetland',
     altitude: { value: 1595, unit: 'meters' },
-    observationDate: '2024-03-20',
+    observationDate: '2026-03-20',
     season: 'spring',
     verificationStatus: 'verified',
     verifiedBy: 'Wetland Management Authority',
-    verificationDate: '2024-03-21',
+    verificationDate: '2026-03-21',
     isSensitive: false,
     observerType: 'field-team',
     observerName: 'Wetland Ranger',
@@ -939,11 +946,12 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Northern Pintail',
     speciesSlug: 'northern-pintail',
     taxonomicGroup: 'birds',
+    category: 'bird-sightings',
     district: 'Srinagar',
     location: 'Hokersar Wetland',
     habitat: 'wetland',
     altitude: { value: 1587, unit: 'meters' },
-    observationDate: '2024-03-21',
+    observationDate: '2026-03-21',
     season: 'spring',
     verificationStatus: 'community',
     isSensitive: false,
@@ -970,15 +978,16 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Atees (Aconitum heterophyllum)',
     speciesSlug: 'aconitum-heterophyllum',
     taxonomicGroup: 'medicinal-plants',
+    category: 'plant-phenology-sightings',
     district: 'Kishtwar',
     location: 'Kishtwar National Park - Alpine Meadow',
     habitat: 'alpine-meadow',
     altitude: { value: 3400, unit: 'meters' },
-    observationDate: '2024-03-18',
+    observationDate: '2026-03-18',
     season: 'spring',
     verificationStatus: 'verified',
     verifiedBy: 'Botanical Survey Team',
-    verificationDate: '2024-03-19',
+    verificationDate: '2026-03-19',
     isSensitive: true,
     sensitivityReason: 'Endangered medicinal plant - overharvesting risk',
     observerType: 'expert',
@@ -1004,11 +1013,12 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Himalayan Black Bear',
     speciesSlug: 'himalayan-black-bear',
     taxonomicGroup: 'mammals',
+    category: 'wildlife-sightings',
     district: 'Anantnag',
     location: 'Forest Area near Kokernag',
     habitat: 'temperate-forest',
     altitude: { value: 2100, unit: 'meters' },
-    observationDate: '2024-03-19',
+    observationDate: '2026-03-19',
     season: 'spring',
     verificationStatus: 'reviewed',
     isSensitive: false,
@@ -1032,11 +1042,12 @@ export const sightingIntelligenceData: SightingIntelligence[] = [
     speciesName: 'Himalayan Musk Deer',
     speciesSlug: 'musk-deer',
     taxonomicGroup: 'mammals',
+    category: 'wildlife-sightings',
     district: 'Kishtwar',
     location: 'High Altitude Forest',
     habitat: 'temperate-forest',
     altitude: { value: 3200, unit: 'meters' },
-    observationDate: '2024-03-17',
+    observationDate: '2026-03-17',
     season: 'spring',
     verificationStatus: 'pending',
     isSensitive: true,
@@ -1098,21 +1109,21 @@ export const sightingAggregations: SightingAggregation[] = [
         species: 'Hangul (Kashmir Stag)',
         location: 'Dachigam National Park',
         district: 'Srinagar',
-        date: '2024-03-26',
+        date: '2026-03-26',
         significance: 'Rare herd sighting with adult male'
       },
       {
         species: 'Snow Leopard',
         location: 'Kishtwar National Park',
         district: 'Kishtwar',
-        date: '2024-03-24',
+        date: '2026-03-24',
         significance: 'Camera trap confirmation in high valley'
       },
       {
         species: 'Markhor',
         location: 'Hirpora Wildlife Sanctuary',
         district: 'Kupwara',
-        date: '2024-03-22',
+        date: '2026-03-22',
         significance: 'Group of 7 males observed'
       }
     ],
@@ -1157,21 +1168,21 @@ export const sightingAggregations: SightingAggregation[] = [
         species: 'Western Tragopan',
         location: 'Overa-Aru Wildlife Sanctuary',
         district: 'Anantnag',
-        date: '2024-03-23',
+        date: '2026-03-23',
         significance: 'Rare male sighting in breeding plumage'
       },
       {
         species: 'Sarus Crane',
         location: 'Shallabugh Wetland',
         district: 'Ganderbal',
-        date: '2024-03-20',
+        date: '2026-03-20',
         significance: 'Courtship dance observed'
       },
       {
         species: 'Kashmir Flycatcher',
         location: 'Dachigam National Park',
         district: 'Srinagar',
-        date: '2024-03-15',
+        date: '2026-03-15',
         significance: 'Endemic species spring arrival'
       }
     ],
@@ -1213,14 +1224,14 @@ export const sightingAggregations: SightingAggregation[] = [
         species: 'Atees (Aconitum)',
         location: 'Kishtwar National Park',
         district: 'Kishtwar',
-        date: '2024-03-18',
+        date: '2026-03-18',
         significance: 'Endangered medicinal plant population monitoring'
       },
       {
         species: 'Alpine Primula',
         location: 'Tarsar-Marsar',
         district: 'Anantnag',
-        date: '2024-03-10',
+        date: '2026-03-10',
         significance: 'Early bloom recorded; climate indicator'
       }
     ],
@@ -1260,14 +1271,14 @@ export const sightingAggregations: SightingAggregation[] = [
         species: 'Brown Trout',
         location: 'Lidder River',
         district: 'Anantnag',
-        date: '2024-03-16',
+        date: '2026-03-16',
         significance: 'Spawning run observed'
       },
       {
         species: 'Wetland Macrophytes',
         location: 'Hokersar Wetland',
         district: 'Srinagar',
-        date: '2024-03-14',
+        date: '2026-03-14',
         significance: 'Aquatic vegetation health assessment'
       }
     ],
@@ -1313,14 +1324,14 @@ export const sightingAggregations: SightingAggregation[] = [
         species: 'Trail Condition Report',
         location: 'Kolahoi Glacier Route',
         district: 'Anantnag',
-        date: '2024-03-25',
+        date: '2026-03-25',
         significance: 'Pre-season condition assessment'
       },
       {
         species: 'Weather Observation',
         location: 'Betaab Valley',
         district: 'Anantnag',
-        date: '2024-03-24',
+        date: '2026-03-24',
         significance: 'Unseasonal snowfall recorded'
       }
     ],

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Layers, Eye, EyeOff, ChevronRight, Filter, MapPin, Mountain, Droplet, TreePine, Shield, AlertTriangle, Footprints, Flower } from 'lucide-react';
+import { Layers, Eye, EyeOff, ChevronRight, Filter, MapPin, Mountain, Droplet, TreePine, Shield, AlertTriangle, Footprints, Flower, X } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -71,19 +71,40 @@ export function LayerRail({
       {isOpen && (
         <>
           {/* Backdrop for mobile */}
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[300] md:hidden"
             onClick={onClose}
           />
 
-          {/* Rail panel */}
+          {/* Rail panel - slides from left on mobile, fixed on desktop */}
           <motion.aside
             initial={{ x: -320 }}
             animate={{ x: 0 }}
             exit={{ x: -320 }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-16 bottom-0 w-80 bg-slate-900/95 backdrop-blur-xl border-r border-white/10 z-[301] overflow-y-auto"
+            className="fixed left-0 top-16 bottom-0 w-80 bg-slate-900/95 backdrop-blur-xl border-r border-white/10 z-[301] md:z-[400] overflow-y-auto"
           >
+            {/* Close button header - slides with panel on mobile */}
+            <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-slate-900/95 backdrop-blur-xl border-b border-white/10 md:hidden">
+              <span className="text-sm font-semibold text-white uppercase tracking-wider">
+                Map Layers
+              </span>
+              <motion.button
+                initial={{ x: 0, opacity: 1 }}
+                exit={{ x: -20, opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                onClick={onClose}
+                className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-white hover:bg-white/10 transition-colors"
+                title="Close layers"
+              >
+                <X className="h-4 w-4" />
+              </motion.button>
+            </div>
+
             <div className="p-4 space-y-4">
               {/* Active Filters */}
               {activeFilters.length > 0 && (
