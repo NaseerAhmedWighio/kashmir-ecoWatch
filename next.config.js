@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Enable Turbopack with empty config (uses defaults)
-  turbopack: {},
+  // Disable Turbopack until GeoJSON support is stable
+  // turbopack configuration handled by webpack below
   webpack: (config) => {
     config.module.rules.push({
       test: /\.geojson$/,
