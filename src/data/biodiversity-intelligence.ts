@@ -1,10 +1,15 @@
 // Biodiversity Intelligence Data Service
 // Habitat systems, district biodiversity, and conservation analytics
 
-import { KashmirDistrict, HabitatType } from './trails-sightings';
+import type { KashmirDistrict, HabitatType } from './trails-sightings';
+import type {
+  HabitatPressureIndex,
+  VulnerabilityTrendPoint,
+  PressureTrend,
+} from '../types/biodiversity';
 
 // ============================================================================
-// HABITAT BIODIVERSITY DATA
+// HABITAT BIODIVERSITY DATA (ENHANCED)
 // ============================================================================
 
 export interface HabitatBiodiversity {
@@ -29,7 +34,10 @@ export interface HabitatBiodiversity {
   protectedAreaOverlap: number;
   ramserSites?: number;
   vulnerabilityScore: 'low' | 'medium' | 'high' | 'critical';
+  pressureIndex: HabitatPressureIndex;
+  vulnerabilityTrend: VulnerabilityTrendPoint[];
   riskDrivers: string[];
+  speciesList: string[];
   relatedProtectedAreas: string[];
   relatedWaterSystems?: string[];
   relatedTrails?: string[];
@@ -59,7 +67,37 @@ export const habitatBiodiversityData: HabitatBiodiversity[] = [
     },
     protectedAreaOverlap: 3420,
     vulnerabilityScore: 'medium',
+    pressureIndex: {
+      habitatSlug: 'forest-biodiversity',
+      overallScore: 58,
+      trend: 'declining',
+      drivers: {
+        habitatFragmentation: 65,
+        loggingPressure: 58,
+        grazingPressure: 52,
+        climateChange: 48,
+        pollution: 23,
+        hydrologicalChange: 34,
+        humanDisturbance: 61,
+      },
+      mitigationActions: [
+        'Forest corridor restoration',
+        'Sustainable logging practices',
+        'Grazing management zones',
+        'Community forest protection',
+      ],
+      lastAssessmentDate: '2023-12-01',
+    },
+    vulnerabilityTrend: [
+      { year: 2018, score: 45, assessment: 'Moderate pressure' },
+      { year: 2019, score: 48, assessment: 'Increasing fragmentation' },
+      { year: 2020, score: 51, assessment: 'Logging pressure up' },
+      { year: 2021, score: 53, assessment: 'Climate impacts visible' },
+      { year: 2022, score: 55, assessment: 'Grazing expansion' },
+      { year: 2023, score: 58, assessment: 'Cumulative pressures' },
+    ],
     riskDrivers: ['Habitat fragmentation', 'Logging pressure', 'Grazing', 'Climate change'],
+    speciesList: ['hangul', 'markhor', 'himalayan-black-bear', 'western-tragopan', 'himalayan-monals'],
     relatedProtectedAreas: ['dachigam-national-park', 'overa-aru-wildlife-sanctuary', 'hirpora-wildlife-sanctuary'],
     relatedTrails: ['dachigam-hangul-trail', 'overa-aru-wildlife-circuit'],
     flagshipSpecies: ['hangul', 'markhor', 'himalayan-black-bear', 'western-tragopan'],
@@ -88,14 +126,44 @@ export const habitatBiodiversityData: HabitatBiodiversity[] = [
     protectedAreaOverlap: 456,
     ramserSites: 3,
     vulnerabilityScore: 'high',
+    pressureIndex: {
+      habitatSlug: 'wetland-biodiversity',
+      overallScore: 76,
+      trend: 'declining',
+      drivers: {
+        habitatFragmentation: 72,
+        loggingPressure: 15,
+        grazingPressure: 34,
+        climateChange: 58,
+        pollution: 82,
+        hydrologicalChange: 85,
+        humanDisturbance: 78,
+      },
+      mitigationActions: [
+        'Wetland restoration',
+        'Pollution control',
+        'Encroachment removal',
+        'Ramsar site management',
+      ],
+      lastAssessmentDate: '2023-12-01',
+    },
+    vulnerabilityTrend: [
+      { year: 2018, score: 65, assessment: 'Moderate-high pressure' },
+      { year: 2019, score: 68, assessment: 'Encroachment increasing' },
+      { year: 2020, score: 70, assessment: 'Pollution levels up' },
+      { year: 2021, score: 72, assessment: 'Eutrophication visible' },
+      { year: 2022, score: 74, assessment: 'Water extraction up' },
+      { year: 2023, score: 76, assessment: 'Critical wetland stress' },
+    ],
     riskDrivers: ['Encroachment', 'Pollution', 'Eutrophication', 'Water extraction', 'Climate change'],
+    speciesList: ['wetland-bird-group', 'sarus-crane'],
     relatedProtectedAreas: ['hokersar-wetland', 'shallabugh-wetland'],
     relatedWaterSystems: ['hokersar', 'shallabugh', 'manasbal-lake'],
     relatedTrails: ['hokersar-wetland-boardwalk', 'shallabugh-crane-sanctuary-trail', 'manasbal-lake-birding-circuit'],
     flagshipSpecies: ['sarus-crane', 'wetland-bird-group'],
     imageUrl: '/images/habitats/wetland-biodiversity.jpg'
   },
-  
+
   {
     id: 'alpine-biodiversity',
     slug: 'alpine-biodiversity',
@@ -103,7 +171,7 @@ export const habitatBiodiversityData: HabitatBiodiversity[] = [
     description: 'High-altitude meadows, cryosphere, and alpine ecosystems supporting specialized flora and fauna adapted to extreme conditions.',
     areaKm2: 4567,
     percentOfKashmir: 20.5,
-    districts: ['Kishtwar', 'Doda', 'Anantnag', 'Kupwara'] as KashmirDistrict[],
+    districts: ['Kishtwar', 'Doda', 'Anantnag', 'Kupwara'],
     speciesCount: 678,
     endemicSpecies: 45,
     threatenedSpecies: 18,
@@ -116,14 +184,44 @@ export const habitatBiodiversityData: HabitatBiodiversity[] = [
       medicinalPlants: 51
     },
     protectedAreaOverlap: 2340,
-    vulnerabilityScore: 'high' as const,
+    vulnerabilityScore: 'high',
+    pressureIndex: {
+      habitatSlug: 'alpine-biodiversity',
+      overallScore: 68,
+      trend: 'declining',
+      drivers: {
+        habitatFragmentation: 45,
+        loggingPressure: 12,
+        grazingPressure: 67,
+        climateChange: 89,
+        pollution: 23,
+        hydrologicalChange: 56,
+        humanDisturbance: 52,
+      },
+      mitigationActions: [
+        'Grazing management',
+        'Climate adaptation',
+        'Tourism regulation',
+        'Alpine meadow protection',
+      ],
+      lastAssessmentDate: '2023-12-01',
+    },
+    vulnerabilityTrend: [
+      { year: 2018, score: 58, assessment: 'Moderate pressure' },
+      { year: 2019, score: 60, assessment: 'Glacial retreat accelerating' },
+      { year: 2020, score: 62, assessment: 'Tourism pressure up' },
+      { year: 2021, score: 64, assessment: 'Grazing expansion' },
+      { year: 2022, score: 66, assessment: 'Climate impacts severe' },
+      { year: 2023, score: 68, assessment: 'Alpine ecosystem stress' },
+    ],
     riskDrivers: ['Climate change', 'Glacial retreat', 'Overgrazing', 'Tourism pressure'],
+    speciesList: ['himalayan-brown-bear', 'snow-leopard', 'alpine-flora-group'],
     relatedProtectedAreas: ['hemis-national-park', 'kishtwar-national-park'],
     relatedTrails: ['kolahoi-glacier-expedition', 'tarsar-marsar-bloom-trek'],
     flagshipSpecies: ['himalayan-brown-bear', 'snow-leopard', 'alpine-flora-group'],
     imageUrl: '/images/habitats/alpine-biodiversity.jpg'
   },
-  
+
   {
     id: 'river-stream-biodiversity',
     slug: 'river-stream-biodiversity',
@@ -131,7 +229,7 @@ export const habitatBiodiversityData: HabitatBiodiversity[] = [
     description: 'Freshwater ecosystems including Jhelum, Indus tributaries, and cold-water streams supporting aquatic biodiversity.',
     areaKm2: 892,
     percentOfKashmir: 4.0,
-    districts: ['Srinagar', 'Anantnag', 'Baramulla', 'Kupwara', 'Kishtwar'] as KashmirDistrict[],
+    districts: ['Srinagar', 'Anantnag', 'Baramulla', 'Kupwara', 'Kishtwar'],
     speciesCount: 456,
     endemicSpecies: 12,
     threatenedSpecies: 15,
@@ -144,15 +242,45 @@ export const habitatBiodiversityData: HabitatBiodiversity[] = [
       medicinalPlants: 8
     },
     protectedAreaOverlap: 234,
-    vulnerabilityScore: 'medium' as const,
+    vulnerabilityScore: 'medium',
+    pressureIndex: {
+      habitatSlug: 'river-stream-biodiversity',
+      overallScore: 54,
+      trend: 'stable',
+      drivers: {
+        habitatFragmentation: 48,
+        loggingPressure: 23,
+        grazingPressure: 45,
+        climateChange: 52,
+        pollution: 67,
+        hydrologicalChange: 72,
+        humanDisturbance: 48,
+      },
+      mitigationActions: [
+        'Riparian buffer restoration',
+        'Pollution reduction',
+        'Sustainable fishing',
+        'Flow regime management',
+      ],
+      lastAssessmentDate: '2023-12-01',
+    },
+    vulnerabilityTrend: [
+      { year: 2018, score: 52, assessment: 'Moderate pressure' },
+      { year: 2019, score: 52, assessment: 'Stable conditions' },
+      { year: 2020, score: 53, assessment: 'Pollution concerns' },
+      { year: 2021, score: 53, assessment: 'Flow alterations' },
+      { year: 2022, score: 54, assessment: 'Climate impacts' },
+      { year: 2023, score: 54, assessment: 'Stable but pressured' },
+    ],
     riskDrivers: ['Water pollution', 'Overfishing', 'Hydrological alteration', 'Climate change'],
+    speciesList: ['snow-trout-group', 'trout-systems'],
     relatedProtectedAreas: [],
     relatedWaterSystems: ['jhelum-river', 'indus-river', 'lidder-river'],
     relatedTrails: ['betaab-valley-meadow-walk'],
     flagshipSpecies: ['snow-trout-group', 'trout-systems'],
     imageUrl: '/images/habitats/river-biodiversity.jpg'
   },
-  
+
   {
     id: 'meadow-grassland-biodiversity',
     slug: 'meadow-grassland-biodiversity',
@@ -174,7 +302,37 @@ export const habitatBiodiversityData: HabitatBiodiversity[] = [
     },
     protectedAreaOverlap: 890,
     vulnerabilityScore: 'medium',
+    pressureIndex: {
+      habitatSlug: 'meadow-grassland-biodiversity',
+      overallScore: 52,
+      trend: 'stable',
+      drivers: {
+        habitatFragmentation: 48,
+        loggingPressure: 18,
+        grazingPressure: 78,
+        climateChange: 45,
+        pollution: 28,
+        hydrologicalChange: 34,
+        humanDisturbance: 56,
+      },
+      mitigationActions: [
+        'Grazing rotation',
+        'Meadow restoration',
+        'Invasive species control',
+        'Pasture management',
+      ],
+      lastAssessmentDate: '2023-12-01',
+    },
+    vulnerabilityTrend: [
+      { year: 2018, score: 48, assessment: 'Moderate pressure' },
+      { year: 2019, score: 49, assessment: 'Grazing pressure stable' },
+      { year: 2020, score: 50, assessment: 'Agricultural conversion' },
+      { year: 2021, score: 51, assessment: 'Invasive species' },
+      { year: 2022, score: 51, assessment: 'Climate variability' },
+      { year: 2023, score: 52, assessment: 'Stable management needed' },
+    ],
     riskDrivers: ['Grazing pressure', 'Agricultural conversion', 'Climate change', 'Invasive species'],
+    speciesList: ['hangul', 'himalayan-monals'],
     relatedProtectedAreas: ['dachigam-national-park', 'overa-aru-wildlife-sanctuary'],
     relatedTrails: ['betaab-valley-meadow-walk'],
     flagshipSpecies: ['hangul', 'himalayan-monals'],
@@ -183,11 +341,15 @@ export const habitatBiodiversityData: HabitatBiodiversity[] = [
 ];
 
 // ============================================================================
-// DISTRICT BIODIVERSITY DATA
+// DISTRICT BIODIVERSITY DATA (ENHANCED)
 // ============================================================================
 
+export type ConflictLevel = 'low' | 'medium' | 'high' | 'critical';
+
+export type RiskLevel = 'low' | 'medium' | 'high' | 'critical';
+
 export interface DistrictBiodiversity {
-  district: KashmirDistrict;
+  district: string;
   totalSpecies: number;
   mammals: number;
   birds: number;
@@ -197,16 +359,21 @@ export interface DistrictBiodiversity {
   threatenedSpecies: number;
   endemicSpecies: number;
   migratorySpecies: number;
-  primaryHabitats: HabitatType[];
+  primaryHabitats: string[];
   protectedAreaCoverage: number;
   biodiversityHotspots: string[];
   wetlandBirdConcentration?: number;
   alpineBiodiversityScore?: number;
   medicinalPlantLandscapes?: string[];
-  habitatLossRisk: 'low' | 'medium' | 'high';
-  humanWildlifeConflict: 'low' | 'medium' | 'high';
+  habitatLossRisk: RiskLevel;
+  humanWildlifeConflict: ConflictLevel;
+  speciesList: string[];
+  endemicSpeciesList: string[];
+  threatenedSpeciesList: string[];
   relatedProtectedAreas: string[];
   relatedTrails: string[];
+  monitoringSites?: string[];
+  lastSurveyYear?: number;
 }
 
 export const districtBiodiversityData: DistrictBiodiversity[] = [
@@ -228,8 +395,13 @@ export const districtBiodiversityData: DistrictBiodiversity[] = [
     medicinalPlantLandscapes: ['Dachigam forests'],
     habitatLossRisk: 'medium',
     humanWildlifeConflict: 'medium',
+    speciesList: ['hangul', 'wetland-bird-group', 'himalayan-black-bear'],
+    endemicSpeciesList: ['hangul'],
+    threatenedSpeciesList: ['hangul', 'himalayan-black-bear'],
     relatedProtectedAreas: ['dachigam-national-park', 'hokersar-wetland'],
-    relatedTrails: ['dachigam-hangul-trail', 'hokersar-wetland-boardwalk']
+    relatedTrails: ['dachigam-hangul-trail', 'hokersar-wetland-boardwalk'],
+    monitoringSites: ['Dachigam NP', 'Hokersar WLS'],
+    lastSurveyYear: 2023,
   },
   {
     district: 'Anantnag',
@@ -249,8 +421,13 @@ export const districtBiodiversityData: DistrictBiodiversity[] = [
     medicinalPlantLandscapes: ['Kishtwar highlands', 'Dachigam slopes'],
     habitatLossRisk: 'medium',
     humanWildlifeConflict: 'high',
+    speciesList: ['hangul', 'musk-deer', 'western-tragopan', 'kashmir-flycatcher'],
+    endemicSpeciesList: ['kashmir-flycatcher'],
+    threatenedSpeciesList: ['hangul', 'musk-deer', 'western-tragopan'],
     relatedProtectedAreas: ['overa-aru-wildlife-sanctuary'],
-    relatedTrails: ['overa-aru-wildlife-circuit', 'betaab-valley-meadow-walk', 'tarsar-marsar-bloom-trek']
+    relatedTrails: ['overa-aru-wildlife-circuit', 'betaab-valley-meadow-walk', 'tarsar-marsar-bloom-trek'],
+    monitoringSites: ['Overa-Aru WLS'],
+    lastSurveyYear: 2023,
   },
   {
     district: 'Kishtwar',
@@ -270,8 +447,13 @@ export const districtBiodiversityData: DistrictBiodiversity[] = [
     medicinalPlantLandscapes: ['Kishtwar highlands', 'Alpine slopes'],
     habitatLossRisk: 'low',
     humanWildlifeConflict: 'medium',
+    speciesList: ['himalayan-brown-bear', 'snow-leopard', 'western-tragopan', 'aconitum-heterophyllum'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['himalayan-brown-bear', 'snow-leopard', 'western-tragopan'],
     relatedProtectedAreas: ['kishtwar-national-park'],
-    relatedTrails: ['kolahoi-glacier-expedition']
+    relatedTrails: ['kolahoi-glacier-expedition'],
+    monitoringSites: ['Kishtwar NP'],
+    lastSurveyYear: 2023,
   },
   {
     district: 'Kupwara',
@@ -291,8 +473,13 @@ export const districtBiodiversityData: DistrictBiodiversity[] = [
     medicinalPlantLandscapes: ['Hirpora slopes'],
     habitatLossRisk: 'medium',
     humanWildlifeConflict: 'high',
+    speciesList: ['markhor', 'serow', 'himalayan-monals'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['markhor', 'serow'],
     relatedProtectedAreas: ['hirpora-wildlife-sanctuary'],
-    relatedTrails: ['hirpora-markhor-sanctuary-trail']
+    relatedTrails: ['hirpora-markhor-sanctuary-trail'],
+    monitoringSites: ['Hirpora WLS'],
+    lastSurveyYear: 2023,
   },
   {
     district: 'Ganderbal',
@@ -311,9 +498,290 @@ export const districtBiodiversityData: DistrictBiodiversity[] = [
     wetlandBirdConcentration: 178,
     habitatLossRisk: 'medium',
     humanWildlifeConflict: 'low',
+    speciesList: ['wetland-bird-group', 'himalayan-monals'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: [],
     relatedProtectedAreas: [],
-    relatedTrails: ['manasbal-lake-birding-circuit']
-  }
+    relatedTrails: ['manasbal-lake-birding-circuit'],
+    monitoringSites: ['Manasbal Lake'],
+    lastSurveyYear: 2023,
+  },
+  {
+    district: 'Kulgam',
+    totalSpecies: 412,
+    mammals: 21,
+    birds: 156,
+    fish: 8,
+    plants: 198,
+    medicinalPlants: 29,
+    threatenedSpecies: 15,
+    endemicSpecies: 7,
+    migratorySpecies: 52,
+    primaryHabitats: ['temperate-forest', 'alpine-meadow', 'riparian'],
+    protectedAreaCoverage: 312,
+    biodiversityHotspots: ['Verinag', 'Dachigam slopes'],
+    alpineBiodiversityScore: 76,
+    medicinalPlantLandscapes: ['Verinag forests'],
+    habitatLossRisk: 'medium',
+    humanWildlifeConflict: 'high',
+    speciesList: ['himalayan-black-bear', 'musk-deer'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['himalayan-black-bear', 'musk-deer'],
+    relatedProtectedAreas: ['overa-aru-wildlife-sanctuary'],
+    relatedTrails: [],
+    monitoringSites: ['Verinag WLS'],
+    lastSurveyYear: 2022,
+  },
+  {
+    district: 'Pulwama',
+    totalSpecies: 378,
+    mammals: 18,
+    birds: 145,
+    fish: 7,
+    plants: 178,
+    medicinalPlants: 30,
+    threatenedSpecies: 12,
+    endemicSpecies: 5,
+    migratorySpecies: 48,
+    primaryHabitats: ['temperate-forest', 'agricultural', 'riparian'],
+    protectedAreaCoverage: 189,
+    biodiversityHotspots: ['Acharabal', 'Lidder Valley'],
+    medicinalPlantLandscapes: ['Acharabal forests'],
+    habitatLossRisk: 'high',
+    humanWildlifeConflict: 'high',
+    speciesList: ['himalayan-black-bear', 'kashmir-flycatcher'],
+    endemicSpeciesList: ['kashmir-flycatcher'],
+    threatenedSpeciesList: ['himalayan-black-bear'],
+    relatedProtectedAreas: [],
+    relatedTrails: [],
+    monitoringSites: [],
+    lastSurveyYear: 2022,
+  },
+  {
+    district: 'Shopian',
+    totalSpecies: 345,
+    mammals: 16,
+    birds: 134,
+    fish: 5,
+    plants: 167,
+    medicinalPlants: 23,
+    threatenedSpecies: 10,
+    endemicSpecies: 4,
+    migratorySpecies: 42,
+    primaryHabitats: ['temperate-forest', 'alpine-meadow', 'agricultural'],
+    protectedAreaCoverage: 156,
+    biodiversityHotspots: ['Kungwattan', 'Shikargah'],
+    alpineBiodiversityScore: 68,
+    habitatLossRisk: 'high',
+    humanWildlifeConflict: 'medium',
+    speciesList: ['himalayan-monals'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: [],
+    relatedProtectedAreas: [],
+    relatedTrails: [],
+    monitoringSites: [],
+    lastSurveyYear: 2022,
+  },
+  {
+    district: 'Budgam',
+    totalSpecies: 423,
+    mammals: 19,
+    birds: 167,
+    fish: 8,
+    plants: 201,
+    medicinalPlants: 28,
+    threatenedSpecies: 14,
+    endemicSpecies: 6,
+    migratorySpecies: 78,
+    primaryHabitats: ['temperate-forest', 'wetland', 'alpine-meadow'],
+    protectedAreaCoverage: 267,
+    biodiversityHotspots: ['Yusmarg', 'Tosamaidan'],
+    wetlandBirdConcentration: 89,
+    alpineBiodiversityScore: 72,
+    habitatLossRisk: 'medium',
+    humanWildlifeConflict: 'medium',
+    speciesList: ['hangul', 'wetland-bird-group'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['hangul'],
+    relatedProtectedAreas: [],
+    relatedTrails: ['yusmarg-meadow-trail'],
+    monitoringSites: ['Yusmarg'],
+    lastSurveyYear: 2023,
+  },
+  {
+    district: 'Baramulla',
+    totalSpecies: 567,
+    mammals: 24,
+    birds: 189,
+    fish: 11,
+    plants: 312,
+    medicinalPlants: 31,
+    threatenedSpecies: 16,
+    endemicSpecies: 9,
+    migratorySpecies: 98,
+    primaryHabitats: ['temperate-forest', 'wetland', 'riparian'],
+    protectedAreaCoverage: 378,
+    biodiversityHotspots: ['Razdan Pass', 'Wular Lake', 'Manasbal'],
+    wetlandBirdConcentration: 156,
+    habitatLossRisk: 'medium',
+    humanWildlifeConflict: 'medium',
+    speciesList: ['markhor', 'wetland-bird-group', 'himalayan-monals'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['markhor'],
+    relatedProtectedAreas: ['hokersar-wetland'],
+    relatedTrails: ['wular-lake-birding-trail'],
+    monitoringSites: ['Wular Lake', 'Manasbal Lake'],
+    lastSurveyYear: 2023,
+  },
+  {
+    district: 'Bandipora',
+    totalSpecies: 389,
+    mammals: 21,
+    birds: 145,
+    fish: 9,
+    plants: 189,
+    medicinalPlants: 25,
+    threatenedSpecies: 13,
+    endemicSpecies: 7,
+    migratorySpecies: 67,
+    primaryHabitats: ['temperate-forest', 'alpine-meadow', 'wetland'],
+    protectedAreaCoverage: 289,
+    biodiversityHotspots: ['Wular North', 'Gurez Valley'],
+    wetlandBirdConcentration: 78,
+    alpineBiodiversityScore: 74,
+    habitatLossRisk: 'medium',
+    humanWildlifeConflict: 'medium',
+    speciesList: ['hangul', 'wetland-bird-group'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['hangul'],
+    relatedProtectedAreas: [],
+    relatedTrails: ['gurez-valley-trail'],
+    monitoringSites: ['Wular Lake'],
+    lastSurveyYear: 2023,
+  },
+  {
+    district: 'Doda',
+    totalSpecies: 512,
+    mammals: 29,
+    birds: 167,
+    fish: 7,
+    plants: 278,
+    medicinalPlants: 31,
+    threatenedSpecies: 21,
+    endemicSpecies: 14,
+    migratorySpecies: 38,
+    primaryHabitats: ['temperate-forest', 'alpine-meadow', 'coniferous-forest'],
+    protectedAreaCoverage: 456,
+    biodiversityHotspots: ['Bhaderwah', 'Seoj Meadow'],
+    alpineBiodiversityScore: 88,
+    medicinalPlantLandscapes: ['Bhaderwah highlands'],
+    habitatLossRisk: 'low',
+    humanWildlifeConflict: 'medium',
+    speciesList: ['himalayan-brown-bear', 'musk-deer', 'snow-leopard'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['himalayan-brown-bear', 'musk-deer', 'snow-leopard'],
+    relatedProtectedAreas: [],
+    relatedTrails: ['bhaderwah-meadow-trek'],
+    monitoringSites: ['Bhaderwah'],
+    lastSurveyYear: 2023,
+  },
+  {
+    district: 'Ramban',
+    totalSpecies: 367,
+    mammals: 18,
+    birds: 123,
+    fish: 6,
+    plants: 198,
+    medicinalPlants: 22,
+    threatenedSpecies: 11,
+    endemicSpecies: 8,
+    migratorySpecies: 34,
+    primaryHabitats: ['temperate-forest', 'coniferous-forest', 'alpine-meadow'],
+    protectedAreaCoverage: 234,
+    biodiversityHotspots: ['Banihal Pass', 'Margan Top'],
+    alpineBiodiversityScore: 79,
+    habitatLossRisk: 'medium',
+    humanWildlifeConflict: 'medium',
+    speciesList: ['himalayan-black-bear', 'himalayan-monals'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['himalayan-black-bear'],
+    relatedProtectedAreas: [],
+    relatedTrails: ['banihal-pass-trek'],
+    monitoringSites: [],
+    lastSurveyYear: 2022,
+  },
+  {
+    district: 'Rajouri',
+    totalSpecies: 445,
+    mammals: 23,
+    birds: 156,
+    fish: 7,
+    plants: 234,
+    medicinalPlants: 25,
+    threatenedSpecies: 14,
+    endemicSpecies: 6,
+    migratorySpecies: 45,
+    primaryHabitats: ['temperate-forest', 'subtropical', 'coniferous-forest'],
+    protectedAreaCoverage: 312,
+    biodiversityHotspots: ['Lachipora', 'Nowshera'],
+    habitatLossRisk: 'medium',
+    humanWildlifeConflict: 'high',
+    speciesList: ['himalayan-black-bear', 'leopard'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['himalayan-black-bear'],
+    relatedProtectedAreas: [],
+    relatedTrails: [],
+    monitoringSites: ['Lachipora WLS'],
+    lastSurveyYear: 2023,
+  },
+  {
+    district: 'Poonch',
+    totalSpecies: 398,
+    mammals: 21,
+    birds: 145,
+    fish: 6,
+    plants: 201,
+    medicinalPlants: 25,
+    threatenedSpecies: 12,
+    endemicSpecies: 5,
+    migratorySpecies: 38,
+    primaryHabitats: ['temperate-forest', 'subtropical', 'alpine-meadow'],
+    protectedAreaCoverage: 278,
+    biodiversityHotspots: ['Loran', 'Mendhar'],
+    habitatLossRisk: 'medium',
+    humanWildlifeConflict: 'high',
+    speciesList: ['himalayan-black-bear', 'ghoral'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['himalayan-black-bear'],
+    relatedProtectedAreas: [],
+    relatedTrails: [],
+    monitoringSites: [],
+    lastSurveyYear: 2022,
+  },
+  {
+    district: 'Kathua',
+    totalSpecies: 423,
+    mammals: 22,
+    birds: 167,
+    fish: 9,
+    plants: 198,
+    medicinalPlants: 27,
+    threatenedSpecies: 13,
+    endemicSpecies: 4,
+    migratorySpecies: 56,
+    primaryHabitats: ['subtropical', 'temperate-forest', 'riparian'],
+    protectedAreaCoverage: 289,
+    biodiversityHotspots: ['Ramnagar', 'Billawar'],
+    habitatLossRisk: 'high',
+    humanWildlifeConflict: 'high',
+    speciesList: ['himalayan-black-bear', 'elephant'],
+    endemicSpeciesList: [],
+    threatenedSpeciesList: ['himalayan-black-bear'],
+    relatedProtectedAreas: [],
+    relatedTrails: [],
+    monitoringSites: ['Ramnagar'],
+    lastSurveyYear: 2023,
+  },
 ];
 
 // ============================================================================

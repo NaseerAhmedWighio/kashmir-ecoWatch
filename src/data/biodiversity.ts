@@ -1,6 +1,13 @@
 // Biodiversity Data Service
 // Comprehensive seed data for all biodiversity pages
 
+import type {
+  EndemismStatus,
+  DataSource,
+  SpeciesDistributionPoint,
+  MigrationWindow,
+} from '../types/biodiversity';
+
 export interface BiodiversitySpecies {
   id: string;
   slug: string;
@@ -24,6 +31,14 @@ export interface BiodiversitySpecies {
   verifiedSightings?: number;
   relatedSpecies?: string[];
   references?: string[];
+  
+  // New intelligence fields (optional for backward compatibility)
+  endemismStatus?: EndemismStatus;
+  dataSource?: DataSource;
+  distributionPoints?: SpeciesDistributionPoint[];
+  migrationWindow?: MigrationWindow;
+  conservationPriority?: number;
+  pressureIndex?: number;
 }
 
 export const mammalsData: BiodiversitySpecies[] = [
@@ -36,6 +51,46 @@ export const mammalsData: BiodiversitySpecies[] = [
     taxonomicGroup: 'mammals',
     category: 'Ungulate',
     conservationStatus: 'CR',
+    endemismStatus: 'kashmir-endemic',
+    conservationPriority: 10,
+    dataSource: {
+      type: 'monitoring',
+      reference: 'Red Data Book on J&K Fauna (IUCN 1996)',
+      year: 1996,
+      verifiedBy: 'J&K Wildlife Department',
+      verificationDate: '2023-09-01',
+      qualityFlag: 'high',
+      confidence: 95,
+    },
+    distributionPoints: [
+      {
+        district: 'Srinagar',
+        habitat: 'temperate-forest',
+        protectedArea: 'dachigam-national-park',
+        elevation: 2400,
+        occurrenceType: 'confirmed',
+        source: { type: 'monitoring', qualityFlag: 'high' },
+        recordedDate: '2023-09-01',
+        observerType: 'field-team',
+      },
+      {
+        district: 'Ganderbal',
+        habitat: 'temperate-forest',
+        protectedArea: 'dachigam-national-park',
+        elevation: 2600,
+        occurrenceType: 'confirmed',
+        source: { type: 'monitoring', qualityFlag: 'high' },
+      },
+      {
+        district: 'Anantnag',
+        habitat: 'temperate-forest',
+        elevation: 2500,
+        occurrenceType: 'probable',
+        source: { type: 'sighting', qualityFlag: 'medium' },
+      },
+    ],
+    migrationWindow: undefined,
+    pressureIndex: 85,
     description: 'The Hangul is the state animal of Jammu and Kashmir and one of the most endangered deer species in the world. Endemic to the Kashmir Valley, it represents a unique evolutionary lineage.',
     ecologicalRole: 'Browser and grazer; maintains forest understory structure; prey species for apex predators',
     habitats: ['Temperate forests', 'Riverine forests', 'Alpine meadows', 'Dense undergrowth'],

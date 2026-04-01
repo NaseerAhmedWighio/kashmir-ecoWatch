@@ -31,6 +31,7 @@ import {
   getConservationAnalytics,
   biodiversityIntelligenceMetrics
 } from '@/data/biodiversity-intelligence';
+import { getEndemicSpecies, getMigratorySpecies, getBiodiversityRiskDashboard } from '@/data/biodiversity-access';
 
 const categoryCards = [
   {
@@ -490,10 +491,249 @@ export default function BiodiversityPage() {
           </div>
         </motion.div>
 
-        <ConservationAnalyticsPanel 
+        <ConservationAnalyticsPanel
           analytics={getConservationAnalytics()}
           onViewAll={() => router.push('/biodiversity/threatened-species')}
         />
+      </div>
+
+      {/* =========================================================
+          DISTRICT INTELLIGENCE BAND
+          ========================================================= */}
+      <div className="container mx-auto px-6 py-16 bg-gradient-to-b from-slate-950 to-blue-950/20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                <Building2 className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">District Intelligence</h2>
+                <p className="text-slate-400">Biodiversity across all 16 districts of Kashmir</p>
+              </div>
+            </div>
+            <Button
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/biodiversity/district/srinagar')}
+            >
+              View All Districts
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+          {getDistrictBiodiversity.all().slice(0, 8).map((district) => (
+            <button
+              key={district.district}
+              onClick={() => router.push(`/biodiversity/district/${district.district.toLowerCase().replace(/\s+/g, '-')}`)}
+              className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all text-left"
+            >
+              <div className="text-2xl font-bold text-white">{district.totalSpecies}</div>
+              <div className="text-xs text-slate-400 truncate">{district.district}</div>
+              <div className="text-xs text-slate-500 mt-1">
+                {district.threatenedSpecies} threatened
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* =========================================================
+          ENDEMIC SPECIES BAND
+          ========================================================= */}
+      <div className="container mx-auto px-6 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                <Leaf className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Endemic Species</h2>
+                <p className="text-slate-400">Unique to Kashmir and the Himalayas</p>
+              </div>
+            </div>
+            <Button
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/biodiversity/endemic-species')}
+            >
+              View Registry
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {getEndemicSpecies().slice(0, 4).map((species) => (
+            <div
+              key={species.id}
+              className="bg-gradient-to-br from-emerald-900/20 to-teal-900/20 border border-emerald-500/20 rounded-lg p-4"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <Badge className="bg-emerald-500/20 text-emerald-300 text-xs">
+                  {species.endemismStatus?.replace(/-/g, ' ')}
+                </Badge>
+                <Badge className={`${
+                  species.conservationStatus === 'CR' ? 'bg-red-500/20 text-red-300' :
+                  species.conservationStatus === 'EN' ? 'bg-orange-500/20 text-orange-300' :
+                  'bg-yellow-500/20 text-yellow-300'
+                } text-xs`}>
+                  {species.conservationStatus}
+                </Badge>
+              </div>
+              <div className="font-semibold text-white">{species.commonName}</div>
+              <div className="text-sm text-slate-400 italic">{species.scientificName}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* =========================================================
+          MIGRATION INTELLIGENCE BAND
+          ========================================================= */}
+      <div className="container mx-auto px-6 py-16 bg-gradient-to-b from-slate-950 to-sky-950/20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
+                <Calendar className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Migration Intelligence</h2>
+                <p className="text-slate-400">Seasonal patterns and flyway data</p>
+              </div>
+            </div>
+            <Button
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/biodiversity/migration-calendar')}
+            >
+              View Calendar
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-12 gap-2">
+          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, idx) => {
+            const count = getMigratorySpecies().filter(s => 
+              s.migrationWindow?.peakPresence?.includes(idx + 1)
+            ).length;
+            const intensity = count > 50 ? 'bg-sky-500' : count > 20 ? 'bg-sky-600' : count > 0 ? 'bg-sky-700' : 'bg-slate-800';
+            
+            return (
+              <div
+                key={month}
+                className={`${intensity} rounded-lg p-3 text-center hover:scale-105 transition-transform`}
+              >
+                <div className="text-xs text-white/70 mb-1">{month}</div>
+                <div className="text-lg font-bold text-white">{count}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* =========================================================
+          RISK DASHBOARD BAND
+          ========================================================= */}
+      <div className="container mx-auto px-6 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Risk Dashboard</h2>
+                <p className="text-slate-400">Threat analysis and conservation priorities</p>
+              </div>
+            </div>
+            <Button
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/biodiversity/risk-dashboard')}
+            >
+              View Dashboard
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="bg-gradient-to-br from-red-900/20 to-orange-900/20 border border-red-500/20 rounded-xl p-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {(() => {
+              const risk = getBiodiversityRiskDashboard();
+              return (
+                <>
+                  <div className="text-center">
+                    <div className={`text-5xl font-bold ${risk.overallRiskScore >= 50 ? 'text-red-400' : 'text-yellow-400'}`}>
+                      {risk.overallRiskScore}
+                    </div>
+                    <div className="text-sm text-slate-400 mt-1">Overall Risk Score</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-slate-400 mb-2">Threatened by Taxon</div>
+                    <div className="space-y-1">
+                      <div className="flex justify-between text-xs">
+                        <span className="text-slate-300">Mammals</span>
+                        <span className="text-white">{risk.riskByTaxon.mammals}</span>
+                      </div>
+                      <div className="flex justify-between text-xs">
+                        <span className="text-slate-300">Birds</span>
+                        <span className="text-white">{risk.riskByTaxon.birds}</span>
+                      </div>
+                      <div className="flex justify-between text-xs">
+                        <span className="text-slate-300">Plants</span>
+                        <span className="text-white">{risk.riskByTaxon.plants}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-slate-400 mb-2">Top Threat</div>
+                    <div className="text-white font-semibold">
+                      {risk.topThreats[0]?.threatType || 'Habitat loss'}
+                    </div>
+                    <div className="text-xs text-slate-500 mt-1">
+                      Affecting {risk.topThreats[0]?.affectedSpeciesCount || 0} species
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Button
+                      onClick={() => router.push('/biodiversity/risk-dashboard')}
+                      className="bg-gradient-to-r from-red-600 to-orange-600"
+                    >
+                      Full Analysis
+                    </Button>
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+        </div>
       </div>
 
       {/* =========================================================
