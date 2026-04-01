@@ -30,6 +30,8 @@ import {
   getProtectedAreaMetrics,
   PROTECTED_AREA_SOURCE_METADATA
 } from '@/data/protected-areas-source';
+import { ProtectedAreaRegistryTable } from '@/components/protected-areas/ProtectedAreaRegistryTable';
+import { getProtectedAreaRegistry, protectedAreaRegistryMetrics } from '@/data/protected-area-registry';
 
 type RegionFilter = 'All' | 'Kashmir' | 'Jammu' | 'Ladakh';
 type CategoryFilter = 'All' | 'NP' | 'WLS' | 'WR' | 'GR' | 'WLR';
@@ -373,6 +375,55 @@ export default function ProtectedAreasRegistryPage() {
             <p className="text-slate-400">Try adjusting your search or filters</p>
           </motion.div>
         )}
+      </div>
+
+      {/* =========================================================
+          MANAGEMENT INTELLIGENCE SECTION
+          ========================================================= */}
+      <div className="container mx-auto px-6 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                  <Activity className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-white">Management Intelligence</h2>
+                  <p className="text-slate-400 text-sm">Protected area management, threats, and access status</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Management Metrics */}
+          <Card className="glass-intense border-white/10 p-6 mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+              {[
+                { label: 'Fully Managed', value: protectedAreaRegistryMetrics.byManagementStatus.fully, color: 'text-emerald-400' },
+                { label: 'Partially', value: protectedAreaRegistryMetrics.byManagementStatus.partially, color: 'text-amber-400' },
+                { label: 'Nominally', value: protectedAreaRegistryMetrics.byManagementStatus.nominally, color: 'text-orange-400' },
+                { label: 'Unmanaged', value: protectedAreaRegistryMetrics.byManagementStatus.unmanaged, color: 'text-red-400' },
+                { label: 'Critical Threats', value: protectedAreaRegistryMetrics.byThreatStatus.critical, color: 'text-red-400' },
+                { label: 'High Threats', value: protectedAreaRegistryMetrics.byThreatStatus.high, color: 'text-orange-400' },
+                { label: 'Severe Encroach.', value: protectedAreaRegistryMetrics.byEncroachmentStatus.severe, color: 'text-red-400' },
+                { label: 'Mod. Encroach.', value: protectedAreaRegistryMetrics.byEncroachmentStatus.moderate, color: 'text-amber-400' },
+              ].map((metric, idx) => (
+                <div key={idx} className="text-center p-3 rounded-lg bg-white/5 border border-white/5">
+                  <div className={`text-2xl font-bold ${metric.color}`}>{metric.value}</div>
+                  <div className="text-xs text-slate-500 uppercase mt-1">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Registry Table */}
+          <ProtectedAreaRegistryTable data={getProtectedAreaRegistry.kashmirOnly()} />
+        </motion.div>
       </div>
 
       {/* Source Information */}
