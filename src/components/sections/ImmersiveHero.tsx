@@ -172,7 +172,7 @@ export function ImmersiveHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
             </span>
-            <span className="text-xs font-medium text-slate-300 tracking-wide uppercase">
+            <span className="text-[0.50rem] md:text-xs font-medium text-slate-300 tracking-wide uppercase">
               Live Environmental Intelligence System Active
             </span>
             <Radar className="w-4 h-4 text-emerald-400" />

@@ -96,22 +96,22 @@ export function Navigation() {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="/" className="relative flex items-center group">
+          <a href="/" className="relative flex items-center group scale-110">
             <img
               src="/kew_LOGO.png"
               alt="Kashmir EcoWatch Logo"
-              className="w-12 h-12 scale-125 object-contain relative z-10"
+              className="ml-3 w-12 h-12 scale-150 object-contain relative z-10"
             />
-            <div
+            {/* <div
               className="hidden md:block absolute top-5 -left-[1.5px] whitespace-nowrap opacity-0 translate-y-0 group-hover:opacity-100 group-hover:translate-y-5 transition-all duration-[2000ms] ease-in-out"
             >
               <h1 className="text-base font-bold text-white tracking-wide">
                 Kashmir EcoWatch
               </h1>
-              {/* <p className="text-xs text-slate-400 tracking-wide">
+              <p className="text-xs text-slate-400 tracking-wide">
                 by Dr. Kumar Foundation USA
-              </p> */}
-            </div>
+              </p>
+            </div> */}
           </a>
 
           {/* Desktop navigation */}

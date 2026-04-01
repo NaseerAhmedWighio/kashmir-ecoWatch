@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { CircleMarker, Popup } from 'react-leaflet';
-import lakesData from '@/data/geojson/lakes.geojson' assert { type: 'json' };
-import wetlandsData from '@/data/geojson/wetlands.geojson' assert { type: 'json' };
+import lakesData from '@/data/geojson/lakes.geojson';
+import wetlandsData from '@/data/geojson/wetlands.geojson';
 
 interface WaterBodyLayerProps {
   visible?: boolean;

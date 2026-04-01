@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { GeoJSON } from 'react-leaflet';
 import * as L from 'leaflet';
-import districtsData from '@/data/geojson/districts.geojson' assert { type: 'json' };
+import districtsData from '@/data/geojson/districts.geojson';
 
 interface DistrictLayerProps {
   visible?: boolean;
