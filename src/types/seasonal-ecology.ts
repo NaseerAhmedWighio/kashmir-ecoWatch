@@ -252,3 +252,208 @@ export interface KashmirDistrictSeason {
   migrationWindows: number;
   highlights: string[];
 }
+
+// ============================================================================
+// ENHANCED SEASONAL INTELLIGENCE TYPES
+// ============================================================================
+
+export type AnomalyClassification = 
+  | 'normal'
+  | 'early'
+  | 'late'
+  | 'significantly-early'
+  | 'significantly-late'
+  | 'extremely-shifted';
+
+export type AlertSeverity = 'low' | 'moderate' | 'high' | 'critical';
+
+export type AlertType = 
+  | 'bloom-risk'
+  | 'frost-risk'
+  | 'migration-peak'
+  | 'access-closure'
+  | 'fire-risk'
+  | 'flood-risk'
+  | 'pollinator-mismatch';
+
+export type CropType = 'almond' | 'apple' | 'cherry' | 'peach' | 'walnut' | 'apricot';
+
+export type AccessStatus = 'open' | 'limited' | 'closed';
+
+export type TourismPotential = 'low' | 'moderate' | 'high' | 'peak';
+
+// Season Comparison
+export interface SeasonComparison {
+  season: SeasonType;
+  districts: DistrictSeasonalSignature[];
+  activeBloomZones: BloomZone[];
+  activeMigrationWindows: MigrationWindow[];
+  activeAgriculturalWindows: AgriculturalWindow[];
+  climateIndicators: ClimateIndicator[];
+  accessWindows: AccessWindow[];
+}
+
+export interface DistrictSeasonalSignature {
+  district: string;
+  season: SeasonType;
+  primaryLandscapes: string[];
+  bloomEvents: BloomEvent[];
+  migrationEvents: MigrationEvent[];
+  agriculturalActivities: AgriculturalActivity[];
+  accessStatus: AccessStatus;
+  tourismPotential: TourismPotential;
+  climateSummary: string;
+  averageTemp: { min: number; max: number };
+  precipitation: string;
+}
+
+export interface BloomEvent {
+  name: string;
+  species?: string;
+  timing: SeasonalTimingWindow;
+  location: string;
+}
+
+export interface MigrationEvent {
+  name: string;
+  species: string;
+  timing: SeasonalTimingWindow;
+  location: string;
+  type: 'arrival' | 'departure' | 'peak';
+}
+
+export interface AgriculturalActivity {
+  activity: string;
+  cropType?: CropType;
+  timing: SeasonalTimingWindow;
+  district: string;
+}
+
+// Phenology Anomaly
+export interface PhenologyAnomaly {
+  recordSlug: string;
+  recordType: string;
+  speciesOrEvent: string;
+  district: string;
+  baselineDate: string;
+  currentYearDate: string;
+  anomalyDays: number;
+  classification: AnomalyClassification;
+  climateCorrelation?: {
+    temperatureAnomaly: number;
+    precipitationAnomaly: number;
+  };
+  ecologicalImpacts: string[];
+  monitoringStatus: 'active' | 'concern' | 'critical';
+}
+
+// Climate-Shift Indicator
+export interface ClimateShiftIndicator {
+  indicator: string;
+  unit: string;
+  baseline: {
+    period: string;
+    value: number;
+  };
+  current: {
+    year: number;
+    value: number;
+  };
+  trend: {
+    changePerDecade: number;
+    direction: 'increasing' | 'decreasing' | 'stable';
+    significance: 'significant' | 'moderate' | 'not-significant';
+  };
+  ecologicalImpacts: string[];
+  visualizationType: 'line' | 'bar' | 'heatmap';
+}
+
+export interface ClimateIndicator {
+  name: string;
+  currentValue: number;
+  unit: string;
+  status: 'normal' | 'above-normal' | 'below-normal' | 'extreme';
+  trend: 'increasing' | 'decreasing' | 'stable';
+}
+
+// Agricultural Window
+export interface AgriculturalWindow {
+  slug: string;
+  cropType: CropType;
+  district: string;
+  phenologicalStages: {
+    budBurst: SeasonalTimingWindow;
+    bloom: SeasonalTimingWindow;
+    fruitSet: SeasonalTimingWindow;
+    fruitDevelopment: SeasonalTimingWindow;
+    harvest: SeasonalTimingWindow;
+  };
+  climateRequirements: {
+    chillingHours: number;
+    growingDegreeDays: number;
+    frostRisk: 'low' | 'moderate' | 'high';
+  };
+  pollinatorAlignment: {
+    primaryPollinators: string[];
+    pollinatorWindow: SeasonalTimingWindow;
+    alignmentStatus: 'aligned' | 'mismatch-risk' | 'critical-mismatch';
+  };
+  advisories: string[];
+}
+
+// Seasonal Alert
+export interface SeasonalAlert {
+  id: string;
+  type: AlertType;
+  severity: AlertSeverity;
+  title: string;
+  description: string;
+  affectedDistricts: string[];
+  affectedSeasons: SeasonType[];
+  affectedEntities: string[];
+  validFrom: string;
+  validUntil: string;
+  recommendedActions: string[];
+  linkedRiskMonitoring?: string;
+}
+
+// Access Window
+export interface AccessWindow {
+  slug: string;
+  location: string;
+  district: string;
+  accessType: 'road' | 'trail' | 'high-altitude-route' | 'wetland-access';
+  seasonalAccess: {
+    spring: AccessStatus;
+    summer: AccessStatus;
+    autumn: AccessStatus;
+    winter: AccessStatus;
+  };
+  bestVisitationWindow: SeasonalTimingWindow;
+  conditions: {
+    spring: string;
+    summer: string;
+    autumn: string;
+    winter: string;
+  };
+  permitRequired: boolean;
+}
+
+// Seasonal Dashboard Data
+export interface SeasonalDashboardData {
+  currentSeason: SeasonType;
+  currentMonth: number;
+  activeBloomZones: number;
+  activeMigrationWindows: number;
+  activeAgriculturalWindows: number;
+  activeAlerts: number;
+  anomaliesDetected: number;
+  districtSummaries: DistrictSeasonalSignature[];
+  upcomingEvents: {
+    name: string;
+    type: 'bloom' | 'migration' | 'agricultural' | 'climate';
+    timing: SeasonalTimingWindow;
+    district: string;
+  }[];
+  climateIndicators: ClimateIndicator[];
+}
