@@ -93,14 +93,14 @@ export function Navigation() {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="/" className="relative flex items-center group scale-110">
+          <a href="/" className="relative flex items-center group">
             <img
               src="/kew_LOGO.png"
               alt="Kashmir EcoWatch Logo"
-              className="ml-3 w-12 h-12 scale-150 object-contain relative z-10"
+              className="w-[3rem] h-[3rem] md:w-[4rem] md:h-[4rem] lg:w-[5rem] lg:h-[5rem] object-contain"
             />
             {/* <div
               className="hidden md:block absolute top-5 -left-[1.5px] whitespace-nowrap opacity-0 translate-y-0 group-hover:opacity-100 group-hover:translate-y-5 transition-all duration-[2000ms] ease-in-out"
@@ -115,7 +115,7 @@ export function Navigation() {
           </a>
 
           {/* Desktop navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden xl:flex items-center gap-0.5">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -125,7 +125,7 @@ export function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-xs lg:text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer ${
                     item.hasDropdown ? 'hover:bg-white/10' : ''
                   }`}
                 >
@@ -145,7 +145,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-72 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-64 sm:w-72 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -190,7 +190,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -246,7 +246,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -298,7 +298,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -347,7 +347,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-72 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-64 sm:w-72 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -391,7 +391,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-80 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -459,36 +459,36 @@ export function Navigation() {
           </nav>
 
           {/* Right side actions */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-1">
             {/* Alerts */}
-            <Button variant="ghost" size="sm" className="relative text-slate-300 hover:text-white">
-              <Bell className="w-5 h-5" />
+            <Button variant="ghost" size="sm" className="relative text-slate-300 hover:text-white p-1.5 sm:p-2">
+              <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full signal-pulse" />
             </Button>
 
             {/* Settings */}
-            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white">
-              <Settings className="w-5 h-5" />
+            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white p-1.5 sm:p-2">
+              <Settings className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
 
             {/* Profile */}
-            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white">
-              <User className="w-5 h-5" />
+            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white p-1.5 sm:p-2">
+              <User className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-white/5 transition-colors"
+            className="xl:hidden p-1.5 sm:p-2 rounded-lg hover:bg-white/5 transition-colors"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu-drawer"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-white" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             )}
           </button>
         </div>
@@ -504,7 +504,7 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/60 z-50 lg:hidden"
+              className="fixed inset-0 bg-black/60 z-50 xl:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-hidden="true"
             />
@@ -516,33 +516,33 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-slate-900 z-[51] lg:hidden shadow-2xl flex flex-col h-dvh"
+              className="fixed inset-y-0 left-0 w-[85%] sm:w-[75%] max-w-[280px] sm:max-w-[320px] bg-slate-900 z-[51] xl:hidden shadow-2xl flex flex-col h-dvh"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"
             >
               {/* Drawer header - shrink-0 to prevent shrinking */}
-              <div className="shrink-0 flex items-center justify-between px-4 py-4 border-b border-white/10">
-                <div className="flex items-center gap-3">
+              <div className="shrink-0 flex items-center justify-between px-3 sm:px-4 py-3 sm:py-4 border-b border-white/10">
+                <div className="flex items-center gap-2 sm:gap-3">
                   <img
                     src="/kew_LOGO.png"
                     alt="Kashmir EcoWatch"
-                    className="w-10 h-10 object-contain"
+                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                   />
-                  <span className="font-bold text-white text-lg">Kashmir EcoWatch</span>
+                  <span className="font-bold text-white text-sm sm:text-base">Kashmir EcoWatch</span>
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 rounded-lg hover:bg-white/10 transition-colors text-slate-400 hover:text-white"
+                  className="p-1.5 sm:p-2 rounded-lg hover:bg-white/10 transition-colors text-slate-400 hover:text-white"
                   aria-label="Close menu"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
 
               {/* Scrollable menu content - flex-1 min-h-0 overflow-y-auto for proper scrolling */}
               <nav
-                className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 py-4 space-y-1 [webkit-overflow-scrolling:touch]"
+                className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-2 sm:px-3 py-3 sm:py-4 space-y-0.5 [webkit-overflow-scrolling:touch]"
                 role="navigation"
                 aria-label="Mobile navigation"
               >
@@ -555,13 +555,13 @@ export function Navigation() {
                         <>
                           <button
                             onClick={() => toggleMobileSubmenu(item.label)}
-                            className="w-full flex items-center justify-between gap-3 px-3 py-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors cursor-pointer text-base font-medium"
+                            className="w-full flex items-center justify-between gap-2 sm:gap-3 px-2 sm:px-3 py-3 sm:py-3.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors cursor-pointer text-sm sm:text-base font-medium"
                             aria-expanded={isExpanded}
                             aria-controls={`submenu-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
                           >
                             <span>{item.label}</span>
                             <ChevronDown
-                              className={`w-5 h-5 transition-transform duration-200 ${
+                              className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 ${
                                 isExpanded ? 'rotate-180' : ''
                               }`}
                             />
@@ -580,7 +580,7 @@ export function Navigation() {
                                 role="menu"
                                 aria-label={`${item.label} submenu`}
                               >
-                                <div className="ml-4 mt-2 mb-3 space-y-1">
+                                <div className="ml-2 sm:ml-4 mt-2 mb-3 space-y-0.5">
                                   {/* Render submenu items based on category */}
                                   {item.label === 'Protected Areas' && (
                                     <>
@@ -791,16 +791,16 @@ export function Navigation() {
                 })}
 
                 {/* Footer actions */}
-                <div className="pt-6 mt-6 border-t border-white/10 space-y-4">
+                <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-white/10 space-y-3 sm:space-y-4">
                   <div className="relative">
                     <input
                       type="text"
                       placeholder="Search..."
-                      className="w-full px-4 py-3 pl-10 rounded-lg bg-white/5 border border-white/10 outline-none text-sm text-white placeholder:text-slate-500 focus:border-white/20 focus:bg-white/10 transition-colors"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-9 sm:pl-10 rounded-lg bg-white/5 border border-white/10 outline-none text-xs sm:text-sm text-white placeholder:text-slate-500 focus:border-white/20 focus:bg-white/10 transition-colors"
                     />
-                    <Search className="w-5 h-5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                    <Search className="w-4 h-4 sm:w-5 sm:h-5 text-slate-500 absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2" />
                   </div>
-                  <Button className="w-full">Access Platform</Button>
+                  <Button className="w-full text-sm sm:text-base">Access Platform</Button>
                 </div>
               </nav>
             </motion.div>

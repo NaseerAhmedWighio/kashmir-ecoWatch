@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { 
+import {
   Leaf, Mail, Phone, MapPin, Github, Twitter, Linkedin, Youtube,
   Heart, Database, FileText, Users, Shield, Activity, Globe
 } from 'lucide-react';
@@ -50,69 +50,74 @@ export function AdvancedFooter() {
   return (
     <footer className="bg-slate-950 border-t border-white/5">
       {/* Main footer */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8 lg:gap-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-6 sm:gap-8">
           {/* Brand column - spans 2 columns */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-forest-500 to-glacier-600 flex items-center justify-center shadow-lg glow-forest">
-                <Leaf className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <h3 className="text-base font-bold text-white tracking-wide">
-                  Kashmir EcoWatch
-                </h3>
-              </div>
+          <div className="col-span-2 sm:col-span-3 lg:col-span-2">
+            <a href="/" className="relative flex items-center group">
+            <div className="flex items-center gap-4 sm:gap-3 mb-4">
+                <img
+                  src="/kew_LOGO.png"
+                  alt="Kashmir EcoWatch Logo"
+                  className="w-[3rem] h-[3rem] md:w-[4rem] md:h-[4rem] object-contain"
+                />
+                
+                <div>
+                  <h3 className="text-base font-bold text-white tracking-wide">
+                    Kashmir EcoWatch
+                  </h3>
+                </div>
             </div>
-            <p className="text-sm text-slate-400 mb-2 leading-relaxed">
+            </a>
+            <p className="text-xs sm:text-sm text-slate-400 mb-2 leading-relaxed">
               A Kashmir Diaspora-Supported Initiative for Environmental Intelligence and Scientific Stewardship
             </p>
-            <p className="text-xs text-slate-500 mb-4 leading-relaxed">
+            <p className="text-[10px] sm:text-xs text-slate-500 mb-4 leading-relaxed">
               Supported and sponsored by Dr. Kumar Foundation USA
             </p>
 
             {/* Contact info */}
             <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-3 text-sm">
-                <Mail className="w-4 h-4 text-forest-400" />
-                <span className="text-slate-400">contact@kashmir-environment.org</span>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-400 flex-shrink-0" />
+                <span className="text-xs sm:text-sm text-slate-400 truncate">contact@kashmir-environment.org</span>
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <Phone className="w-4 h-4 text-forest-400" />
-                <span className="text-slate-400">+91 194 2XXX XXX</span>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-400 flex-shrink-0" />
+                <span className="text-xs sm:text-sm text-slate-400 truncate">+91 194 2XXX XXX</span>
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <MapPin className="w-4 h-4 text-forest-400" />
-                <span className="text-slate-400">Srinagar, Jammu & Kashmir</span>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-400 flex-shrink-0" />
+                <span className="text-xs sm:text-sm text-slate-400 truncate">Srinagar, Jammu & Kashmir</span>
               </div>
             </div>
 
             {/* Social links */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-lg glass-light border border-white/10 hover:border-forest-500/50 flex items-center justify-center transition-all group"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg glass-light border border-white/10 hover:border-forest-500/50 flex items-center justify-center transition-all group flex-shrink-0"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
+                  <social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-white transition-colors" />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Platform links */}
-          <div>
-            <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">
+          <div className="col-span-1">
+            <h4 className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-widest mb-3 sm:mb-4">
               Platform
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.platform.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-forest-400 transition-colors"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -122,16 +127,16 @@ export function AdvancedFooter() {
           </div>
 
           {/* Monitoring links */}
-          <div>
-            <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">
+          <div className="col-span-1">
+            <h4 className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-widest mb-3 sm:mb-4">
               Monitoring
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.monitoring.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-forest-400 transition-colors"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -141,16 +146,16 @@ export function AdvancedFooter() {
           </div>
 
           {/* Data & Trust links */}
-          <div>
-            <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">
+          <div className="col-span-1">
+            <h4 className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-widest mb-3 sm:mb-4">
               Data & Trust
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.dataTrust.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-forest-400 transition-colors"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -160,16 +165,16 @@ export function AdvancedFooter() {
           </div>
 
           {/* Contribute links */}
-          <div>
-            <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">
+          <div className="col-span-1">
+            <h4 className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-widest mb-3 sm:mb-4">
               Contribute
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.contribute.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-forest-400 transition-colors"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -179,16 +184,16 @@ export function AdvancedFooter() {
           </div>
 
           {/* Institution links */}
-          <div>
-            <h4 className="text-xs font-semibold text-white uppercase tracking-widest mb-4">
+          <div className="col-span-1">
+            <h4 className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-widest mb-3 sm:mb-4">
               Institution
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.institution.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-forest-400 transition-colors"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -201,16 +206,16 @@ export function AdvancedFooter() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/5">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
             {/* Copyright */}
-            <div className="text-sm text-slate-500">
+            <div className="text-xs sm:text-sm text-slate-500">
               © {new Date().getFullYear()} Kashmir EcoWatch.
               All rights reserved.
             </div>
 
             {/* Legal links */}
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
               <a href="/privacy" className="text-slate-500 hover:text-forest-400 transition-colors">
                 Privacy
               </a>
@@ -223,9 +228,9 @@ export function AdvancedFooter() {
             </div>
 
             {/* Made with */}
-            <div className="flex items-center gap-2 text-sm text-slate-500">
+            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-500">
               <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+              <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500 fill-red-500" />
               <span>for Kashmir</span>
             </div>
           </div>
@@ -233,16 +238,16 @@ export function AdvancedFooter() {
       </div>
 
       {/* Data attribution */}
-      <div className="bg-slate-950 py-6 border-t border-white/5">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-slate-500 text-center md:text-left">
-              Data sourced from government agencies, research institutions, and verified community contributions. 
+      <div className="bg-slate-950 py-4 sm:py-6 border-t border-white/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
+            <p className="text-[10px] sm:text-xs text-slate-500">
+              Data sourced from government agencies, research institutions, and verified community contributions.
               All environmental data undergoes rigorous verification before publication.
             </p>
-            <div className="flex items-center gap-4">
-              <Shield className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs text-slate-500">Verified Data Source</span>
+            <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+              <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
+              <span className="text-[10px] sm:text-xs text-slate-500 whitespace-nowrap">Verified Data Source</span>
             </div>
           </div>
         </div>

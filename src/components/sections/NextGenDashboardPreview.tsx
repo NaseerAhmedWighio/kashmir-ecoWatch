@@ -40,14 +40,14 @@ export function NextGenDashboardPreview() {
       <div className="absolute inset-0 bg-grid opacity-20" />
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <div className="flex items-center gap-3 mb-4">
             <Activity className="w-5 h-5 text-purple-400 signal-pulse" />
@@ -55,24 +55,24 @@ export function NextGenDashboardPreview() {
               Monitoring Intelligence
             </span>
           </div>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="flex flex-col gap-6">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 sm:mb-4 tracking-tight">
                 Advanced Dashboard Previews
               </h2>
-              <p className="text-slate-400 max-w-2xl text-lg leading-relaxed">
-                Real-time environmental monitoring with trend analysis, anomaly detection, 
+              <p className="text-slate-400 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed">
+                Real-time environmental monitoring with trend analysis, anomaly detection,
                 predictive modeling, and spatial intelligence integration.
               </p>
             </div>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border-forest-400" icon={<ArrowRight className="w-5 h-5" />} onClick={() => router.push('/risk-monitoring/dashboards')}>
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border-forest-400 w-full sm:w-auto text-xs sm:text-sm" icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />} onClick={() => router.push('/risk-monitoring/dashboards')}>
               All Dashboards
             </Button>
           </div>
         </motion.div>
 
         {/* Dashboard grid - asymmetric layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Air Quality - Large card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -82,23 +82,23 @@ export function NextGenDashboardPreview() {
             className="lg:col-span-2"
           >
             <Card className="glass-light border-white/5 h-full" padding="lg">
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-500 to-slate-700 text-white flex items-center justify-center shadow-lg">
-                    <Wind className="w-6 h-6" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-6">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-slate-500 to-slate-700 text-white flex items-center justify-center shadow-lg flex-shrink-0">
+                    <Wind className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">Air Quality Intelligence</h3>
-                    <p className="text-sm text-slate-400">AQI trends across monitoring stations</p>
+                    <h3 className="text-base sm:text-lg font-bold text-white">Air Quality Intelligence</h3>
+                    <p className="text-xs sm:text-sm text-slate-400">AQI trends across monitoring stations</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="warning" size="sm">Moderate</Badge>
-                  <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white" icon={<ArrowRight className="w-4 h-4" />} />
+                <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                  <Badge variant="warning" size="sm" className="text-xs">Moderate</Badge>
+                  <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white flex-shrink-0" icon={<ArrowRight className="w-4 h-4" />} />
                 </div>
               </div>
 
-              <div className="h-64">
+              <div className="h-48 sm:h-56 md:h-64">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={airQualityData}>
                     <defs>
@@ -130,7 +130,7 @@ export function NextGenDashboardPreview() {
                 </ResponsiveContainer>
               </div>
 
-              <div className="grid grid-cols-4 gap-4 mt-6 pt-6 border-t border-white/5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 pt-6 border-t border-white/5">
                 {[
                   { label: 'Current AQI', value: '156', status: 'moderate' },
                   { label: '24h Change', value: '+12%', status: 'warning' },
@@ -138,8 +138,8 @@ export function NextGenDashboardPreview() {
                   { label: 'Stations', value: '24', status: 'active' },
                 ].map((metric, idx) => (
                   <div key={idx}>
-                    <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">{metric.label}</div>
-                    <div className="text-2xl font-bold text-white">{metric.value}</div>
+                    <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mb-1">{metric.label}</div>
+                    <div className="text-lg sm:text-2xl font-bold text-white">{metric.value}</div>
                   </div>
                 ))}
               </div>
@@ -155,19 +155,19 @@ export function NextGenDashboardPreview() {
           >
             <Card className="glass-light border-white/5 h-full" padding="lg">
               <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-glacier-500 to-glacier-700 text-white flex items-center justify-center shadow-lg glow-glacier">
-                    <Droplets className="w-6 h-6" />
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-glacier-500 to-glacier-700 text-white flex items-center justify-center shadow-lg glow-glacier flex-shrink-0">
+                    <Droplets className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">Water Quality pH</h3>
-                    <p className="text-sm text-slate-400">Major water bodies</p>
+                    <h3 className="text-base sm:text-lg font-bold text-white">Water Quality pH</h3>
+                    <p className="text-xs sm:text-sm text-slate-400">Major water bodies</p>
                   </div>
                 </div>
-                <Badge variant="info" size="sm">Normal</Badge>
+                <Badge variant="info" size="sm" className="text-xs flex-shrink-0">Normal</Badge>
               </div>
 
-              <div className="h-40">
+              <div className="h-32 sm:h-40">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={waterQualityData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(148, 163, 184, 0.1)" />
@@ -195,10 +195,10 @@ export function NextGenDashboardPreview() {
               <div className="mt-6 pt-6 border-t border-white/5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-xs text-slate-500 uppercase mb-1">Avg pH Level</div>
-                    <div className="text-2xl font-bold text-white">7.1</div>
+                    <div className="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">Avg pH Level</div>
+                    <div className="text-xl sm:text-2xl font-bold text-white">7.1</div>
                   </div>
-                  <Button variant="ghost" size="sm" className="text-forest-400" icon={<ArrowRight className="w-4 h-4" />} />
+                  <Button variant="ghost" size="sm" className="text-forest-400 flex-shrink-0" icon={<ArrowRight className="w-4 h-4" />} />
                 </div>
               </div>
             </Card>
@@ -213,19 +213,19 @@ export function NextGenDashboardPreview() {
           >
             <Card className="glass-light border-white/5 h-full" padding="lg">
               <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center shadow-lg">
-                    <Flower className="w-6 h-6" />
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center shadow-lg flex-shrink-0">
+                    <Flower className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">Bloom Activity</h3>
-                    <p className="text-sm text-slate-400">Seasonal flowering patterns</p>
+                    <h3 className="text-base sm:text-lg font-bold text-white">Bloom Activity</h3>
+                    <p className="text-xs sm:text-sm text-slate-400">Seasonal flowering patterns</p>
                   </div>
                 </div>
-                <Badge variant="success" size="sm">Peak Season</Badge>
+                <Badge variant="success" size="sm" className="text-xs flex-shrink-0">Peak Season</Badge>
               </div>
 
-              <div className="h-40">
+              <div className="h-32 sm:h-40">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={bloomActivityData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(148, 163, 184, 0.1)" />
@@ -249,8 +249,8 @@ export function NextGenDashboardPreview() {
 
               <div className="mt-6 pt-6 border-t border-white/5">
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-emerald-400" />
-                  <span className="text-sm text-slate-400">Active zones: <strong className="text-white">67</strong></span>
+                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
+                  <span className="text-xs sm:text-sm text-slate-400">Active zones: <strong className="text-white">67</strong></span>
                 </div>
               </div>
             </Card>
@@ -265,19 +265,19 @@ export function NextGenDashboardPreview() {
           >
             <Card className="glass-light border-white/5 h-full" padding="lg">
               <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center shadow-lg">
-                    <PawPrint className="w-6 h-6" />
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center shadow-lg flex-shrink-0">
+                    <PawPrint className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">Sighting Activity</h3>
-                    <p className="text-sm text-slate-400">Wildlife observations</p>
+                    <h3 className="text-base sm:text-lg font-bold text-white">Sighting Activity</h3>
+                    <p className="text-xs sm:text-sm text-slate-400">Wildlife observations</p>
                   </div>
                 </div>
-                <Badge variant="info" size="sm">High Activity</Badge>
+                <Badge variant="info" size="sm" className="text-xs flex-shrink-0">High Activity</Badge>
               </div>
 
-              <div className="h-40">
+              <div className="h-32 sm:h-40">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={sightingActivityData}>
                     <defs>
@@ -309,8 +309,8 @@ export function NextGenDashboardPreview() {
 
               <div className="mt-6 pt-6 border-t border-white/5">
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-emerald-400" />
-                  <span className="text-sm text-slate-400">Total: <strong className="text-white">4,521</strong></span>
+                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
+                  <span className="text-xs sm:text-sm text-slate-400">Total: <strong className="text-white">4,521</strong></span>
                 </div>
               </div>
             </Card>
@@ -325,25 +325,25 @@ export function NextGenDashboardPreview() {
             className="lg:col-span-2"
           >
             <Card className="glass-light border-white/5 h-full" padding="lg">
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-forest-500 to-forest-700 text-white flex items-center justify-center shadow-lg glow-forest">
-                    <Target className="w-6 h-6" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-6">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-forest-500 to-forest-700 text-white flex items-center justify-center shadow-lg glow-forest flex-shrink-0">
+                    <Target className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">District Ecological Scorecards</h3>
-                    <p className="text-sm text-slate-400">Environmental health index comparison</p>
+                    <h3 className="text-base sm:text-lg font-bold text-white">District Ecological Scorecards</h3>
+                    <p className="text-xs sm:text-sm text-slate-400">Environmental health index comparison</p>
                   </div>
                 </div>
-                <Badge variant="success" size="sm">Good Avg: 77.7</Badge>
+                <Badge variant="success" size="sm" className="text-xs flex-shrink-0">Good Avg: 77.7</Badge>
               </div>
 
-              <div className="h-48">
+              <div className="h-40 sm:h-48">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={districtComparisonData} layout="vertical">
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(148, 163, 184, 0.1)" />
                     <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 12, fill: '#64748b' }} stroke="#64748b" />
-                    <YAxis dataKey="label" type="category" tick={{ fontSize: 12, fill: '#64748b' }} stroke="#64748b" width={80} />
+                    <YAxis dataKey="label" type="category" tick={{ fontSize: 12, fill: '#64748b' }} stroke="#64748b" width={60} />
                     <Tooltip
                       contentStyle={{
                         backgroundColor: 'rgba(15, 23, 42, 0.95)',
@@ -356,16 +356,16 @@ export function NextGenDashboardPreview() {
                 </ResponsiveContainer>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-white/5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 pt-6 border-t border-white/5">
                 {[
                   { label: 'Highest', district: 'Ganderbal', score: 88 },
                   { label: 'Lowest', district: 'Baramulla', score: 68 },
                   { label: 'Most Improved', district: 'Anantnag', score: '+12%' },
                 ].map((item, idx) => (
                   <div key={idx}>
-                    <div className="text-xs text-slate-500 uppercase mb-1">{item.label}</div>
-                    <div className="text-sm text-white font-medium">{item.district}</div>
-                    <div className="text-lg font-bold text-forest-400">{item.score}</div>
+                    <div className="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">{item.label}</div>
+                    <div className="text-xs sm:text-sm text-white font-medium truncate">{item.district}</div>
+                    <div className="text-base sm:text-lg font-bold text-forest-400">{item.score}</div>
                   </div>
                 ))}
               </div>

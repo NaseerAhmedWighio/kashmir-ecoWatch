@@ -104,43 +104,44 @@ export function MapIntelligenceCore() {
   const totalFeatures = layers.filter(l => l.visible).reduce((sum, l) => sum + l.count, 0);
 
   return (
-    <section className="pt-16 md:pt-20 pb-16 md:pb-20 bg-slate-900 relative">
+    <section className="pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-8 sm:pb-12 md:pb-16 bg-slate-900 relative">
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-20" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-6 sm:mb-8 md:mb-10"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-2 h-2 bg-glacier-500 rounded-full signal-pulse" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-glacier-500 rounded-full signal-pulse" />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-slate-400">
               Spatial Intelligence
             </span>
           </div>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="flex flex-col gap-3 sm:gap-4">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-black text-white mb-2 sm:mb-3 tracking-tight">
                 GIS Intelligence Core
               </h2>
-              <p className="text-slate-400 max-w-2xl text-lg leading-relaxed">
+              <p className="text-slate-400 max-w-2xl text-xs sm:text-sm md:text-base leading-relaxed">
                 Real-time geospatial mapping with live ecological layers,
                 protected areas, water systems, and hazard monitoring across Kashmir.
               </p>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <Button
                 size="sm"
-                className="bg-gradient-to-r from-forest-600 to-forest-500"
-                icon={<Maximize2 className="w-4 h-4" />}
+                className="bg-gradient-to-r from-forest-600 to-forest-500 text-xs sm:text-sm"
+                icon={<Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                 onClick={() => window.location.href = '/atlas'}
               >
-                Open Full Atlas
+                <span className="hidden xs:inline">Open Full Atlas</span>
+                <span className="xs:hidden">Open Atlas</span>
               </Button>
             </div>
           </div>
@@ -155,9 +156,9 @@ export function MapIntelligenceCore() {
           className="relative"
         >
           {/* Main map area */}
-          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-            {/* Real Leaflet Map - 500px height for homepage preview */}
-            <div className="h-[500px] w-full">
+          <div className="relative rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            {/* Real Leaflet Map - responsive height */}
+            <div className="h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] w-full">
               <AtlasMap onMapReady={setMapInstance}>
                 {/* Real GIS Layers */}
                 <DistrictLayer
@@ -180,59 +181,59 @@ export function MapIntelligenceCore() {
             </div>
 
             {/* Map controls - Top right */}
-            <div className="absolute top-4 right-4 flex flex-col gap-2 z-[400]">
-              <Card className="glass-intense border-white/10 p-1" padding="none">
+            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex flex-col gap-1 sm:gap-1.5 md:gap-2 z-[400]">
+              <Card className="glass-intense border-white/10 p-0.5" padding="none">
                 <div className="flex flex-col">
                   <button
                     onClick={() => handleZoom('in')}
-                    className="p-3 hover:bg-white/5 rounded-lg transition-colors"
+                    className="p-2 sm:p-2.5 md:p-3 hover:bg-white/5 rounded-lg transition-colors"
                     aria-label="Zoom in"
                   >
-                    <Plus className="w-5 h-5 text-white" />
+                    <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </button>
                   <div className="h-px bg-white/10" />
                   <button
                     onClick={() => handleZoom('out')}
-                    className="p-3 hover:bg-white/5 rounded-lg transition-colors"
+                    className="p-2 sm:p-2.5 md:p-3 hover:bg-white/5 rounded-lg transition-colors"
                     aria-label="Zoom out"
                   >
-                    <Minus className="w-5 h-5 text-white" />
+                    <Minus className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </button>
                 </div>
               </Card>
 
-              <Card className="glass-intense border-white/10 p-1" padding="none">
+              <Card className="glass-intense border-white/10 p-0.5" padding="none">
                 <button
                   onClick={() => mapInstance?.locate({ setView: true, maxZoom: 10 })}
-                  className="p-3 hover:bg-white/5 rounded-lg transition-colors"
+                  className="p-2 sm:p-2.5 md:p-3 hover:bg-white/5 rounded-lg transition-colors"
                   aria-label="Locate me"
                 >
-                  <Crosshair className="w-5 h-5 text-white" />
+                  <Crosshair className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </button>
               </Card>
 
-              <Card className="glass-intense border-white/10 p-1" padding="none">
+              <Card className="glass-intense border-white/10 p-0.5" padding="none">
                 <button
                   onClick={() => setShowLayers(!showLayers)}
-                  className={`p-3 rounded-lg transition-colors ${showLayers ? 'bg-forest-500/20 text-forest-400' : 'hover:bg-white/5 text-white'}`}
+                  className={`p-2 sm:p-2.5 md:p-3 rounded-lg transition-colors ${showLayers ? 'bg-forest-500/20 text-forest-400' : 'hover:bg-white/5 text-white'}`}
                   aria-label="Toggle layers"
                 >
-                  <Layers className="w-5 h-5" />
+                  <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </Card>
             </div>
 
             {/* Search - Top center */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[400]">
-              <Card className="glass-intense border-white/10 min-w-[350px] md:min-w-[450px]" padding="none">
-                <div className="flex items-center gap-3 px-4 py-3">
-                  <Search className="w-5 h-5 text-slate-400" />
+            <div className="absolute top-2 right-12 left-12 sm:top-3 sm:right-16 sm:left-16 md:top-4 md:left-1/2 md:-translate-x-1/2 md:right-auto z-[400] px-2 sm:px-4">
+              <Card className="glass-intense border-white/10 min-w-[180px] sm:min-w-[240px] md:min-w-[320px] lg:min-w-[400px]" padding="none">
+                <div className="flex items-center gap-2 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3">
+                  <Search className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 flex-shrink-0" />
                   <input
                     type="text"
-                    placeholder="Search locations, lakes, protected areas..."
-                    className="flex-1 bg-transparent border-none outline-none text-sm text-white placeholder-slate-500"
+                    placeholder="Search locations, lakes..."
+                    className="flex-1 bg-transparent border-none outline-none text-xs sm:text-sm text-white placeholder:text-slate-500 min-w-0"
                   />
-                  <Badge variant="info" size="sm">GIS</Badge>
+                  <Badge variant="info" size="sm" className="hidden sm:inline-flex flex-shrink-0">GIS</Badge>
                 </div>
               </Card>
             </div>
@@ -243,42 +244,42 @@ export function MapIntelligenceCore() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="absolute top-36 right-4 w-64 md:w-72 glass-intense border border-white/10 rounded-xl overflow-hidden z-[400]"
+                className="absolute top-14 sm:top-16 md:top-20 right-2 sm:right-3 md:right-4 w-[260px] sm:w-72 md:w-80 max-w-[calc(100vw-1rem)] glass-intense border border-white/10 rounded-lg sm:rounded-xl overflow-hidden z-[400]"
               >
-                <div className="p-4 border-b border-white/10">
+                <div className="p-2.5 sm:p-3 md:p-4 border-b border-white/10">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Layers className="w-4 h-4 text-slate-400" />
-                      <span className="text-xs font-semibold uppercase tracking-wider text-white">
+                      <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400" />
+                      <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white">
                         Map Layers
                       </span>
                     </div>
-                    <Badge variant="info" size="sm">
+                    <Badge variant="info" size="sm" className="text-[10px] sm:text-xs">
                       {visibleLayerCount}/{mapLayers.length}
                     </Badge>
                   </div>
                 </div>
-                <div className="p-3 space-y-1 max-h-80 overflow-y-auto">
+                <div className="p-1.5 sm:p-2 md:p-3 space-y-1 max-h-56 sm:max-h-64 md:max-h-72 overflow-y-auto">
                   {mapLayers.map(layer => (
                     <div
                       key={layer.id}
-                      className="flex items-center justify-between gap-3 p-2.5 rounded-lg hover:bg-white/5 cursor-pointer transition-colors group"
+                      className="flex items-center justify-between gap-2 sm:gap-3 p-2 sm:p-2.5 rounded-lg hover:bg-white/5 cursor-pointer transition-colors group"
                       onClick={() => toggleLayer(layer.id)}
                     >
-                      <div className="flex items-center gap-3 flex-1">
-                        <div className={`w-3 h-3 rounded ${layer.color} ${layer.visible ? '' : 'opacity-30'}`} />
-                        <span className={`text-sm ${layer.visible ? 'text-white' : 'text-slate-500'}`}>
+                      <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                        <div className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded ${layer.color} ${layer.visible ? '' : 'opacity-30'}`} />
+                        <span className={`text-xs sm:text-sm truncate ${layer.visible ? 'text-white' : 'text-slate-500'}`}>
                           {layer.label}
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs text-slate-500 tabular-nums">
+                      <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+                        <span className="text-[10px] sm:text-xs text-slate-500 tabular-nums">
                           {layer.count.toLocaleString()}
                         </span>
                         {layer.visible ? (
-                          <Layers className="w-4 h-4 text-emerald-400" />
+                          <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
                         ) : (
-                          <Layers className="w-4 h-4 text-slate-600" />
+                          <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600" />
                         )}
                       </div>
                     </div>
@@ -294,31 +295,31 @@ export function MapIntelligenceCore() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="absolute top-36 left-4 w-72 md:w-80 glass-intense border border-white/10 rounded-xl overflow-hidden z-[400]"
+                  className="absolute top-20 sm:top-24 md:top-28 left-2 sm:left-3 md:left-4 w-[280px] sm:w-72 md:w-80 max-w-[calc(100vw-1rem)] glass-intense border border-white/10 rounded-lg sm:rounded-xl overflow-hidden z-[400]"
                 >
                   {/* Drawer header */}
-                  <div className={`p-4 bg-gradient-to-r ${
+                  <div className={`p-2.5 sm:p-3 md:p-4 bg-gradient-to-r ${
                     currentFeature.type === 'wetland' ? 'from-blue-600/20 to-blue-800/10' :
                     currentFeature.type === 'protected' ? 'from-emerald-600/20 to-emerald-800/10' :
                     'from-slate-600/20 to-slate-800/10'
                   }`}>
                     <div className="flex items-start justify-between">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-2 sm:gap-3">
                         {currentFeature.type === 'wetland' ? (
-                          <Droplets className="w-6 h-6 text-blue-400" />
+                          <Droplets className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
                         ) : currentFeature.type === 'protected' ? (
-                          <Mountain className="w-6 h-6 text-emerald-400" />
+                          <Mountain className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
                         ) : (
-                          <MapPin className="w-6 h-6 text-slate-400" />
+                          <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
                         )}
-                        <div>
-                          <h3 className="text-lg font-bold text-white">{currentFeature.name}</h3>
-                          <p className="text-xs text-slate-400">{currentFeature.district} District</p>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-sm sm:text-base font-bold text-white truncate">{currentFeature.name}</h3>
+                          <p className="text-[10px] sm:text-xs text-slate-400 truncate">{currentFeature.district} District</p>
                         </div>
                       </div>
                       <button
                         onClick={() => setShowMiniDrawer(false)}
-                        className="p-1 rounded hover:bg-white/5 transition-colors"
+                        className="p-1 rounded hover:bg-white/5 transition-colors flex-shrink-0"
                         aria-label="Close"
                       >
                         <ChevronRight className="w-4 h-4 text-slate-400" />
@@ -326,13 +327,14 @@ export function MapIntelligenceCore() {
                     </div>
 
                     {/* Status badge */}
-                    <div className="mt-3">
+                    <div className="mt-2 sm:mt-3">
                       <Badge
                         variant={
                           currentFeature.statusColor === 'success' ? 'success' :
                           currentFeature.statusColor === 'warning' ? 'warning' : 'info'
                         }
                         size="sm"
+                        className="text-[10px] sm:text-xs"
                       >
                         {currentFeature.status}
                       </Badge>
@@ -340,35 +342,35 @@ export function MapIntelligenceCore() {
                   </div>
 
                   {/* Drawer content */}
-                  <div className="p-4 space-y-4">
+                  <div className="p-2.5 sm:p-3 md:p-4 space-y-3 sm:space-y-4">
                     {/* Quick stats */}
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="p-3 rounded-lg glass-light border border-white/5">
-                        <div className="text-xs text-slate-500 mb-1">Area</div>
-                        <div className="text-lg font-bold text-white">{currentFeature.area}</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="p-2 sm:p-2.5 rounded-lg glass-light border border-white/5">
+                        <div className="text-[10px] sm:text-xs text-slate-500 mb-1">Area</div>
+                        <div className="text-sm sm:text-base font-bold text-white">{currentFeature.area}</div>
                       </div>
-                      <div className="p-3 rounded-lg glass-light border border-white/5">
-                        <div className="text-xs text-slate-500 mb-1">Coordinates</div>
-                        <div className="text-sm font-mono text-white">{currentFeature.coordinates}</div>
+                      <div className="p-2 sm:p-2.5 rounded-lg glass-light border border-white/5">
+                        <div className="text-[10px] sm:text-xs text-slate-500 mb-1">Coordinates</div>
+                        <div className="text-[10px] sm:text-xs font-mono text-white truncate">{currentFeature.coordinates}</div>
                       </div>
                     </div>
 
                     {/* Feature-specific metrics */}
                     {currentFeature.type === 'wetland' && (
                       <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between text-xs sm:text-sm">
                           <span className="text-slate-400">Water Quality Index</span>
                           <span className={`font-bold ${
                             currentFeature.wqi >= 70 ? 'text-emerald-400' :
                             currentFeature.wqi >= 50 ? 'text-amber-400' : 'text-red-400'
                           }`}>{currentFeature.wqi}</span>
                         </div>
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between text-xs sm:text-sm">
                           <span className="text-slate-400">Bloom Risk</span>
                           <Badge variant="warning" size="sm">{currentFeature.bloomRisk}</Badge>
                         </div>
                         {currentFeature.birdCount && (
-                          <div className="flex justify-between text-sm">
+                          <div className="flex justify-between text-xs sm:text-sm">
                             <span className="text-slate-400">Bird Count</span>
                             <span className="text-blue-400 font-bold">{currentFeature.birdCount}</span>
                           </div>
@@ -378,11 +380,11 @@ export function MapIntelligenceCore() {
 
                     {currentFeature.type === 'protected' && (
                       <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between text-xs sm:text-sm">
                           <span className="text-slate-400">Species Count</span>
                           <span className="text-emerald-400 font-bold">{currentFeature.species}</span>
                         </div>
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between text-xs sm:text-sm">
                           <span className="text-slate-400">Hangul Population</span>
                           <span className="text-amber-400 font-bold">{currentFeature.hangulPopulation}</span>
                         </div>
@@ -391,9 +393,9 @@ export function MapIntelligenceCore() {
 
                     {/* Alerts */}
                     {currentFeature.alerts > 0 && (
-                      <div className="flex items-center gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
-                        <AlertTriangle className="w-4 h-4 text-red-400" />
-                        <span className="text-sm text-red-400">{currentFeature.alerts} active alert(s)</span>
+                      <div className="flex items-center gap-2 p-2 sm:p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                        <AlertTriangle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-400" />
+                        <span className="text-xs sm:text-sm text-red-400">{currentFeature.alerts} active alert(s)</span>
                       </div>
                     )}
 
@@ -401,7 +403,7 @@ export function MapIntelligenceCore() {
                     <div className="flex gap-2 pt-2">
                       <Button
                         size="sm"
-                        className="flex-1 bg-gradient-to-r from-forest-600 to-forest-500"
+                        className="flex-1 bg-gradient-to-r from-forest-600 to-forest-500 text-xs"
                         onClick={() => window.location.href = `/water-systems/lakes/${currentFeature.id}`}
                       >
                         View Details
@@ -409,7 +411,7 @@ export function MapIntelligenceCore() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="border-white/20 text-white hover:border-forest-400"
+                        className="border-white/20 text-white hover:border-forest-400 p-2"
                         onClick={() => window.location.href = '/atlas'}
                       >
                         <MapIcon className="w-4 h-4" />
@@ -421,18 +423,18 @@ export function MapIntelligenceCore() {
             </AnimatePresence>
 
             {/* Map info - Bottom left */}
-            <div className="absolute bottom-4 left-4 z-[400]">
+            <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 md:bottom-4 md:left-4 z-[400]">
               <Card className="glass-intense border-white/10" padding="sm">
-                <div className="space-y-2 text-xs">
-                  <div className="flex items-center gap-4">
+                <div className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     <span className="text-slate-500">Zoom</span>
                     <span className="font-mono text-white">{zoom}</span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     <span className="text-slate-500">Layers</span>
                     <span className="font-mono text-white">{visibleLayerCount} active</span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     <span className="text-slate-500">Features</span>
                     <span className="font-mono text-white">{totalFeatures.toLocaleString()}</span>
                   </div>
@@ -448,7 +450,7 @@ export function MapIntelligenceCore() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6"
         >
           {selectedFeatures.map((feature, i) => (
             <motion.div
@@ -460,13 +462,13 @@ export function MapIntelligenceCore() {
               onClick={() => { setSelectedFeature(feature.id); setShowMiniDrawer(true); }}
               className="cursor-pointer"
             >
-              <Card className="glass-intense border-white/10 p-2 md:p-5 hover:border-forest-400/50 transition-colors">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex items-center gap-3">
+              <Card className="glass-intense border-white/10 p-2.5 sm:p-3 md:p-4 lg:p-5 hover:border-forest-400/50 transition-colors">
+                <div className="flex items-start justify-between mb-2 sm:mb-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     {feature.type === 'wetland' ? (
-                      <Droplets className="w-5 h-5 text-blue-400" />
+                      <Droplets className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
                     ) : (
-                      <Mountain className="w-5 h-5 text-emerald-400" />
+                      <Mountain className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
                     )}
                     <div>
                       <h3 className="text-sm md:text-base font-bold text-white">{feature.name}</h3>
@@ -483,10 +485,10 @@ export function MapIntelligenceCore() {
                     {feature.status}
                   </Badge>
                 </div>
-                <div className="flex items-center gap-4 text-xs text-slate-500">
+                <div className="flex items-center gap-2 sm:gap-4 text-[10px] sm:text-xs text-slate-500">
                   <span>{feature.area}</span>
                   <span>•</span>
-                  <span>{feature.coordinates}</span>
+                  <span className="truncate">{feature.coordinates}</span>
                 </div>
               </Card>
             </motion.div>

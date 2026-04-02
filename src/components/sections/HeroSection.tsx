@@ -7,16 +7,16 @@ import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-forest-950">
+    <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-forest-950">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-hero-pattern animate-pulse-slow" />
       </div>
-      
+
       {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-forest-500/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-glacier-500/20 rounded-full blur-3xl animate-float delay-1000" />
-      
+      <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-forest-500/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-glacier-500/20 rounded-full blur-3xl animate-float delay-1000" />
+
       {/* Map grid overlay */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -30,22 +30,22 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center max-w-5xl mx-auto"
+          className="text-center max-w-4xl sm:max-w-5xl mx-auto"
         >
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4 sm:mb-6 md:mb-8"
           >
-            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-slate-200">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full animate-pulse" />
+            <span className="text-xs sm:text-sm font-medium text-slate-200">
               Live Environmental Intelligence System
             </span>
           </motion.div>
@@ -55,7 +55,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
           >
             Kashmir{' '}
             <span className="gradient-text">Environmental</span>{' '}
@@ -67,9 +67,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
-            className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-slate-300 mb-6 sm:mb-8 md:mb-10 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed"
           >
-            A unified scientific platform for ecological systems, biodiversity, 
+            A unified scientific platform for ecological systems, biodiversity,
             environmental monitoring, and conservation intelligence across Kashmir
           </motion.p>
 
@@ -78,30 +78,31 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.7 }}
-            className="flex flex-wrap items-center justify-center gap-4"
+            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4"
           >
             <Button
               size="lg"
-              icon={<Map className="w-5 h-5" />}
-              className="group"
+              icon={<Map className="w-4 h-4 sm:w-5 sm:h-5" />}
+              className="group text-sm sm:text-base"
             >
               Open Atlas
-              <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
+
             <Button
               size="lg"
               variant="outline"
-              icon={<Leaf className="w-5 h-5" />}
-              className="border-white/30 text-white hover:border-forest-400 hover:text-forest-300"
+              icon={<Leaf className="w-4 h-4 sm:w-5 sm:h-5" />}
+              className="border-white/30 text-white hover:border-forest-400 hover:text-forest-300 text-sm sm:text-base"
             >
               Explore Biodiversity
             </Button>
-            
+
             <Button
               size="lg"
               variant="secondary"
-              icon={<BarChart3 className="w-5 h-5" />}
+              icon={<BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />}
+              className="text-sm sm:text-base"
             >
               View Dashboards
             </Button>
@@ -112,7 +113,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto"
+            className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-2xl sm:max-w-3xl mx-auto"
           >
             {[
               { value: '2,847', label: 'Species Indexed' },
@@ -121,10 +122,10 @@ export function HeroSection() {
               { value: '234', label: 'Monitoring Stations' },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">
                   {stat.value}
                 </div>
-                <div className="text-xs md:text-sm text-slate-400">
+                <div className="text-[10px] sm:text-xs md:text-sm text-slate-400">
                   {stat.label}
                 </div>
               </div>
@@ -138,15 +139,15 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2"
       >
-        <div className="flex flex-col items-center gap-2 text-slate-400">
-          <span className="text-xs uppercase tracking-wider">Explore</span>
-          <div className="w-5 h-8 rounded-full border-2 border-slate-500 flex items-start justify-center p-1">
+        <div className="flex flex-col items-center gap-1.5 sm:gap-2 text-slate-400">
+          <span className="text-[10px] sm:text-xs uppercase tracking-wider">Explore</span>
+          <div className="w-4 h-6 sm:w-5 sm:h-8 rounded-full border-2 border-slate-500 flex items-start justify-center p-1">
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-2 bg-slate-400 rounded-full"
+              className="w-1 h-1.5 sm:w-1 sm:h-2 bg-slate-400 rounded-full"
             />
           </div>
         </div>

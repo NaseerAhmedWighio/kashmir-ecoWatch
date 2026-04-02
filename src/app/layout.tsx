@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     'Wetlands',
   ],
   authors: [{ name: 'Kashmir Environmental Intelligence Platform' }],
+   icons : {
+      icon : ['/kew_LOGO.png'],
+    },
   openGraph: {
     title: 'Kashmir Environmental Intelligence Platform',
     description: 'A unified scientific platform for ecological systems, biodiversity, environmental monitoring, and conservation intelligence across Kashmir',

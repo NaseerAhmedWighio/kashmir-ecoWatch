@@ -97,57 +97,51 @@ export function DistrictIntelligenceStrip() {
   const router = useRouter();
 
   return (
-    <section className="pt-16 md:pt-20 pb-16 md:pb-20 bg-gradient-to-b from-slate-950 to-slate-900 relative overflow-hidden">
+    <section className="pt-12 sm:pt-16 md:pt-20 pb-12 sm:pb-16 bg-gradient-to-b from-slate-950 to-slate-900 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-grid opacity-20" />
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-500/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-6 sm:mb-8 md:mb-10"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-2 h-2 bg-blue-500 rounded-full signal-pulse" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+          <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full signal-pulse" />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-slate-400">
               Regional Intelligence
             </span>
           </div>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div className="flex flex-col gap-3 sm:gap-4">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-black text-white mb-2 sm:mb-3 tracking-tight">
                 District Ecological Scorecards
               </h2>
-              <p className="text-slate-400 max-w-2xl text-lg leading-relaxed">
+              <p className="text-slate-400 max-w-2xl text-xs sm:text-sm md:text-base leading-relaxed">
                 Compare ecological health, biodiversity richness, risk levels,
                 and conservation status across Kashmir's districts.
               </p>
             </div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-white/20 text-white hover:border-blue-400"
-              icon={<Map className="w-4 h-4" />}
-              onClick={() => router.push('/districts')}
-            >
+            <Button variant="outline" size="sm" className="border-white/20 text-white hover:border-blue-400 w-full sm:w-auto text-xs sm:text-sm" icon={<Map className="w-3.5 h-3.5 sm:w-4 sm:h-4" />} onClick={() => router.push('/districts')}>
               View All Districts
             </Button>
           </div>
         </motion.div>
 
-        {/* Superlatives Strip */}
+        {/* Superlatives Strip - scrollable on mobile */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-6 sm:mb-8 md:mb-10 overflow-x-auto"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {superlatives.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -156,11 +150,11 @@ export function DistrictIntelligenceStrip() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Card className="glass-light border-white/10 p-5 text-center">
-                  <item.icon className={`w-6 h-6 ${item.color} mx-auto mb-3`} />
-                  <div className="text-xs text-slate-400 mb-2">{item.label}</div>
-                  <div className="text-lg font-bold text-white mb-1">{item.district}</div>
-                  <div className="text-xs text-slate-500">
+                <Card className="glass-light border-white/10 p-3 sm:p-4 md:p-5 text-center h-full">
+                  <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${item.color} mx-auto mb-2 sm:mb-3`} />
+                  <div className="text-[10px] sm:text-xs text-slate-400 mb-1 sm:mb-2 leading-tight line-clamp-2">{item.label}</div>
+                  <div className="text-base sm:text-lg font-bold text-white mb-1 truncate">{item.district}</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 truncate">
                     {'score' in item && `${item.score} score`}
                     {'count' in item && `${item.count} species`}
                     {'trend' in item && 'Improving'}
@@ -178,7 +172,7 @@ export function DistrictIntelligenceStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6"
         >
           {districtData.map((district, index) => (
             <motion.div
@@ -188,10 +182,10 @@ export function DistrictIntelligenceStrip() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <Card className="glass-intense border-white/10 hover:border-blue-500/30 transition-all p-6 group cursor-pointer">
-                <div className="flex items-start justify-between mb-4">
+              <Card className="glass-intense border-white/10 hover:border-blue-500/30 transition-all p-3 sm:p-4 md:p-6 group cursor-pointer">
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
                       {district.name}
                     </h3>
                     <div className="text-xs text-slate-500">District</div>
@@ -202,37 +196,38 @@ export function DistrictIntelligenceStrip() {
                       district.ecologicalScore >= 70 ? 'warning' : 'danger'
                     }
                     size="sm"
+                    className="text-[10px] sm:text-xs"
                   >
                     Score: {district.ecologicalScore}
                   </Badge>
                 </div>
 
                 {/* Metrics grid */}
-                <div className="grid grid-cols-3 gap-3 mb-4">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3 sm:mb-4">
                   <div className="text-center">
-                    <Droplet className="w-4 h-4 text-blue-400 mx-auto mb-1" />
-                    <div className="text-lg font-bold text-white">{district.wetlands}</div>
-                    <div className="text-xs text-slate-500">Wetlands</div>
+                    <Droplet className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400 mx-auto mb-1" />
+                    <div className="text-base sm:text-lg font-bold text-white">{district.wetlands}</div>
+                    <div className="text-[10px] sm:text-xs text-slate-500">Wetlands</div>
                   </div>
                   <div className="text-center">
-                    <Shield className="w-4 h-4 text-emerald-400 mx-auto mb-1" />
-                    <div className="text-lg font-bold text-white">{district.protectedAreas}</div>
-                    <div className="text-xs text-slate-500">Protected</div>
+                    <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 mx-auto mb-1" />
+                    <div className="text-base sm:text-lg font-bold text-white">{district.protectedAreas}</div>
+                    <div className="text-[10px] sm:text-xs text-slate-500">Protected</div>
                   </div>
                   <div className="text-center">
-                    <Activity className="w-4 h-4 text-purple-400 mx-auto mb-1" />
-                    <div className="text-lg font-bold text-white">{district.speciesCount}</div>
-                    <div className="text-xs text-slate-500">Species</div>
+                    <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400 mx-auto mb-1" />
+                    <div className="text-base sm:text-lg font-bold text-white">{district.speciesCount}</div>
+                    <div className="text-[10px] sm:text-xs text-slate-500">Species</div>
                   </div>
                 </div>
 
                 {/* Trend */}
-                <div className="flex items-center gap-2 mb-4 pb-4 border-b border-white/5">
-                  <TrendingUp className={`w-4 h-4 ${
+                <div className="flex items-center gap-2 mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-white/5">
+                  <TrendingUp className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${
                     district.trend === 'improving' ? 'text-emerald-400' :
                     district.trend === 'declining' ? 'text-red-400' : 'text-slate-400'
                   }`} />
-                  <span className={`text-xs ${
+                  <span className={`text-[10px] sm:text-xs ${
                     district.trend === 'improving' ? 'text-emerald-400' :
                     district.trend === 'declining' ? 'text-red-400' : 'text-slate-400'
                   }`}>
@@ -244,27 +239,27 @@ export function DistrictIntelligenceStrip() {
                 </div>
 
                 {/* Strength & Challenge */}
-                <div className="space-y-2 mb-4">
+                <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
                   <div className="flex items-center gap-2">
-                    <Leaf className="w-3 h-3 text-emerald-400" />
-                    <span className="text-xs text-slate-400">Strength:</span>
-                    <span className="text-xs text-white">{district.strength}</span>
+                    <Leaf className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-400" />
+                    <span className="text-[10px] sm:text-xs text-slate-400">Strength:</span>
+                    <span className="text-[10px] sm:text-xs text-white truncate">{district.strength}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <AlertTriangle className="w-3 h-3 text-amber-400" />
-                    <span className="text-xs text-slate-400">Challenge:</span>
-                    <span className="text-xs text-white">{district.challenge}</span>
+                    <AlertTriangle className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-400" />
+                    <span className="text-[10px] sm:text-xs text-slate-400">Challenge:</span>
+                    <span className="text-[10px] sm:text-xs text-white truncate">{district.challenge}</span>
                   </div>
                 </div>
 
                 <Button
                   size="sm"
                   variant="outline"
-                  className="w-full border-white/20 text-white hover:border-blue-400 group-hover:bg-blue-500/10"
+                  className="w-full border-white/20 text-white hover:border-blue-400 group-hover:bg-blue-500/10 text-xs sm:text-sm"
                   onClick={() => router.push(district.route)}
                 >
                   <span>View Profile</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Card>
             </motion.div>
