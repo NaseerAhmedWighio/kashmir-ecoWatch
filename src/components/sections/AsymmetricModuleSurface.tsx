@@ -216,7 +216,7 @@ export function AsymmetricModuleSurface() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-between glass-light rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-white/10"
+          className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-start gap-3 sm:gap-4 justify-between glass-light rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-white/10"
         >
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-forest-500 to-glacier-600 flex items-center justify-center">

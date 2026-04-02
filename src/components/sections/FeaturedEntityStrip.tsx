@@ -1,323 +1,456 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { Carousel } from '@/components/ui/Carousel';
 import { useRouter } from 'next/navigation';
 import { featuredEntities } from '@/lib/data';
 import {
-  MapPin, Mountain, Trees, Flower2, Footprints, Building2,
-  ArrowRight, Heart, Share2, Maximize2, Info, ExternalLink,
-  Shield, Droplet, Bird, Leaf
+  MapPin, Mountain, Flower2, Footprints, Building2,
+  ArrowRight, Heart, Share2, ArrowUpRight, Info,
+  Shield, Droplet, Leaf, Ruler, Activity, TrendingUp
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// ============================================================================
+// Type Configuration
+// ============================================================================
 
 const typeConfig: Record<string, {
   icon: React.ReactNode;
   color: string;
+  bgColor: string;
   label: string;
   gradient: string;
 }> = {
   protected_area: {
     icon: <Mountain className="w-4 h-4" />,
-    color: 'bg-emerald-500',
+    color: 'text-emerald-400',
+    bgColor: 'bg-emerald-500',
     label: 'Protected Area',
-    gradient: 'from-emerald-500 to-teal-700'
+    gradient: 'bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800',
   },
   lake: {
     icon: <Droplet className="w-4 h-4" />,
-    color: 'bg-blue-500',
+    color: 'text-blue-400',
+    bgColor: 'bg-blue-500',
     label: 'Water Body',
-    gradient: 'from-blue-500 to-cyan-700'
+    gradient: 'bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-800',
   },
   species: {
     icon: <Heart className="w-4 h-4" />,
-    color: 'bg-purple-500',
+    color: 'text-purple-400',
+    bgColor: 'bg-purple-500',
     label: 'Species',
-    gradient: 'from-purple-500 to-pink-700'
+    gradient: 'bg-gradient-to-br from-purple-600 via-purple-700 to-pink-800',
   },
   bloom: {
     icon: <Flower2 className="w-4 h-4" />,
-    color: 'bg-pink-500',
+    color: 'text-pink-400',
+    bgColor: 'bg-pink-500',
     label: 'Bloom Zone',
-    gradient: 'from-pink-500 to-rose-700'
+    gradient: 'bg-gradient-to-br from-pink-600 via-pink-700 to-rose-800',
   },
   trail: {
     icon: <Footprints className="w-4 h-4" />,
-    color: 'bg-amber-500',
+    color: 'text-amber-400',
+    bgColor: 'bg-amber-500',
     label: 'Trail',
-    gradient: 'from-amber-500 to-orange-700'
+    gradient: 'bg-gradient-to-br from-amber-600 via-amber-700 to-orange-800',
   },
   district: {
     icon: <Building2 className="w-4 h-4" />,
-    color: 'bg-slate-500',
+    color: 'text-slate-400',
+    bgColor: 'bg-slate-500',
     label: 'District',
-    gradient: 'from-slate-500 to-slate-700'
+    gradient: 'bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800',
   },
 };
 
+// ============================================================================
+// Tab Definitions
+// ============================================================================
+
 const tabs = [
-  { id: 'all', label: 'All Entities', icon: MapPin, count: featuredEntities.length },
-  { id: 'protected_areas', label: 'Protected Areas', icon: Shield, count: featuredEntities.filter(e => e.type === 'protected_area').length },
-  { id: 'water_bodies', label: 'Water Bodies', icon: Droplet, count: featuredEntities.filter(e => e.type === 'lake').length },
-  { id: 'species', label: 'Species', icon: Leaf, count: featuredEntities.filter(e => e.type === 'species').length },
-  { id: 'districts', label: 'Districts', icon: Building2, count: featuredEntities.filter(e => e.type === 'district').length },
-  { id: 'trails', label: 'Trails', icon: Footprints, count: featuredEntities.filter(e => e.type === 'trail').length },
+  { id: 'all', label: 'All', icon: MapPin },
+  { id: 'protected_areas', label: 'Protected Areas', icon: Shield },
+  { id: 'water_bodies', label: 'Water Bodies', icon: Droplet },
+  { id: 'species', label: 'Species', icon: Leaf },
+  { id: 'districts', label: 'Districts', icon: Building2 },
+  { id: 'trails', label: 'Trails', icon: Footprints },
 ];
+
+// ============================================================================
+// Entity Card Component
+// ============================================================================
+
+interface EntityCardProps {
+  entity: typeof featuredEntities[0];
+  onNavigate: (link: string) => void;
+}
+
+function EntityCard({ entity, onNavigate }: EntityCardProps) {
+  const config = typeConfig[entity.type];
+
+  return (
+    <Card
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 backdrop-blur-xl hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-forest-500/10"
+      padding="none"
+    >
+      {/* Card wrapper for consistent sizing */}
+      <div className="flex flex-col h-full">
+        {/* Visual Header */}
+        <div className={`relative h-40 sm:h-44 ${config.gradient} flex-shrink-0`}>
+          {/* Subtle pattern overlay */}
+          <div className="absolute inset-0 opacity-10">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id={`grid-${entity.id}`} width="16" height="16" patternUnits="userSpaceOnUse">
+                  <path d="M0 16h16V0H0z" fill="none" stroke="white" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill={`url(#grid-${entity.id})`} />
+            </svg>
+          </div>
+
+          {/* Radial gradient overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+
+          {/* Type Badge */}
+          <div className="absolute top-3 left-3 z-10">
+            <Badge className={`${config.bgColor} text-white border-0 backdrop-blur-md shadow-lg`}>
+              {config.icon}
+              <span className="ml-1.5 text-xs font-semibold">{config.label}</span>
+            </Badge>
+          </div>
+
+          {/* Quick Actions (hover only) */}
+          <div className="absolute top-3 right-3 z-10 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <button
+              className="p-2 rounded-lg bg-white/15 backdrop-blur-md hover:bg-white/25 transition-colors group/btn"
+              aria-label="Save to favorites"
+              type="button"
+            >
+              <Heart className="w-4 h-4 text-white group-hover/btn:scale-110 transition-transform" />
+            </button>
+            <button
+              className="p-2 rounded-lg bg-white/15 backdrop-blur-md hover:bg-white/25 transition-colors group/btn"
+              aria-label="Share entity"
+              type="button"
+            >
+              <Share2 className="w-4 h-4 text-white group-hover/btn:scale-110 transition-transform" />
+            </button>
+          </div>
+
+          {/* Entity Name */}
+          <div className="absolute bottom-3 left-3 right-3 z-10">
+            <h3 className="text-lg sm:text-xl font-bold text-white drop-shadow-lg line-clamp-2 leading-tight">
+              {entity.name}
+            </h3>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="flex-1 p-4 sm:p-5 flex flex-col">
+          {/* Description */}
+          <p className="text-xs sm:text-sm text-slate-400 mb-4 line-clamp-2 leading-relaxed flex-shrink-0">
+            {entity.description}
+          </p>
+
+          {/* Metrics Grid */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 flex-shrink-0">
+            {entity.metrics.map((metric, idx) => (
+              <div key={idx} className="text-center p-2 rounded-lg bg-slate-800/50 border border-white/5">
+                <div className="flex items-center justify-center gap-1 mb-1">
+                  {metric.unit === 'km²' || metric.unit === 'km' ? (
+                    <Ruler className="w-3 h-3 text-forest-400" />
+                  ) : metric.unit === '%' ? (
+                    <TrendingUp className="w-3 h-3 text-blue-400" />
+                  ) : (
+                    <Activity className="w-3 h-3 text-purple-400" />
+                  )}
+                </div>
+                <div className="text-base sm:text-lg font-bold text-white tabular-nums">
+                  {metric.value.toLocaleString()}
+                </div>
+                <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mt-0.5">
+                  {metric.unit || metric.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Action Bar */}
+          <div className="mt-auto pt-4 border-t border-white/10 flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex-1 border-white/20 text-white hover:border-forest-400 hover:bg-forest-500/10 text-xs sm:text-sm font-medium transition-all"
+              onClick={() => onNavigate(entity.link)}
+            >
+              View Details
+              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Button>
+            <button
+              className="p-2 rounded-lg bg-slate-800/50 border border-white/10 hover:border-forest-500/50 hover:bg-forest-500/10 transition-all group/btn"
+              aria-label={`More info about ${entity.name}`}
+              type="button"
+            >
+              <Info className="w-4 h-4 text-slate-400 group-hover/btn:text-forest-400 transition-colors" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Hover Glow Effect */}
+      <div className="absolute inset-0 rounded-2xl border-2 border-forest-500/0 group-hover:border-forest-500/30 transition-colors duration-300 pointer-events-none" />
+    </Card>
+  );
+}
+
+// ============================================================================
+// Category Summary Card Component
+// ============================================================================
+
+interface CategorySummaryProps {
+  tab: typeof tabs[0];
+  isActive: boolean;
+  count: number;
+  onClick: () => void;
+}
+
+function CategorySummary({ tab, isActive, count, onClick }: CategorySummaryProps) {
+  return (
+    <motion.button
+      onClick={onClick}
+      className={`p-3 sm:p-4 rounded-xl border transition-all duration-300 text-center w-full ${
+        isActive
+          ? 'border-forest-500/50 bg-forest-500/10 shadow-lg shadow-forest-500/10'
+          : 'border-white/5 bg-slate-900/50 hover:border-white/20 hover:bg-slate-800/50'
+      }`}
+      whileHover={{ scale: 1.02, y: -2 }}
+      whileTap={{ scale: 0.98 }}
+      type="button"
+    >
+      <tab.icon className={`w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2 transition-colors ${
+        isActive ? 'text-forest-400' : 'text-slate-500'
+      }`} />
+      <div className="text-xl sm:text-2xl font-bold text-white tabular-nums">{count}</div>
+      <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mt-1">
+        {tab.label}
+      </div>
+    </motion.button>
+  );
+}
+
+// ============================================================================
+// Main Component
+// ============================================================================
 
 export function FeaturedEntityStrip() {
   const router = useRouter();
-  const [hoveredEntity, setHoveredEntity] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState('all');
 
-  const filteredEntities = activeTab === 'all' 
-    ? featuredEntities 
-    : featuredEntities.filter(e => {
-        if (activeTab === 'protected_areas') return e.type === 'protected_area';
-        if (activeTab === 'water_bodies') return e.type === 'lake';
-        if (activeTab === 'species') return e.type === 'species';
-        if (activeTab === 'districts') return e.type === 'district';
-        if (activeTab === 'trails') return e.type === 'trail';
-        return true;
-      });
+  // Filter entities based on active tab
+  const filteredEntities = useMemo(() => {
+    if (activeTab === 'all') return featuredEntities;
+    
+    const typeMap: Record<string, string> = {
+      protected_areas: 'protected_area',
+      water_bodies: 'lake',
+      species: 'species',
+      districts: 'district',
+      trails: 'trail',
+    };
+    
+    const targetType = typeMap[activeTab];
+    return featuredEntities.filter(e => e.type === targetType);
+  }, [activeTab]);
+
+  // Calculate counts for each category
+  const counts = useMemo(() => {
+    const baseCounts = {
+      all: featuredEntities.length,
+      protected_areas: featuredEntities.filter(e => e.type === 'protected_area').length,
+      water_bodies: featuredEntities.filter(e => e.type === 'lake').length,
+      species: featuredEntities.filter(e => e.type === 'species').length,
+      districts: featuredEntities.filter(e => e.type === 'district').length,
+      trails: featuredEntities.filter(e => e.type === 'trail').length,
+    };
+    return baseCounts;
+  }, []);
 
   return (
     <section className="pt-12 sm:pt-16 md:pt-20 pb-12 sm:pb-16 bg-slate-950 relative overflow-hidden">
-      {/* Background */}
+      {/* Background Elements */}
       <div className="absolute inset-0 bg-grid opacity-20" />
-      <div className="absolute bottom-0 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-forest-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-forest-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 right-0 w-48 h-48 sm:w-72 sm:h-72 bg-blue-500/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
-        {/* Section header */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-6 sm:mb-8 md:mb-10"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mb-8 sm:mb-12"
         >
-          <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-forest-500 rounded-full signal-pulse" />
-            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Featured Intelligence
-            </span>
-          </div>
-          <div className="flex flex-col gap-3 sm:gap-4">
-            <div>
-              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-black text-white mb-2 sm:mb-3 tracking-tight">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div className="flex-1">
+              {/* Signal indicator */}
+              <div className="flex items-center gap-2.5 mb-3">
+                <div className="w-2 h-2 bg-forest-500 rounded-full signal-pulse shadow-lg shadow-forest-500/50" />
+                <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+                  Featured Intelligence
+                </span>
+              </div>
+              
+              {/* Title and Description */}
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 tracking-tight leading-tight">
                 Featured Ecological Entities
               </h2>
-              <p className="text-slate-400 max-w-2xl text-xs sm:text-sm md:text-base leading-relaxed">
+              <p className="text-slate-400 max-w-2xl text-sm sm:text-base leading-relaxed">
                 Discover key ecological assets, critical habitats, and significant
-                environmental features with deep intelligence profiles.
+                environmental features with comprehensive intelligence profiles.
               </p>
             </div>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border-forest-400 w-full sm:w-auto text-sm sm:text-base" icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />} onClick={() => router.push('/biodiversity')}>
-              <span className="hidden xs:inline">Browse All Entities</span>
-              <span className="xs:hidden">Browse All</span>
-            </Button>
+
+            {/* CTA Button */}
+            <div className="flex-shrink-0">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto border-white/20 text-white hover:border-forest-400 hover:bg-forest-500/10 text-sm font-medium transition-all"
+                icon={<ArrowRight className="w-5 h-5" />}
+                onClick={() => router.push('/biodiversity')}
+              >
+                Browse All Entities
+              </Button>
+            </div>
           </div>
         </motion.div>
 
-        {/* Tab navigation */}
+        {/* Tab Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-4 sm:mb-6"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-6 sm:mb-8"
         >
-          <div className="overflow-x-auto scrollbar-hide pb-2 -mx-3 px-1 md:px-3 sm:mx-0 sm:px-0">
-            <div className="flex items-center gap-1.5 sm:gap-2 p-1 glass-light rounded-lg sm:rounded-xl border border-white/10 w-auto">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-2 md:px-4 py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-1.5 sm:gap-2 whitespace-nowrap ${
-                    activeTab === tab.id
-                      ? 'bg-forest-500/20 text-forest-400 border border-forest-500/30'
-                      : 'text-slate-400 hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  <tab.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span className="hidden sm:inline">{tab.label}</span>
-                  <span className="sm:hidden">{tab.count}</span>
-                  <Badge
-                    variant={activeTab === tab.id ? 'default' : 'outline'}
-                    size="sm"
-                    className={`ml-0.5 sm:ml-1 flex-shrink-0 text-[10px] sm:text-xs ${activeTab === tab.id ? 'bg-forest-500/30' : 'border-white/10'}`}
+          {/* Scrollable Tab List */}
+          <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div
+              className="flex items-center gap-2 p-1.5 sm:gap-3 sm:p-2 glass-light rounded-xl sm:rounded-2xl border border-white/10 w-fit min-w-max"
+              role="tablist"
+              aria-label="Entity categories"
+            >
+              {tabs.map((tab) => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls={`panel-${tab.id}`}
+                    className={`px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-forest-500 focus:ring-offset-2 focus:ring-offset-slate-900 ${
+                      isActive
+                        ? 'bg-forest-500 text-white shadow-lg shadow-forest-500/30 border border-forest-400'
+                        : 'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'
+                    }`}
+                    type="button"
                   >
-                    {tab.count}
-                  </Badge>
-                </button>
-              ))}
+                    <tab.icon className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 ${
+                      isActive ? 'text-white' : ''
+                    }`} />
+                    <span className="hidden md:inline">{tab.label}</span>
+                    <span className="md:hidden">{tab.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </motion.div>
 
-        {/* Entity cards with animation */}
-        <div className="relative">
+        {/* Carousel with Entity Cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              id={`panel-${activeTab}`}
+              role="tabpanel"
+              aria-labelledby={activeTab}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {filteredEntities.length === 0 ? (
-                <div className="w-full py-8 sm:py-12 text-center">
-                  <MapPin className="w-10 h-10 sm:w-12 sm:h-12 text-slate-600 mx-auto mb-3 sm:mb-4" />
-                  <p className="text-sm sm:text-base text-slate-400">No entities found in this category</p>
+                <div className="py-16 text-center">
+                  <div className="w-16 h-16 rounded-full bg-slate-800/50 flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="w-8 h-8 text-slate-600" />
+                  </div>
+                  <p className="text-slate-400 text-sm sm:text-base">
+                    No entities found in this category
+                  </p>
                 </div>
               ) : (
-                filteredEntities.map((entity, index) => {
-                  const config = typeConfig[entity.type];
-                  const isHovered = hoveredEntity === entity.id;
-
-                  return (
-                    <motion.div
+                <Carousel
+                  itemWidth={{ mobile: 280, tablet: 300, desktop: 340 }}
+                  gap="gap-3 sm:gap-4 md:gap-6"
+                  showArrows={true}
+                  ariaLabel="Featured entities carousel"
+                  className="px-1"
+                >
+                  {filteredEntities.map((entity) => (
+                    <div
                       key={entity.id}
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.08 }}
-                      className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-[320px] snap-start"
-                      onMouseEnter={() => setHoveredEntity(entity.id)}
-                      onMouseLeave={() => setHoveredEntity(null)}
+                      className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-[340px] snap-start"
                     >
-                      <Card className="group relative overflow-hidden rounded-2xl border border-white/5 bg-slate-900/50 backdrop-blur-xl card-intelligence" padding="none">
-                        {/* Visual layer */}
-                        <div className="relative h-48 overflow-hidden">
-                          {/* Gradient background based on type */}
-                          <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient} opacity-80 group-hover:opacity-90 transition-opacity`} />
-
-                          {/* Pattern overlay */}
-                          <div className="absolute inset-0 opacity-20">
-                            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                              <defs>
-                                <pattern id={`pattern-${entity.id}`} width="20" height="20" patternUnits="userSpaceOnUse">
-                                  <circle cx="2" cy="2" r="1" fill="white" fillOpacity="0.3" />
-                                </pattern>
-                              </defs>
-                              <rect width="100%" height="100%" fill={`url(#pattern-${entity.id})`} />
-                            </svg>
-                          </div>
-
-                          {/* Type badge */}
-                          <div className="absolute top-4 left-4 z-10">
-                            <Badge className={`${config.color} text-white border-0 backdrop-blur-sm`}>
-                              {config.icon}
-                              <span className="ml-1.5 text-xs font-medium">{config.label}</span>
-                            </Badge>
-                          </div>
-
-                          {/* Action buttons */}
-                          <div className={`absolute top-4 right-4 z-10 flex gap-2 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-                            <button className="p-2 rounded-lg bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors">
-                              <Heart className="w-4 h-4 text-white" />
-                            </button>
-                            <button className="p-2 rounded-lg bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors">
-                              <Share2 className="w-4 h-4 text-white" />
-                            </button>
-                          </div>
-
-                          {/* Name overlay */}
-                          <div className="absolute bottom-4 left-4 right-4 z-10">
-                            <h3 className="text-xl font-bold text-white mb-1 drop-shadow-lg">
-                              {entity.name}
-                            </h3>
-                          </div>
-
-                          {/* Expand indicator */}
-                          <div className={`absolute bottom-4 right-4 z-10 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-                            <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                              <Maximize2 className="w-5 h-5 text-white" />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Content layer */}
-                        <div className="p-5">
-                          <p className="text-sm text-slate-400 mb-4 line-clamp-2 leading-relaxed">
-                            {entity.description}
-                          </p>
-
-                          {/* Metrics */}
-                          <div className="flex items-center gap-4 mb-4">
-                            {entity.metrics.map((metric, idx) => (
-                              <div key={idx} className="flex-1">
-                                <div className="text-lg font-bold text-white tabular-nums">
-                                  {metric.value.toLocaleString()}
-                                </div>
-                                <div className="text-xs text-slate-500 uppercase tracking-wider">
-                                  {metric.unit || ''}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Action bar */}
-                          <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="border-white/20 text-white hover:border-forest-400 flex-1 mr-3"
-                              onClick={() => router.push(entity.link)}
-                            >
-                              View Details
-                            </Button>
-                            <button className="p-2 rounded-lg glass-light border border-white/10 hover:border-forest-500/50 transition-colors">
-                              <Info className="w-4 h-4 text-slate-400" />
-                            </button>
-                          </div>
-                        </div>
-
-                        {/* Hover border glow */}
-                        <div className={`absolute inset-0 border-2 border-transparent rounded-2xl transition-colors duration-300 pointer-events-none ${isHovered && 'border-forest-500/30'}`} />
-                      </Card>
-                    </motion.div>
-                  );
-                })
+                      <EntityCard entity={entity} onNavigate={router.push} />
+                    </div>
+                  ))}
+                </Carousel>
               )}
             </motion.div>
           </AnimatePresence>
+        </motion.div>
 
-          {/* Gradient fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none z-10" />
-        </div>
-
-        {/* Category summary strip */}
+        {/* Category Summary Strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
-          {tabs.filter(t => t.id !== 'all').map((tab) => (
-            <motion.button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`p-4 rounded-xl glass-light border transition-all text-center ${
-                activeTab === tab.id 
-                  ? 'border-forest-500/50 bg-forest-500/10' 
-                  : 'border-white/5 hover:border-white/20'
-              }`}
-              whileHover={{ scale: 1.05 }}
-            >
-              <tab.icon className={`w-6 h-6 mx-auto mb-2 ${
-                activeTab === tab.id ? 'text-forest-400' : 'text-slate-500'
-              }`} />
-              <div className="text-2xl font-bold text-white">{tab.count}</div>
-              <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">
-                {tab.label}
-              </div>
-            </motion.button>
-          ))}
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+              Category Overview
+            </span>
+          </div>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            {tabs.filter(t => t.id !== 'all').map((tab) => (
+              <CategorySummary
+                key={tab.id}
+                tab={tab}
+                isActive={activeTab === tab.id}
+                count={counts[tab.id as keyof typeof counts]}
+                onClick={() => setActiveTab(tab.id)}
+              />
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
