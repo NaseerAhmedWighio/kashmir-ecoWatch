@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { CircleMarker, Popup } from 'react-leaflet';
 import * as L from 'leaflet';
-import protectedAreasData from '@/data/geojson/protected-areas.geojson';
+import protectedAreasData from '@/data/geojson/protected-areas.json';
 
 interface ProtectedAreaLayerProps {
   visible?: boolean;

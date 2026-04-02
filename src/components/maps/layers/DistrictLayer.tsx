@@ -3,12 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import { GeoJSON } from 'react-leaflet';
 import * as L from 'leaflet';
-import districtsData from '@/data/geojson/districts.geojson';
+import districtsData from '@/data/geojson/districts.json';
 
 interface DistrictLayerProps {
   visible?: boolean;
   onFeatureClick?: (feature: any) => void;
 }
+
+// Type assertion for GeoJSON data - cast to standard GeoJSON FeatureCollection
+const typedDistrictsData = districtsData as GeoJSON.FeatureCollection;
 
 export function DistrictLayer({ visible = true, onFeatureClick }: DistrictLayerProps) {
   const [hoveredFeature, setHoveredFeature] = useState<any>(null);
@@ -81,7 +84,7 @@ export function DistrictLayer({ visible = true, onFeatureClick }: DistrictLayerP
   return (
     <GeoJSON
       key="districts"
-      data={districtsData}
+      data={typedDistrictsData}
       style={style}
       onEachFeature={onEachFeature}
     />

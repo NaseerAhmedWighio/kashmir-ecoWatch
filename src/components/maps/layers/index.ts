@@ -1,3 +1,5 @@
+'use client';
+
 export { DistrictLayer } from './DistrictLayer';
 export { ProtectedAreaLayer } from './ProtectedAreaLayer';
 export { WaterBodyLayer } from './WaterBodyLayer';

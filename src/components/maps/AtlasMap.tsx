@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 import * as L from 'leaflet';
 
 // Fix Leaflet default icon issue with Next.js (only run on client)

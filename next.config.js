@@ -4,15 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  webpack: (config, { isServer }) => {
-    // Handle GeoJSON files
-    config.module.rules.push({
-      test: /\.geojson$/,
-      type: 'json',
-    });
-    
-    return config;
-  },
+  // Disable static page generation for pages that use dynamic imports with ssr: false
+  output: 'standalone',
 }
 
 module.exports = nextConfig

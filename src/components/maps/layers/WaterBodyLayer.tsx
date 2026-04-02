@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { CircleMarker, Popup } from 'react-leaflet';
-import lakesData from '@/data/geojson/lakes.geojson';
-import wetlandsData from '@/data/geojson/wetlands.geojson';
+import lakesData from '@/data/geojson/lakes.json';
+import wetlandsData from '@/data/geojson/wetlands.json';
 
 interface WaterBodyLayerProps {
   visible?: boolean;
@@ -35,7 +35,7 @@ export function WaterBodyLayer({ visible = true, onFeatureClick }: WaterBodyLaye
         const color = waterQualityColors[qualityStatus] || '#3b82f6';
         const isHovered = hoveredId === feature.properties.id;
         const isWetland = type === 'wetland';
-        const isRamsar = feature.properties.ramsarSite;
+        const isRamsar = (feature.properties as any).ramsarSite;
 
         return (
           <CircleMarker

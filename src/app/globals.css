@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Leaflet CSS */
+@import 'leaflet/dist/leaflet.css';
+
 :root {
   --foreground-rgb: 241, 245, 249;
   --background-start-rgb: 2, 6, 23;
