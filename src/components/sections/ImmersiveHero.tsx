@@ -254,19 +254,19 @@ export function ImmersiveHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-16 max-w-4xl"
+            className="mt-10 md:mt-14 lg:mt-16 max-w-4xl"
           >
             {/* Search input */}
             <div className="relative">
               <div className="flex items-center gap-4 p-4 rounded-2xl glass-intense border border-white/10 shadow-2xl backdrop-blur-xl focus-within:border-forest-500/50 focus-within:ring-2 focus-within:ring-forest-500/20 transition-all">
-                <Search className="w-6 h-6 text-slate-400 flex-shrink-0" />
+                <Search className="w-4 h-4 md:w-6 md:h-6 text-slate-400 flex-shrink-0" />
                 <input
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onFocus={() => setIsSearchOpen(true)}
                   placeholder="Search districts, species, lakes, wetlands, trails, alerts..."
-                  className="flex-1 bg-transparent border-none outline-none text-white text-lg placeholder-slate-500"
+                  className="flex-1 bg-transparent border-none outline-none text-white text-base md:text-lg placeholder-slate-500"
                 />
                 {query && (
                   <button
@@ -325,13 +325,13 @@ export function ImmersiveHero() {
                                   <button
                                     key={item.id}
                                     onClick={() => handleSelect('species', item.slug)}
-                                    className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
+                                    className="w-full flex items-center justify-between p-1 md:p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                                   >
                                     <div>
                                       <div className="font-medium text-white group-hover:text-forest-300 transition-colors">
                                         {item.name}
                                       </div>
-                                      <div className="text-sm text-slate-500">{item.scientificName}</div>
+                                      <div className="text-xs md:text-sm text-slate-500">{item.scientificName}</div>
                                     </div>
                                     <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
                                   </button>
@@ -599,7 +599,7 @@ export function ImmersiveHero() {
           >
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-light border border-white/10">
               <Database className="w-4 h-4 text-blue-400" />
-              <span className="text-xs text-slate-400">
+              <span className="text-[8px] md:text-xs text-slate-400">
                 Source-integrated metrics updated by module — mix of reference inventories, field surveys, and live monitoring layers
               </span>
             </div>

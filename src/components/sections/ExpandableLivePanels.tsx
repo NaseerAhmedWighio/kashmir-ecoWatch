@@ -129,7 +129,7 @@ export function ExpandableLivePanels() {
             </div>
             
             {/* Filter tabs */}
-            <div className="flex items-center gap-2 p-1 glass-light rounded-lg border border-white/10">
+            <div className="flex items-center justify-between gap-2 p-1 glass-light rounded-lg border border-white/10">
               {[
                 { id: 'all', label: 'All Feeds' },
                 { id: 'critical', label: 'Critical' },
@@ -138,7 +138,7 @@ export function ExpandableLivePanels() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                  className={`px-2 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium transition-all ${
                     activeTab === tab.id
                       ? 'bg-forest-500/20 text-forest-400'
                       : 'text-slate-400 hover:text-white'
@@ -179,10 +179,10 @@ export function ExpandableLivePanels() {
                     className="flex items-center justify-between p-6 cursor-pointer hover:bg-white/[0.02] transition-colors"
                     onClick={() => togglePanel(panel.id)}
                   >
-                    <div className="flex items-center gap-4 flex-1">
+                    <div className="flex items-center justify-center gap-4 flex-1">
                       {/* Icon with status */}
                       <div className="relative">
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-forest-500 to-forest-700 text-white flex items-center justify-center shadow-lg ${status.glow}`}>
+                        <div className={`w-8 h-8 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-forest-500 to-forest-700 text-white flex items-center justify-center shadow-lg ${status.glow}`}>
                           <IconComponent className="w-6 h-6" />
                         </div>
                         <div className={`absolute -top-1 -right-1 w-4 h-4 rounded-full ${status.color} border-2 border-slate-900 signal-pulse`} />
@@ -191,7 +191,7 @@ export function ExpandableLivePanels() {
                       {/* Title and meta */}
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-1">
-                          <h3 className="text-lg font-bold text-white">
+                          <h3 className="text-sm md:text-lg font-bold text-white">
                             {panel.title}
                           </h3>
                           <Badge 

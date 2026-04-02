@@ -84,14 +84,14 @@ export function AsymmetricModuleSurface() {
             <div className="flex items-center gap-3">
               <button 
                 onClick={() => router.push('/risk-monitoring')}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg glass-light border border-white/10 text-sm text-slate-300 hover:text-white hover:border-forest-500/50 transition-all"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg glass-light border border-white/10 text-xs md:text-sm text-slate-300 hover:text-white hover:border-forest-500/50 transition-all"
               >
                 <Layers className="w-4 h-4" />
                 <span>View All Modules</span>
               </button>
               <button 
                 onClick={() => router.push('/risk-monitoring/dashboards')}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg glass-light border border-white/10 text-sm text-slate-300 hover:text-white hover:border-forest-500/50 transition-all"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg glass-light border border-white/10 text-xs md:text-sm text-slate-300 hover:text-white hover:border-forest-500/50 transition-all"
               >
                 <Activity className="w-4 h-4" />
                 <span>Activity Log</span>
@@ -101,7 +101,7 @@ export function AsymmetricModuleSurface() {
         </motion.div>
 
         {/* Asymmetric grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
           {intelligenceCards.map((card, index) => {
             const sizeClass = getModuleSize(index);
             const isHovered = hoveredModule === card.id;
@@ -133,7 +133,7 @@ export function AsymmetricModuleSurface() {
                     <div>
                       {/* Icon and header */}
                       <div className="flex items-start justify-between mb-4">
-                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colorMap[card.color]} text-white flex items-center justify-center shadow-lg ${index === 0 ? 'glow-forest' : ''}`}>
+                        <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl bg-gradient-to-br ${colorMap[card.color]} text-white flex items-center justify-center shadow-lg ${index === 0 ? 'glow-forest' : ''}`}>
                           {Icon}
                         </div>
                         {index === 0 && (
@@ -215,20 +215,20 @@ export function AsymmetricModuleSurface() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-12 flex items-center justify-between glass-light rounded-xl p-6 border border-white/10"
+          className="mt-12 flex flex-col md:flex-row items-center gap-4 justify-between glass-light rounded-xl p-6 border border-white/10"
         >
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-forest-500 to-glacier-600 flex items-center justify-center">
-              <Layers className="w-6 h-6 text-white" />
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className="w-12 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-forest-500 to-glacier-600 flex items-center justify-center">
+              <Layers className="w-4 h-4 md:w-6 md:h-6 text-white" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">Complete Module Directory</h3>
-              <p className="text-sm text-slate-400">Access all 24 intelligence modules across 5 ecological pillars</p>
+              <h3 className="text-xs md:text-lg font-bold text-white">Complete Module Directory</h3>
+              <p className="text-[8px] md:text-sm text-slate-400">Access all 24 intelligence modules across 5 ecological pillars</p>
             </div>
           </div>
           <Button 
             variant="outline" 
-            className="border-white/20 text-white hover:border-forest-400"
+            className="border-white/20 text-white text-xs md:text-md lg:text-lg w-full md:w-auto hover:border-forest-400"
             onClick={() => router.push('/risk-monitoring')}
           >
             Browse Directory

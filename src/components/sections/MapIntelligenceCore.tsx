@@ -460,7 +460,7 @@ export function MapIntelligenceCore() {
               onClick={() => { setSelectedFeature(feature.id); setShowMiniDrawer(true); }}
               className="cursor-pointer"
             >
-              <Card className="glass-intense border-white/10 p-5 hover:border-forest-400/50 transition-colors">
+              <Card className="glass-intense border-white/10 p-2 md:p-5 hover:border-forest-400/50 transition-colors">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3">
                     {feature.type === 'wetland' ? (
@@ -469,7 +469,7 @@ export function MapIntelligenceCore() {
                       <Mountain className="w-5 h-5 text-emerald-400" />
                     )}
                     <div>
-                      <h3 className="text-base font-bold text-white">{feature.name}</h3>
+                      <h3 className="text-sm md:text-base font-bold text-white">{feature.name}</h3>
                       <p className="text-xs text-slate-400">{feature.district}</p>
                     </div>
                   </div>
