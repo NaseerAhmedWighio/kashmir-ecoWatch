@@ -20,21 +20,21 @@ interface LogoProps {
 export function Logo({ variant = 'expanded', className }: LogoProps) {
   const logoConfig = {
     expanded: {
-      containerClass: 'flex items-center gap-3',
-      imgClass: 'w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain drop-shadow-lg',
-      showWordmark: true,
+      containerClass: 'flex items-center',
+      imgClass: 'w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain drop-shadow-lg',
+      showWordmark: false,
       wordmarkClass: 'flex flex-col justify-center',
     },
     compact: {
-      containerClass: 'flex items-center gap-2.5',
-      imgClass: 'w-9 h-9 md:w-10 md:h-10 object-contain drop-shadow-md',
-      showWordmark: true,
+      containerClass: 'flex items-center',
+      imgClass: 'w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-md',
+      showWordmark: false,
       wordmarkClass: 'flex flex-col justify-center',
     },
     mobile: {
-      containerClass: 'flex items-center gap-2',
+      containerClass: 'flex items-center',
       imgClass: 'w-8 h-8 md:w-9 md:h-9 object-contain drop-shadow-md',
-      showWordmark: true,
+      showWordmark: false,
       wordmarkClass: 'flex flex-col justify-center',
     },
   };
