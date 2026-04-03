@@ -102,16 +102,7 @@ export function Navigation() {
               alt="Kashmir EcoWatch Logo"
               className="w-[3rem] h-[3rem] md:w-[4rem] md:h-[4rem] lg:w-[5rem] lg:h-[5rem] object-contain"
             />
-            {/* <div
-              className="hidden md:block absolute top-5 -left-[1.5px] whitespace-nowrap opacity-0 translate-y-0 group-hover:opacity-100 group-hover:translate-y-5 transition-all duration-[2000ms] ease-in-out"
-            >
-              <h1 className="text-base font-bold text-white tracking-wide">
-                Kashmir EcoWatch
-              </h1>
-              <p className="text-xs text-slate-400 tracking-wide">
-                by Dr. Kumar Foundation USA
-              </p>
-            </div> */}
+            
           </a>
 
           {/* Desktop navigation */}
@@ -529,7 +520,7 @@ export function Navigation() {
                     alt="Kashmir EcoWatch"
                     className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                   />
-                  <span className="font-bold text-white text-sm sm:text-base">Kashmir EcoWatch</span>
+                  
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
