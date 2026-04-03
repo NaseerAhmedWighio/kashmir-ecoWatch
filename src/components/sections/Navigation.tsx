@@ -506,7 +506,7 @@ export function Navigation() {
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               className="fixed inset-y-0 left-0 w-[85%] sm:w-[75%] max-w-[280px] sm:max-w-[320px] bg-slate-900 z-[51] xl:hidden shadow-2xl flex flex-col h-dvh"
               role="dialog"
               aria-modal="true"

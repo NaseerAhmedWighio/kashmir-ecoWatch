@@ -152,7 +152,7 @@ export function ImmersiveHero() {
               duration: 3.2 + i * 0.35,
               repeat: Infinity,
               delay: i * 0.4,
-              ease: 'easeInOut'
+              ease: [0.4, 0, 0.2, 1]
             }}
           />
         ))}

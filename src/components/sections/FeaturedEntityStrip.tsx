@@ -295,7 +295,7 @@ export function FeaturedEntityStrip() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
           className="mb-8 sm:mb-12"
         >
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
