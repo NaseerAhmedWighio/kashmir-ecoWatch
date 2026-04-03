@@ -1,6 +1,6 @@
 'use client';
 
-import { Navigation } from '@/components/sections/Navigation';
+import { PremiumStickyHeader } from '@/components/sections/PremiumStickyHeader';
 import { ImmersiveHero } from '@/components/sections/ImmersiveHero';
 import { AsymmetricModuleSurface } from '@/components/sections/AsymmetricModuleSurface';
 import { ExpandableLivePanels } from '@/components/sections/ExpandableLivePanels';
@@ -29,7 +29,7 @@ const MapIntelligenceCore = dynamic(
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950">
-      <Navigation />
+      <PremiumStickyHeader />
       {/* Band 1: Hero Command Surface */}
       <ImmersiveHero />
 

@@ -11,6 +11,95 @@
   --background-end-rgb: 15, 23, 42;
 }
 
+/* =============================================
+   PREMIUM HEADER STYLES
+   ============================================= */
+
+/* Glass morphism variants for header */
+.glass-intense {
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-subtle {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Header height transitions */
+.header-expanded {
+  height: 7rem; /* 112px */
+}
+
+@media (min-width: 768px) {
+  .header-expanded {
+    height: 8rem; /* 128px */
+  }
+}
+
+.header-compact {
+  height: 4rem; /* 64px */
+}
+
+@media (min-width: 768px) {
+  .header-compact {
+    height: 4.5rem; /* 72px */
+  }
+}
+
+/* Logo size transitions */
+.logo-expanded {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .logo-expanded {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-expanded {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.logo-compact {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .logo-compact {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+/* Signal pulse animation for alerts */
+@keyframes signal-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+}
+
+.animate-signal-pulse {
+  animation: signal-pulse 2s ease-in-out infinite;
+}
+
+/* =============================================
+
 * {
   box-sizing: border-box;
   padding: 0;
