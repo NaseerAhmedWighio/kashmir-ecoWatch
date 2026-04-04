@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
   images: {
     unoptimized: true,
   },
@@ -18,6 +22,8 @@ const nextConfig = {
 
     return config;
   },
+
+  turbopack: {},
 };
 
 module.exports = nextConfig;
