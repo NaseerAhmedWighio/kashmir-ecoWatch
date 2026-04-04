@@ -263,6 +263,7 @@ export function Navigation() {
                         { name: 'All Watersheds', href: '/water-systems/watersheds', icon: Map, desc: 'Basins, catchments & hydrological units', color: 'text-amber-400' },
                         { name: 'Glaciers & Cryosphere', href: '/water-systems/glaciers', icon: Mountain, desc: 'Glaciers & snow-fed systems', color: 'text-slate-400' },
                         { name: 'Water Quality', href: '/water-systems/water-quality', icon: Thermometer, desc: 'Quality monitoring & trends', color: 'text-teal-400' },
+                        { name: 'Algal Bloom Intelligence', href: '/water-systems/algal-bloom-intelligence', icon: Waves, desc: 'Eutrophication & bloom risk monitoring', color: 'text-emerald-400' },
                         { name: 'Fisheries & Aquatic Life', href: '/water-systems/fisheries', icon: Fish, desc: 'Fish species & fishery management', color: 'text-violet-400' },
                         { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', icon: AlertTriangle, desc: 'Flood zones & hazard assessment', color: 'text-red-400' },
                         { name: 'Restoration & Rejuvenation', href: '/water-systems/restoration', icon: Hammer, desc: 'Conservation & restoration projects', color: 'text-lime-400' },

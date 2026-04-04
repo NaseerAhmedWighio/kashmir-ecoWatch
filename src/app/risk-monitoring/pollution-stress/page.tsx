@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import {
   Activity, ArrowRight,
-  Droplets, Wind, Thermometer, Waves, Sprout
+  Droplets, Wind, Thermometer, Sprout
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -76,15 +76,6 @@ const pollutionModules = [
     color: 'from-orange-500 to-red-600',
     route: '/risk-monitoring/global-warming-impacts',
     features: ['Ecosystem Response', 'Biodiversity', 'Hydrology', 'Cross-System']
-  },
-  {
-    id: 'algal-bloom-monitoring',
-    title: 'Algal Bloom Monitoring',
-    description: 'Eutrophication-prone wetland monitoring and bloom alerts',
-    icon: Waves,
-    color: 'from-emerald-500 to-green-600',
-    route: '/risk-monitoring/algal-bloom-monitoring',
-    features: ['Bloom Alerts', 'Water Quality', 'Seasonality', 'Fish Kill Link']
   },
 ];
 

@@ -125,6 +125,7 @@ export function PremiumStickyHeader() {
           { name: 'All Watersheds', href: '/water-systems/watersheds', desc: 'Basins, catchments & hydrological units' },
           { name: 'Glaciers & Cryosphere', href: '/water-systems/glaciers', desc: 'Glaciers & snow-fed systems' },
           { name: 'Water Quality', href: '/water-systems/water-quality', desc: 'Quality monitoring & trends' },
+          { name: 'Algal Bloom Intelligence', href: '/water-systems/algal-bloom-intelligence', desc: 'Eutrophication & bloom risk monitoring' },
           { name: 'Fisheries & Aquatic Life', href: '/water-systems/fisheries', desc: 'Fish species & fishery management' },
           { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', desc: 'Flood zones & hazard assessment' },
           { name: 'Restoration & Rejuvenation', href: '/water-systems/restoration', desc: 'Conservation & restoration projects' },

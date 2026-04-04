@@ -146,8 +146,8 @@ export default function ThreatenedSpeciesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="bg-gradient-to-r from-red-500/10 via-amber-500/10 to-orange-500/10 border border-red-500/30 p-6">
-            <div className="flex items-start gap-4">
+          <Card className="bg-transparent border-red-500/30">
+            <div className="p-4 flex items-start gap-4 rounded-xl">
               <Book className="w-6 h-6 text-red-400 mt-1" />
               <div className="flex-1">
                 <h3 className="text-lg font-bold text-white mb-2">Conservation Context</h3>
@@ -174,7 +174,7 @@ export default function ThreatenedSpeciesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <Card className="glass-intense border-white/10 p-6" padding="none">
+          <Card className="bg-slate-800/50 border-white/10 backdrop-blur-sm" padding="none">
             <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-4">
               {[
                 { label: 'Total Species', value: metrics.total, icon: Shield },
