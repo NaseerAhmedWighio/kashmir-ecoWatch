@@ -34,7 +34,18 @@ import {
   Trash2,
   Pipe,
   Stethoscope,
-  Upload
+  Upload,
+  Languages,
+  Sun,
+  Moon,
+  Eye,
+  Accessibility as A11yIcon,
+  ArrowRight,
+  TrendingUp,
+  Clock,
+  MapPin,
+  CheckCircle2,
+  ExternalLink
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -52,6 +63,15 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [expandedMobileSubmenus, setExpandedMobileSubmenus] = useState<Set<string>>(new Set());
+
+  // Utility cluster state
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [alertsOpen, setAlertsOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+  const [activePanel, setActivePanel] = useState<'search' | 'alerts' | 'profile' | 'preferences' | null>(null);
 
   // Body scroll lock when mobile menu is open
   useEffect(() => {
@@ -78,6 +98,42 @@ export function Navigation() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Keyboard shortcut for search (Cmd/Ctrl+K)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setActivePanel(searchOpen ? null : 'search');
+        setSearchOpen(!searchOpen);
+      }
+      if (e.key === 'Escape') {
+        setActivePanel(null);
+        setSearchOpen(false);
+        setAlertsOpen(false);
+        setProfileOpen(false);
+        setPreferencesOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [searchOpen]);
+
+  // Click outside to close panels
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-utility-panel]') && !target.closest('[data-utility-trigger]')) {
+        setActivePanel(null);
+        setSearchOpen(false);
+        setAlertsOpen(false);
+        setProfileOpen(false);
+        setPreferencesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const toggleMobileSubmenu = (label: string) => {
@@ -578,23 +634,48 @@ export function Navigation() {
             ))}
           </nav>
 
-          {/* Right side actions */}
-          <div className="hidden xl:flex items-center gap-1">
-            {/* Alerts */}
-            <Button variant="ghost" size="sm" className="relative text-slate-300 hover:text-white p-1.5 sm:p-2">
-              <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full signal-pulse" />
-            </Button>
+          {/* Right side utility cluster: Search → Alerts → Profile → Preferences */}
+          <div className="hidden xl:flex items-center gap-0.5">
+            {/* Search */}
+            <button
+              data-utility-trigger="search"
+              onClick={() => { setActivePanel(searchOpen ? null : 'search'); setSearchOpen(!searchOpen); setAlertsOpen(false); setProfileOpen(false); setPreferencesOpen(false); }}
+              className={`relative p-2 rounded-lg transition-all duration-200 ${activePanel === 'search' ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+              aria-label="Search"
+            >
+              <Search className="w-5 h-5" />
+            </button>
 
-            {/* Settings */}
-            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white p-1.5 sm:p-2">
-              <Settings className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
+            {/* Alerts */}
+            <button
+              data-utility-trigger="alerts"
+              onClick={() => { setActivePanel(alertsOpen ? null : 'alerts'); setAlertsOpen(!alertsOpen); setSearchOpen(false); setProfileOpen(false); setPreferencesOpen(false); }}
+              className={`relative p-2 rounded-lg transition-all duration-200 ${activePanel === 'alerts' ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+              aria-label="Alerts"
+            >
+              <Bell className="w-5 h-5" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
+            </button>
 
             {/* Profile */}
-            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white p-1.5 sm:p-2">
-              <User className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
+            <button
+              data-utility-trigger="profile"
+              onClick={() => { setActivePanel(profileOpen ? null : 'profile'); setProfileOpen(!profileOpen); setSearchOpen(false); setAlertsOpen(false); setPreferencesOpen(false); }}
+              className={`relative p-2 rounded-lg transition-all duration-200 ${activePanel === 'profile' ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+              aria-label="Profile"
+            >
+              <User className="w-5 h-5" />
+            </button>
+
+            {/* Preferences */}
+            <button
+              data-utility-trigger="preferences"
+              onClick={() => { setActivePanel(preferencesOpen ? null : 'preferences'); setPreferencesOpen(!preferencesOpen); setSearchOpen(false); setAlertsOpen(false); setProfileOpen(false); }}
+              className={`relative p-2 rounded-lg transition-all duration-200 ${activePanel === 'preferences' ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+              aria-label="Preferences"
+            >
+              <Settings className="w-5 h-5" />
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -613,6 +694,320 @@ export function Navigation() {
           </button>
         </div>
       </div>
+
+      {/* ─── Utility Panels ──────────────────────────────────────────────── */}
+
+      {/* Search Modal */}
+      <AnimatePresence>
+        {searchOpen && (
+          <motion.div
+            data-utility-panel="search"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-start justify-center pt-32"
+          >
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => { setSearchOpen(false); setActivePanel(null); }} />
+            <motion.div
+              initial={{ opacity: 0, y: -20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.98 }}
+              className="relative w-full max-w-2xl mx-4 glass-intense rounded-2xl border border-white/10 shadow-2xl overflow-hidden"
+            >
+              {/* Search input */}
+              <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10">
+                <Search className="w-5 h-5 text-slate-400 shrink-0" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search modules, districts, species, alerts..."
+                  className="flex-1 bg-transparent text-white placeholder-slate-500 outline-none text-sm"
+                  autoFocus
+                />
+                <kbd className="hidden sm:inline-flex items-center px-2 py-1 rounded bg-white/10 text-xs text-slate-400 font-mono">Esc</kbd>
+              </div>
+              {/* Quick results */}
+              <div className="p-4 max-h-80 overflow-y-auto">
+                {!searchQuery ? (
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Trending Searches</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {['Hangul', 'Dal Lake', 'Flood Risk', 'Srinagar', 'Snow Leopard'].map((q) => (
+                          <button key={q} onClick={() => setSearchQuery(q)} className="px-3 py-1.5 rounded-full bg-white/5 text-xs text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+                            {q}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Browse by Module</h4>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {[
+                          { label: 'Biodiversity', href: '/biodiversity', icon: Leaf },
+                          { label: 'Water Systems', href: '/water-systems', icon: Droplet },
+                          { label: 'Protected Areas', href: '/protected-network', icon: Shield },
+                          { label: 'Risk Dashboards', href: '/risk-monitoring/dashboards', icon: BarChart3 },
+                          { label: 'Atlas', href: '/atlas', icon: Map },
+                          { label: 'Library', href: '/library', icon: Book },
+                        ].map((m) => (
+                          <Link key={m.label} href={m.href} className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors group">
+                            <m.icon className="w-3.5 h-3.5 text-slate-500 group-hover:text-emerald-400 transition-colors" />
+                            <span className="text-xs text-slate-300 group-hover:text-white transition-colors">{m.label}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-1">
+                    {[
+                      { label: 'Biodiversity — Species Directory', href: '/biodiversity', type: 'Module', icon: Leaf },
+                      { label: 'District — Srinagar', href: '/districts#srinagar', type: 'District', icon: MapPin },
+                      { label: 'Alert — Sewage Overflow Hazratbal', href: '/risk-monitoring/live-alerts', type: 'Alert', icon: Bell },
+                      { label: 'Water System — Dal Lake', href: '/water-systems/lakes#dal', type: 'Water Body', icon: Droplet },
+                      { label: 'Species — Hangul (Kashmir Stag)', href: '/biodiversity/threatened-species#hangul', type: 'Species', icon: Leaf },
+                    ].filter(r => r.label.toLowerCase().includes(searchQuery.toLowerCase())).map((result, i) => (
+                      <Link key={i} href={result.href} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors group">
+                        <result.icon className="w-4 h-4 text-slate-500 group-hover:text-emerald-400 transition-colors shrink-0" />
+                        <span className="text-sm text-slate-300 group-hover:text-white transition-colors flex-1 truncate">{result.label}</span>
+                        <span className="text-xs text-slate-600">{result.type}</span>
+                      </Link>
+                    ))}
+                    {searchQuery && ![
+                      { label: 'Biodiversity — Species Directory', href: '/biodiversity' },
+                      { label: 'District — Srinagar', href: '/districts#srinagar' },
+                    ].some(r => r.label.toLowerCase().includes(searchQuery.toLowerCase())) && (
+                      <p className="text-sm text-slate-500 py-4 text-center">No results for "{searchQuery}"</p>
+                    )}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Alerts Drawer */}
+      <AnimatePresence>
+        {alertsOpen && (
+          <motion.div
+            data-utility-panel="alerts"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex justify-end"
+          >
+            <div className="absolute inset-0 bg-black/40" onClick={() => { setAlertsOpen(false); setActivePanel(null); }} />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="relative w-full max-w-sm glass-intense border-l border-white/10 shadow-2xl overflow-y-auto"
+            >
+              <div className="sticky top-0 bg-slate-950/90 backdrop-blur-sm border-b border-white/10 px-5 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Bell className="w-5 h-5 text-red-400" />
+                  <h3 className="text-sm font-bold text-white">Platform Alerts</h3>
+                </div>
+                <button onClick={() => { setAlertsOpen(false); setActivePanel(null); }} className="text-slate-400 hover:text-white transition-colors">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="p-4 space-y-4">
+                {/* Active Alerts */}
+                <div>
+                  <h4 className="text-xs font-semibold text-red-400 uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-red-500" /> Active Alerts
+                  </h4>
+                  <div className="space-y-2">
+                    {[
+                      { title: 'Avalanche Warning — Gulmarg', district: 'Gulmarg', time: '2h ago', severity: 'critical' },
+                      { title: 'Sewage Overflow — Hazratbal', district: 'Srinagar', time: '4h ago', severity: 'critical' },
+                      { title: 'Forest Fire — Kerni Range', district: 'Baramulla', time: '6h ago', severity: 'serious' },
+                    ].map((alert, i) => (
+                      <div key={i} className="p-3 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                        <div className="flex items-start justify-between gap-2 mb-1">
+                          <p className="text-xs font-medium text-white group-hover:text-emerald-400 transition-colors leading-tight">{alert.title}</p>
+                          <span className={`text-xs px-1.5 py-0.5 rounded shrink-0 ${alert.severity === 'critical' ? 'bg-red-500/10 text-red-400' : 'bg-orange-500/10 text-orange-400'}`}>{alert.severity}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-slate-500">
+                          <MapPin className="w-3 h-3" />
+                          <span>{alert.district}</span>
+                          <Clock className="w-3 h-3 ml-1" />
+                          <span>{alert.time}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Under Monitoring */}
+                <div>
+                  <h4 className="text-xs font-semibold text-amber-400 uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-amber-500" /> Under Monitoring
+                  </h4>
+                  <div className="space-y-2">
+                    {[
+                      { title: 'Glacial Melt — Kolahoi', district: 'Ganderbal', time: '8h ago' },
+                      { title: 'River Levels — Wular Outflow', district: 'Bandipora', time: '10h ago' },
+                    ].map((item, i) => (
+                      <div key={i} className="p-3 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                        <p className="text-xs font-medium text-white group-hover:text-amber-400 transition-colors mb-1">{item.title}</p>
+                        <div className="flex items-center gap-2 text-xs text-slate-500">
+                          <MapPin className="w-3 h-3" />
+                          <span>{item.district}</span>
+                          <Clock className="w-3 h-3 ml-1" />
+                          <span>{item.time}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* View All */}
+                <Link href="/risk-monitoring/live-alerts-advisories" className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 hover:text-white hover:bg-white/10 transition-colors group">
+                  <span>View All Alerts</span>
+                  <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Profile Dropdown */}
+      <AnimatePresence>
+        {profileOpen && (
+          <motion.div
+            data-utility-panel="profile"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60]"
+            onClick={() => { setProfileOpen(false); setActivePanel(null); }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              onClick={(e) => e.stopPropagation()}
+              className="absolute top-16 right-4 sm:right-8 lg:right-[calc(50%-32rem)] w-72 glass-intense rounded-xl border border-white/10 shadow-2xl overflow-hidden"
+              style={{ right: '2rem' }}
+            >
+              <div className="px-5 py-4 border-b border-white/10">
+                <h3 className="text-sm font-bold text-white">Sign In</h3>
+                <p className="text-xs text-slate-400 mt-1">Access your workspace and contributions</p>
+              </div>
+              <div className="p-4 space-y-2">
+                <Button className="w-full text-sm bg-emerald-600 hover:bg-emerald-700 text-white">
+                  Sign In
+                </Button>
+                <Button variant="outline" className="w-full text-sm border-white/20 text-white">
+                  Create Account
+                </Button>
+                <div className="pt-2 border-t border-white/5">
+                  <Button variant="ghost" className="w-full text-sm text-slate-400 hover:text-white">
+                    Continue as Guest
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Preferences Panel */}
+      <AnimatePresence>
+        {preferencesOpen && (
+          <motion.div
+            data-utility-panel="preferences"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex justify-end"
+          >
+            <div className="absolute inset-0 bg-black/40" onClick={() => { setPreferencesOpen(false); setActivePanel(null); }} />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="relative w-full max-w-sm glass-intense border-l border-white/10 shadow-2xl overflow-y-auto"
+            >
+              <div className="sticky top-0 bg-slate-950/90 backdrop-blur-sm border-b border-white/10 px-5 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Settings className="w-5 h-5 text-slate-400" />
+                  <h3 className="text-sm font-bold text-white">Preferences</h3>
+                </div>
+                <button onClick={() => { setPreferencesOpen(false); setActivePanel(null); }} className="text-slate-400 hover:text-white transition-colors">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="p-4 space-y-5">
+                {/* Accessibility */}
+                <div>
+                  <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <A11yIcon className="w-3.5 h-3.5" /> Accessibility
+                  </h4>
+                  <div className="space-y-2">
+                    <label className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 cursor-pointer">
+                      <span className="text-xs text-slate-300">High Contrast Mode</span>
+                      <input type="checkbox" className="sr-only peer" />
+                      <div className="w-8 h-5 rounded-full bg-white/10 peer-checked:bg-emerald-500 relative transition-colors">
+                        <div className="absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform peer-checked:translate-x-3" />
+                      </div>
+                    </label>
+                    <Link href="/accessibility" className="flex items-center gap-2 px-2.5 py-2 rounded-lg hover:bg-white/5 transition-colors group">
+                      <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-emerald-400 transition-colors" />
+                      <span className="text-xs text-slate-400 group-hover:text-white transition-colors">Accessibility Statement</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Language */}
+                <div>
+                  <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <Languages className="w-3.5 h-3.5" /> Language
+                  </h4>
+                  <div className="space-y-1.5">
+                    {['English', 'Urdu', 'Hindi'].map((lang) => (
+                      <label key={lang} className={`flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer transition-colors ${lang === 'English' ? 'bg-white/10 text-white' : 'hover:bg-white/5 text-slate-400'}`}>
+                        <input type="radio" name="language" defaultChecked={lang === 'English'} className="sr-only" />
+                        <div className={`w-3 h-3 rounded-full border ${lang === 'English' ? 'border-emerald-400 bg-emerald-400' : 'border-slate-500'}`} />
+                        <span className="text-xs">{lang}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Display */}
+                <div>
+                  <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <Eye className="w-3.5 h-3.5" /> Display
+                  </h4>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setDarkMode(true)}
+                      className={`flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-xs transition-colors ${darkMode ? 'bg-white/10 text-white border border-white/20' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+                    >
+                      <Moon className="w-3.5 h-3.5" /> Dark
+                    </button>
+                    <button
+                      onClick={() => setDarkMode(false)}
+                      className={`flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-xs transition-colors ${!darkMode ? 'bg-white/10 text-white border border-white/20' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+                    >
+                      <Sun className="w-3.5 h-3.5" /> Light
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile menu overlay and drawer */}
       <AnimatePresence>
