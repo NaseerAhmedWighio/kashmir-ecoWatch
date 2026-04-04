@@ -28,7 +28,9 @@ import {
   Database,
   BarChart3,
   Book,
-  Globe
+  Globe,
+  Factory,
+  Recycle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrolledHeader } from '@/hooks/useScrolledHeader';
@@ -38,7 +40,7 @@ const navItems = [
   { label: 'Protected Areas', href: '/protected-network', hasDropdown: true },
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
-  { label: 'Seasonal Ecology', href: '/seasonal-ecology', hasDropdown: true },
+  { label: 'Environmental Infrastructure', href: '/environmental-infrastructure', hasDropdown: true },
   { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
@@ -130,19 +132,15 @@ export function PremiumStickyHeader() {
           { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', desc: 'Flood zones & hazard assessment' },
           { name: 'Restoration & Rejuvenation', href: '/water-systems/restoration', desc: 'Conservation & restoration projects' },
         ];
-      case 'Seasonal Ecology':
+      case 'Environmental Infrastructure':
         return [
-          { name: '🍂 Overview', href: '/seasonal-ecology', desc: 'Kashmir seasonal intelligence' },
-          { name: 'Seasonal Landscapes', href: '/seasonal-ecology/seasonal-landscapes', desc: 'Landscape-scale seasonal patterns' },
-          { name: 'Bloom Mapping', href: '/seasonal-ecology/bloom-mapping', desc: 'Flowering zones & calendars' },
-          { name: 'Migration Windows', href: '/seasonal-ecology/migration-windows', desc: 'Bird migration timing' },
-          { name: 'Pollinator Windows', href: '/seasonal-ecology/pollinator-windows', desc: 'Pollinator activity periods' },
-          { name: 'Phenology Records', href: '/seasonal-ecology/phenology-records', desc: 'Seasonal observation records' },
-          { name: 'Habitat Signals', href: '/seasonal-ecology/habitat-signals', desc: 'Seasonal habitat changes' },
-          { name: 'Water Transitions', href: '/seasonal-ecology/water-transitions', desc: 'Wetland & water shifts' },
-          { name: 'Species Activity', href: '/seasonal-ecology/species-activity', desc: 'Seasonal species behavior' },
-          { name: 'Climate Windows', href: '/seasonal-ecology/climate-windows', desc: 'Access & visibility windows' },
-          { name: 'Reports & References', href: '/seasonal-ecology/reports-references', desc: 'Evidence & documentation' },
+          { name: '🏗️ Overview', href: '/environmental-infrastructure', desc: 'Environmental systems monitoring' },
+          { name: 'Air Pollution', href: '/risk-monitoring/air-pollution', desc: 'AQI, emissions & urban air quality' },
+          { name: 'Water Pollution', href: '/risk-monitoring/water-pollution', desc: 'Industrial discharge & contamination' },
+          { name: 'Noise Pollution', href: '/risk-monitoring/noise-pollution', desc: 'Urban & wildlife disturbance' },
+          { name: 'Soil Pollution', href: '/risk-monitoring/soil-pollution', desc: 'Agricultural & industrial contamination' },
+          { name: 'Climate Change', href: '/risk-monitoring/climate-change', desc: 'Temperature trends & anomalies' },
+          { name: 'Global Warming Impacts', href: '/risk-monitoring/global-warming-impacts', desc: 'Warming-linked ecosystem response' },
         ];
       case 'Trails & Sightings':
         return [

@@ -27,7 +27,13 @@ import {
   AlertTriangle,
   Hammer,
   Calendar,
-  Footprints
+  Footprints,
+  Factory,
+  Recycle,
+  Building2,
+  Trash2,
+  Pipe,
+  Stethoscope
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -35,7 +41,7 @@ const navItems = [
   { label: 'Protected Areas', href: '/protected-network', hasDropdown: true },
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
-  { label: 'Seasonal Ecology', href: '/seasonal-ecology', hasDropdown: true },
+  { label: 'Environmental Infrastructure', href: '/environmental-infrastructure', hasDropdown: true },
   { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
@@ -284,8 +290,8 @@ export function Navigation() {
                   </motion.div>
                 )}
 
-                {/* Seasonal Ecology Dropdown */}
-                {item.hasDropdown && activeDropdown === item.label && item.label === 'Seasonal Ecology' && (
+                {/* Environmental Infrastructure Dropdown */}
+                {item.hasDropdown && activeDropdown === item.label && item.label === 'Environmental Infrastructure' && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -294,38 +300,37 @@ export function Navigation() {
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-amber-400" />
+                        <Factory className="w-4 h-4 text-amber-400" />
                         <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                          Seasonal Ecology
+                          Environmental Infrastructure
                         </span>
                       </div>
                     </div>
                     <div className="py-2">
                       <Link
-                        href="/seasonal-ecology"
+                        href="/environmental-infrastructure"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
-                        <span className="font-medium">🍂 Overview</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Kashmir seasonal intelligence</span>
+                        <span className="font-medium">🏗️ Overview</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Environmental systems monitoring</span>
                       </Link>
                       {[
-                        { name: 'Seasonal Landscapes', href: '/seasonal-ecology/seasonal-landscapes', desc: 'Landscape-scale seasonal patterns' },
-                        { name: 'Bloom Mapping', href: '/seasonal-ecology/bloom-mapping', desc: 'Flowering zones & calendars' },
-                        { name: 'Migration Windows', href: '/seasonal-ecology/migration-windows', desc: 'Bird migration timing' },
-                        { name: 'Pollinator Windows', href: '/seasonal-ecology/pollinator-windows', desc: 'Pollinator activity periods' },
-                        { name: 'Phenology Records', href: '/seasonal-ecology/phenology-records', desc: 'Seasonal observation records' },
-                        { name: 'Habitat Signals', href: '/seasonal-ecology/habitat-signals', desc: 'Seasonal habitat changes' },
-                        { name: 'Water Transitions', href: '/seasonal-ecology/water-transitions', desc: 'Wetland & water shifts' },
-                        { name: 'Species Activity', href: '/seasonal-ecology/species-activity', desc: 'Seasonal species behavior' },
-                        { name: 'Climate Windows', href: '/seasonal-ecology/climate-windows', desc: 'Access & visibility windows' },
-                        { name: 'Reports & References', href: '/seasonal-ecology/reports-references', desc: 'Evidence & documentation' },
+                        { name: 'Air Pollution', href: '/risk-monitoring/air-pollution', icon: Wind, desc: 'AQI, emissions & urban air quality', color: 'text-gray-400' },
+                        { name: 'Water Pollution', href: '/risk-monitoring/water-pollution', icon: Droplets, desc: 'Industrial discharge & contamination', color: 'text-blue-400' },
+                        { name: 'Noise Pollution', href: '/risk-monitoring/noise-pollution', icon: AlertTriangle, desc: 'Urban & wildlife disturbance', color: 'text-amber-400' },
+                        { name: 'Soil Pollution', href: '/risk-monitoring/soil-pollution', icon: Mountain, desc: 'Agricultural & industrial contamination', color: 'text-emerald-400' },
+                        { name: 'Climate Change', href: '/risk-monitoring/climate-change', icon: Thermometer, desc: 'Temperature trends & anomalies', color: 'text-red-400' },
+                        { name: 'Global Warming Impacts', href: '/risk-monitoring/global-warming-impacts', icon: AlertTriangle, desc: 'Warming-linked ecosystem response', color: 'text-orange-400' },
                       ].map((subitem) => (
                         <Link
                           key={subitem.name}
                           href={subitem.href}
                           className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
                         >
-                          <span className="font-medium">{subitem.name}</span>
+                          <div className="flex items-center gap-2 mb-1">
+                            <subitem.icon className={`w-3.5 h-3.5 ${subitem.color}`} />
+                            <span className="font-medium">{subitem.name}</span>
+                          </div>
                           <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
                         </Link>
                       ))}

@@ -126,18 +126,19 @@ export function WaterEntityListingPage({
           transition={{ delay: 0.2 }}
         >
           <Card className="glass-intense border-white/10 p-6">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="md:col-span-2">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
-                  <Input
-                    placeholder={`Search ${entityType.toLowerCase()} by name or description...`}
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 bg-slate-900/50 border-white/10 text-white"
-                  />
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* Search */}
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                <Input
+                  placeholder={`Search ${entityType.toLowerCase()}...`}
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 bg-slate-900/50 border-white/10 text-white"
+                />
               </div>
+
+              {/* District */}
               <select
                 value={selectedDistrict}
                 onChange={(e) => setSelectedDistrict(e.target.value)}
@@ -148,6 +149,8 @@ export function WaterEntityListingPage({
                   <option key={d} value={d}>{d}</option>
                 ))}
               </select>
+
+              {/* Category */}
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
@@ -158,9 +161,9 @@ export function WaterEntityListingPage({
                   <option key={c} value={c}>{c}</option>
                 ))}
               </select>
-            </div>
-            {filters.qualityStatuses && (
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+
+              {/* Quality Status (conditional) */}
+              {filters.qualityStatuses ? (
                 <select
                   value={selectedQuality}
                   onChange={(e) => setSelectedQuality(e.target.value)}
@@ -171,8 +174,12 @@ export function WaterEntityListingPage({
                     <option key={s} value={s} className="capitalize">{s}</option>
                   ))}
                 </select>
-              </div>
-            )}
+              ) : (
+                <div />
+              )}
+            </div>
+
+            {/* Footer row */}
             <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
               <div className="text-sm text-slate-400">
                 Showing <span className="text-white font-semibold">{filteredEntities.length}</span> of <span className="text-white font-semibold">{entities.length}</span> {entityType.toLowerCase()}
