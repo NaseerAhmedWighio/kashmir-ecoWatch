@@ -77,11 +77,11 @@ export function WaterEntityListingPage({
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-slate-950 flex flex-col">
       <Navigation />
 
       {/* Hero */}
-      <div className="relative pt-48 pb-12 overflow-hidden">
+      <div className="relative pt-48 pb-12 overflow-hidden flex-shrink-0">
         <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-20`} />
         <div className="absolute inset-0 bg-grid opacity-20" />
 
@@ -198,7 +198,7 @@ export function WaterEntityListingPage({
       </div>
 
       {/* Entities Grid */}
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-6 py-8 flex-1">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredEntities.map((entity, idx) => (
             <motion.div

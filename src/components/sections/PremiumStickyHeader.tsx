@@ -30,7 +30,8 @@ import {
   Book,
   Globe,
   Factory,
-  Recycle
+  Recycle,
+  Upload
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrolledHeader } from '@/hooks/useScrolledHeader';
@@ -41,6 +42,7 @@ const navItems = [
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
   { label: 'Environmental Infrastructure', href: '/environmental-infrastructure', hasDropdown: true },
+  { label: 'Contribute', href: '/contribute', hasDropdown: true },
   { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
@@ -141,6 +143,14 @@ export function PremiumStickyHeader() {
           { name: 'Soil Pollution', href: '/risk-monitoring/soil-pollution', desc: 'Agricultural & industrial contamination' },
           { name: 'Climate Change', href: '/risk-monitoring/climate-change', desc: 'Temperature trends & anomalies' },
           { name: 'Global Warming Impacts', href: '/risk-monitoring/global-warming-impacts', desc: 'Warming-linked ecosystem response' },
+        ];
+      case 'Contribute':
+        return [
+          { name: '🌐 Contribute Hub', href: '/contribute', desc: 'All contribution pathways' },
+          { name: 'Report an Issue', href: '/report-issue', desc: 'Emergency & hazard reporting' },
+          { name: 'Submit a Sighting', href: '/submit-sighting', desc: 'Wildlife & ecological observations' },
+          { name: 'Contribute Data', href: '/contribute-data', desc: 'Structured datasets & research' },
+          { name: 'Citizen Science', href: '/citizen-science', desc: 'Programs & recurring roles' },
         ];
       case 'Trails & Sightings':
         return [

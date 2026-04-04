@@ -33,7 +33,8 @@ import {
   Building2,
   Trash2,
   Pipe,
-  Stethoscope
+  Stethoscope,
+  Upload
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -43,6 +44,7 @@ const navItems = [
   { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
   { label: 'Environmental Infrastructure', href: '/environmental-infrastructure', hasDropdown: true },
+  { label: 'Contribute', href: '/contribute', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
 
@@ -368,6 +370,49 @@ export function Navigation() {
                         { name: 'Wildlife Sightings', href: '/trails-sightings/wildlife-sightings', desc: 'Mammal observations' },
                         { name: 'Bird Sightings', href: '/trails-sightings/bird-sightings', desc: 'Avian records' },
                         { name: 'Submit Sighting', href: '/submit-sighting', desc: 'Contribute observations' },
+                      ].map((subitem) => (
+                        <Link
+                          key={subitem.name}
+                          href={subitem.href}
+                          className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                        >
+                          <span className="font-medium">{subitem.name}</span>
+                          <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Contribute Dropdown */}
+                {item.hasDropdown && activeDropdown === item.label && item.label === 'Contribute' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
+                  >
+                    <div className="p-3 border-b border-white/5">
+                      <div className="flex items-center gap-2">
+                        <Upload className="w-4 h-4 text-emerald-400" />
+                        <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                          Contribute
+                        </span>
+                      </div>
+                    </div>
+                    <div className="py-2">
+                      <Link
+                        href="/contribute"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🌐 Contribute Hub</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">All contribution pathways</span>
+                      </Link>
+                      {[
+                        { name: 'Report an Issue', href: '/report-issue', desc: 'Emergency & hazard reporting' },
+                        { name: 'Submit a Sighting', href: '/submit-sighting', desc: 'Wildlife & ecological observations' },
+                        { name: 'Contribute Data', href: '/contribute-data', desc: 'Structured datasets & research' },
+                        { name: 'Citizen Science', href: '/citizen-science', desc: 'Programs & recurring roles' },
                       ].map((subitem) => (
                         <Link
                           key={subitem.name}

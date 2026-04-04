@@ -288,22 +288,23 @@ export function PublicParticipationIntelligence() {
         </div>
 
         {/* Recent Activity & District Coverage */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-10 md:mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-10 md:mt-12 items-stretch">
           {/* Recent Participation Feed */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="flex flex-col min-h-0"
           >
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 flex items-center gap-2 flex-shrink-0">
               <Activity className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
               Recent Community Activity
             </h3>
-            <Card className="glass-light border-white/10 p-4 sm:p-6">
-              <div className="space-y-3 sm:space-y-4">
+            <Card className="glass-light border-white/10 p-4 sm:p-6 flex-1">
+              <div className="flex flex-col gap-3 sm:gap-4 h-full">
                 {recentActivity.map((activity, index) => (
-                  <div key={activity.id} className="flex items-start gap-3 pb-4 border-b border-white/5 last:border-0 last:pb-0">
+                  <div key={activity.id} className="flex items-start gap-3 py-3 sm:py-4 border-b border-white/5 last:border-b-0">
                     <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
                       activity.type === 'issue' ? 'bg-red-400' :
                       activity.type === 'sighting' ? 'bg-emerald-400' :
@@ -334,15 +335,16 @@ export function PublicParticipationIntelligence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-col min-h-0"
           >
-            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-4 flex items-center gap-2 flex-shrink-0">
               <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
               District Participation Rates
             </h3>
-            <Card className="glass-light border-white/10 p-4 sm:p-6">
-              <div className="space-y-4 sm:space-y-5">
+            <Card className="glass-light border-white/10 p-4 sm:p-6 flex-1">
+              <div className="space-y-4 sm:space-y-5 h-full">
                 {districtParticipation.slice(0, 6).map((item) => (
-                  <div key={item.district} className="flex items-center justify-between gap-3 sm:gap-4 py-3 sm:py-4 border-b border-white/5 last:border-0 last:pb-0">
+                  <div key={item.district} className="flex items-center justify-between gap-3 py-2 border-b border-white/5 last:border-0 last:pb-0">
                     <div className="flex items-center gap-3 flex-1 min-w-0">
                       <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${
                         item.trend === 'increasing' ? 'bg-emerald-400' :

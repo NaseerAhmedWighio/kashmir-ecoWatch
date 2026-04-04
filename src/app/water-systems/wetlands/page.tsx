@@ -11,7 +11,7 @@ export default function WetlandsPage() {
   const categories = Array.from(new Set(wetlandsData.map(w => w.category)));
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <>
       <WaterEntityListingPage
         title="All Wetlands of Kashmir"
         description="Comprehensive inventory of all marshes, floodplain wetlands, shallow-water habitats, reedbeds, bird-use wetlands, Ramsar-linked wetlands, and district-level wetland landscapes."
@@ -32,6 +32,6 @@ export default function WetlandsPage() {
       <div className="container mx-auto px-6 py-12">
         <NwiaClassificationPanel variant="detailed" />
       </div>
-    </main>
+    </>
   );
 }
