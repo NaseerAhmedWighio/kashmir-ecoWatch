@@ -41,7 +41,7 @@ const navItems = [
   { label: 'Protected Areas', href: '/protected-network', hasDropdown: true },
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
-  { label: 'Environmental Infrastructure', href: '/environmental-infrastructure', hasDropdown: true },
+  { label: 'Environmental Monitoring', href: '/environmental-monitoring', hasDropdown: true },
   { label: 'Contribute', href: '/contribute', hasDropdown: true },
   { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
@@ -134,15 +134,18 @@ export function PremiumStickyHeader() {
           { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', desc: 'Flood zones & hazard assessment' },
           { name: 'Restoration & Rejuvenation', href: '/water-systems/restoration', desc: 'Conservation & restoration projects' },
         ];
-      case 'Environmental Infrastructure':
+      case 'Environmental Monitoring':
         return [
-          { name: '🏗️ Overview', href: '/environmental-infrastructure', desc: 'Environmental systems monitoring' },
-          { name: 'Air Pollution', href: '/risk-monitoring/air-pollution', desc: 'AQI, emissions & urban air quality' },
-          { name: 'Water Pollution', href: '/risk-monitoring/water-pollution', desc: 'Industrial discharge & contamination' },
-          { name: 'Noise Pollution', href: '/risk-monitoring/noise-pollution', desc: 'Urban & wildlife disturbance' },
-          { name: 'Soil Pollution', href: '/risk-monitoring/soil-pollution', desc: 'Agricultural & industrial contamination' },
-          { name: 'Climate Change', href: '/risk-monitoring/climate-change', desc: 'Temperature trends & anomalies' },
-          { name: 'Global Warming Impacts', href: '/risk-monitoring/global-warming-impacts', desc: 'Warming-linked ecosystem response' },
+          { name: '🏗️ Overview', href: '/environmental-monitoring', desc: 'Environmental intelligence command center' },
+          { name: 'Solid Waste', href: '/environmental-monitoring/solid-waste', desc: 'Dumping, landfill stress, open waste' },
+          { name: 'Bio-Waste', href: '/environmental-monitoring/bio-waste', desc: 'Organic waste, decomposition zones' },
+          { name: 'Sewage & Wastewater', href: '/environmental-monitoring/sewage-wastewater', desc: 'Overflow, outfalls, untreated discharge' },
+          { name: 'Drinking Water', href: '/environmental-monitoring/drinking-water', desc: 'Contamination alerts, supply issues' },
+          { name: 'Critical Water Infrastructure', href: '/environmental-monitoring/critical-infrastructure', desc: 'Intake points, treatment plants, reservoirs' },
+          { name: 'Air Pollution', href: '/environmental-monitoring/air-pollution', desc: 'AQI, particulate, smoke, burning' },
+          { name: 'Environmental Health Signals', href: '/environmental-monitoring/environmental-health', desc: 'Odor, fish kill, stagnant water' },
+          { name: 'Utility Incidents & Advisories', href: '/environmental-monitoring/utility-incidents', desc: 'Service failures, emergency notices' },
+          { name: 'Dashboards', href: '/environmental-monitoring/dashboards', desc: 'District comparison & stress heatmaps' },
         ];
       case 'Contribute':
         return [

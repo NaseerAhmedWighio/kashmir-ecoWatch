@@ -297,23 +297,23 @@ export function PublicParticipationIntelligence() {
             transition={{ duration: 0.6 }}
             className="flex flex-col min-h-0"
           >
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 flex items-center gap-2 flex-shrink-0">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 flex items-center gap-2 flex-shrink-0 px-1">
               <Activity className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
               Recent Community Activity
             </h3>
-            <Card className="glass-light border-white/10 p-4 sm:p-6 flex-1">
-              <div className="flex flex-col gap-3 sm:gap-4 h-full">
-                {recentActivity.map((activity, index) => (
-                  <div key={activity.id} className="flex items-start gap-3 py-3 sm:py-4 border-b border-white/5 last:border-b-0">
-                    <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+            <Card className="glass-light border-white/10 flex-1">
+              <div className="divide-y divide-white/[0.06]">
+                {recentActivity.map((activity) => (
+                  <div key={activity.id} className="flex gap-3 px-5 py-4 min-h-[72px]">
+                    <div className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${
                       activity.type === 'issue' ? 'bg-red-400' :
                       activity.type === 'sighting' ? 'bg-emerald-400' :
                       activity.type === 'dataset' ? 'bg-blue-400' : 'bg-purple-400'
                     }`} />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm text-white truncate sm:truncate-none">{activity.title}</p>
-                      <div className="flex flex-wrap items-center gap-2 mt-1">
-                        <Badge variant="outline" size="sm" className="text-xs h-5">
+                    <div className="flex flex-col justify-center min-w-0 flex-1">
+                      <p className="text-sm text-white leading-snug">{activity.title}</p>
+                      <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <Badge variant="outline" size="sm" className="h-5 text-xs">
                           {activity.type}
                         </Badge>
                         <span className="text-xs text-slate-500">{activity.district}</span>
@@ -337,31 +337,31 @@ export function PublicParticipationIntelligence() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-col min-h-0"
           >
-            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-4 flex items-center gap-2 flex-shrink-0">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-4 flex items-center gap-2 flex-shrink-0 px-1">
               <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
               District Participation Rates
             </h3>
-            <Card className="glass-light border-white/10 p-4 sm:p-6 flex-1">
-              <div className="space-y-4 sm:space-y-5 h-full">
+            <Card className="glass-light border-white/10 flex-1">
+              <div className="divide-y divide-white/[0.06]">
                 {districtParticipation.slice(0, 6).map((item) => (
-                  <div key={item.district} className="flex items-center justify-between gap-3 py-2 border-b border-white/5 last:border-0 last:pb-0">
-                    <div className="flex items-center gap-3 flex-1 min-w-0">
-                      <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${
+                  <div key={item.district} className="flex items-center justify-between gap-3 px-5 py-4 min-h-[72px]">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className={`h-2.5 w-2.5 shrink-0 rounded-full ${
                         item.trend === 'increasing' ? 'bg-emerald-400' :
                         item.trend === 'decreasing' ? 'bg-red-400' : 'bg-blue-400'
                       }`} />
-                      <span className="text-sm sm:text-base font-medium text-white truncate">{item.district}</span>
+                      <span className="truncate text-sm sm:text-base font-medium text-white">{item.district}</span>
                     </div>
-                    <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
-                      <div className="text-right">
-                        <div className="text-lg sm:text-xl font-semibold text-white">{item.totalContributions}</div>
+                    <div className="flex items-center gap-4 shrink-0">
+                      <div className="text-right flex flex-col justify-center">
+                        <div className="text-lg sm:text-xl font-semibold text-white leading-tight">{item.totalContributions}</div>
                         <div className="text-xs sm:text-sm text-slate-500">{item.verifiedContributions} verified</div>
                       </div>
                       <Badge
                         variant={item.trend === 'increasing' ? 'success' :
                                  item.trend === 'decreasing' ? 'danger' : 'info'}
                         size="sm"
-                        className="flex-shrink-0"
+                        className="shrink-0"
                       >
                         {item.trend === 'increasing' ? '↑' : item.trend === 'decreasing' ? '↓' : '→'}
                       </Badge>

@@ -43,7 +43,7 @@ const navItems = [
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
   { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
-  { label: 'Environmental Infrastructure', href: '/environmental-infrastructure', hasDropdown: true },
+  { label: 'Environmental Monitoring', href: '/environmental-monitoring', hasDropdown: true },
   { label: 'Contribute', href: '/contribute', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
@@ -292,8 +292,8 @@ export function Navigation() {
                   </motion.div>
                 )}
 
-                {/* Environmental Infrastructure Dropdown */}
-                {item.hasDropdown && activeDropdown === item.label && item.label === 'Environmental Infrastructure' && (
+                {/* Environmental Monitoring Dropdown */}
+                {item.hasDropdown && activeDropdown === item.label && item.label === 'Environmental Monitoring' && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -304,36 +304,49 @@ export function Navigation() {
                       <div className="flex items-center gap-2">
                         <Factory className="w-4 h-4 text-amber-400" />
                         <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                          Environmental Infrastructure
+                          Environmental Monitoring
                         </span>
                       </div>
                     </div>
                     <div className="py-2">
                       <Link
-                        href="/environmental-infrastructure"
+                        href="/environmental-monitoring"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
                         <span className="font-medium">🏗️ Overview</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Environmental systems monitoring</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Environmental intelligence command center</span>
                       </Link>
                       {[
-                        { name: 'Air Pollution', href: '/risk-monitoring/air-pollution', icon: Wind, desc: 'AQI, emissions & urban air quality', color: 'text-gray-400' },
-                        { name: 'Water Pollution', href: '/risk-monitoring/water-pollution', icon: Droplets, desc: 'Industrial discharge & contamination', color: 'text-blue-400' },
-                        { name: 'Noise Pollution', href: '/risk-monitoring/noise-pollution', icon: AlertTriangle, desc: 'Urban & wildlife disturbance', color: 'text-amber-400' },
-                        { name: 'Soil Pollution', href: '/risk-monitoring/soil-pollution', icon: Mountain, desc: 'Agricultural & industrial contamination', color: 'text-emerald-400' },
-                        { name: 'Climate Change', href: '/risk-monitoring/climate-change', icon: Thermometer, desc: 'Temperature trends & anomalies', color: 'text-red-400' },
-                        { name: 'Global Warming Impacts', href: '/risk-monitoring/global-warming-impacts', icon: AlertTriangle, desc: 'Warming-linked ecosystem response', color: 'text-orange-400' },
-                      ].map((subitem) => (
+                        { name: 'Solid Waste', href: '/environmental-monitoring/solid-waste', desc: 'Dumping, landfill stress, open waste', color: 'text-gray-400' },
+                        { name: 'Bio-Waste', href: '/environmental-monitoring/bio-waste', desc: 'Organic waste, decomposition zones', color: 'text-emerald-400' },
+                        { name: 'Sewage & Wastewater', href: '/environmental-monitoring/sewage-wastewater', desc: 'Overflow, outfalls, untreated discharge', color: 'text-blue-400' },
+                        { name: 'Drinking Water', href: '/environmental-monitoring/drinking-water', desc: 'Contamination alerts, supply issues', color: 'text-cyan-400' },
+                        { name: 'Critical Water Infrastructure', href: '/environmental-monitoring/critical-infrastructure', desc: 'Intake points, treatment plants, reservoirs', color: 'text-indigo-400' },
+                        { name: 'Air Pollution', href: '/environmental-monitoring/air-pollution', desc: 'AQI, particulate, smoke, burning', color: 'text-slate-400' },
+                        { name: 'Environmental Health Signals', href: '/environmental-monitoring/environmental-health', desc: 'Odor, fish kill, stagnant water', color: 'text-amber-400' },
+                        { name: 'Utility Incidents & Advisories', href: '/environmental-monitoring/utility-incidents', desc: 'Service failures, emergency notices', color: 'text-red-400' },
+                        { name: 'Dashboards', href: '/environmental-monitoring/dashboards', desc: 'District comparison & stress heatmaps', color: 'text-violet-400' },
+                      ].map((subitem, i) => (
                         <Link
                           key={subitem.name}
                           href={subitem.href}
-                          className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                          className="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
                         >
-                          <div className="flex items-center gap-2 mb-1">
-                            <subitem.icon className={`w-3.5 h-3.5 ${subitem.color}`} />
-                            <span className="font-medium">{subitem.name}</span>
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${
+                              subitem.color.includes('gray') ? 'from-gray-400 to-gray-500' :
+                              subitem.color.includes('emerald') ? 'from-emerald-400 to-green-500' :
+                              subitem.color.includes('blue') ? 'from-blue-400 to-cyan-500' :
+                              subitem.color.includes('cyan') ? 'from-cyan-400 to-teal-500' :
+                              subitem.color.includes('indigo') ? 'from-indigo-400 to-blue-500' :
+                              subitem.color.includes('slate') ? 'from-slate-400 to-gray-500' :
+                              subitem.color.includes('amber') ? 'from-amber-400 to-orange-500' :
+                              subitem.color.includes('red') ? 'from-red-400 to-red-500' :
+                              'from-violet-400 to-purple-500'
+                            }`} />
+                            <span className="font-medium text-xs">{subitem.name}</span>
                           </div>
-                          <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
+                          <span className="block text-xs text-slate-500 ml-3.5">{subitem.desc}</span>
                         </Link>
                       ))}
                     </div>

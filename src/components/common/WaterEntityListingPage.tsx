@@ -34,6 +34,7 @@ interface ListingPageProps {
   getCategory: (entity: WaterEntity) => string;
   getSecondaryMetric?: (entity: WaterEntity) => { label: string; value: string; icon?: keyof typeof import('lucide-react') } | null;
   renderAdditionalInfo?: (entity: WaterEntity) => React.ReactNode;
+  renderAdditionalContent?: () => React.ReactNode;
 }
 
 export function WaterEntityListingPage({
@@ -48,6 +49,7 @@ export function WaterEntityListingPage({
   getCategory,
   getSecondaryMetric,
   renderAdditionalInfo,
+  renderAdditionalContent,
 }: ListingPageProps) {
   const Icon = (Icons as any)[iconName] || Icons.Droplet;
   const router = useRouter();
@@ -353,6 +355,8 @@ export function WaterEntityListingPage({
           </Card>
         </motion.div>
       </div>
+
+      {renderAdditionalContent && renderAdditionalContent()}
 
       <AdvancedFooter />
     </main>
