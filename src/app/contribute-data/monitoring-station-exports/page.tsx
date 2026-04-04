@@ -6,11 +6,11 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Database, ArrowLeft, Upload, FileText, CheckCircle, Loader2, ExternalLink, Info } from 'lucide-react';
+import { Database, ArrowLeft, Upload, FileText, CheckCircle, Loader2, ExternalLink, Info, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const CONTRIBUTOR_TYPES = ['Individual', 'Researcher', 'Institution', 'Field Team', 'District Contributor'] as const;
+const CONTRIBUTOR_TYPES = ['Individual', 'Academic/Research', 'Institution', 'NGO', 'Field Team', 'Monitoring Network'] as const;
 const PARAMETER_TYPES = ['Air Quality', 'Water Quality', 'Soil Quality', 'Noise Level', 'Weather', 'Radiation', 'Other'] as const;
 const ACCEPTED_FORMATS = ['CSV', 'JSON', 'XML', 'XLSX', 'Parquet', 'ZIP'];
 const MAX_FILE_SIZE_MB = 500;
@@ -117,6 +117,20 @@ export default function MonitoringStationExportsPage() {
                   <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2"><Upload className="w-5 h-5 text-slate-400" />Time Series File Upload</h2>
                   <p className="text-sm text-slate-400 mb-3">Accepted: {ACCEPTED_FORMATS.join(', ')} • Max: {MAX_FILE_SIZE_MB}MB</p>
                   <input type="file" multiple onChange={e => handleChange('files', Array.from(e.target.files || []))} className="w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-slate-500/20 file:text-slate-300 hover:file:bg-slate-500/30" />
+                </Card>
+                <Card className="glass-intense border-white/10 p-6">
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="text-sm font-bold text-white mb-2">Data Permissions & Sensitivity</h3>
+                      <ul className="text-xs text-slate-400 space-y-1">
+                        <li>• Contributors confirm they have permission to share this data</li>
+                        <li>• Exact location details may be restricted for sensitive sites</li>
+                        <li>• Publication status depends on data quality and verification</li>
+                        <li>• Sensitive environmental data may remain restricted to authorized personnel</li>
+                      </ul>
+                    </div>
+                  </div>
                 </Card>
                 <Card className="glass-intense border-white/10 p-6">
                   <div className="flex items-start gap-3"><input type="checkbox" id="consent" required checked={formData.consent} onChange={e => handleChange('consent', e.target.checked)} className="mt-1 w-4 h-4 rounded border-white/20 bg-slate-800 text-slate-400 focus:ring-slate-400" /><label htmlFor="consent" className="text-sm text-slate-300">I confirm this station data is accurate and shared with appropriate permissions. Data will go through Community → Expert → Authority verification.</label></div>

@@ -8,13 +8,13 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import {
   Droplets, ArrowLeft, Upload, MapPin, Calendar, Clock, FileText,
-  CheckCircle, Loader2, ExternalLink, Info
+  CheckCircle, Loader2, ExternalLink, Info, Shield
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const CONTRIBUTOR_TYPES = ['Individual', 'Researcher', 'Institution', 'Field Team', 'District Contributor'] as const;
+const CONTRIBUTOR_TYPES = ['Individual', 'Academic/Research', 'Institution', 'NGO', 'Field Team', 'Monitoring Network'] as const;
 const ACCEPTED_FORMATS = ['CSV', 'JSON', 'GeoJSON', 'KML', 'JPG', 'PNG', 'WEBP', 'PDF'];
 const MAX_FILE_SIZE_MB = 50;
 
@@ -332,6 +332,22 @@ export default function WaterQualityReadingsPage() {
                   />
                 </Card>
 
+                {/* Permissions & Sensitivity */}
+                <Card className="glass-intense border-white/10 p-6">
+                  <div className="flex items-start gap-3 mb-3">
+                    <Shield className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="text-sm font-bold text-white mb-2">Data Permissions & Sensitivity</h3>
+                      <ul className="text-xs text-slate-400 space-y-1">
+                        <li>• Contributors confirm they have permission to share this data</li>
+                        <li>• Exact location details may be restricted for sensitive sites</li>
+                        <li>• Publication status depends on data quality and verification</li>
+                        <li>• Sensitive environmental data may remain restricted to authorized personnel</li>
+                      </ul>
+                    </div>
+                  </div>
+                </Card>
+
                 {/* Consent */}
                 <Card className="glass-intense border-white/10 p-6">
                   <div className="flex items-start gap-3">
@@ -344,8 +360,8 @@ export default function WaterQualityReadingsPage() {
                       className="mt-1 w-4 h-4 rounded border-white/20 bg-slate-800 text-blue-500 focus:ring-blue-500"
                     />
                     <label htmlFor="consent" className="text-sm text-slate-300">
-                      I confirm that this data was collected legally and accurately. I grant permission for this submission 
-                      to be reviewed, validated, and potentially published as part of Kashmir&apos;s environmental intelligence platform. 
+                      I confirm that this data was collected legally and accurately. I grant permission for this submission
+                      to be reviewed, validated, and potentially published as part of Kashmir&apos;s environmental intelligence platform.
                       I understand this data will go through Community → Expert → Authority verification tiers.
                     </label>
                   </div>

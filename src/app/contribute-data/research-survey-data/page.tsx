@@ -6,11 +6,11 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { FileText, ArrowLeft, Upload, CheckCircle, Loader2, ExternalLink, Info } from 'lucide-react';
+import { FileText, ArrowLeft, Upload, CheckCircle, Loader2, ExternalLink, Info, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const CONTRIBUTOR_TYPES = ['Individual', 'Researcher', 'Institution', 'Field Team', 'District Contributor'] as const;
+const CONTRIBUTOR_TYPES = ['Individual', 'Academic/Research', 'Institution', 'NGO', 'Field Team', 'Monitoring Network'] as const;
 const PUBLICATION_STATUS = ['Unpublished', 'In Preparation', 'Submitted', 'Published', 'Peer-Reviewed'] as const;
 const ACCEPTED_FORMATS = ['CSV', 'JSON', 'XLSX', 'PDF', 'ZIP', 'DOI Link'];
 const MAX_FILE_SIZE_MB = 200;
@@ -123,6 +123,20 @@ export default function ResearchSurveyDataPage() {
                   <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2"><Upload className="w-5 h-5 text-indigo-400" />File Upload</h2>
                   <p className="text-sm text-slate-400 mb-3">Accepted: {ACCEPTED_FORMATS.join(', ')} • Max: {MAX_FILE_SIZE_MB}MB</p>
                   <input type="file" multiple onChange={e => handleChange('files', Array.from(e.target.files || []))} className="w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-500/20 file:text-indigo-400 hover:file:bg-indigo-500/30" />
+                </Card>
+                <Card className="glass-intense border-white/10 p-6">
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="text-sm font-bold text-white mb-2">Data Permissions & Sensitivity</h3>
+                      <ul className="text-xs text-slate-400 space-y-1">
+                        <li>• Contributors confirm they have permission to share this data</li>
+                        <li>• Exact location details may be restricted for sensitive sites</li>
+                        <li>• Publication status depends on data quality and verification</li>
+                        <li>• Sensitive environmental data may remain restricted to authorized personnel</li>
+                      </ul>
+                    </div>
+                  </div>
                 </Card>
                 <Card className="glass-intense border-white/10 p-6">
                   <div className="flex items-start gap-3"><input type="checkbox" id="consent" required checked={formData.consent} onChange={e => handleChange('consent', e.target.checked)} className="mt-1 w-4 h-4 rounded border-white/20 bg-slate-800 text-indigo-500 focus:ring-indigo-500" /><label htmlFor="consent" className="text-sm text-slate-300">I confirm this research data is shared with appropriate permissions. I grant permission for review and potential publication through Community → Expert → Authority verification.</label></div>

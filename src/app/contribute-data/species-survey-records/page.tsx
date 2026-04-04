@@ -7,13 +7,13 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import {
-  Leaf, ArrowLeft, Upload, MapPin, FileText, CheckCircle, Loader2, ExternalLink, Info
+  Leaf, ArrowLeft, Upload, MapPin, FileText, CheckCircle, Loader2, ExternalLink, Info, Shield
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const CONTRIBUTOR_TYPES = ['Individual', 'Researcher', 'Institution', 'Field Team', 'District Contributor'] as const;
+const CONTRIBUTOR_TYPES = ['Individual', 'Academic/Research', 'Institution', 'NGO', 'Field Team', 'Monitoring Network'] as const;
 const HABITAT_TYPES = ['Wetland', 'Forest', 'Grassland', 'Alpine', 'Agricultural', 'Urban', 'Riparian', 'Lake/Pond', 'River/Stream'] as const;
 const SURVEY_METHODS = ['Visual encounter', 'Point count', 'Transect walk', 'Camera trap', 'Call survey', 'Sign survey'] as const;
 const ACCEPTED_FORMATS = ['CSV', 'JSON', 'JPG', 'PNG', 'WEBP', 'PDF'];
@@ -229,6 +229,21 @@ export default function SpeciesSurveyRecordsPage() {
                   </h2>
                   <p className="text-sm text-slate-400 mb-3">Accepted: {ACCEPTED_FORMATS.join(', ')} • Max: {MAX_FILE_SIZE_MB}MB</p>
                   <input type="file" multiple accept=".csv,.json,.jpg,.jpeg,.png,.webp,.pdf" onChange={e => handleChange('files', Array.from(e.target.files || []))} className="w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-500/20 file:text-emerald-400 hover:file:bg-emerald-500/30" />
+                </Card>
+
+                <Card className="glass-intense border-white/10 p-6">
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="text-sm font-bold text-white mb-2">Data Permissions & Sensitivity</h3>
+                      <ul className="text-xs text-slate-400 space-y-1">
+                        <li>• Contributors confirm they have permission to share this data</li>
+                        <li>• Exact location details may be restricted for sensitive or threatened species</li>
+                        <li>• Publication status depends on data quality and expert verification</li>
+                        <li>• Sensitive biodiversity data may remain restricted to authorized personnel</li>
+                      </ul>
+                    </div>
+                  </div>
                 </Card>
 
                 <Card className="glass-intense border-white/10 p-6">
