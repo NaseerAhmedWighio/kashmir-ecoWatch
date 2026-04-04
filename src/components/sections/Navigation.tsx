@@ -40,9 +40,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navItems = [
   { label: 'Protected Areas', href: '/protected-network', hasDropdown: true },
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
+  { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
   { label: 'Environmental Infrastructure', href: '/environmental-infrastructure', hasDropdown: true },
-  { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
 
@@ -142,7 +142,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-64 sm:w-72 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-64 sm:w-72 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -187,7 +187,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -243,7 +243,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -296,7 +296,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -344,7 +344,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-64 sm:w-72 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-64 sm:w-72 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -388,7 +388,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">

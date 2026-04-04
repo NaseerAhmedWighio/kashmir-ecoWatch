@@ -242,7 +242,7 @@ export function PremiumStickyHeader() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 w-80 max-w-[calc(100vw-2rem)] mt-2 glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50"
+                    className="absolute top-full left-0 w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     {/* Dropdown Header */}
                     <div className="px-4 py-3 border-b border-white/5 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
