@@ -238,11 +238,11 @@ export function AdvancedFooter() {
             </div>
 
             {/* Made with */}
-            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-500">
+            <a href="/made-with-love" className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-500 hover:text-red-400 transition-colors group">
               <span>Made with</span>
-              <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500 fill-red-500" />
+              <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500 fill-red-500 group-hover:scale-110 transition-transform" />
               <span>for Kashmir</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>

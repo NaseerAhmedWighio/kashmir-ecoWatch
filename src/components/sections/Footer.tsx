@@ -231,11 +231,11 @@ export function Footer() {
             </div>
 
             {/* Made with */}
-            <div className="flex items-center gap-2 text-sm text-slate-500">
+            <a href="/made-with-love" className="flex items-center gap-2 text-sm text-slate-500 hover:text-red-400 transition-colors group">
               <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+              <Heart className="w-4 h-4 text-red-500 fill-red-500 group-hover:scale-110 transition-transform" />
               <span>for Kashmir</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
