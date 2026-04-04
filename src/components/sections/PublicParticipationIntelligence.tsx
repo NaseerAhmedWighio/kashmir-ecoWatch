@@ -310,7 +310,7 @@ export function PublicParticipationIntelligence() {
                       activity.type === 'sighting' ? 'bg-emerald-400' :
                       activity.type === 'dataset' ? 'bg-blue-400' : 'bg-purple-400'
                     }`} />
-                    <div className="flex flex-col justify-center min-w-0 flex-1">
+                    <div className="flex flex-col justify-center min-w-0 py-[0.17rem] flex-1">
                       <p className="text-sm text-white leading-snug">{activity.title}</p>
                       <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
                         <Badge variant="outline" size="sm" className="h-5 text-xs">

@@ -446,7 +446,7 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-72 sm:w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
+                    className="absolute top-full left-0 w-80 sm:w-96 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
@@ -456,55 +456,111 @@ export function Navigation() {
                         </span>
                       </div>
                     </div>
-                    <div className="py-2">
+                    <div className="py-2 max-h-[70vh] overflow-y-auto">
                       <Link
                         href="/risk-monitoring"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
-                        <span className="font-medium">⚠️ Overview</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Risk monitoring dashboard</span>
+                        <span className="font-medium">🎯 Overview</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Command center</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/live-alerts"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🚨 Live Alerts</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Critical alerts & warnings</span>
                       </Link>
                       <Link
                         href="/risk-monitoring/hazard-risks"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
-                        <span className="font-medium">🏔️ Hazard Risks</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Multi-hazard risk systems</span>
+                        <span className="font-medium">⚠️ Hazard Risks</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Umbrella hazard classification</span>
                       </Link>
                       <Link
-                        href="/risk-monitoring/pollution-stress"
+                        href="/risk-monitoring/flood-flash-flood"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
-                        <span className="font-medium">🌫️ Pollution & Stress</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Environmental pressure monitoring</span>
+                        <span className="font-medium">🌊 Flood & Flash Flood</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">River overflow & inundation watch</span>
                       </Link>
                       <Link
-                        href="/risk-monitoring/biodiversity-risks"
+                        href="/risk-monitoring/landslide-slope"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
-                        <span className="font-medium">🦌 Biodiversity Risks</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Ecological vulnerability tracking</span>
+                        <span className="font-medium">🏔️ Landslide & Slope</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Slope instability & road risk</span>
                       </Link>
                       <Link
-                        href="/risk-monitoring/response-operations"
+                        href="/risk-monitoring/avalanche-winter"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
-                        <span className="font-medium">🚨 Response & Operations</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Response and operational intelligence</span>
+                        <span className="font-medium">❄️ Avalanche & Winter</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Avalanche exposure & winter access</span>
                       </Link>
                       <Link
-                        href="/risk-monitoring/live-alerts-advisories"
+                        href="/risk-monitoring/earthquake"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
-                        <span className="font-medium">🔔 Live Alerts</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Real-time warnings</span>
+                        <span className="font-medium">🌍 Earthquake</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Seismic exposure & readiness</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/forest-fire"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🔥 Forest Fire</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Active fires & fire-prone zones</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/glacier-cryosphere"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🧊 Glacier & Cryosphere</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Glacier-linked environmental risk</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/hydrological-risk"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">💧 Hydrological Risk</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Water system instability & overflow</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/environmental-incident-risk"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">☣️ Environmental Incident Risk</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Pollution emergencies & escalation</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/district-risk-profiles"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">📍 District Risk Profiles</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">District-wise operational risk</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/critical-infrastructure-response"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🏗️ Critical Infrastructure & Response</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Emergency facilities & response nodes</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/shelters-closures-emergency-routes"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🛤️ Shelters, Closures & Emergency Routes</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Safe routes & operational mobility</span>
                       </Link>
                       <Link
                         href="/risk-monitoring/dashboards"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
                       >
                         <span className="font-medium">📊 Dashboards</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Risk monitoring dashboards</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Live risk & incident dashboards</span>
                       </Link>
                     </div>
                   </motion.div>
