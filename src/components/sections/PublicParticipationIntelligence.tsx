@@ -235,7 +235,7 @@ export function PublicParticipationIntelligence() {
                 </h3>
                 <p className="text-slate-400 text-sm mt-1">Wildlife and biodiversity observations from citizen scientists</p>
               </div>
-              <Button variant="outline" className="border-white/20 text-white w-full sm:w-auto text-xs sm:text-sm" onClick={() => router.push('/trails-sightings')}>
+              <Button variant="outline" className="border-white/20 text-white w-full sm:w-auto text-xs sm:text-sm" onClick={() => router.push('/biodiversity/wildlife-sightings')}>
                 View All Sightings
               </Button>
             </div>

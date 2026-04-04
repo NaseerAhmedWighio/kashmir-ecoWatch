@@ -43,7 +43,6 @@ const navItems = [
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
   { label: 'Environmental Monitoring', href: '/environmental-monitoring', hasDropdown: true },
   { label: 'Contribute', href: '/contribute', hasDropdown: true },
-  { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
 
@@ -53,6 +52,7 @@ interface DropdownItem {
   desc?: string;
   icon?: React.ComponentType<{ className?: string }>;
   color?: string;
+  isHeader?: boolean;
 }
 
 export function PremiumStickyHeader() {
@@ -111,13 +111,29 @@ export function PremiumStickyHeader() {
         ];
       case 'Biodiversity':
         return [
-          { name: '📊 All Species', href: '/biodiversity', desc: 'Browse complete biodiversity database' },
+          // Species Group
+          { name: '── Species ──', href: '#', desc: '', isHeader: true },
+          { name: 'Species Directory', href: '/biodiversity', desc: 'Browse complete database' },
           { name: 'Mammals', href: '/biodiversity/mammals', desc: 'Ungulates, carnivores & more' },
           { name: 'Birds', href: '/biodiversity/birds', desc: 'Resident & migratory species' },
-          { name: 'Fish', href: '/biodiversity/fish', desc: 'Aquatic biodiversity' },
-          { name: 'Plants', href: '/biodiversity/plants', desc: 'Flora & vegetation' },
-          { name: 'Medicinal Plants', href: '/biodiversity/medicinal-plants', desc: 'Traditional medicinal flora' },
-          { name: 'Threatened Species', href: '/biodiversity/threatened-species', desc: 'Priority conservation taxa' },
+          { name: 'Fish & Aquatic Life', href: '/biodiversity/fish', desc: 'Freshwater & aquatic biodiversity' },
+          { name: 'Plants & Flora', href: '/biodiversity/plants', desc: 'Vascular plants & vegetation' },
+          { name: 'Medicinal Flora', href: '/biodiversity/medicinal-plants', desc: 'Traditional medicinal plants' },
+          { name: 'Priority & Threatened Species', href: '/biodiversity/threatened-species', desc: 'CR, EN, VU conservation taxa' },
+          // Observation & Ecology Group
+          { name: '── Observation & Ecology ──', href: '#', desc: '', isHeader: true },
+          { name: 'Wildlife Sightings', href: '/biodiversity/wildlife-sightings', desc: 'Verified & community observations' },
+          { name: 'Birding & Observation Hotspots', href: '/biodiversity/birding-hotspots', desc: 'Prime observation areas' },
+          { name: 'Migration Windows', href: '/biodiversity/migration-windows', desc: 'Migratory bird timing' },
+          { name: 'Pollinator Activity', href: '/biodiversity/pollinator-activity', desc: 'Pollinator watch periods' },
+          { name: 'Phenology & Flowering Records', href: '/biodiversity/phenology-flowering', desc: 'Flowering & seasonal records' },
+          { name: 'Habitat Signals', href: '/biodiversity/habitat-signals', desc: 'Habitat stress & transitions' },
+          { name: 'Seasonal Species Activity', href: '/biodiversity/seasonal-activity', desc: 'Breeding & activity windows' },
+          // Intelligence Group
+          { name: '── Intelligence ──', href: '#', desc: '', isHeader: true },
+          { name: 'Overview', href: '/biodiversity/overview', desc: 'Module command center' },
+          { name: 'District Biodiversity Profiles', href: '/biodiversity/district-profiles', desc: 'Regional intelligence' },
+          { name: 'Dashboards', href: '/biodiversity/dashboards', desc: 'Analytics & trends' },
         ];
       case 'Water Systems':
         return [
@@ -155,15 +171,6 @@ export function PremiumStickyHeader() {
           { name: 'Contribute Data', href: '/contribute-data', desc: 'Structured datasets & research' },
           { name: 'Citizen Science', href: '/citizen-science', desc: 'Programs & recurring roles' },
         ];
-      case 'Trails & Sightings':
-        return [
-          { name: '👣 Overview', href: '/trails-sightings', desc: 'Field observations & trails' },
-          { name: 'Hiking Trails', href: '/trails-sightings/hiking-trails', desc: 'Multi-day treks & day hikes' },
-          { name: 'Birding Trails', href: '/trails-sightings/birding-trails', desc: 'Prime birdwatching routes' },
-          { name: 'Wildlife Sightings', href: '/trails-sightings/wildlife-sightings', desc: 'Mammal observations' },
-          { name: 'Bird Sightings', href: '/trails-sightings/bird-sightings', desc: 'Avian records' },
-          { name: 'Submit Sighting', href: '/submit-sighting', desc: 'Contribute observations' },
-        ];
       case 'Risk & Monitoring':
         return [
           { name: '⚠️ Overview', href: '/risk-monitoring', desc: 'Risk monitoring dashboard' },
@@ -182,16 +189,22 @@ export function PremiumStickyHeader() {
   const renderDropdownItems = (items: DropdownItem[]) => (
     <>
       {items.map((subitem) => (
-        <Link
-          key={subitem.name}
-          href={subitem.href}
-          className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
-        >
-          <span className="font-medium">{subitem.name}</span>
-          {subitem.desc && (
-            <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
-          )}
-        </Link>
+        subitem.isHeader ? (
+          <div key={subitem.name} className="px-4 py-1.5 bg-slate-800/30">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">{subitem.name.replace(/──/g, '').trim()}</span>
+          </div>
+        ) : (
+          <Link
+            key={subitem.name}
+            href={subitem.href}
+            className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+          >
+            <span className="font-medium">{subitem.name}</span>
+            {subitem.desc && (
+              <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
+            )}
+          </Link>
+        )
       ))}
     </>
   );
@@ -264,7 +277,6 @@ export function PremiumStickyHeader() {
                         {item.label === 'Biodiversity' && <Leaf className="w-4 h-4 text-emerald-400" />}
                         {item.label === 'Water Systems' && <Droplet className="w-4 h-4 text-sky-400" />}
                         {item.label === 'Seasonal Ecology' && <Calendar className="w-4 h-4 text-amber-400" />}
-                        {item.label === 'Trails & Sightings' && <Footprints className="w-4 h-4 text-teal-400" />}
                         {item.label === 'Risk & Monitoring' && <AlertTriangle className="w-4 h-4 text-red-400" />}
                         <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
                           {item.label}

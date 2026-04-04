@@ -981,3 +981,10 @@ export const seasonalEcologyNavigationCards: SeasonalNavigationCard[] = [
   { id: 'nav-009', title: 'All Seasonal Climate and Visibility Windows', description: 'Climate-linked visibility and access windows', icon: 'Sun', count: 4, link: '/seasonal-ecology/climate-windows', color: 'from-yellow-500 to-amber-600' },
   { id: 'nav-010', title: 'All Seasonal Reports and References', description: 'Kashmir seasonal and phenology-related evidence', icon: 'FileText', count: 5, link: '/seasonal-ecology/reports-references', color: 'from-slate-500 to-gray-600' },
 ];
+
+// Convenience exports for Biodiversity module integration
+export const getMigrationWindows = () => migrationWindows;
+export const getPollinatorWindows = () => pollinatorWindows;
+export const getPhenologyRecords = () => phenologyRecords;
+export const getHabitatSignals = () => habitatSignals;
+export const getSpeciesActivities = () => speciesActivity;

@@ -370,7 +370,7 @@ export default function SeasonalEcologyHubPage() {
             </Card>
           </Link>
 
-          <Link href="/trails-sightings">
+          <Link href="/biodiversity/birding-hotspots">
             <Card className="glass-intense border-slate-700/50 hover:border-amber-500/30 transition-all">
               <div className="p-5">
                 <div className="flex items-start gap-3">
@@ -378,9 +378,9 @@ export default function SeasonalEcologyHubPage() {
                     <Icons.Map className="w-6 h-6 text-amber-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-1">Trails & Sightings</h3>
+                    <h3 className="text-lg font-semibold text-white mb-1">Birding & Observation Hotspots</h3>
                     <p className="text-sm text-slate-400">
-                      Field observations and ecological trails
+                      Field observations and ecological access
                     </p>
                   </div>
                 </div>

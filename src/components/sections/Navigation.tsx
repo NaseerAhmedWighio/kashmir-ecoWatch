@@ -41,7 +41,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navItems = [
   { label: 'Protected Areas', href: '/protected-network', hasDropdown: true },
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
-  { label: 'Trails & Sightings', href: '/trails-sightings', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
   { label: 'Environmental Monitoring', href: '/environmental-monitoring', hasDropdown: true },
   { label: 'Contribute', href: '/contribute', hasDropdown: true },
@@ -144,36 +143,81 @@ export function Navigation() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-64 sm:w-72 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
+                    className="absolute top-full left-0 w-80 sm:w-96 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2 max-h-[80vh] overflow-y-auto"
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
                         <Leaf className="w-4 h-4 text-forest-400" />
                         <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                          Biodiversity
+                          Biodiversity Intelligence
                         </span>
                       </div>
                     </div>
-                    <div className="py-2">
-                      <Link
-                        href="/biodiversity"
-                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
-                      >
-                        <span className="font-medium">📊 All Species</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Browse complete biodiversity database</span>
-                      </Link>
+                    
+                    {/* Species Group */}
+                    <div className="py-2 border-b border-white/5">
+                      <div className="px-4 py-1.5 bg-emerald-500/10">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">Species</span>
+                      </div>
                       {[
+                        { name: 'Species Directory', href: '/biodiversity', desc: 'Browse complete database' },
                         { name: 'Mammals', href: '/biodiversity/mammals', desc: 'Ungulates, carnivores & more' },
                         { name: 'Birds', href: '/biodiversity/birds', desc: 'Resident & migratory species' },
-                        { name: 'Fish', href: '/biodiversity/fish', desc: 'Aquatic biodiversity' },
-                        { name: 'Plants', href: '/biodiversity/plants', desc: 'Flora & vegetation' },
-                        { name: 'Medicinal Plants', href: '/biodiversity/medicinal-plants', desc: 'Traditional medicinal flora' },
-                        { name: 'Threatened Species', href: '/biodiversity/threatened-species', desc: 'Priority conservation taxa' },
+                        { name: 'Fish & Aquatic Life', href: '/biodiversity/fish', desc: 'Freshwater & aquatic biodiversity' },
+                        { name: 'Plants & Flora', href: '/biodiversity/plants', desc: 'Vascular plants & vegetation' },
+                        { name: 'Medicinal Flora', href: '/biodiversity/medicinal-plants', desc: 'Traditional medicinal plants' },
+                        { name: 'Priority & Threatened Species', href: '/biodiversity/threatened-species', desc: 'CR, EN, VU conservation taxa' },
                       ].map((subitem) => (
                         <Link
                           key={subitem.name}
                           href={subitem.href}
-                          className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                          className="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                        >
+                          <span className="font-medium">{subitem.name}</span>
+                          <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Observation & Ecology Group */}
+                    <div className="py-2 border-b border-white/5">
+                      <div className="px-4 py-1.5 bg-sky-500/10">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-sky-400">Observation & Ecology</span>
+                      </div>
+                      {[
+                        { name: 'Wildlife Sightings', href: '/biodiversity/wildlife-sightings', desc: 'Verified & community observations' },
+                        { name: 'Birding & Observation Hotspots', href: '/biodiversity/birding-hotspots', desc: 'Prime observation areas' },
+                        { name: 'Migration Windows', href: '/biodiversity/migration-windows', desc: 'Migratory bird timing' },
+                        { name: 'Pollinator Activity', href: '/biodiversity/pollinator-activity', desc: 'Pollinator watch periods' },
+                        { name: 'Phenology & Flowering Records', href: '/biodiversity/phenology-flowering', desc: 'Flowering & seasonal records' },
+                        { name: 'Habitat Signals', href: '/biodiversity/habitat-signals', desc: 'Habitat stress & transitions' },
+                        { name: 'Seasonal Species Activity', href: '/biodiversity/seasonal-activity', desc: 'Breeding & activity windows' },
+                      ].map((subitem) => (
+                        <Link
+                          key={subitem.name}
+                          href={subitem.href}
+                          className="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                        >
+                          <span className="font-medium">{subitem.name}</span>
+                          <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Intelligence Group */}
+                    <div className="py-2">
+                      <div className="px-4 py-1.5 bg-violet-500/10">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-violet-400">Intelligence</span>
+                      </div>
+                      {[
+                        { name: 'Overview', href: '/biodiversity/overview', desc: 'Module command center' },
+                        { name: 'District Biodiversity Profiles', href: '/biodiversity/district-profiles', desc: 'Regional intelligence' },
+                        { name: 'Dashboards', href: '/biodiversity/dashboards', desc: 'Analytics & trends' },
+                      ].map((subitem) => (
+                        <Link
+                          key={subitem.name}
+                          href={subitem.href}
+                          className="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
                         >
                           <span className="font-medium">{subitem.name}</span>
                           <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
@@ -347,50 +391,6 @@ export function Navigation() {
                             <span className="font-medium text-xs">{subitem.name}</span>
                           </div>
                           <span className="block text-xs text-slate-500 ml-3.5">{subitem.desc}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-
-                {/* Trails & Sightings Dropdown */}
-                {item.hasDropdown && activeDropdown === item.label && item.label === 'Trails & Sightings' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 w-64 sm:w-72 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
-                  >
-                    <div className="p-3 border-b border-white/5">
-                      <div className="flex items-center gap-2">
-                        <Footprints className="w-4 h-4 text-emerald-400" />
-                        <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                          Trails & Sightings
-                        </span>
-                      </div>
-                    </div>
-                    <div className="py-2">
-                      <Link
-                        href="/trails-sightings"
-                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
-                      >
-                        <span className="font-medium">👣 Overview</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Field observations & trails</span>
-                      </Link>
-                      {[
-                        { name: 'Hiking Trails', href: '/trails-sightings/hiking-trails', desc: 'Multi-day treks & day hikes' },
-                        { name: 'Birding Trails', href: '/trails-sightings/birding-trails', desc: 'Prime birdwatching routes' },
-                        { name: 'Wildlife Sightings', href: '/trails-sightings/wildlife-sightings', desc: 'Mammal observations' },
-                        { name: 'Bird Sightings', href: '/trails-sightings/bird-sightings', desc: 'Avian records' },
-                        { name: 'Submit Sighting', href: '/submit-sighting', desc: 'Contribute observations' },
-                      ].map((subitem) => (
-                        <Link
-                          key={subitem.name}
-                          href={subitem.href}
-                          className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
-                        >
-                          <span className="font-medium">{subitem.name}</span>
-                          <span className="block text-xs text-slate-500 mt-0.5">{subitem.desc}</span>
                         </Link>
                       ))}
                     </div>
@@ -832,29 +832,6 @@ export function Navigation() {
                                       </Link>
                                       <Link href="/seasonal-ecology/reports-references" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
                                         Reports & References
-                                      </Link>
-                                    </>
-                                  )}
-
-                                  {item.label === 'Trails & Sightings' && (
-                                    <>
-                                      <Link href="/trails-sightings" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        👣 Overview
-                                      </Link>
-                                      <Link href="/trails-sightings/hiking-trails" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Hiking Trails
-                                      </Link>
-                                      <Link href="/trails-sightings/birding-trails" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Birding Trails
-                                      </Link>
-                                      <Link href="/trails-sightings/wildlife-sightings" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Wildlife Sightings
-                                      </Link>
-                                      <Link href="/trails-sightings/bird-sightings" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Bird Sightings
-                                      </Link>
-                                      <Link href="/submit-sighting" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Submit Sighting
                                       </Link>
                                     </>
                                   )}
