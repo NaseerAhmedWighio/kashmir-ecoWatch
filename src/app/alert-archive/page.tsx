@@ -266,8 +266,8 @@ export default function AlertArchivePage() {
         alert.district.toLowerCase().includes(q);
       const matchesSeverity = severityFilter === 'all' || alert.severity === severityFilter;
       const matchesStatus = statusFilter === 'all' || alert.status === statusFilter;
-      const matchesCategory = matchesCategory(alert.hazardCategory, categoryFilter);
-      return matchesSearch && matchesSeverity && matchesStatus && matchesCategory;
+      const matchesCategoryFilter = matchesCategory(alert.hazardCategory, categoryFilter);
+      return matchesSearch && matchesSeverity && matchesStatus && matchesCategoryFilter;
     })
     .sort((a, b) => new Date(b.issuedAt).getTime() - new Date(a.issuedAt).getTime());
 

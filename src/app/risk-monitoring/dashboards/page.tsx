@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/Badge';
 import {
   TrendingUp, ArrowRight, Bell, AlertTriangle, MapPin, Activity,
   FileText, Shield, BarChart3, Droplets, Mountain, Flame, Snowflake,
-  Zap, Waves, Factory, Trash2, Pipe, Clock, ExternalLink, Layers,
+  Zap, Waves, Factory, Trash2, Droplet, Clock, ExternalLink, Layers,
   Target, Route
 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -201,7 +201,7 @@ const DASHBOARDS: DashboardCard[] = [
   {
     id: 'sewage-wastewater',
     name: 'Sewage & Wastewater Event Dashboard',
-    icon: Pipe,
+    icon: Droplet,
     group: 'environmental',
     type: 'Environmental Escalation',
     description: 'Sewage overflow events, treatment plant stress, wastewater discharge incidents, and lake/river contamination linkage.',
