@@ -213,8 +213,11 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <div className="text-sm text-slate-500">
-              © {new Date().getFullYear()} Kashmir Environmental Intelligence Platform. 
-              All rights reserved.
+              © {new Date().getFullYear()} Kashmir EcoWatch.
+              All rights reserved.{' '}
+              <a href="/copyright" className="text-slate-400 hover:text-forest-400 transition-colors underline decoration-transparent hover:decoration-current">
+                Copyright & IP
+              </a>
             </div>
 
             {/* Legal links */}
@@ -240,16 +243,12 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Data attribution */}
-      <div className="bg-slate-950 py-4">
+      {/* Data attribution + legal notice */}
+      <div className="bg-slate-950 py-4 border-t border-white/5">
         <div className="container mx-auto px-4 md:px-6">
-          <p className="text-xs text-slate-500 text-center">
-            Evidence Intelligence Library: Institutional records, peer-reviewed research, monitoring outputs,
-            geospatial analysis, and reviewed community-supported evidence.
-            All items undergo source classification, methodology documentation, and confidence assessment.
-            <a href="/about/data-sources" className="text-indigo-400 hover:text-indigo-300 ml-1">Data Sources</a>
-            <a href="/about/methodology" className="text-indigo-400 hover:text-indigo-300 ml-1">Methodology</a>
-            <a href="/about/verification" className="text-indigo-400 hover:text-indigo-300 ml-1">Verification</a>
+          <p className="text-xs text-slate-500 text-center leading-relaxed max-w-4xl mx-auto">
+            Kashmir EcoWatch, including its platform architecture, environmental intelligence systems, content organization, dashboards, workflows, geospatial integrations, evidence structures, and associated digital assets, is protected under applicable copyright, intellectual property, database, and related laws. Certain platform elements may include proprietary, patentable, or otherwise legally protectable systems, methods, designs, or frameworks. Unauthorized copying, extraction, redistribution, reverse engineering, imitation, or commercial exploitation is prohibited without prior written authorization.
+            {' '}<a href="/copyright" className="text-indigo-400 hover:text-indigo-300">Copyright & IP</a>
           </p>
         </div>
       </div>

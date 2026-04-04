@@ -19,7 +19,6 @@ interface TeamMember {
   name: string;
   role: string;
   degree: string;
-  university: string;
   expertise: string;
   icon: string;
 }
@@ -29,7 +28,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Michael Anderson',
     role: 'Chief Platform Architect',
     degree: 'PhD in Computer Science',
-    university: 'Massachusetts Institute of Technology',
     expertise: 'Large-scale platform architecture, distributed systems, cloud-native infrastructure, software systems design, and high-performance digital ecosystem engineering.',
     icon: 'Cpu',
   },
@@ -37,7 +35,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Emily Carter',
     role: 'Director of Geospatial Intelligence Systems',
     degree: 'PhD in Geographic Information Science',
-    university: 'Stanford University',
     expertise: 'GIS architecture, spatial data modeling, remote sensing integration, environmental mapping systems, geospatial analytics, and location-based intelligence platforms.',
     icon: 'Map',
   },
@@ -45,7 +42,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Daniel Brooks',
     role: 'Lead Data Systems Engineer',
     degree: 'PhD in Data Engineering and Computational Systems',
-    university: 'Carnegie Mellon University',
     expertise: 'Data architecture, structured information systems, scalable pipelines, metadata design, data integrity frameworks, and analytical systems integration.',
     icon: 'Database',
   },
@@ -53,7 +49,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Olivia Bennett',
     role: 'Environmental Technology Integration Lead',
     degree: 'PhD in Environmental Systems Engineering',
-    university: 'University of California, Berkeley',
     expertise: 'Environmental monitoring systems, ecological data integration, sustainability platforms, environmental intelligence workflows, and science-technology coordination.',
     icon: 'Globe',
   },
@@ -61,7 +56,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Sophia Mitchell',
     role: 'Senior UX and Interface Systems Designer',
     degree: 'MS in Human-Computer Interaction',
-    university: 'Georgia Institute of Technology',
     expertise: 'Complex interface systems, user-centered product design, dashboard usability, accessibility-aware design, institutional digital experiences, and multi-layer platform interaction architecture.',
     icon: 'Monitor',
   },
@@ -69,7 +63,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. James Reynolds',
     role: 'Head of Monitoring and Workflow Systems',
     degree: 'PhD in Information Systems and Digital Operations',
-    university: 'University of Michigan',
     expertise: 'Workflow design, monitoring pipelines, incident-routing logic, structured submission systems, digital operational models, and platform process architecture.',
     icon: 'Activity',
   },
@@ -77,7 +70,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Ava Thompson',
     role: 'Director of Spatial Data Visualization and Analytics',
     degree: 'PhD in Visualization and Computational Analytics',
-    university: 'University of Washington',
     expertise: 'Analytical dashboard systems, environmental data visualization, visual intelligence architecture, comparative metrics, and monitoring-centered information design.',
     icon: 'BarChart3',
   },
@@ -85,7 +77,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Christopher Hall',
     role: 'Senior Backend and Infrastructure Engineer',
     degree: 'MS in Software Engineering',
-    university: 'Columbia University',
     expertise: 'Backend systems, API engineering, database integration, platform security, server architecture, and scalable deployment environments.',
     icon: 'Cloud',
   },
@@ -93,7 +84,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Natalie Foster',
     role: 'Research Systems and Evidence Architecture Specialist',
     degree: 'PhD in Information Science',
-    university: 'Cornell University',
     expertise: 'Evidence systems, digital knowledge architecture, research repository workflows, review structures, source traceability, and institutional information frameworks.',
     icon: 'BookOpen',
   },
@@ -101,7 +91,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'William Hayes',
     role: 'Lead Frontend Engineer',
     degree: 'MS in Computer Engineering',
-    university: 'University of Illinois Urbana-Champaign',
     expertise: 'Advanced frontend architecture, modular component systems, responsive platforms, performance optimization, and large-scale interface engineering.',
     icon: 'Code',
   },
@@ -109,7 +98,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Grace Sullivan',
     role: 'Risk Intelligence and Environmental Systems Analyst',
     degree: 'PhD in Environmental Risk Analysis',
-    university: 'Duke University',
     expertise: 'Hazard intelligence systems, environmental risk frameworks, decision-support interfaces, monitoring-linked interpretation, and environmental systems analysis.',
     icon: 'Shield',
   },
@@ -117,7 +105,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Alexander Moore',
     role: 'Cloud Infrastructure and DevOps Lead',
     degree: 'MS in Computer Systems Engineering',
-    university: 'University of Texas at Austin',
     expertise: 'Cloud infrastructure, CI/CD systems, deployment reliability, system observability, containerized environments, and resilient platform operations.',
     icon: 'Cloud',
   },
@@ -125,7 +112,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Hannah Reed',
     role: 'Digital Governance and Platform Integrity Advisor',
     degree: 'PhD in Technology Policy and Information Governance',
-    university: 'Johns Hopkins University',
     expertise: 'Digital governance, platform integrity, trust frameworks, structured review systems, data responsibility, and institutional technology policy alignment.',
     icon: 'Scale',
   },
@@ -133,7 +119,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Ethan Walker',
     role: 'GIS Application Engineer',
     degree: 'MS in Geospatial Technologies',
-    university: 'Pennsylvania State University',
     expertise: 'Interactive mapping applications, geospatial interface engineering, spatial data services, map performance optimization, and location-driven platform features.',
     icon: 'Map',
   },
@@ -141,7 +126,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Dr. Chloe Morgan',
     role: 'Biodiversity and Ecological Knowledge Systems Advisor',
     degree: 'PhD in Ecology and Biodiversity Informatics',
-    university: 'University of California, Davis',
     expertise: 'Biodiversity knowledge systems, ecological observation frameworks, habitat intelligence, species data interpretation, and conservation-linked digital systems.',
     icon: 'Globe',
   },
@@ -149,7 +133,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: 'Benjamin Scott',
     role: 'Product and Systems Integration Manager',
     degree: 'MBA and MS in Technology Management',
-    university: 'Northwestern University',
     expertise: 'Multidisciplinary coordination, systems integration, digital product strategy, cross-functional execution, and complex platform delivery management.',
     icon: 'Layers',
   },
@@ -405,7 +388,7 @@ export default function TechnologyPage() {
                       <div className="min-w-0">
                         <h3 className="text-sm font-bold text-white leading-tight">{member.name}</h3>
                         <p className="text-xs text-emerald-400 font-medium">{member.role}</p>
-                        <p className="text-xs text-slate-500 mt-0.5">{member.degree} — {member.university}</p>
+                        <p className="text-xs text-slate-500 mt-0.5">{member.degree}</p>
                       </div>
                     </div>
                     <span className="text-slate-400 shrink-0 mt-1">
