@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -24,10 +23,7 @@ export default function SpeciesIntelligencePage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Header */}
+    <main className="min-h-screen bg-slate-950">{/* Header */}
       <div className="pt-48 pb-12 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

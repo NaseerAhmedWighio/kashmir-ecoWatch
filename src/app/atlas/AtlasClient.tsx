@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { AtlasMap } from '@/components/maps/AtlasMap';
 import { FeatureDrawer } from '@/components/maps/FeatureDrawer';
@@ -151,10 +150,7 @@ export default function AtlasClient() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Top Command Bar */}
+    <main className="min-h-screen bg-slate-950">{/* Top Command Bar */}
       <TopCommandBar
         layerCount={activeLayerCount}
         onToggleLayers={() => setLayerRailOpen(!layerRailOpen)}

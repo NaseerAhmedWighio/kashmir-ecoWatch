@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -57,10 +56,7 @@ export default function LakesPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 opacity-50" />
         <div className="absolute inset-0 bg-grid opacity-20" />

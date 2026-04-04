@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -70,10 +69,7 @@ export default function RiskMonitoringOverviewPage() {
   }).slice(0, 8);
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero Section */}
+    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
       <section className="relative pt-20 md:pt-48 pb-12 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-950/50 via-orange-950/30 to-slate-950" />
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
@@ -409,33 +405,57 @@ export default function RiskMonitoringOverviewPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 pb-20">
+      <section className="py-16">
         <div className="container mx-auto px-6">
-          <Card className="bg-gradient-to-r from-red-900/50 to-orange-900/50 border-white/10">
-            <div className="p-12 text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Report a Hazard or Emergency</h2>
-              <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
-                Help improve risk monitoring by reporting hazards, incidents, and emergency situations in your area
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white shadow-xl"
-                  onClick={() => router.push('/report-issue')}
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Report Emergency
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white/20 text-white hover:bg-white/5"
-                  onClick={() => router.push('/risk-monitoring/live-alerts')}
-                >
-                  <Bell className="w-5 h-5 mr-2" />
-                  View All Alerts
-                </Button>
-              </div>
+          <Card className="glass-intense border-white/10 relative overflow-hidden">
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-950/40 via-orange-950/20 to-slate-950/50" />
+            <div className="absolute inset-0 bg-grid opacity-10" />
+            
+            <div className="relative z-10 p-12 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="max-w-3xl mx-auto"
+              >
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
+                    <Phone className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Report a Hazard or Emergency</h2>
+                <p className="text-slate-400 mb-8 max-w-2xl mx-auto text-lg">
+                  Help improve risk monitoring by reporting hazards, incidents, and emergency situations in your area
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white shadow-xl"
+                    onClick={() => router.push('/report-issue')}
+                  >
+                    <Phone className="w-5 h-5 mr-2" />
+                    Report Emergency
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/20 text-white hover:bg-white/5"
+                    onClick={() => router.push('/risk-monitoring/live-alerts')}
+                  >
+                    <Bell className="w-5 h-5 mr-2" />
+                    View All Alerts
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/20 text-white hover:bg-white/5"
+                    onClick={() => router.push('/submit-sighting')}
+                  >
+                    <Eye className="w-5 h-5 mr-2" />
+                    Submit a Sighting
+                  </Button>
+                </div>
+              </motion.div>
             </div>
           </Card>
         </div>

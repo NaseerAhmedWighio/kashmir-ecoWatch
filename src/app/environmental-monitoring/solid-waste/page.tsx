@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -100,10 +99,7 @@ export default function SolidWastePage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <section className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-slate-900/40 to-slate-950" />
         <div className="absolute inset-0 bg-grid opacity-10" />

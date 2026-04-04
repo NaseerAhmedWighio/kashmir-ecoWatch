@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { CheckCircle, ArrowLeft, Users, Shield, Eye, FileSearch, ExternalLink, AlertTriangle } from 'lucide-react';
+import { CheckCircle, ArrowLeft, Users, Shield, Eye, FileSearch, AlertTriangle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -36,9 +35,7 @@ export default function DataVerificationPage() {
   const [joined, setJoined] = useState(false);
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-      <section className="relative pt-48 pb-12 overflow-hidden">
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-purple-950/30 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">

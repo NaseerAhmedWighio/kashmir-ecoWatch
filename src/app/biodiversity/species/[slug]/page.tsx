@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -35,9 +34,7 @@ export default function SpeciesDetailPage() {
 
   if (!species) {
     return (
-      <main className="min-h-screen bg-slate-950">
-        <Navigation />
-        <div className="pt-48 text-center">
+      <main className="min-h-screen bg-slate-950"><div className="pt-48 text-center">
           <h1 className="text-3xl font-bold text-white mb-4">Species not found</h1>
           <Button onClick={() => router.push('/biodiversity')}>Back to Biodiversity</Button>
         </div>
@@ -69,10 +66,7 @@ export default function SpeciesDetailPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-      
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-slate-900 to-slate-950" />
         <div className="absolute inset-0 bg-grid opacity-20" />

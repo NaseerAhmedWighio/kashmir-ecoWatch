@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
@@ -204,10 +203,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
   const IconComponent = (Icons as any)[getIconForVariant()] || Icons.Mountain;
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero Section */}
+    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
       <div className="relative pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/20 via-slate-950 to-slate-950" />
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />

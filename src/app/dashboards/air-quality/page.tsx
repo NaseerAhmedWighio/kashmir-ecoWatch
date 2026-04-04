@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -33,10 +32,7 @@ const waterQualityData = [
 
 export default function AirQualityDashboard() {
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-      
-      {/* Page header */}
+    <main className="min-h-screen bg-slate-950">{/* Page header */}
       <div className="pt-48 pb-8 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

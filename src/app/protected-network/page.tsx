@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -122,10 +121,7 @@ export default function ProtectedNetworkPage() {
   ].filter(Boolean);
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-      
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-slate-900 to-slate-950" />
         <div className="absolute inset-0 bg-grid opacity-20" />

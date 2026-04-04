@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -79,10 +78,7 @@ export function WaterEntityListingPage({
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 flex flex-col">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950 flex flex-col">{/* Hero */}
       <div className="relative pt-48 pb-12 overflow-hidden flex-shrink-0">
         <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-20`} />
         <div className="absolute inset-0 bg-grid opacity-20" />

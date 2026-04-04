@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import {
   Users, Eye, Camera, Book, ArrowRight, Heart, Shield,
-  CheckCircle, Award, MapPin, Calendar, TrendingUp, ChevronRight
+  CheckCircle, Award, MapPin, Calendar, TrendingUp, ChevronRight,
+  Route, FileCheck, Search, Layers, BookOpen
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -61,10 +61,18 @@ const programs = [
 ];
 
 const contributorBenefits = [
-  { icon: Award, title: 'Recognition Tiers', description: 'Progress from Observer to Steward based on contribution volume and verification status' },
-  { icon: MapPin, title: 'District Rankings', description: 'See your district\'s participation rank and compete in community conservation goals' },
-  { icon: Calendar, title: 'Contribution History', description: 'Track all your submissions, verification status, and impact over time' },
-  { icon: Shield, title: 'Verified Contributor Badge', description: 'Earn trust levels that give your submissions priority review and display status' },
+  { icon: Award, title: 'Recognition Tiers', description: 'Progress from Observer to Steward based on contribution volume and verification status', route: '/contribute' },
+  { icon: MapPin, title: 'District Rankings', description: 'See your district\'s participation rank and compete in community conservation goals', route: '/citizen-science' },
+  { icon: Calendar, title: 'Contribution History', description: 'Track all your submissions, verification status, and impact over time', route: '/contribute' },
+  { icon: Shield, title: 'Verified Contributor Badge', description: 'Earn trust levels that give your submissions priority review and display status', route: '/contribute' },
+];
+
+const participationWorkflow = [
+  { icon: FileCheck, label: 'Choose a Program', description: 'Select from Wildlife Monitoring, Photo Documentation, Data Verification, or Community Outreach', color: 'text-blue-400' },
+  { icon: BookOpen, label: 'Review Guidelines', description: 'Learn contribution standards, evidence requirements, and review expectations', color: 'text-amber-400' },
+  { icon: Users, label: 'Join as Contributor', description: 'Participate as an individual, researcher, institution, NGO, or field team', color: 'text-emerald-400' },
+  { icon: Search, label: 'Submit & Contribute', description: 'Make observations, upload evidence, and submit through the appropriate workflow', color: 'text-purple-400' },
+  { icon: Layers, label: 'Review & Recognition', description: 'Contributions move through Community → Expert → Authority verification tiers', color: 'text-orange-400' },
 ];
 
 const districtLeaders = [
@@ -78,10 +86,7 @@ const districtLeaders = [
 
 export default function CitizenSciencePage() {
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <section className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-violet-950/30 to-slate-950" />
         <div className="absolute inset-0 bg-grid opacity-20" />
@@ -149,6 +154,62 @@ export default function CitizenSciencePage() {
               <div className="text-sm text-slate-400">Active Programs</div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* How Participation Works */}
+      <section className="py-8 md:py-12">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="max-w-4xl mx-auto"
+          >
+            <Card className="glass-intense border-white/10 p-6">
+              <div className="flex items-start gap-3 mb-4">
+                <Route className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h2 className="text-lg font-bold text-white mb-2">How Participation Works</h2>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    Choose a program, review the contribution guidelines, join as an individual or affiliated participant, 
+                    and contribute through the appropriate observation, documentation, verification, or outreach pathway.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="pt-4 border-t border-white/10">
+                <h3 className="text-sm font-bold text-white mb-3">Participation Workflow</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+                  {participationWorkflow.map((step, idx) => (
+                    <div key={step.label} className="flex flex-col items-start gap-2">
+                      <div className={`w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0`}>
+                        <step.icon className={`w-4 h-4 ${step.color}`} />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-white">{step.label}</div>
+                        <div className="text-xs text-slate-400">{step.description}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="pt-4 border-t border-white/10 mt-4">
+                <div className="flex items-start gap-2 text-sm text-slate-400">
+                  <Shield className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
+                  <p>
+                    Contributors may join as <span className="text-white font-medium">Individuals</span>, 
+                    <span className="text-white font-medium"> Researchers</span>, 
+                    <span className="text-white font-medium"> Institutions</span>, 
+                    <span className="text-white font-medium"> NGOs</span>, 
+                    <span className="text-white font-medium"> Field Teams</span>, or 
+                    <span className="text-white font-medium"> Monitoring Networks</span>.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
@@ -253,11 +314,14 @@ export default function CitizenSciencePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Link href="/contribute" className="block h-full">
-                  <Card className="glass-intense border-white/10 hover:border-white/20 transition-all p-5 text-center h-full">
-                    <benefit.icon className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
+                <Link href={benefit.route} className="block h-full">
+                  <Card className="glass-intense border-white/10 hover:border-white/20 transition-all p-5 text-center h-full group">
+                    <benefit.icon className="w-8 h-8 text-emerald-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                     <h3 className="text-sm font-bold text-white mb-2">{benefit.title}</h3>
                     <p className="text-xs text-slate-400">{benefit.description}</p>
+                    <div className="mt-3 text-xs text-emerald-400 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      Explore <ArrowRight className="w-3 h-3" />
+                    </div>
                   </Card>
                 </Link>
               </motion.div>
@@ -309,7 +373,7 @@ export default function CitizenSciencePage() {
       {/* CTA */}
       <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
-          <Card className="glass-intense border-white/10 overflow-hidden">
+          <Card className="glass-intense border-white/10 overflow-hidden p-0">
             <div className="relative p-8 sm:p-12 text-center">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-violet-600/20" />
               <div className="relative z-10">

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -141,10 +140,7 @@ export default function WaterSystemsPage() {
   const metrics = updatedWaterSystemsMetrics;
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero Section */}
+    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
       <div className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-cyan-600/20 to-indigo-600/20 opacity-50" />
         <div className="absolute inset-0 bg-grid opacity-20" />

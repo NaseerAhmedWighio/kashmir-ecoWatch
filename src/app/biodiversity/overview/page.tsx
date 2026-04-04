@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -76,11 +75,8 @@ export default function BiodiversityOverviewPage() {
   const recentPhenology = phenologyRecords.slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
-      <div className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
+      <div className="relative md:pb-16 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-forest-900/20 via-purple-900/10 to-slate-950" />
         <div className="absolute inset-0 bg-grid opacity-20" />
 

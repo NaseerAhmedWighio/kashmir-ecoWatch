@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -140,9 +139,7 @@ export default function SubmitSightingPage() {
   // Success screen
   if (submitted) {
     return (
-      <main className="min-h-screen bg-slate-950">
-        <Navigation />
-        <section className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
+      <main className="min-h-screen bg-slate-950"><section className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 to-slate-950" />
           <div className="container mx-auto px-6 relative z-10">
             <motion.div 
@@ -218,10 +215,7 @@ export default function SubmitSightingPage() {
 
   // Main form
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <section className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-teal-950/30 to-slate-950" />
         <div className="absolute inset-0 bg-grid opacity-20" />

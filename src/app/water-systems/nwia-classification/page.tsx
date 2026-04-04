@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
@@ -149,10 +148,7 @@ export default function NwiaClassificationExplorerPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-cyan-600/20 to-indigo-600/20 opacity-50" />
         <div className="absolute inset-0 bg-grid opacity-20" />

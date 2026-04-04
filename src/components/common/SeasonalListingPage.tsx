@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { PageHeader } from '@/components/common/PageHeader';
 import { SeasonalFilters, SeasonalFilterState } from '@/components/common/SeasonalFilters';
@@ -98,10 +97,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
   };
 
   return (
-    <main className="mx-auto min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero Section */}
+    <main className="mx-auto min-h-screen bg-slate-950">{/* Hero Section */}
       <div className="relative pb-16 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/20 via-slate-950 to-slate-950" />

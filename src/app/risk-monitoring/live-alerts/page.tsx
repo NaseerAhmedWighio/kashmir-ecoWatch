@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -95,10 +94,7 @@ export default function LiveAlertsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero Section */}
+    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
       <section className="relative pt-20 md:pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-950/60 via-rose-950/40 to-slate-950" />
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />

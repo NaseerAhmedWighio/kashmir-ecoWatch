@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -55,10 +54,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
   ];
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-48 pb-12 overflow-hidden">
         <div className={`absolute inset-0 bg-gradient-to-br from-amber-600/15 to-slate-900`} />
         <div className="absolute inset-0 bg-grid opacity-20" />

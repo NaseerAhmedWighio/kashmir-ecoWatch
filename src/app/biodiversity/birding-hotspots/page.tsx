@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -63,10 +62,7 @@ export default function BirdingHotspotsPage() {
   const restrictedCount = birdingTrails.filter(t => t.accessStatus === 'restricted' || t.accessStatus === 'permit-required').length;
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-20 md:pt-32 pb-12 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-teal-900/20 via-emerald-900/10 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">

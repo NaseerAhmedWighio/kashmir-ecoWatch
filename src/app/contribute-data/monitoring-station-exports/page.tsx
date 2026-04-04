@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -43,9 +42,7 @@ export default function MonitoringStationExportsPage() {
 
   if (submitted) {
     return (
-      <main className="min-h-screen bg-slate-950">
-        <Navigation />
-        <section className="pt-48 pb-20"><div className="container mx-auto px-6 max-w-3xl">
+      <main className="min-h-screen bg-slate-950"><section className="pt-48 pb-20"><div className="container mx-auto px-6 max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Card className="glass-intense border-white/10 p-8 text-center">
               <div className="w-20 h-20 rounded-full bg-slate-500/20 flex items-center justify-center mx-auto mb-6"><CheckCircle className="w-10 h-10 text-slate-400" /></div>
@@ -68,9 +65,7 @@ export default function MonitoringStationExportsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-      <section className="relative pt-48 pb-12 overflow-hidden">
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-gray-900/30 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">

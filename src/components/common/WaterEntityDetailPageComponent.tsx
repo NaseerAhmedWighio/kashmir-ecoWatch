@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -67,10 +66,7 @@ export function WaterEntityDetailPageComponent({
   const activeTabContent = activeTabs.find(t => t.id === activeTab)?.content;
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-48 pb-12 overflow-hidden">
         <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-15`} />
         <div className="absolute inset-0 bg-grid opacity-20" />

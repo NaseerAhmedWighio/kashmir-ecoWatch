@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -58,10 +57,7 @@ export default function WildlifeSightingsPage() {
   const taxa: TaxonomicGroup[] = ['mammals', 'birds', 'fish', 'plants', 'medicinal-plants', 'amphibians', 'reptiles'];
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-20 md:pt-32 pb-12 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-sky-900/10 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">

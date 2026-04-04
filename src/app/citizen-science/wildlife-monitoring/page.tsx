@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Eye, ArrowLeft, Users, Shield, MapPin, Camera, CheckCircle, ExternalLink, AlertTriangle } from 'lucide-react';
+import { Eye, ArrowLeft, Users, Shield, MapPin, Camera, CheckCircle, AlertTriangle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -39,10 +38,7 @@ export default function WildlifeMonitoringPage() {
   const [joined, setJoined] = useState(false);
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* Hero */}
+    <main className="min-h-screen bg-slate-950">{/* Hero */}
       <section className="relative pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-teal-950/30 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
@@ -186,7 +182,7 @@ export default function WildlifeMonitoringPage() {
                 <h3 className="text-sm font-bold text-white mb-3">District Participation</h3>
                 <div className="space-y-2">
                   {[{d:'Srinagar',c:156},{d:'Anantnag',c:98},{d:'Baramulla',c:87},{d:'Pulwama',c:72}].map(x => (
-                    <div key={x.d} className="flex items-center justify-between text-sm"><span className="text-slate-300">{x.d}</span><span className="text-white font-semibold">{x.district}</span></div>
+                    <div key={x.d} className="flex items-center justify-between text-sm"><span className="text-slate-300">{x.d}</span><span className="text-white font-semibold">{x.c}</span></div>
                   ))}
                 </div>
                 <Link href="/citizen-science" className="block mt-3 text-xs text-emerald-400 hover:text-emerald-300">View all district rankings →</Link>

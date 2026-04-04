@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -20,9 +19,7 @@ export default function DistrictPage() {
 
   if (!district) {
     return (
-      <main className="min-h-screen bg-slate-950">
-        <Navigation />
-        <div className="pt-48 text-center">
+      <main className="min-h-screen bg-slate-950"><div className="pt-48 text-center">
           <h1 className="text-3xl font-bold text-white mb-4">District not found</h1>
           <Button onClick={() => window.history.back()}>Go Back</Button>
         </div>
@@ -31,10 +28,7 @@ export default function DistrictPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-      
-      {/* Hero header */}
+    <main className="min-h-screen bg-slate-950">{/* Hero header */}
       <div className="relative pt-48 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-forest-900/20 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -34,10 +33,7 @@ export default function MonitoringPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      <div className="pt-48 pb-12 container mx-auto px-6">
+    <main className="min-h-screen bg-slate-950"><div className="pt-48 pb-12 container mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">

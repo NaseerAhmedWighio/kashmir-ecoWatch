@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -47,10 +46,7 @@ export default function TrailsAndSightingsPage() {
   const kashmirSightings = recentSightings.filter(s => kashmirValidation.isKashmirDistrict(s.district));
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      {/* =========================================================
+    <main className="min-h-screen bg-slate-950">{/* =========================================================
           BAND 1: HERO + COMMAND SURFACE
           ========================================================= */}
       <section className="relative pt-48 pb-20 overflow-hidden">

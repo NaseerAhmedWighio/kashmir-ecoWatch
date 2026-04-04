@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/sections/Navigation';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -32,10 +31,7 @@ export default function EnvironmentalIncidentRiskPage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950">
-      <Navigation />
-
-      <section className="relative pt-20 md:pt-48 pb-12 overflow-hidden">
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 md:pt-48 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-950/60 via-rose-950/40 to-slate-950" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
