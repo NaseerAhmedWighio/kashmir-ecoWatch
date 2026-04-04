@@ -187,7 +187,7 @@ export default function AccessibilityPage() {
                   </p>
                   <div className="space-y-2 text-sm">
                     <p className="text-white">
-                      <span className="font-semibold">Email:</span> accessibility@kashmir-environment.org
+                      <span className="font-semibold">Email:</span> accessibility@kashmir-ecowatch.com
                     </p>
                     <p className="text-white">
                       <span className="font-semibold">Response Time:</span> Within 5 business days

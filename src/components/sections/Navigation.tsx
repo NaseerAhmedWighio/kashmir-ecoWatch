@@ -807,40 +807,22 @@ export function Navigation() {
                                     </>
                                   )}
 
-                                  {item.label === 'Seasonal Ecology' && (
+                                  {item.label === 'Contribute' && (
                                     <>
-                                      <Link href="/seasonal-ecology" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        🍂 Overview
+                                      <Link href="/contribute" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        🌿 Overview
                                       </Link>
-                                      <Link href="/seasonal-ecology/seasonal-landscapes" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Seasonal Landscapes
+                                      <Link href="/report-issue" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Report an Issue
                                       </Link>
-                                      <Link href="/seasonal-ecology/bloom-mapping" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Bloom Mapping
+                                      <Link href="/submit-sighting" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Submit a Sighting
                                       </Link>
-                                      <Link href="/seasonal-ecology/migration-windows" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Migration Windows
+                                      <Link href="/contribute-data" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Contribute Data
                                       </Link>
-                                      <Link href="/seasonal-ecology/pollinator-windows" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Pollinator Windows
-                                      </Link>
-                                      <Link href="/seasonal-ecology/phenology-records" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Phenology Records
-                                      </Link>
-                                      <Link href="/seasonal-ecology/habitat-signals" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Habitat Signals
-                                      </Link>
-                                      <Link href="/seasonal-ecology/water-transitions" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Water Transitions
-                                      </Link>
-                                      <Link href="/seasonal-ecology/species-activity" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Species Activity
-                                      </Link>
-                                      <Link href="/seasonal-ecology/climate-windows" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Climate Windows
-                                      </Link>
-                                      <Link href="/seasonal-ecology/reports-references" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
-                                        Reports & References
+                                      <Link href="/citizen-science" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        Citizen Science
                                       </Link>
                                     </>
                                   )}

@@ -88,7 +88,7 @@ export function Footer() {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-sm">
                 <Mail className="w-4 h-4 text-forest-400" />
-                <span>contact@kashmir-environment.org</span>
+                <span>contact@kashmir-ecowatch.com</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Phone className="w-4 h-4 text-forest-400" />

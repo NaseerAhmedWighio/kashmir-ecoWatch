@@ -80,7 +80,7 @@ export function AdvancedFooter() {
             <div className="space-y-2 mb-4">
               <div className="flex items-center gap-2 sm:gap-3">
                 <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-400 flex-shrink-0" />
-                <span className="text-xs sm:text-sm text-slate-400 truncate">contact@kashmir-environment.org</span>
+                <span className="text-xs sm:text-sm text-slate-400 truncate">contact@kashmir-ecowatch.com</span>
               </div>
               <div className="flex items-center gap-2 sm:gap-3">
                 <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-400 flex-shrink-0" />

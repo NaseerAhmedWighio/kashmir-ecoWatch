@@ -517,8 +517,8 @@ export default function PartnersPage() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-emerald-400" />
-                  <a href="mailto:contact@kashmir-environment.org" className="text-slate-300 hover:text-emerald-400 transition-colors">
-                    contact@kashmir-environment.org
+                  <a href="mailto:contact@kashmir-ecowatch.com" className="text-slate-300 hover:text-emerald-400 transition-colors">
+                    contact@kashmir-ecowatch.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
