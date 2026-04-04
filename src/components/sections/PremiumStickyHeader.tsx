@@ -31,7 +31,8 @@ import {
   Globe,
   Factory,
   Recycle,
-  Upload
+  Upload,
+  FileText
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrolledHeader } from '@/hooks/useScrolledHeader';
@@ -42,6 +43,7 @@ const navItems = [
   { label: 'Biodiversity', href: '/biodiversity', hasDropdown: true },
   { label: 'Water Systems', href: '/water-systems', hasDropdown: true },
   { label: 'Environmental Monitoring', href: '/environmental-monitoring', hasDropdown: true },
+  { label: 'Field Intelligence', href: '/field-reports', hasDropdown: true },
   { label: 'Contribute', href: '/contribute', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
 ];
@@ -165,6 +167,16 @@ export function PremiumStickyHeader() {
           { name: 'Utility Incidents & Advisories', href: '/environmental-monitoring/utility-incidents', desc: 'Service failures, emergency notices' },
           { name: 'Dashboards', href: '/environmental-monitoring/dashboards', desc: 'District comparison & stress heatmaps' },
         ];
+      case 'Field Intelligence':
+        return [
+          { name: '📊 Field Reports Overview', href: '/field-reports', desc: 'All field intelligence reports' },
+          { name: '📁 Monthly Bulletins', href: '/field-reports?type=monthly-bulletin', desc: 'Monthly environmental bulletins' },
+          { name: '🦋 Species Surveys', href: '/field-reports?type=species-survey', desc: 'Wildlife and species surveys' },
+          { name: '💧 Wetland Assessments', href: '/field-reports?type=wetland-assessment', desc: 'Wetland health reports' },
+          { name: '⚠️ Risk Assessments', href: '/field-reports?type=risk-assessment', desc: 'Fire and hazard risk reports' },
+          { name: '🔬 Technical Reports', href: '/field-reports?type=technical-report', desc: 'Scientific and technical studies' },
+          { name: '📚 Library Collections', href: '/library', desc: 'Archived and catalogued reports' },
+        ];
       case 'Contribute':
         return [
           { name: '🌐 Contribute Hub', href: '/contribute', desc: 'All contribution pathways' },
@@ -278,6 +290,8 @@ export function PremiumStickyHeader() {
                         {item.label === 'Protected Areas' && <Shield className="w-4 h-4 text-emerald-400" />}
                         {item.label === 'Biodiversity' && <Leaf className="w-4 h-4 text-emerald-400" />}
                         {item.label === 'Water Systems' && <Droplet className="w-4 h-4 text-sky-400" />}
+                        {item.label === 'Environmental Monitoring' && <BarChart3 className="w-4 h-4 text-amber-400" />}
+                        {item.label === 'Field Intelligence' && <FileText className="w-4 h-4 text-orange-400" />}
                         {item.label === 'Seasonal Ecology' && <Calendar className="w-4 h-4 text-amber-400" />}
                         {item.label === 'Risk & Monitoring' && <AlertTriangle className="w-4 h-4 text-red-400" />}
                         <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">

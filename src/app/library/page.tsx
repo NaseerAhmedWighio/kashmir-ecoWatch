@@ -11,7 +11,7 @@ import {
   MapPin, Layers, Database, FlaskConical, Map, Scroll, BookOpen,
   Waves, Map as MapIcon, TriangleAlert, Droplets, Trees, CloudRain,
   Filter, X, ExternalLink, Link as LinkIcon, Building2, TrendingUp, Star,
-  CheckCircle2, AlertCircle, Info, Compass
+  CheckCircle2, AlertCircle, Info, Compass, Users
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
