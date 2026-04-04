@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
@@ -62,14 +63,20 @@ const entityColors: Record<string, string> = {
   glacier: 'text-blue-400',
 };
 
-export function EvidenceCard({ 
-  evidence, 
+export function EvidenceCard({
+  evidence,
   variant = 'default',
   showModuleLinks = true,
   showRelatedEntities = true,
-  onClick 
+  onClick
 }: EvidenceCardProps) {
+  const router = useRouter();
   const CategoryIcon = categoryIcons[evidence.category] || FileText;
+
+  const handleViewDetails = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    router.push(`/library/${evidence.id}`);
+  };
 
   if (variant === 'compact') {
     return (
@@ -191,7 +198,7 @@ export function EvidenceCard({
                 {evidence.citationCount} citations
               </span>
             </div>
-            <Button size="sm" variant="outline" className="border-white/20 text-white h-9" onClick={(e) => { e.stopPropagation(); onClick?.(); }}>
+            <Button size="sm" variant="outline" className="border-white/20 text-white h-9" onClick={handleViewDetails}>
               View Details
             </Button>
           </div>
@@ -289,8 +296,8 @@ export function EvidenceCard({
                 {evidence.citationCount}
               </span>
             </div>
-            <Button size="sm" variant="ghost" className="text-indigo-400 hover:text-indigo-300 h-8" onClick={(e) => { e.stopPropagation(); onClick?.(); }}>
-              View
+            <Button size="sm" variant="outline" className="border-white/20 text-white h-8" onClick={handleViewDetails}>
+              View Details
             </Button>
           </div>
         </div>

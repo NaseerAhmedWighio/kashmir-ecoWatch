@@ -79,7 +79,6 @@ interface FilterState {
 export default function LibraryPage() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedEvidence, setSelectedEvidence] = useState<EvidenceItem | null>(null);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [filters, setFilters] = useState<FilterState>({
     districts: [],
@@ -201,12 +200,11 @@ export default function LibraryPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Environmental <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Evidence Library</span>
+              Evidence <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Intelligence</span> Library
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-4xl">
-              Comprehensive evidence intelligence system with {evidenceRegistry.length}+ curated resources,
-              district-based navigation, module integration, and source-confidence tracking
+              A structured evidence and reference system linking environmental studies, monitoring records, datasets, district profiles, GIS resources, and reviewed knowledge inputs across Kashmir EcoWatch.
             </p>
 
             {/* Search Bar */}
@@ -418,6 +416,90 @@ export default function LibraryPage() {
         </div>
       </section>
 
+      {/* How Evidence Enters the Library */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-slate-900 to-slate-950">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-12"
+          >
+            <h2 className="text-3xl font-bold text-white mb-2">How Evidence Enters the Library</h2>
+            <p className="text-slate-400 max-w-3xl">
+              Every item in this library undergoes structured intake and review to ensure scientific rigor, source transparency, and operational relevance.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Building2,
+                title: 'Institutional Records',
+                description: 'Government reports, policy documents, and official monitoring data from state agencies and regulatory bodies.',
+                color: 'from-emerald-500/20 to-teal-500/20',
+                borderColor: 'border-emerald-500/30',
+                textColor: 'text-emerald-400',
+              },
+              {
+                icon: BookOpen,
+                title: 'Research Studies',
+                description: 'Peer-reviewed publications, university research outputs, and academic assessments from recognized institutions.',
+                color: 'from-blue-500/20 to-indigo-500/20',
+                borderColor: 'border-blue-500/30',
+                textColor: 'text-blue-400',
+              },
+              {
+                icon: FlaskConical,
+                title: 'Monitoring Outputs',
+                description: 'Continuous sensor data, water quality records, air quality measurements, and automated monitoring system outputs.',
+                color: 'from-purple-500/20 to-pink-500/20',
+                borderColor: 'border-purple-500/30',
+                textColor: 'text-purple-400',
+              },
+              {
+                icon: MapPin,
+                title: 'Field Surveys',
+                description: 'Primary data from field observations, ecological surveys, species counts, and ground-truthed environmental assessments.',
+                color: 'from-amber-500/20 to-orange-500/20',
+                borderColor: 'border-amber-500/30',
+                textColor: 'text-amber-400',
+              },
+              {
+                icon: Database,
+                title: 'Geospatial & Earth Observation',
+                description: 'Satellite imagery analysis, GIS datasets, watershed delineations, and remote sensing-derived intelligence products.',
+                color: 'from-cyan-500/20 to-blue-500/20',
+                borderColor: 'border-cyan-500/30',
+                textColor: 'text-cyan-400',
+              },
+              {
+                icon: Users,
+                title: 'Reviewed Community-Supported Evidence',
+                description: 'Citizen science data and community monitoring records that pass quality validation and methodological review standards.',
+                color: 'from-pink-500/20 to-rose-500/20',
+                borderColor: 'border-pink-500/30',
+                textColor: 'text-pink-400',
+              },
+            ].map((pathway, i) => (
+              <motion.div
+                key={pathway.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+              >
+                <Card className="glass-intense border-white/10 p-6 h-full hover:border-white/20 transition-all">
+                  <div className={cn("w-12 h-12 rounded-xl bg-gradient-to-br", pathway.color, "flex items-center justify-center mb-4")}>
+                    <pathway.icon className={cn("w-6 h-6", pathway.textColor)} />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{pathway.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{pathway.description}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Browse Sections */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
@@ -433,35 +515,44 @@ export default function LibraryPage() {
                   <p className="text-slate-400">Standardized evidence taxonomy</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {evidenceTypes.map((type, i) => (
-                  <motion.div
-                    key={type.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    <Card
-                      className="glass-intense border-white/10 p-5 text-center cursor-pointer hover:border-indigo-500/30 transition-all group"
-                      onClick={() => toggleFilter('evidenceTypes', type.id)}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {evidenceTypes
+                  .filter(type => (evidenceTypeCounts[type.id] || 0) > 0)
+                  .map((type, i) => (
+                    <motion.div
+                      key={type.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.05 }}
                     >
-                      <div className={cn(
-                        "w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform",
-                        filters.evidenceTypes.includes(type.id)
-                          ? "bg-indigo-500/20 border border-indigo-500/30"
-                          : "bg-gradient-to-br from-indigo-500/20 to-purple-500/20"
-                      )}>
-                        <type.icon className={cn("w-6 h-6", filters.evidenceTypes.includes(type.id) ? "text-indigo-400" : "text-indigo-400")} />
-                      </div>
-                      <div className="text-2xl font-bold text-white mb-1">
-                        {evidenceTypeCounts[type.id] || 0}
-                      </div>
-                      <div className="text-sm text-slate-400 mb-1">{type.name}</div>
-                      <div className="text-xs text-slate-500 line-clamp-2">{type.description}</div>
-                    </Card>
-                  </motion.div>
-                ))}
+                      <Card
+                        className="glass-intense border-white/10 p-5 text-center cursor-pointer hover:border-indigo-500/30 transition-all group"
+                        onClick={() => toggleFilter('evidenceTypes', type.id)}
+                      >
+                        <div className={cn(
+                          "w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform",
+                          filters.evidenceTypes.includes(type.id)
+                            ? "bg-indigo-500/20 border border-indigo-500/30"
+                            : "bg-gradient-to-br from-indigo-500/20 to-purple-500/20"
+                        )}>
+                          <type.icon className={cn("w-6 h-6", filters.evidenceTypes.includes(type.id) ? "text-indigo-400" : "text-indigo-400")} />
+                        </div>
+                        <div className="text-2xl font-bold text-white mb-1">
+                          {evidenceTypeCounts[type.id] || 0}
+                        </div>
+                        <div className="text-sm text-slate-400 mb-1">{type.name}</div>
+                        <div className="text-xs text-slate-500 line-clamp-2">{type.description}</div>
+                      </Card>
+                    </motion.div>
+                  ))}
               </div>
+              {Object.values(evidenceTypeCounts).filter(c => c > 0).length < evidenceTypes.length && (
+                <div className="mt-6 text-center">
+                  <p className="text-sm text-slate-500">
+                    Showing {Object.values(evidenceTypeCounts).filter(c => c > 0).length} of {evidenceTypes.length} evidence types. Additional types are being added as the library expands.
+                  </p>
+                </div>
+              )}
             </motion.div>
 
             {/* Browse by Module */}
@@ -472,7 +563,7 @@ export default function LibraryPage() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h2 className="text-3xl font-bold text-white mb-2">Browse by Module</h2>
-                  <p className="text-slate-400">Evidence used across platform modules</p>
+                  <p className="text-slate-400">Evidence organized by platform module — click to explore module-specific intelligence</p>
                 </div>
                 <Button variant="ghost" size="sm" className="text-indigo-400">
                   View All Modules
@@ -489,7 +580,7 @@ export default function LibraryPage() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h2 className="text-3xl font-bold text-white mb-2">Browse by District</h2>
-                  <p className="text-slate-400">Geographically filtered evidence</p>
+                  <p className="text-slate-400">Geographically filtered evidence — click any district to view its evidence profile</p>
                 </div>
                 <Button variant="ghost" size="sm" className="text-indigo-400">
                   View All Districts
@@ -510,7 +601,7 @@ export default function LibraryPage() {
             className="mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">Reports by Entity</h2>
-            <p className="text-slate-400">Evidence linked to species, water bodies, and geographic areas</p>
+            <p className="text-slate-400">Evidence linked to species, water bodies, protected areas, and geographic entities. Click any entity to filter the library.</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
@@ -534,8 +625,19 @@ export default function LibraryPage() {
                     <div className="text-lg font-bold text-white mb-1">{count}</div>
                     <div className={cn("text-xs font-medium mb-1", entity.color)}>{entity.name}</div>
                     <Badge variant="outline" size="sm" className={cn("text-xs", entity.border)}>
-                      {filters.entities.includes(entity.id) ? 'Active' : 'Filter'}
+                      {filters.entities.includes(entity.id) ? 'Filtering' : `${count} items`}
                     </Badge>
+                    {count > 0 && (
+                      <div className="mt-2">
+                        <a
+                          href={`/library?entity=${entity.id}`}
+                          className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          View All
+                        </a>
+                      </div>
+                    )}
                   </Card>
                 </motion.div>
               );
@@ -553,8 +655,110 @@ export default function LibraryPage() {
             className="mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">Methods & Source Confidence</h2>
-            <p className="text-slate-400">Transparent quality assessment and methodology tracking</p>
+            <p className="text-slate-400 max-w-3xl">
+              Every evidence item in this library is classified by source type, confidence level, and methodological approach.
+              This transparent framework enables scientific rigor, source traceability, and evidence quality assessment.
+            </p>
           </motion.div>
+
+          {/* Explanatory Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <Card className="glass-intense border-white/10 p-6">
+              <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                <Building2 className="w-5 h-5" />
+                Source Classes
+              </h3>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <span className={cn("px-2 py-0.5 rounded text-xs font-medium border inline-block mb-1", sourceTypeColors.official)}>
+                    {sourceTypeLabels.official}
+                  </span>
+                  <p className="text-slate-400 text-xs">Government agencies, regulatory bodies, statutory organizations, and institutional reports with formal review and approval processes.</p>
+                </div>
+                <div>
+                  <span className={cn("px-2 py-0.5 rounded text-xs font-medium border inline-block mb-1", sourceTypeColors.academic)}>
+                    {sourceTypeLabels.academic}
+                  </span>
+                  <p className="text-slate-400 text-xs">Peer-reviewed research from universities, academic institutions, and recognized research organizations with methodological transparency and reproducible protocols.</p>
+                </div>
+                <div>
+                  <span className={cn("px-2 py-0.5 rounded text-xs font-medium border inline-block mb-1", sourceTypeColors.field)}>
+                    {sourceTypeLabels.field}
+                  </span>
+                  <p className="text-slate-400 text-xs">Primary field data collected through systematic surveys, monitoring programs, ground observations, and structured data collection by trained personnel.</p>
+                </div>
+                <div>
+                  <span className={cn("px-2 py-0.5 rounded text-xs font-medium border inline-block mb-1", sourceTypeColors.citizen)}>
+                    {sourceTypeLabels.citizen}
+                  </span>
+                  <p className="text-slate-400 text-xs">Community-contributed data and citizen science inputs that pass quality validation, methodological standards, and expert review before inclusion.</p>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <p className="text-xs text-slate-500">
+                  Full source classification framework: <a href="/about/data-sources" className="text-indigo-400 hover:text-indigo-300">Data Sources</a>.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="glass-intense border-white/10 p-6">
+              <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                <Star className="w-5 h-5" />
+                Confidence Levels
+              </h3>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <span className={cn("px-2 py-0.5 rounded text-xs font-medium inline-block mb-1", confidenceColors.high)}>
+                    {confidenceLabels.high}
+                  </span>
+                  <p className="text-slate-400 text-xs">Peer-reviewed, institutionally validated, or multi-source verified evidence with rigorous methodology, transparent data collection protocols, and independent expert review.</p>
+                </div>
+                <div>
+                  <span className={cn("px-2 py-0.5 rounded text-xs font-medium inline-block mb-1", confidenceColors.medium)}>
+                    {confidenceLabels.medium}
+                  </span>
+                  <p className="text-slate-400 text-xs">Academic or field-collected data with standard methodological review, documented protocols, and transparent analysis methods. May require additional validation for high-stakes applications.</p>
+                </div>
+                <div>
+                  <span className={cn("px-2 py-0.5 rounded text-xs font-medium inline-block mb-1", confidenceColors.low)}>
+                    {confidenceLabels.low}
+                  </span>
+                  <p className="text-slate-400 text-xs">Preliminary findings, single-source observations, or early-stage assessments requiring additional verification and peer review before definitive conclusions.</p>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <p className="text-xs text-slate-500">
+                  Confidence assessment aligns with our <a href="/about/verification" className="text-indigo-400 hover:text-indigo-300">Verification Model</a>.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="glass-intense border-white/10 p-6">
+              <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                <FlaskConical className="w-5 h-5" />
+                Methodological Approaches
+              </h3>
+              <div className="space-y-2">
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Each evidence item documents the methods, protocols, and analytical frameworks used in data collection and analysis.
+                  This enables reproducibility, cross-study comparison, and methodological transparency.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {Array.from(new Set(evidenceRegistry.flatMap(e => e.methods?.map(m => m.methodName) || []))).slice(0, 10).map((method, i) => (
+                    <Badge key={i} variant="secondary" size="sm" className="text-xs">
+                      <FlaskConical className="w-3 h-3 mr-1" />
+                      {method}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <p className="text-xs text-slate-500">
+                  Full methodology documentation: <a href="/about/methodology" className="text-indigo-400 hover:text-indigo-300">Methodology</a>.
+                </p>
+              </div>
+            </Card>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Source Type Distribution */}
@@ -678,7 +882,7 @@ export default function LibraryPage() {
                   variant="default"
                   showModuleLinks={true}
                   showRelatedEntities={true}
-                  onClick={() => setSelectedEvidence(item)}
+                  onClick={() => router.push(`/library/${item.id}`)}
                 />
               </motion.div>
             ))}
@@ -695,7 +899,7 @@ export default function LibraryPage() {
             className="mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-2">Evidence in Modules</h2>
-            <p className="text-slate-400">See how evidence is used across the platform</p>
+            <p className="text-slate-400">See how library evidence is applied across platform modules — each module uses evidence for specific analytical purposes</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -731,156 +935,6 @@ export default function LibraryPage() {
           </div>
         </div>
       </section>
-
-      {/* Evidence Detail Modal */}
-      <AnimatePresence>
-        {selectedEvidence && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedEvidence(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-slate-900 border border-white/10 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="sticky top-0 bg-slate-900 border-b border-white/10 p-6 flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                    <FileText className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <Badge variant="outline" size="sm" className="mb-1">
-                      {categoryLabels[selectedEvidence.category]}
-                    </Badge>
-                    <div className="flex items-center gap-2">
-                      <span className={cn("px-2 py-0.5 rounded-full text-xs font-medium border", sourceTypeColors[selectedEvidence.sourceType])}>
-                        {sourceTypeLabels[selectedEvidence.sourceType as keyof typeof sourceTypeLabels]}
-                      </span>
-                      <span className={cn("px-2 py-0.5 rounded-full text-xs font-medium", confidenceColors[selectedEvidence.confidence])}>
-                        {confidenceLabels[selectedEvidence.confidence as keyof typeof confidenceLabels]}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  className="text-slate-400 hover:text-white"
-                  onClick={() => setSelectedEvidence(null)}
-                >
-                  <X className="w-5 h-5" />
-                </Button>
-              </div>
-
-              <div className="p-6 space-y-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-white mb-2">{selectedEvidence.title}</h2>
-                  <p className="text-slate-400">{selectedEvidence.abstract}</p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <h3 className="text-sm font-semibold text-white mb-2">Authors & Organization</h3>
-                    <div className="text-sm text-slate-400">
-                      {selectedEvidence.authors.join(', ')}
-                    </div>
-                    <div className="text-sm text-slate-500">{selectedEvidence.organization}</div>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-white mb-2">Publication Details</h3>
-                    <div className="text-sm text-slate-400">
-                      Published: {new Date(selectedEvidence.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                    </div>
-                    {selectedEvidence.doi && (
-                      <div className="text-sm text-indigo-400">DOI: {selectedEvidence.doi}</div>
-                    )}
-                  </div>
-                </div>
-
-                {selectedEvidence.relatedEntities.length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-semibold text-white mb-2">Related Entities</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedEvidence.relatedEntities.map(entity => (
-                        <a
-                          key={entity.id}
-                          href={entity.slug || '#'}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/50 hover:bg-slate-700/50 transition-colors text-slate-300"
-                        >
-                          <MapPin className="w-3 h-3" />
-                          {entity.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {selectedEvidence.usedInModules.length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-semibold text-white mb-2">Used in Modules</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedEvidence.usedInModules.map(module => (
-                        <a
-                          key={module.moduleId}
-                          href={module.modulePath}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 border border-indigo-500/20 transition-colors"
-                        >
-                          <LinkIcon className="w-3 h-3" />
-                          {module.moduleName}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {selectedEvidence.methods && selectedEvidence.methods.length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-semibold text-white mb-2">Methods Used</h3>
-                    <div className="space-y-2">
-                      {selectedEvidence.methods.map(method => (
-                        <div key={method.methodId} className="text-sm">
-                          <div className="font-medium text-slate-300">{method.methodName}</div>
-                          <div className="text-slate-500">{method.description}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                <div className="flex items-center gap-4 text-sm text-slate-500">
-                  <span className="flex items-center gap-1">
-                    <Download className="w-4 h-4" />
-                    {selectedEvidence.downloadCount} downloads
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <TrendingUp className="w-4 h-4" />
-                    {selectedEvidence.citationCount} citations
-                  </span>
-                </div>
-
-                <div className="flex gap-3 pt-4 border-t border-white/10">
-                  {selectedEvidence.downloadUrl && (
-                    <Button size="lg" icon={<Download className="w-5 h-5" />}>
-                      Download
-                    </Button>
-                  )}
-                  {selectedEvidence.url && (
-                    <Button size="lg" variant="outline" className="border-white/20 text-white" icon={<ExternalLink className="w-5 h-5" />}>
-                      View Source
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Footer */}
       <AdvancedFooter />

@@ -232,8 +232,12 @@ export function Footer() {
       <div className="bg-slate-950 py-4">
         <div className="container mx-auto px-4 md:px-6">
           <p className="text-xs text-slate-500 text-center">
-            Data sourced from government agencies, research institutions, and verified community contributions. 
-            All environmental data undergoes rigorous verification before publication.
+            Evidence Intelligence Library: Institutional records, peer-reviewed research, monitoring outputs,
+            geospatial analysis, and reviewed community-supported evidence.
+            All items undergo source classification, methodology documentation, and confidence assessment.
+            <a href="/about/data-sources" className="text-indigo-400 hover:text-indigo-300 ml-1">Data Sources</a>
+            <a href="/about/methodology" className="text-indigo-400 hover:text-indigo-300 ml-1">Methodology</a>
+            <a href="/about/verification" className="text-indigo-400 hover:text-indigo-300 ml-1">Verification</a>
           </p>
         </div>
       </div>

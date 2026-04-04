@@ -136,8 +136,8 @@ export const evidenceRegistry: EvidenceItem[] = [
       { id: 'district-srinagar', type: 'district', name: 'Srinagar', slug: '/districts/srinagar' },
     ],
     usedInModules: [
-      { moduleId: 'water-quality', moduleName: 'Water Quality Monitor', modulePath: '/water-systems', usageContext: 'Baseline water quality parameters' },
-      { moduleId: 'biodiversity', moduleName: 'Biodiversity Intelligence', modulePath: '/biodiversity', usageContext: 'Wetland species distribution' },
+      { moduleId: 'water-systems', moduleName: 'Water Systems', modulePath: '/water-systems', usageContext: 'Baseline water quality parameters' },
+      { moduleId: 'biodiversity', moduleName: 'Biodiversity', modulePath: '/biodiversity', usageContext: 'Wetland species distribution' },
     ],
     methods: [
       { methodId: 'wq-std-001', methodName: 'Standard Water Quality Parameters', description: 'pH, DO, BOD, COD, turbidity measurement protocol' },
@@ -169,8 +169,8 @@ export const evidenceRegistry: EvidenceItem[] = [
       { id: 'district-srinagar', type: 'district', name: 'Srinagar', slug: '/districts/srinagar' },
     ],
     usedInModules: [
-      { moduleId: 'water-quality', moduleName: 'Water Quality Monitor', modulePath: '/water-systems', usageContext: 'Time-series water quality trends' },
-      { moduleId: 'pollution', moduleName: 'Pollution & Stress', modulePath: '/risk-monitoring', usageContext: 'Pollution hotspot identification' },
+      { moduleId: 'water-systems', moduleName: 'Water Systems', modulePath: '/water-systems', usageContext: 'Time-series water quality trends' },
+      { moduleId: 'risk-monitoring', moduleName: 'Risk & Monitoring', modulePath: '/risk-monitoring', usageContext: 'Pollution hotspot identification' },
     ],
     methods: [
       { methodId: 'wq-std-001', methodName: 'Standard Water Quality Parameters', description: 'pH, DO, BOD, COD, turbidity measurement protocol' },
@@ -204,7 +204,7 @@ export const evidenceRegistry: EvidenceItem[] = [
       { id: 'pa-dachigam', type: 'protected_area', name: 'Dachigam National Park', slug: '/protected-areas/dachigam' },
     ],
     usedInModules: [
-      { moduleId: 'biodiversity', moduleName: 'Biodiversity Intelligence', modulePath: '/biodiversity', usageContext: 'Population trend analysis' },
+      { moduleId: 'biodiversity', moduleName: 'Biodiversity', modulePath: '/biodiversity', usageContext: 'Population trend analysis' },
       { moduleId: 'protected-areas', moduleName: 'Protected Areas', modulePath: '/protected-network', usageContext: 'Conservation effectiveness' },
     ],
     methods: [
@@ -238,8 +238,8 @@ export const evidenceRegistry: EvidenceItem[] = [
       { id: 'wetland-shallabugh', type: 'wetland', name: 'Shallabugh Wetland', slug: '/water-systems/wetlands/shallabugh' },
     ],
     usedInModules: [
-      { moduleId: 'biodiversity', moduleName: 'Biodiversity Intelligence', modulePath: '/biodiversity', usageContext: 'Species identification and distribution' },
-      { moduleId: 'citizen-science', moduleName: 'Citizen Science', modulePath: '/citizen-science', usageContext: 'Bird sighting validation' },
+      { moduleId: 'biodiversity', moduleName: 'Biodiversity', modulePath: '/biodiversity', usageContext: 'Species identification and distribution' },
+      { moduleId: 'environmental-monitoring', moduleName: 'Environmental Monitoring', modulePath: '/environmental-monitoring', usageContext: 'Bird sighting validation' },
     ],
     methods: [
       { methodId: 'pt-001', methodName: 'Point Count Survey', description: 'Standardized bird counting at fixed points' },
@@ -271,7 +271,7 @@ export const evidenceRegistry: EvidenceItem[] = [
     ],
     usedInModules: [
       { moduleId: 'districts', moduleName: 'District Profiles', modulePath: '/districts', usageContext: 'District-level environmental indicators' },
-      { moduleId: 'pollution', moduleName: 'Pollution & Stress', modulePath: '/risk-monitoring', usageContext: 'Urban pollution assessment' },
+      { moduleId: 'risk-monitoring', moduleName: 'Risk & Monitoring', modulePath: '/risk-monitoring', usageContext: 'Urban pollution assessment' },
     ],
     methods: [
       { methodId: 'aq-001', methodName: 'Air Quality Monitoring', description: 'CPCB standard air quality measurement protocol' },
@@ -304,7 +304,7 @@ export const evidenceRegistry: EvidenceItem[] = [
       { id: 'glacier-kolahoi', type: 'glacier', name: 'Kolahoi Glacier', slug: '/water-systems/glaciers/kolahoi' },
     ],
     usedInModules: [
-      { moduleId: 'climate', moduleName: 'Climate Intelligence', modulePath: '/risk-monitoring', usageContext: 'Climate risk mapping' },
+      { moduleId: 'risk-monitoring', moduleName: 'Risk & Monitoring', modulePath: '/risk-monitoring', usageContext: 'Climate risk mapping' },
       { moduleId: 'districts', moduleName: 'District Profiles', modulePath: '/districts', usageContext: 'District climate indicators' },
     ],
     methods: [
@@ -338,7 +338,7 @@ export const evidenceRegistry: EvidenceItem[] = [
     ],
     usedInModules: [
       { moduleId: 'water-systems', moduleName: 'Water Systems', modulePath: '/water-systems', usageContext: 'Spring discharge trends' },
-      { moduleId: 'climate', moduleName: 'Climate Intelligence', modulePath: '/risk-monitoring', usageContext: 'Climate impact on springs' },
+      { moduleId: 'risk-monitoring', moduleName: 'Risk & Monitoring', modulePath: '/risk-monitoring', usageContext: 'Climate impact on springs' },
     ],
     methods: [
       { methodId: 'sd-001', methodName: 'Spring Discharge Measurement', description: 'V-notch weir and flow meter-based discharge measurement' },
@@ -370,8 +370,8 @@ export const evidenceRegistry: EvidenceItem[] = [
       { id: 'forest-kashmir', type: 'forest', name: 'Kashmir Forests', slug: '/forests-landscapes' },
     ],
     usedInModules: [
-      { moduleId: 'forests', moduleName: 'Forests & Landscapes', modulePath: '/forests-landscapes', usageContext: 'Forest cover trends' },
-      { moduleId: 'atlas', moduleName: 'Ecological Atlas', modulePath: '/atlas', usageContext: 'Forest cover layer' },
+      { moduleId: 'environmental-monitoring', moduleName: 'Environmental Monitoring', modulePath: '/environmental-monitoring', usageContext: 'Forest cover trends' },
+      { moduleId: 'atlas', moduleName: 'Atlas / Spatial Intelligence', modulePath: '/atlas', usageContext: 'Forest cover layer' },
     ],
     methods: [
       { methodId: 'rs-002', methodName: 'Landsat Time Series Analysis', description: 'Multi-temporal satellite image classification for forest cover mapping' },
@@ -401,8 +401,8 @@ export const evidenceRegistry: EvidenceItem[] = [
     districts: ['all'],
     relatedEntities: [],
     usedInModules: [
-      { moduleId: 'climate', moduleName: 'Climate Intelligence', modulePath: '/risk-monitoring', usageContext: 'Climate trend baseline' },
-      { moduleId: 'agriculture', moduleName: 'Agriculture & Soil', modulePath: '/agriculture-soil', usageContext: 'Climate impact on agriculture' },
+      { moduleId: 'risk-monitoring', moduleName: 'Risk & Monitoring', modulePath: '/risk-monitoring', usageContext: 'Climate trend baseline' },
+      { moduleId: 'environmental-monitoring', moduleName: 'Environmental Monitoring', modulePath: '/environmental-monitoring', usageContext: 'Climate impact monitoring' },
     ],
     methods: [
       { methodId: 'cs-001', methodName: 'Climate Station Data Analysis', description: 'Homogenization and trend analysis of meteorological data' },
@@ -431,7 +431,7 @@ export const evidenceRegistry: EvidenceItem[] = [
     districts: ['all'],
     relatedEntities: [],
     usedInModules: [
-      { moduleId: 'biodiversity', moduleName: 'Biodiversity Intelligence', modulePath: '/biodiversity', usageContext: 'Threatened species status' },
+      { moduleId: 'biodiversity', moduleName: 'Biodiversity', modulePath: '/biodiversity', usageContext: 'Threatened species status' },
       { moduleId: 'protected-areas', moduleName: 'Protected Areas', modulePath: '/protected-network', usageContext: 'Conservation prioritization' },
     ],
     methods: [
@@ -491,7 +491,7 @@ export const evidenceRegistry: EvidenceItem[] = [
     districts: ['all'],
     relatedEntities: [],
     usedInModules: [
-      { moduleId: 'atlas', moduleName: 'Ecological Atlas', modulePath: '/atlas', usageContext: 'Watershed boundary layer' },
+      { moduleId: 'atlas', moduleName: 'Atlas / Spatial Intelligence', modulePath: '/atlas', usageContext: 'Watershed boundary layer' },
       { moduleId: 'water-systems', moduleName: 'Water Systems', modulePath: '/water-systems', usageContext: 'Watershed analysis' },
     ],
     methods: [
@@ -523,7 +523,7 @@ export const evidenceRegistry: EvidenceItem[] = [
       { id: 'district-anantnag', type: 'district', name: 'Anantnag', slug: '/districts/anantnag' },
     ],
     usedInModules: [
-      { moduleId: 'citizen-science', moduleName: 'Citizen Science', modulePath: '/citizen-science', usageContext: 'Community-collected data showcase' },
+      { moduleId: 'environmental-monitoring', moduleName: 'Environmental Monitoring', modulePath: '/environmental-monitoring', usageContext: 'Community-collected data showcase' },
       { moduleId: 'water-systems', moduleName: 'Water Systems', modulePath: '/water-systems', usageContext: 'Spring monitoring data' },
     ],
     methods: [
@@ -625,14 +625,14 @@ export const browseByDistrict = [
 ];
 
 export const browseByModule = [
-  { id: 'biodiversity', name: 'Biodiversity Intelligence', path: '/biodiversity', count: 0 },
-  { id: 'water-systems', name: 'Water Systems', path: '/water-systems', count: 0 },
   { id: 'protected-areas', name: 'Protected Areas', path: '/protected-network', count: 0 },
+  { id: 'biodiversity', name: 'Biodiversity', path: '/biodiversity', count: 0 },
+  { id: 'water-systems', name: 'Water Systems', path: '/water-systems', count: 0 },
+  { id: 'environmental-monitoring', name: 'Environmental Monitoring', path: '/monitoring-overview', count: 0 },
+  { id: 'air-noise-monitoring', name: 'Air & Noise Monitoring', path: '/risk-monitoring', count: 0 },
+  { id: 'risk-monitoring', name: 'Risk & Monitoring', path: '/risk-monitoring', count: 0 },
   { id: 'districts', name: 'District Profiles', path: '/districts', count: 0 },
-  { id: 'climate', name: 'Climate Intelligence', path: '/risk-monitoring', count: 0 },
-  { id: 'pollution', name: 'Pollution & Stress', path: '/risk-monitoring', count: 0 },
-  { id: 'atlas', name: 'Ecological Atlas', path: '/atlas', count: 0 },
-  { id: 'citizen-science', name: 'Citizen Science', path: '/citizen-science', count: 0 },
+  { id: 'atlas', name: 'Atlas / Spatial Intelligence', path: '/atlas', count: 0 },
 ];
 
 export const sourceTypeLabels: Record<EvidenceSourceType, string> = {
