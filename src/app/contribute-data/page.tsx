@@ -11,24 +11,27 @@ import {
   Droplets, Leaf, MapPin, BarChart3, Camera, ChevronRight
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const submissionTypes = [
   {
-    id: 'water-quality',
+    id: 'water-quality-readings',
     title: 'Water Quality Readings',
     description: 'Submit pH, dissolved oxygen, turbidity, temperature, and other water quality parameters',
     icon: Droplets,
     color: 'from-blue-500 to-cyan-600',
+    route: '/contribute-data/water-quality-readings',
+    nextStep: 'Opens the water quality submission form with parameter fields, file upload, and confirmation',
     fields: ['Waterbody name', 'GPS coordinates', 'pH value', 'Dissolved oxygen', 'Turbidity', 'Temperature', 'Date/time', 'Measurement method'],
   },
   {
-    id: 'species-records',
+    id: 'species-survey-records',
     title: 'Species Survey Records',
     description: 'Structured species count data, population surveys, and distribution records',
     icon: Leaf,
     color: 'from-emerald-500 to-teal-600',
+    route: '/contribute-data/species-survey-records',
+    nextStep: 'Opens the species survey form with observation protocol, habitat data, and evidence upload',
     fields: ['Species name', 'Count/abundance', 'Location', 'Habitat type', 'Behavior notes', 'Photo evidence', 'Survey method'],
   },
   {
@@ -37,6 +40,8 @@ const submissionTypes = [
     description: 'District-level environmental datasets, monitoring station exports, and regional assessments',
     icon: BarChart3,
     color: 'from-violet-500 to-purple-600',
+    route: '/contribute-data/district-datasets',
+    nextStep: 'Opens the district dataset form with coverage details, format selection, and file upload',
     fields: ['Dataset name', 'District coverage', 'Time period', 'Data format', 'Variables measured', 'Source agency'],
   },
   {
@@ -45,28 +50,33 @@ const submissionTypes = [
     description: 'Location-tagged photos, drone imagery, and field documentation with GPS metadata',
     icon: Camera,
     color: 'from-amber-500 to-orange-600',
+    route: '/contribute-data/geotagged-evidence',
+    nextStep: 'Opens the geotagged evidence form with map preview, EXIF handling, and media upload',
     fields: ['Location coordinates', 'Photo/file upload', 'Date captured', 'Description', 'Evidence type', 'Confidence level'],
   },
   {
-    id: 'research-data',
+    id: 'research-survey-data',
     title: 'Research & Survey Data',
     description: 'Academic research outputs, institutional survey results, and peer-reviewed findings',
     icon: FileText,
     color: 'from-indigo-500 to-blue-600',
+    route: '/contribute-data/research-survey-data',
+    nextStep: 'Opens the research data form with study details, abstract, and dataset upload',
     fields: ['Study title', 'Institution', 'Publication status', 'Dataset link', 'DOI/reference', 'Abstract'],
   },
   {
-    id: 'monitoring-exports',
+    id: 'monitoring-station-exports',
     title: 'Monitoring Station Exports',
     description: 'Raw or processed data from automated monitoring stations and sensor networks',
     icon: Database,
     color: 'from-slate-500 to-gray-600',
+    route: '/contribute-data/monitoring-station-exports',
+    nextStep: 'Opens the station export form with time series upload, calibration notes, and quality flags',
     fields: ['Station ID', 'Parameter type', 'Time series data', 'Data format', 'Calibration info', 'Quality flags'],
   },
 ];
 
 export default function ContributeDataPage() {
-  const router = useRouter();
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
   return (
@@ -81,7 +91,7 @@ export default function ContributeDataPage() {
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
             <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
-              <button onClick={() => router.push('/contribute')} className="hover:text-white transition-colors">Contribute</button>
+              <Link href="/contribute" className="hover:text-white transition-colors">Contribute</Link>
               <span className="text-slate-600">/</span>
               <span className="text-white font-medium">Contribute Data</span>
             </nav>
@@ -110,7 +120,7 @@ export default function ContributeDataPage() {
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
             <h2 className="text-2xl font-bold text-white mb-2">Select Data Type</h2>
-            <p className="text-slate-400">Choose the type of data you want to contribute</p>
+            <p className="text-slate-400">Choose the type of data you want to contribute — each card opens a dedicated submission flow</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -121,47 +131,53 @@ export default function ContributeDataPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Card
-                  className={`glass-intense border transition-all p-6 h-full cursor-pointer ${
-                    selectedType === type.id ? 'border-blue-500 bg-blue-500/5' : 'border-white/10 hover:border-white/20'
-                  }`}
-                  onClick={() => setSelectedType(type.id)}
-                >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${type.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
-                      <type.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-base font-bold text-white mb-1">{type.title}</h3>
-                      <p className="text-sm text-slate-400">{type.description}</p>
-                    </div>
-                  </div>
-
-                  <div className="mb-4">
-                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Required Fields</span>
-                    <div className="flex flex-wrap gap-1.5 mt-2">
-                      {type.fields.slice(0, 4).map((field, i) => (
-                        <span key={i} className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-xs text-slate-300">
-                          {field}
-                        </span>
-                      ))}
-                      {type.fields.length > 4 && (
-                        <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-xs text-slate-400">
-                          +{type.fields.length - 4} more
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <Button
-                    size="sm"
-                    className={`w-full bg-gradient-to-r ${type.color} hover:opacity-90 text-white text-sm`}
-                    onClick={() => router.push(`/submit-sighting`)}
+                <Link href={type.route} className="block h-full">
+                  <Card
+                    className={`glass-intense border transition-all p-6 h-full hover:border-white/30 cursor-pointer ${
+                      selectedType === type.id ? 'border-blue-500 bg-blue-500/5' : 'border-white/10 hover:border-white/20'
+                    }`}
+                    onClick={() => setSelectedType(type.id)}
                   >
-                    <Upload className="w-4 h-4 mr-2" />
-                    Submit {type.title}
-                  </Button>
-                </Card>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${type.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
+                        <type.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-bold text-white mb-1">{type.title}</h3>
+                        <p className="text-sm text-slate-400">{type.description}</p>
+                      </div>
+                    </div>
+
+                    <div className="mb-4">
+                      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Required Fields</span>
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {type.fields.slice(0, 4).map((field, i) => (
+                          <span key={i} className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-xs text-slate-300">
+                            {field}
+                          </span>
+                        ))}
+                        {type.fields.length > 4 && (
+                          <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-xs text-slate-400">
+                            +{type.fields.length - 4} more
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="mb-3">
+                      <p className="text-xs text-slate-500">{type.nextStep}</p>
+                    </div>
+
+                    <Button
+                      size="sm"
+                      className={`w-full bg-gradient-to-r ${type.color} hover:opacity-90 text-white text-sm`}
+                    >
+                      <Upload className="w-4 h-4 mr-2" />
+                      Submit {type.title}
+                      <ChevronRight className="w-4 h-4 ml-1" />
+                    </Button>
+                  </Card>
+                </Link>
               </motion.div>
             ))}
           </div>

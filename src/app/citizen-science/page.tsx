@@ -11,7 +11,6 @@ import {
   CheckCircle, Award, MapPin, Calendar, TrendingUp, ChevronRight
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const programs = [
@@ -21,6 +20,7 @@ const programs = [
     description: 'Track and document wildlife populations, distributions, and behavioral patterns across Kashmir\'s ecosystems',
     icon: Eye,
     color: 'from-emerald-500 to-teal-600',
+    route: '/citizen-science/wildlife-monitoring',
     volunteers: 234,
     activities: ['Species sighting documentation', 'Population trend tracking', 'Habitat condition assessment', 'Migration pattern recording'],
     cta: 'Start Monitoring',
@@ -31,6 +31,7 @@ const programs = [
     description: 'Capture seasonal changes, species records, habitat conditions, and environmental changes through geotagged photography',
     icon: Camera,
     color: 'from-blue-500 to-indigo-600',
+    route: '/citizen-science/photo-documentation',
     volunteers: 189,
     activities: ['Seasonal landscape photography', 'Species photo records', 'Habitat change documentation', 'Wetland condition photos'],
     cta: 'Start Documenting',
@@ -41,6 +42,7 @@ const programs = [
     description: 'Review and validate community-submitted observations, species records, and environmental data for accuracy',
     icon: CheckCircle,
     color: 'from-violet-500 to-purple-600',
+    route: '/citizen-science/data-verification',
     volunteers: 67,
     activities: ['Species identification review', 'Location accuracy verification', 'Evidence quality assessment', 'Duplicate flagging'],
     cta: 'Start Verifying',
@@ -51,6 +53,7 @@ const programs = [
     description: 'Engage local communities in conservation awareness, environmental monitoring training, and citizen science programs',
     icon: Users,
     color: 'from-amber-500 to-orange-600',
+    route: '/citizen-science/community-outreach',
     volunteers: 145,
     activities: ['Community workshops', 'School programs', 'Field training sessions', 'District participation drives'],
     cta: 'Join Outreach',
@@ -74,8 +77,6 @@ const districtLeaders = [
 ];
 
 export default function CitizenSciencePage() {
-  const router = useRouter();
-
   return (
     <main className="min-h-screen bg-slate-950">
       <Navigation />
@@ -88,7 +89,7 @@ export default function CitizenSciencePage() {
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
             <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
-              <button onClick={() => router.push('/contribute')} className="hover:text-white transition-colors">Contribute</button>
+              <Link href="/contribute" className="hover:text-white transition-colors">Contribute</Link>
               <span className="text-slate-600">/</span>
               <span className="text-white font-medium">Citizen Science</span>
             </nav>
@@ -110,13 +111,18 @@ export default function CitizenSciencePage() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600" onClick={() => router.push('/submit-sighting')}>
-                <Camera className="w-5 h-5 mr-2" />
-                Start Contributing
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/contribute')}>
-                Explore All Paths
-              </Button>
+              <Link href="/submit-sighting">
+                <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600">
+                  <Camera className="w-5 h-5 mr-2" />
+                  Start Contributing
+                </Button>
+              </Link>
+              <Link href="/contribute">
+                <Button size="lg" variant="outline" className="border-white/20 text-white">
+                  Explore All Paths
+                  <ChevronRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -162,41 +168,72 @@ export default function CitizenSciencePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Card className="glass-intense border-white/10 hover:border-white/20 transition-all p-6 h-full group">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${program.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
-                      <program.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className="text-lg font-bold text-white">{program.title}</h3>
-                        <Badge variant="outline" size="sm" className="text-xs">{program.volunteers} volunteers</Badge>
+                <Link href={program.route} className="block h-full">
+                  <Card className="glass-intense border-white/10 hover:border-white/20 transition-all p-6 h-full group">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${program.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
+                        <program.icon className="w-7 h-7 text-white" />
                       </div>
-                      <p className="text-sm text-slate-400">{program.description}</p>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between mb-1">
+                          <h3 className="text-lg font-bold text-white">{program.title}</h3>
+                          <Badge variant="outline" size="sm" className="text-xs">{program.volunteers} volunteers</Badge>
+                        </div>
+                        <p className="text-sm text-slate-400">{program.description}</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <ul className="space-y-1.5 mb-4">
-                    {program.activities.map((activity, i) => (
-                      <li key={i} className="text-sm text-slate-300 flex items-start gap-2">
-                        <span className="text-emerald-400 mt-1">•</span>
-                        {activity}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-1.5 mb-4">
+                      {program.activities.map((activity, i) => (
+                        <li key={i} className="text-sm text-slate-300 flex items-start gap-2">
+                          <span className="text-emerald-400 mt-1">•</span>
+                          {activity}
+                        </li>
+                      ))}
+                    </ul>
 
-                  <Button
-                    size="sm"
-                    className={`w-full bg-gradient-to-r ${program.color} hover:opacity-90 text-white text-sm`}
-                    onClick={() => router.push('/submit-sighting')}
-                  >
-                    <span>{program.cta}</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Card>
+                    <Button
+                      size="sm"
+                      className={`w-full bg-gradient-to-r ${program.color} hover:opacity-90 text-white text-sm`}
+                    >
+                      <span>{program.cta}</span>
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Card>
+                </Link>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* How to Participate */}
+      <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
+            <h2 className="text-2xl font-bold text-white mb-2">How to Participate</h2>
+            <p className="text-slate-400">Everything you need to know about joining the citizen science program</p>
+          </motion.div>
+          <Card className="glass-intense border-white/10 p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div>
+                <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2"><span className="text-emerald-400">1.</span> Who Can Join?</h3>
+                <p className="text-sm text-slate-400">Anyone — students, researchers, nature enthusiasts, and community members. No formal qualifications needed.</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2"><span className="text-emerald-400">2.</span> Login Required?</h3>
+                <p className="text-sm text-slate-400">Yes, create an account to track your contributions, earn badges, and access verification queues.</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2"><span className="text-emerald-400">3.</span> How Contributions Are Reviewed</h3>
+                <p className="text-sm text-slate-400">Every submission goes through Community → Expert → Authority verification tiers for quality assurance.</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2"><span className="text-emerald-400">4.</span> What to Submit</h3>
+                <p className="text-sm text-slate-400">Species sightings, photo evidence, data reviews, or community outreach participation — choose your path.</p>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
@@ -216,11 +253,13 @@ export default function CitizenSciencePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Card className="glass-intense border-white/10 p-5 text-center">
-                  <benefit.icon className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
-                  <h3 className="text-sm font-bold text-white mb-2">{benefit.title}</h3>
-                  <p className="text-xs text-slate-400">{benefit.description}</p>
-                </Card>
+                <Link href="/contribute" className="block h-full">
+                  <Card className="glass-intense border-white/10 hover:border-white/20 transition-all p-5 text-center h-full">
+                    <benefit.icon className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
+                    <h3 className="text-sm font-bold text-white mb-2">{benefit.title}</h3>
+                    <p className="text-xs text-slate-400">{benefit.description}</p>
+                  </Card>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -238,7 +277,11 @@ export default function CitizenSciencePage() {
           <Card className="glass-intense border-white/10 p-6">
             <div className="space-y-4">
               {districtLeaders.map((item, index) => (
-                <div key={item.district} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0 last:pb-0">
+                <Link
+                  key={item.district}
+                  href={`/citizen-science?district=${item.district.toLowerCase()}`}
+                  className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 last:pb-0 cursor-pointer"
+                >
                   <div className="flex items-center gap-3">
                     <span className="text-sm font-bold text-slate-500 w-6 text-center">#{index + 1}</span>
                     <TrendingUp className={`w-4 h-4 ${
@@ -256,7 +299,7 @@ export default function CitizenSciencePage() {
                       {item.trend === 'increasing' ? '↑' : item.trend === 'decreasing' ? '↓' : '→'}
                     </Badge>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </Card>
@@ -277,14 +320,18 @@ export default function CitizenSciencePage() {
                   for better conservation decisions, policy-making, and public awareness
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
-                  <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600" onClick={() => router.push('/submit-sighting')}>
-                    <Camera className="w-5 h-5 mr-2" />
-                    Submit Your First Sighting
-                  </Button>
-                  <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/report-issue')}>
-                    <ArrowRight className="w-5 h-5 mr-2" />
-                    Report an Issue
-                  </Button>
+                  <Link href="/submit-sighting">
+                    <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600">
+                      <Camera className="w-5 h-5 mr-2" />
+                      Submit Your First Sighting
+                    </Button>
+                  </Link>
+                  <Link href="/report-issue">
+                    <Button size="lg" variant="outline" className="border-white/20 text-white">
+                      <ArrowRight className="w-5 h-5 mr-2" />
+                      Report an Issue
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
