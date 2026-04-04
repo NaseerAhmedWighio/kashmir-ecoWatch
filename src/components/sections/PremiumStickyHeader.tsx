@@ -138,17 +138,19 @@ export function PremiumStickyHeader() {
       case 'Water Systems':
         return [
           { name: '💧 Overview', href: '/water-systems', desc: 'Complete hydrological intelligence' },
-          { name: 'All Lakes', href: '/water-systems/lakes', desc: 'Major, minor, urban & high-altitude lakes' },
-          { name: 'All Wetlands', href: '/water-systems/wetlands', desc: 'Marshes, floodplain & Ramsar wetlands' },
+          { name: 'Lakes', href: '/water-systems/lakes', desc: 'Major, minor, urban & high-altitude lakes' },
+          { name: 'Wetlands', href: '/water-systems/wetlands', desc: 'Marshes, floodplain & Ramsar wetlands' },
           { name: 'Rivers & Streams', href: '/water-systems/rivers', desc: 'Major rivers, tributaries & streams' },
-          { name: 'All Springs', href: '/water-systems/springs', desc: 'Perennial, seasonal & community springs' },
-          { name: 'All Watersheds', href: '/water-systems/watersheds', desc: 'Basins, catchments & hydrological units' },
+          { name: 'Springs', href: '/water-systems/springs', desc: 'Perennial, seasonal & community springs' },
+          { name: 'Watersheds', href: '/water-systems/watersheds', desc: 'Basins, catchments & hydrological units' },
           { name: 'Glaciers & Cryosphere', href: '/water-systems/glaciers', desc: 'Glaciers & snow-fed systems' },
+          { name: 'Drinking Water Sources', href: '/water-systems/drinking-water-sources', desc: 'Spring & surface supply vulnerability' },
           { name: 'Water Quality', href: '/water-systems/water-quality', desc: 'Quality monitoring & trends' },
           { name: 'Algal Bloom Intelligence', href: '/water-systems/algal-bloom-intelligence', desc: 'Eutrophication & bloom risk monitoring' },
-          { name: 'Fisheries & Aquatic Life', href: '/water-systems/fisheries', desc: 'Fish species & fishery management' },
-          { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', desc: 'Flood zones & hazard assessment' },
+          { name: 'Aquatic Life & Fisheries', href: '/water-systems/fisheries', desc: 'Fish species & fishery management' },
           { name: 'Restoration & Rejuvenation', href: '/water-systems/restoration', desc: 'Conservation & restoration projects' },
+          { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', desc: 'Flood zones & hazard assessment' },
+          { name: 'Dashboards', href: '/water-systems/dashboards', desc: 'Analytics, trends & heatmaps' },
         ];
       case 'Environmental Monitoring':
         return [

@@ -308,17 +308,19 @@ export function Navigation() {
                         <span className="block text-xs text-slate-500 mt-0.5">Complete hydrological intelligence</span>
                       </Link>
                       {[
-                        { name: 'All Lakes', href: '/water-systems/lakes', icon: Droplet, desc: 'Major, minor, urban & high-altitude lakes', color: 'text-blue-400' },
-                        { name: 'All Wetlands', href: '/water-systems/wetlands', icon: Waves, desc: 'Marshes, floodplain & Ramsar wetlands', color: 'text-sky-400' },
+                        { name: 'Lakes', href: '/water-systems/lakes', icon: Droplet, desc: 'Major, minor, urban & high-altitude lakes', color: 'text-blue-400' },
+                        { name: 'Wetlands', href: '/water-systems/wetlands', icon: Waves, desc: 'Marshes, floodplain & Ramsar wetlands', color: 'text-sky-400' },
                         { name: 'Rivers & Streams', href: '/water-systems/rivers', icon: Wind, desc: 'Major rivers, tributaries & streams', color: 'text-indigo-400' },
-                        { name: 'All Springs', href: '/water-systems/springs', icon: Droplet, desc: 'Perennial, seasonal & community springs', color: 'text-emerald-400' },
-                        { name: 'All Watersheds', href: '/water-systems/watersheds', icon: Map, desc: 'Basins, catchments & hydrological units', color: 'text-amber-400' },
+                        { name: 'Springs', href: '/water-systems/springs', icon: Droplet, desc: 'Perennial, seasonal & community springs', color: 'text-emerald-400' },
+                        { name: 'Watersheds', href: '/water-systems/watersheds', icon: Map, desc: 'Basins, catchments & hydrological units', color: 'text-amber-400' },
                         { name: 'Glaciers & Cryosphere', href: '/water-systems/glaciers', icon: Mountain, desc: 'Glaciers & snow-fed systems', color: 'text-slate-400' },
+                        { name: 'Drinking Water Sources', href: '/water-systems/drinking-water-sources', icon: Droplet, desc: 'Spring & surface supply vulnerability', color: 'text-cyan-400' },
                         { name: 'Water Quality', href: '/water-systems/water-quality', icon: Thermometer, desc: 'Quality monitoring & trends', color: 'text-teal-400' },
                         { name: 'Algal Bloom Intelligence', href: '/water-systems/algal-bloom-intelligence', icon: Waves, desc: 'Eutrophication & bloom risk monitoring', color: 'text-emerald-400' },
-                        { name: 'Fisheries & Aquatic Life', href: '/water-systems/fisheries', icon: Fish, desc: 'Fish species & fishery management', color: 'text-violet-400' },
-                        { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', icon: AlertTriangle, desc: 'Flood zones & hazard assessment', color: 'text-red-400' },
+                        { name: 'Aquatic Life & Fisheries', href: '/water-systems/fisheries', icon: Fish, desc: 'Fish species & fishery management', color: 'text-violet-400' },
                         { name: 'Restoration & Rejuvenation', href: '/water-systems/restoration', icon: Hammer, desc: 'Conservation & restoration projects', color: 'text-lime-400' },
+                        { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', icon: AlertTriangle, desc: 'Flood zones & hazard assessment', color: 'text-red-400' },
+                        { name: 'Dashboards', href: '/water-systems/dashboards', icon: BarChart3, desc: 'Analytics, trends & heatmaps', color: 'text-orange-400' },
                       ].map((subitem) => (
                         <Link
                           key={subitem.name}
