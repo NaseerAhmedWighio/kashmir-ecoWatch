@@ -559,10 +559,17 @@ export function Navigation() {
                       </Link>
                       <Link
                         href="/risk-monitoring/dashboards"
-                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
                         <span className="font-medium">📊 Dashboards</span>
                         <span className="block text-xs text-slate-500 mt-0.5">Live risk & incident dashboards</span>
+                      </Link>
+                      <Link
+                        href="/risk-updates"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                      >
+                        <span className="font-medium">📋 Risk Updates</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Situational awareness & assessments</span>
                       </Link>
                     </div>
                   </motion.div>
@@ -857,6 +864,9 @@ export function Navigation() {
                                       </Link>
                                       <Link href="/risk-monitoring/live-alerts-advisories" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
                                         🔔 Live Alerts
+                                      </Link>
+                                      <Link href="/risk-updates" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
+                                        📋 Risk Updates
                                       </Link>
                                       <Link href="/risk-monitoring/dashboards" className="block px-3 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded transition-colors">
                                         📊 Dashboards

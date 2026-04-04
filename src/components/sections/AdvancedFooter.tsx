@@ -242,12 +242,12 @@ export function AdvancedFooter() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
             <p className="text-[10px] sm:text-xs text-slate-500">
-              Evidence sourced from institutional records, peer-reviewed research, systematic monitoring programs, and validated community contributions.
-              All items undergo methodological review and confidence assessment before inclusion.
+              Environmental intelligence sourced from institutional records, peer-reviewed research, systematic monitoring programs,
+              structured risk assessments, and validated community contributions. All data undergoes methodological review and confidence verification.
             </p>
             <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
               <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
-              <span className="text-[10px] sm:text-xs text-slate-500 whitespace-nowrap">Verified Data Source</span>
+              <span className="text-[10px] sm:text-xs text-slate-500 whitespace-nowrap">Verified & Reviewed</span>
             </div>
           </div>
         </div>
