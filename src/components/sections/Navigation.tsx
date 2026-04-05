@@ -56,6 +56,8 @@ const navItems = [
   { label: 'Environmental Monitoring', href: '/environmental-monitoring', hasDropdown: true },
   { label: 'Contribute', href: '/contribute', hasDropdown: true },
   { label: 'Risk & Monitoring', href: '/risk-monitoring', hasDropdown: true },
+  { label: 'Research Library', href: '/research-library', hasDropdown: true },
+  { label: 'Conservation', href: '/conservation-intelligence', hasDropdown: false },
 ];
 
 export function Navigation() {
@@ -619,6 +621,20 @@ export function Navigation() {
                       >
                         <span className="font-medium">📊 Dashboards</span>
                         <span className="block text-xs text-slate-500 mt-0.5">Live risk & incident dashboards</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/soil-pollution"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🧪 Soil Pollution</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Soil degradation & contamination (ESRO)</span>
+                      </Link>
+                      <Link
+                        href="/risk-monitoring/human-wildlife-conflict"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">🐻 Human-Wildlife Conflict</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Conflict management & mitigation (ESRO)</span>
                       </Link>
                       <Link
                         href="/risk-updates"

@@ -21,7 +21,7 @@
 
 ### Error
 ```
-#  C:\Windows\system32\cmd.exe [XXXX]: std::vector<X509 *> __cdecl node::crypto::InitializeBundledRootCertificates(void) at src\crypto\crypto_context.cc:799
+#  C:\Windows\system32\cmd.exe [XXXX]: std::vector<X509 *> __cdecl node::crypto::InitializeBundlESROotCertificates(void) at src\crypto\crypto_context.cc:799
 #  Assertion failed: (x509) != nullptr
 ```
 
