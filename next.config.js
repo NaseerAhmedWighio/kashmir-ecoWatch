@@ -6,6 +6,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
+  turbopack: {},
+
   images: {
     unoptimized: true,
   },

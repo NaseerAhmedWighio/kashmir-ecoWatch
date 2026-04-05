@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import { 
-  Map, 
-  Leaf, 
-  Droplet, 
-  Shield, 
-  Book, 
-  Mail, 
-  Phone, 
+import {
+  Map,
+  Leaf,
+  Droplet,
+  Shield,
+  Book,
+  Mail,
+  Phone,
   MapPin,
   Github,
   Twitter,
@@ -17,7 +17,18 @@ import {
   Heart,
   Database,
   FileText,
-  Users
+  Users,
+  BarChart3,
+  Grid3x3,
+  Activity,
+  Archive,
+  Lock,
+  Scale,
+  Accessibility as AccessibilityIcon,
+  Bell,
+  Clock,
+  Globe,
+  Search,
 } from 'lucide-react';
 
 const footerLinks = {
@@ -41,9 +52,9 @@ const footerLinks = {
     { label: 'Data Sources', href: '/about/data-sources', icon: Database },
     { label: 'Methodology', href: '/about/methodology', icon: FileText },
     { label: 'Verification Model', href: '/about/verification', icon: Shield },
-    { label: 'Sensitivity & Privacy', href: '/about/privacy', icon: Lock },
+    { label: 'Sensitivity & Privacy', href: '/privacy', icon: Lock },
     { label: 'Terms of Use', href: '/terms', icon: Scale },
-    { label: 'Accessibility', href: '/accessibility', icon: Accessibility },
+    { label: 'Accessibility', href: '/accessibility', icon: AccessibilityIcon },
   ],
   contribute: [
     { label: 'Report an Issue', href: '/report-issue' },

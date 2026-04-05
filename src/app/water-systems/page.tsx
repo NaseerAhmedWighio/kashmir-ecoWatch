@@ -94,6 +94,16 @@ const submodules = [
     features: ['Glacial Retreat', 'Mass Balance', 'Downstream Flow', 'Climate Impact']
   },
   {
+    id: 'drinking-water',
+    title: 'Drinking Water Sources',
+    description: 'Springs, river intakes, groundwater schemes, piped supply networks, treatment plants, and water quality monitoring',
+    icon: Droplet,
+    color: 'from-blue-500 to-cyan-600',
+    count: 12,
+    route: '/water-systems/drinking-water-sources',
+    features: ['Source Mapping', 'Quality Monitoring', 'Treatment Plants', 'Distribution Network', 'Rainwater Harvesting', 'Groundwater']
+  },
+  {
     id: 'water-quality',
     title: 'Water Quality',
     description: 'Lake, wetland, river, stream, and spring quality monitoring with catchment-linked water stress and trends',

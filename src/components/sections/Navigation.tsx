@@ -32,7 +32,7 @@ import {
   Recycle,
   Building2,
   Trash2,
-  Pipe,
+  Droplets,
   Stethoscope,
   Upload,
   Languages,
