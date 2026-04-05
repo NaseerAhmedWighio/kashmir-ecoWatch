@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import {
   Droplet, Shield, AlertTriangle, TrendingUp, Map,
   Users, Activity, Eye, FileText, ArrowRight, Search,
@@ -133,63 +134,34 @@ export default function DrinkingWaterSourcesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/50 via-cyan-950/30 to-emerald-950/50" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
+      <section className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/50 via-cyan-950/30 to-emerald-950/50" />
 
-        <div className="relative container mx-auto px-4 md:px-6 py-12 md:py-16">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span className="text-slate-600">/</span>
-            <Link href="/water-systems" className="hover:text-white transition-colors">Water Systems</Link>
-            <span className="text-slate-600">/</span>
-            <span className="text-white">Drinking Water Sources</span>
-          </nav>
-
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="max-w-4xl"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
-                <Droplet className="w-7 h-7 text-white" />
-              </div>
-              <Badge variant="outline" className="border-blue-400/30 text-blue-400 text-xs">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-2 h-2 bg-blue-500 rounded-full" />
+              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Drinking Water Intelligence
-              </Badge>
+              </span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Drinking Water Sources of Kashmir
+            <h1 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
+              Drinking Water Sources of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Kashmir</span>
             </h1>
 
-            <p className="text-lg text-slate-300 max-w-3xl mb-6 leading-relaxed">
+            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Comprehensive monitoring and intelligence framework for Kashmir's drinking water sources —
               springs, river intakes, groundwater schemes, and piped supply networks. Sourced from the
               ESRO/eIEN Kashmir environmental archive and augmented with real-time monitoring data.
             </p>
-
-            <div className="flex flex-wrap gap-3 mb-8">
-              <Link href="/water-systems">
-                <Button variant="outline" className="border-white/20 text-white">
-                  ← All Water Systems
-                </Button>
-              </Link>
-              <Link href="/water-systems/water-quality">
-                <Button variant="outline" className="border-white/20 text-white">
-                  Water Quality <ExternalLink className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-              <Link href="/risk-monitoring/water-pollution">
-                <Button variant="outline" className="border-white/20 text-white">
-                  Pollution Monitoring <ExternalLink className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            </div>
 
             {/* ESRO Attribution */}
             <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mb-6">
@@ -206,6 +178,19 @@ export default function DrinkingWaterSourcesPage() {
                   </p>
                 </div>
               </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Link href="/water-systems">
+                <Button variant="outline" className="border-white/20 text-white">
+                  ← All Water Systems
+                </Button>
+              </Link>
+              <Link href="/water-systems/water-quality">
+                <Button variant="outline" className="border-white/20 text-white">
+                  Water Quality <ExternalLink className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -524,28 +509,8 @@ export default function DrinkingWaterSourcesPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <div className="border-t border-white/5">
-        <div className="container mx-auto px-4 md:px-6 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-sm text-slate-500">
-              Drinking Water Sources Intelligence — Kashmir Environmental Intelligence Platform
-            </div>
-            <div className="flex items-center gap-4 text-xs text-slate-500">
-              <Link href="/water-systems" className="hover:text-white transition-colors">
-                All Water Systems
-              </Link>
-              <Link href="/risk-monitoring/water-pollution" className="hover:text-white transition-colors">
-                Water Pollution
-              </Link>
-              <Link href="/about/data-sources" className="hover:text-white transition-colors">
-                Data Sources
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <AdvancedFooter />
+    </main>
   );
 }
 
