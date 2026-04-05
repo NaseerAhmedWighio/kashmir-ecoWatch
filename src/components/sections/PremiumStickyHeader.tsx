@@ -170,11 +170,11 @@ export function PremiumStickyHeader() {
       case 'Field Intelligence':
         return [
           { name: '📊 Field Reports Overview', href: '/field-reports', desc: 'All field intelligence reports' },
-          { name: '📁 Monthly Bulletins', href: '/field-reports?type=monthly-bulletin', desc: 'Monthly environmental bulletins' },
-          { name: '🦋 Species Surveys', href: '/field-reports?type=species-survey', desc: 'Wildlife and species surveys' },
-          { name: '💧 Wetland Assessments', href: '/field-reports?type=wetland-assessment', desc: 'Wetland health reports' },
-          { name: '⚠️ Risk Assessments', href: '/field-reports?type=risk-assessment', desc: 'Fire and hazard risk reports' },
-          { name: '🔬 Technical Reports', href: '/field-reports?type=technical-report', desc: 'Scientific and technical studies' },
+          { name: '📁 Monthly Environmental Bulletins', href: '/field-reports/monthly-bulletins', desc: 'Monthly environmental bulletins' },
+          { name: '🦋 Species Surveys', href: '/field-reports/species-surveys', desc: 'Wildlife and species surveys' },
+          { name: '💧 Wetland Assessments', href: '/field-reports/wetland-assessments', desc: 'Wetland health reports' },
+          { name: '⚠️ Risk Assessments', href: '/field-reports/risk-assessments', desc: 'Fire and hazard risk reports' },
+          { name: '🔬 Technical Reports', href: '/field-reports/technical-reports', desc: 'Scientific and technical studies' },
           { name: '📚 Library Collections', href: '/library', desc: 'Archived and catalogued reports' },
         ];
       case 'Contribute':
