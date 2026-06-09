@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -96,9 +96,9 @@ export default function ThreatenedSpeciesPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-48 pb-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 via-amber-600/20 to-slate-900 opacity-50" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="relative pt-20 md:pt-48 pb-12 overflow-hidden">
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -142,7 +142,7 @@ export default function ThreatenedSpeciesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="bg-transparent border-red-500/30">
+          <Card className="bg-slate-950 border-red-500/30">
             <div className="p-4 flex items-start gap-4 rounded-xl">
               <Book className="w-6 h-6 text-red-400 mt-1" />
               <div className="flex-1">

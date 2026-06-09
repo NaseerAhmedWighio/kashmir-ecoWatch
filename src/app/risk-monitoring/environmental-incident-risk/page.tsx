@@ -31,8 +31,8 @@ export default function EnvironmentalIncidentRiskPage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 md:pt-48 pb-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-950/60 via-rose-950/40 to-slate-950" />
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 md:pt-48 pb-12 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
             <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
@@ -49,7 +49,7 @@ export default function EnvironmentalIncidentRiskPage() {
               <Badge variant="danger" size="lg">Pollution & Escalation Intelligence</Badge>
             </div>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Environmental <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-400">Incident</span> Risk
+              Environmental <span className="text-emerald-400">Incident</span> Risk
             </h1>
             <p className="text-xl text-slate-400 mb-8">
               Escalated environmental cases from monitoring systems: severe sewage overflows, toxic discharge, 

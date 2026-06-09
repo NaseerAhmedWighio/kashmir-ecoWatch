@@ -56,8 +56,8 @@ export function ProtectedCategoryPage({
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-48 pb-12 overflow-hidden">
-        <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-10`} />
-        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className={`absolute inset-0 bg-[#160C27]`} />
+        <div className="absolute inset-0 bg-grid" />
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -196,7 +196,7 @@ export function ProtectedCategoryPage({
                     <div className="flex items-center gap-4 text-sm text-slate-400">
                       <div>
                         <div className="text-xs text-slate-500 uppercase">Area</div>
-                        <div className="text-white font-semibold">{area.area} km²</div>
+                        <div className="text-white font-semibold">{area.area} kmÂ²</div>
                       </div>
                       <div>
                         <div className="text-xs text-slate-500 uppercase">District</div>
@@ -242,7 +242,7 @@ export function ProtectedCategoryPage({
                     </div>
                     <div>
                       <span className="text-slate-500">Total Area:</span>{' '}
-                      <span className="text-white font-medium">{sourceData.totalArea.toFixed(2)} km²</span>
+                      <span className="text-white font-medium">{sourceData.totalArea.toFixed(2)} kmÂ²</span>
                     </div>
                   </div>
                 </div>

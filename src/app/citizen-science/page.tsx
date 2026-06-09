@@ -87,9 +87,9 @@ const districtLeaders = [
 export default function CitizenSciencePage() {
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-48 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-violet-950/30 to-slate-950" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
+      <section className="relative pt-20 md:pt-48 pb-16 overflow-hidden">
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
@@ -107,7 +107,7 @@ export default function CitizenSciencePage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Citizen <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-violet-400">Science</span>
+              Citizen <span className="text-emerald-400">Science</span>
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
@@ -375,7 +375,7 @@ export default function CitizenSciencePage() {
         <div className="container mx-auto px-6">
           <Card className="glass-intense border-white/10 overflow-hidden p-0">
             <div className="relative p-8 sm:p-12 text-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-violet-600/20" />
+              
               <div className="relative z-10">
                 <Heart className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
                 <h2 className="text-3xl font-bold text-white mb-4">Make a Difference</h2>

@@ -49,9 +49,9 @@ export default function TrailsAndSightingsPage() {
     <main className="min-h-screen bg-slate-950">{/* =========================================================
           BAND 1: HERO + COMMAND SURFACE
           ========================================================= */}
-      <section className="relative pt-48 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-teal-950/30 to-slate-950" />
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+      <section className="relative pt-20 md:pt-48 pb-20 overflow-hidden">
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -68,7 +68,7 @@ export default function TrailsAndSightingsPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Trails & <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Sightings</span>
+              Trails & <span className="text-emerald-400">Sightings</span>
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
@@ -411,7 +411,7 @@ export default function TrailsAndSightingsPage() {
         <div className="container mx-auto px-6">
           <Card className="bg-gradient-to-r from-emerald-900/50 to-teal-900/50 border-white/10 overflow-hidden">
             <div className="relative p-12 text-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-teal-600/20" />
+              
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">

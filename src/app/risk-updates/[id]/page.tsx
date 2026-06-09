@@ -40,8 +40,8 @@ function RiskUpdateDetail({ update }: { update: RiskUpdate }) {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Header */}
-      <section className="relative pt-20 md:pt-48 pb-12 md:pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-950/50 via-orange-950/30 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-12 md:pb-16 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

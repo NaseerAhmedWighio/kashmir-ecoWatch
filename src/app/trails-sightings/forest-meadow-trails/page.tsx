@@ -18,8 +18,8 @@ const forestMeadowTrails = [
 export default function ForestMeadowTrailsPage() {
   const router = useRouter();
   return (
-    <main className="min-h-screen bg-slate-950"><section className="relative pt-48 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-lime-950/50 via-green-950/30 to-slate-950" />
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 md:pt-48 pb-20 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
             <div className="flex items-center gap-3 mb-6">
@@ -28,7 +28,7 @@ export default function ForestMeadowTrailsPage() {
               </div>
               <Badge variant="success" size="lg">Forests & Alpine Meadows</Badge>
             </div>
-            <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Forest & <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-400">Meadow Trails</span></h1>
+            <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Forest & <span className="text-emerald-400">Meadow Trails</span></h1>
             <p className="text-xl text-slate-400 mb-8">Trails through dense forests and expansive alpine meadows (margs)</p>
             <Button size="lg" className="bg-gradient-to-r from-lime-500 to-green-600" onClick={() => router.push('/trails-sightings')}><ArrowRight className="w-5 h-5 mr-2" />Back to Trails</Button>
           </motion.div>

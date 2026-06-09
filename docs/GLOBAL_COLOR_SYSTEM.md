@@ -328,7 +328,7 @@ const badgeVariants = {
 1. **Don't color whole pages by module**
    ```tsx
    // ❌ Wrong
-   <div className="bg-blue-900">Water Systems Page</div>
+   <div className="bg-[#160C27]">Water Systems Page</div>
    
    // ✅ Correct
    <div className="bg-slate-900 border-l-4 border-glacier-500">

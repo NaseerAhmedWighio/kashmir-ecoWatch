@@ -316,8 +316,8 @@ export default function EarthquakeRiskMonitoringPage() {
     <main className="min-h-screen bg-slate-950">
 
       {/* ========== HERO SECTION ========== */}
-      <section className="relative pt-20 md:pt-48 pb-12 md:pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-950/60 via-orange-950/30 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-12 md:pb-16 overflow-hidden bg-[#160C27]">
+        
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-red-500/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -345,7 +345,7 @@ export default function EarthquakeRiskMonitoringPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Earthquake &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Seismic Risk</span>
+              Earthquake &amp; <span className="text-emerald-400">Seismic Risk</span>
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
@@ -756,7 +756,7 @@ export default function EarthquakeRiskMonitoringPage() {
       <section className="py-16 border-t border-white/5">
         <div className="container mx-auto px-6">
           <Card className="glass-intense border-white/10 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-950/40 via-orange-950/20 to-slate-950/50" />
+            
 
             <div className="relative z-10 p-12 text-center">
               <motion.div

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { useParams, useRouter } from 'next/navigation';
@@ -79,8 +79,8 @@ export default function MonitoringDetailPage() {
       </section>
 
       {/* Hero Section */}
-      <section className="relative py-12 md:py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/30 via-green-950/20 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

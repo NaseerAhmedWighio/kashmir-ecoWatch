@@ -44,8 +44,8 @@ export default function PhenologyFloweringPage() {
   const breedingCount = records.filter(r => r.recordType === 'breeding').length;
 
   return (
-    <main className="min-h-screen bg-slate-950"><div className="relative pt-20 md:pt-32 pb-12 md:pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-emerald-900/10 to-slate-950" />
+    <main className="min-h-screen bg-slate-950"><div className="relative pt-20 md:pt-48 pb-12 md:pb-16 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">

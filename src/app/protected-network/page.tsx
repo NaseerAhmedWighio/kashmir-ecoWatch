@@ -122,9 +122,9 @@ export default function ProtectedNetworkPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-48 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-slate-900 to-slate-950" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="relative pt-20 md:pt-48 pb-16 overflow-hidden">
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -353,7 +353,7 @@ export default function ProtectedNetworkPage() {
               >
                 <Card className="h-full overflow-hidden card-intelligence border border-white/5 bg-slate-900/50" padding="none">
                   <div className="relative h-48 bg-gradient-to-br from-emerald-500/20 to-slate-800/50">
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
+                    <div className="absolute inset-0 bg-[#160C27]" />
                     <div className="absolute bottom-4 left-4 right-4">
                       <Badge variant="info" size="sm" className="mb-2 capitalize">
                         {pa.category.replace('_', ' ')}

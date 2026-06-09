@@ -113,6 +113,7 @@ export function PremiumStickyHeader() {
         ];
       case 'Biodiversity':
         return [
+          { name: '📊 Dashboards', href: '/biodiversity/dashboards', desc: 'Analytics & trends' },
           // Species Group
           { name: '── Species ──', href: '#', desc: '', isHeader: true },
           { name: 'Species Directory', href: '/biodiversity', desc: 'Browse complete database' },
@@ -135,11 +136,11 @@ export function PremiumStickyHeader() {
           { name: '── Intelligence ──', href: '#', desc: '', isHeader: true },
           { name: 'Overview', href: '/biodiversity/overview', desc: 'Module command center' },
           { name: 'District Biodiversity Profiles', href: '/biodiversity/district-profiles', desc: 'Regional intelligence' },
-          { name: 'Dashboards', href: '/biodiversity/dashboards', desc: 'Analytics & trends' },
         ];
       case 'Water Systems':
         return [
           { name: '💧 Overview', href: '/water-systems', desc: 'Complete hydrological intelligence' },
+          { name: 'Dashboards', href: '/water-systems/dashboards', desc: 'Analytics, trends & heatmaps' },
           { name: 'Lakes', href: '/water-systems/lakes', desc: 'Major, minor, urban & high-altitude lakes' },
           { name: 'Wetlands', href: '/water-systems/wetlands', desc: 'Marshes, floodplain & Ramsar wetlands' },
           { name: 'Rivers & Streams', href: '/water-systems/rivers', desc: 'Major rivers, tributaries & streams' },
@@ -152,11 +153,11 @@ export function PremiumStickyHeader() {
           { name: 'Aquatic Life & Fisheries', href: '/water-systems/fisheries', desc: 'Fish species & fishery management' },
           { name: 'Restoration & Rejuvenation', href: '/water-systems/restoration', desc: 'Conservation & restoration projects' },
           { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', desc: 'Flood zones & hazard assessment' },
-          { name: 'Dashboards', href: '/water-systems/dashboards', desc: 'Analytics, trends & heatmaps' },
         ];
       case 'Environmental Monitoring':
         return [
           { name: '🏗️ Overview', href: '/environmental-monitoring', desc: 'Environmental intelligence command center' },
+          { name: 'Dashboards', href: '/environmental-monitoring/dashboards', desc: 'District comparison & stress heatmaps' },
           { name: 'Solid Waste', href: '/environmental-monitoring/solid-waste', desc: 'Dumping, landfill stress, open waste' },
           { name: 'Bio-Waste', href: '/environmental-monitoring/bio-waste', desc: 'Organic waste, decomposition zones' },
           { name: 'Sewage & Wastewater', href: '/environmental-monitoring/sewage-wastewater', desc: 'Overflow, outfalls, untreated discharge' },
@@ -165,7 +166,6 @@ export function PremiumStickyHeader() {
           { name: 'Air Pollution', href: '/environmental-monitoring/air-pollution', desc: 'AQI, particulate, smoke, burning' },
           { name: 'Environmental Health Signals', href: '/environmental-monitoring/environmental-health', desc: 'Odor, fish kill, stagnant water' },
           { name: 'Utility Incidents & Advisories', href: '/environmental-monitoring/utility-incidents', desc: 'Service failures, emergency notices' },
-          { name: 'Dashboards', href: '/environmental-monitoring/dashboards', desc: 'District comparison & stress heatmaps' },
         ];
       case 'Field Intelligence':
         return [
@@ -184,16 +184,19 @@ export function PremiumStickyHeader() {
           { name: 'Submit a Sighting', href: '/submit-sighting', desc: 'Wildlife & ecological observations' },
           { name: 'Contribute Data', href: '/contribute-data', desc: 'Structured datasets & research' },
           { name: 'Citizen Science', href: '/citizen-science', desc: 'Programs & recurring roles' },
+          { name: '── Research Library ──', href: '#', desc: '', isHeader: true },
+          { name: '📚 Research Library', href: '/research-library', desc: 'Environmental research & reports' },
+          { name: '🔬 Environmental Impact Assessments', href: '/research-library/environmental-impact-assessment', desc: 'EIA findings & analysis' },
         ];
       case 'Risk & Monitoring':
         return [
           { name: '⚠️ Overview', href: '/risk-monitoring', desc: 'Risk monitoring dashboard' },
+          { name: '📊 Dashboards', href: '/risk-monitoring/dashboards', desc: 'Risk monitoring dashboards' },
           { name: '🏔️ Hazard Risks', href: '/risk-monitoring/hazard-risks', desc: 'Multi-hazard risk systems' },
           { name: '🌫️ Pollution & Stress', href: '/risk-monitoring/pollution-stress', desc: 'Environmental pressure monitoring' },
           { name: '🦌 Biodiversity Risks', href: '/risk-monitoring/biodiversity-risks', desc: 'Species threat intelligence' },
           { name: '🚨 Response & Operations', href: '/risk-monitoring/response-operations', desc: 'Response and operational intelligence' },
           { name: '🔔 Live Alerts', href: '/risk-monitoring/live-alerts-advisories', desc: 'Real-time warnings' },
-          { name: '📊 Dashboards', href: '/risk-monitoring/dashboards', desc: 'Risk monitoring dashboards' },
         ];
       default:
         return [];

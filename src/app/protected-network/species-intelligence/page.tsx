@@ -24,6 +24,7 @@ export default function SpeciesIntelligencePage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Header */}
+    <div className='bg-[#160C27]'>
       <div className="pt-48 pb-12 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,6 +62,7 @@ export default function SpeciesIntelligencePage() {
           </div>
         </motion.div>
       </div>
+    </div>
 
       {/* Metrics */}
       <div className="container mx-auto px-6 -mt-8 relative z-20">

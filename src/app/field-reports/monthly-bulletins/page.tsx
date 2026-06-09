@@ -52,8 +52,8 @@ export default function MonthlyBulletinsPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/60 via-blue-950/40 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden bg-[#160C27]">
+        
         <div className="absolute top-32 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
         <div className="container mx-auto px-6 relative z-10">
@@ -74,7 +74,7 @@ export default function MonthlyBulletinsPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Monthly <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Environmental Bulletins</span>
+              Monthly <span className="text-emerald-400">Environmental Bulletins</span>
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">

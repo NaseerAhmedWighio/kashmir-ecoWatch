@@ -212,6 +212,16 @@ export function Navigation() {
                       </div>
                     </div>
                     
+                    <div className="border-b border-white/5">
+                      <Link
+                        href="/biodiversity/dashboards"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                      >
+                        <span className="font-medium">📊 Dashboards</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Analytics & trends</span>
+                      </Link>
+                    </div>
+                    
                     {/* Species Group */}
                     <div className="py-2 border-b border-white/5">
                       <div className="px-4 py-1.5 bg-emerald-500/10">
@@ -270,7 +280,6 @@ export function Navigation() {
                       {[
                         { name: 'Overview', href: '/biodiversity/overview', desc: 'Module command center' },
                         { name: 'District Biodiversity Profiles', href: '/biodiversity/district-profiles', desc: 'Regional intelligence' },
-                        { name: 'Dashboards', href: '/biodiversity/dashboards', desc: 'Analytics & trends' },
                       ].map((subitem) => (
                         <Link
                           key={subitem.name}
@@ -366,6 +375,7 @@ export function Navigation() {
                         <span className="block text-xs text-slate-500 mt-0.5">Complete hydrological intelligence</span>
                       </Link>
                       {[
+                        { name: 'Dashboards', href: '/water-systems/dashboards', icon: BarChart3, desc: 'Analytics, trends & heatmaps', color: 'text-orange-400' },
                         { name: 'Lakes', href: '/water-systems/lakes', icon: Droplet, desc: 'Major, minor, urban & high-altitude lakes', color: 'text-blue-400' },
                         { name: 'Wetlands', href: '/water-systems/wetlands', icon: Waves, desc: 'Marshes, floodplain & Ramsar wetlands', color: 'text-sky-400' },
                         { name: 'Rivers & Streams', href: '/water-systems/rivers', icon: Wind, desc: 'Major rivers, tributaries & streams', color: 'text-indigo-400' },
@@ -378,7 +388,6 @@ export function Navigation() {
                         { name: 'Aquatic Life & Fisheries', href: '/water-systems/fisheries', icon: Fish, desc: 'Fish species & fishery management', color: 'text-violet-400' },
                         { name: 'Restoration & Rejuvenation', href: '/water-systems/restoration', icon: Hammer, desc: 'Conservation & restoration projects', color: 'text-lime-400' },
                         { name: 'Flood & Hydrological Risk', href: '/water-systems/flood-risk', icon: AlertTriangle, desc: 'Flood zones & hazard assessment', color: 'text-red-400' },
-                        { name: 'Dashboards', href: '/water-systems/dashboards', icon: BarChart3, desc: 'Analytics, trends & heatmaps', color: 'text-orange-400' },
                       ].map((subitem) => (
                         <Link
                           key={subitem.name}
@@ -421,6 +430,7 @@ export function Navigation() {
                         <span className="block text-xs text-slate-500 mt-0.5">Environmental intelligence command center</span>
                       </Link>
                       {[
+                        { name: 'Dashboards', href: '/environmental-monitoring/dashboards', desc: 'District comparison & stress heatmaps', color: 'text-violet-400' },
                         { name: 'Solid Waste', href: '/environmental-monitoring/solid-waste', desc: 'Dumping, landfill stress, open waste', color: 'text-gray-400' },
                         { name: 'Bio-Waste', href: '/environmental-monitoring/bio-waste', desc: 'Organic waste, decomposition zones', color: 'text-emerald-400' },
                         { name: 'Sewage & Wastewater', href: '/environmental-monitoring/sewage-wastewater', desc: 'Overflow, outfalls, untreated discharge', color: 'text-blue-400' },
@@ -429,7 +439,6 @@ export function Navigation() {
                         { name: 'Air Pollution', href: '/environmental-monitoring/air-pollution', desc: 'AQI, particulate, smoke, burning', color: 'text-slate-400' },
                         { name: 'Environmental Health Signals', href: '/environmental-monitoring/environmental-health', desc: 'Odor, fish kill, stagnant water', color: 'text-amber-400' },
                         { name: 'Utility Incidents & Advisories', href: '/environmental-monitoring/utility-incidents', desc: 'Service failures, emergency notices', color: 'text-red-400' },
-                        { name: 'Dashboards', href: '/environmental-monitoring/dashboards', desc: 'District comparison & stress heatmaps', color: 'text-violet-400' },
                       ].map((subitem, i) => (
                         <Link
                           key={subitem.name}
@@ -525,6 +534,13 @@ export function Navigation() {
                         <span className="block text-xs text-slate-500 mt-0.5">Command center</span>
                       </Link>
                       <Link
+                        href="/risk-monitoring/dashboards"
+                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
+                      >
+                        <span className="font-medium">📊 Dashboards</span>
+                        <span className="block text-xs text-slate-500 mt-0.5">Live risk & incident dashboards</span>
+                      </Link>
+                      <Link
                         href="/risk-monitoring/live-alerts"
                         className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
                       >
@@ -614,13 +630,6 @@ export function Navigation() {
                       >
                         <span className="font-medium">🛤️ Shelters, Closures & Emergency Routes</span>
                         <span className="block text-xs text-slate-500 mt-0.5">Safe routes & operational mobility</span>
-                      </Link>
-                      <Link
-                        href="/risk-monitoring/dashboards"
-                        className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-b border-white/5 cursor-pointer"
-                      >
-                        <span className="font-medium">📊 Dashboards</span>
-                        <span className="block text-xs text-slate-500 mt-0.5">Live risk & incident dashboards</span>
                       </Link>
                       <Link
                         href="/risk-monitoring/soil-pollution"

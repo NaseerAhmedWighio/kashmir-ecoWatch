@@ -152,8 +152,8 @@ export default function ContributeGuidelinesPage() {
     <main className="min-h-screen bg-slate-950">
       {/* Hero */}
       <section className="relative pt-20 md:pt-48 pb-16 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-teal-950/30 to-slate-950" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -178,7 +178,7 @@ export default function ContributeGuidelinesPage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-black text-white mb-6">
-              Contribution <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Guidelines</span>
+              Contribution <span className="text-emerald-400">Guidelines</span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl">

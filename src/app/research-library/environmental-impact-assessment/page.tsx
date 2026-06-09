@@ -514,7 +514,7 @@ export default function EnvironmentalImpactAssessmentPage() {
     <div className="min-h-screen bg-slate-950">
       {/* Background gradient */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
+        <div className="absolute inset-0 bg-[#160C27]" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full" />
       </div>
 

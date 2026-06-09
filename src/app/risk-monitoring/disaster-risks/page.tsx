@@ -16,8 +16,8 @@ const risks = [
 export default function DisasterRisksPage() {
   const router = useRouter();
   return (
-    <main className="min-h-screen bg-slate-950"><section className="relative pt-48 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-950/50 via-orange-950/30 to-slate-950" />
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 md:pt-48 pb-20 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
             {/* Breadcrumb */}
@@ -32,7 +32,7 @@ export default function DisasterRisksPage() {
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl"><AlertTriangle className="w-8 h-8 text-white" /></div>
               <Badge variant="danger" size="lg">All Hazards</Badge>
             </div>
-            <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Disaster <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Risks</span></h1>
+            <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Disaster <span className="text-emerald-400">Risks</span></h1>
             <p className="text-xl text-slate-400 mb-8">Multi-hazard risk assessment and monitoring across Kashmir</p>
             <div className="flex flex-wrap items-center gap-4">
               <Button size="lg" className="bg-gradient-to-r from-red-500 to-orange-600" onClick={() => router.push('/risk-monitoring/hazard-risks')}><ArrowRight className="w-5 h-5 mr-2" />Back to Hazard Risks</Button>

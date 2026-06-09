@@ -58,9 +58,9 @@ export default function NoisePollutionPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-48 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-950/50 via-orange-950/30 to-slate-950" />
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+      <section className="relative pt-20 md:pt-48 pb-20 overflow-hidden">
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -85,7 +85,7 @@ export default function NoisePollutionPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Noise Pollution <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">Risk & Monitoring</span>
+              Noise Pollution <span className="text-emerald-400">Risk & Monitoring</span>
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">

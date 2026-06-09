@@ -46,8 +46,8 @@ export default function BloomMappingPage() {
           <Card className="glass-intense border-emerald-500/30 hover:border-emerald-500/50 transition-all cursor-pointer group overflow-hidden">
             <div className="relative p-6 md:p-8">
               {/* Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/50 via-teal-950/50 to-slate-950/50" />
-              <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+              <div className="absolute inset-0 bg-[#160C27]" />
+              <div className="absolute inset-0 bg-[#160C27]" />
               
               <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
                 {/* Icon */}

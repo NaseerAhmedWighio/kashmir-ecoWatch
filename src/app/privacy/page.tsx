@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -98,8 +98,8 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* 1. Hero */}
-      <section className="relative pt-20 md:pt-48 pb-16 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-teal-950/30 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-16 md:pb-24 overflow-hidden bg-blue-700">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -114,7 +114,7 @@ export default function PrivacyPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Privacy <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Policy</span>
+              Privacy <span className="text-emerald-400">Policy</span>
             </h1>
 
             <p className="text-xl text-slate-400 leading-relaxed max-w-4xl">

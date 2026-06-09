@@ -39,8 +39,8 @@ export default function WildlifeMonitoringPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-48 pb-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-teal-950/30 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-12 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
             <Link href="/citizen-science" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-6">
@@ -54,7 +54,7 @@ export default function WildlifeMonitoringPage() {
               <Badge variant="success" size="lg">Citizen Science Program</Badge>
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Wildlife <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Monitoring</span>
+              Wildlife <span className="text-emerald-400">Monitoring</span>
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl">
               Track and document wildlife populations, distributions, and behavioral patterns across Kashmir&apos;s ecosystems. 

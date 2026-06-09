@@ -25,9 +25,9 @@ export default function SeasonalEcologyHubPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <div className="relative pt-48 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/30 via-slate-950 to-slate-950" />
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+      <div className="relative pt-20 md:pt-48 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-[#160C27]" />
+        <div className="absolute inset-0 bg-[#160C27]" />
         
         {/* Animated Gradient Orbs */}
         <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-emerald-500/15 rounded-full blur-3xl animate-pulse" />

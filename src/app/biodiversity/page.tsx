@@ -191,8 +191,8 @@ export default function BiodiversityPage() {
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
       <div className="relative pt-20 md:pt-48 pb-16 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-forest-900/20 via-purple-900/10 to-slate-950" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div

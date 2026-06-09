@@ -182,10 +182,10 @@ export default function WaterQualityTestingPage() {
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       {/* ─── Hero Section ─────────────────────────────────────────── */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-950/50 via-cyan-950/30 to-emerald-950/50" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-teal-500/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[#160C27]" />
+        <div className="absolute inset-0 bg-[#160C27]" />
 
-        <div className="relative container mx-auto px-4 md:px-6 py-12 md:py-16">
+        <div className="relative container mx-auto px-4 md:px-6 pt-20 md:pt-48 pb-16 md:pb-20">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6 flex-wrap">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>

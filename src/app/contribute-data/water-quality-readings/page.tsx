@@ -109,8 +109,8 @@ export default function WaterQualityReadingsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-48 pb-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/50 via-cyan-950/30 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-12 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
             <Link href="/contribute-data" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-6">
@@ -124,7 +124,7 @@ export default function WaterQualityReadingsPage() {
               <Badge variant="info" size="lg">Water Quality</Badge>
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Water Quality <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Readings</span>
+              Water Quality <span className="text-emerald-400">Readings</span>
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl">
               Submit pH, dissolved oxygen, turbidity, temperature, and other water quality parameters from Kashmir&apos;s waterbodies. 

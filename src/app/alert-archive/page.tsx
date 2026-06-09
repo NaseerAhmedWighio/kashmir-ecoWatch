@@ -282,8 +282,8 @@ export default function AlertArchivePage() {
     <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="pt-20 md:pt-48 pb-16 md:pb-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-indigo-950/30 to-slate-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-transparent to-transparent" />
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

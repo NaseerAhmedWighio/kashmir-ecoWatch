@@ -72,8 +72,8 @@ function MonitoringOverviewPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* ===== HERO ===== */}
-      <section className="relative pt-20 md:pt-36 pb-16 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/60 via-green-950/30 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-16 md:pb-24 overflow-hidden bg-[#160C27]">
+        
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl" />
@@ -92,7 +92,7 @@ function MonitoringOverviewPage() {
 
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
               Monitoring{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-400">
+              <span className="text-emerald-400">
                 Intelligence Overview
               </span>
             </h1>

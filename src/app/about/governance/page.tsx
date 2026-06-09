@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -179,8 +179,8 @@ export default function GovernancePage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* ─── 1. Hero ──────────────────────────────────────────────────────── */}
-      <section className="relative pt-20 md:pt-48 pb-16 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/50 via-slate-950/30 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-16 md:pb-24 overflow-hidden bg-blue-700">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
             <div className="flex items-center gap-3 mb-6">
@@ -191,7 +191,7 @@ export default function GovernancePage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-slate-400">Governance</span>
+              <span className="text-emerald-400">Governance</span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl mb-8">

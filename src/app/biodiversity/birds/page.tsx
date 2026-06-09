@@ -24,7 +24,7 @@ export default function BirdsPage() {
       title="Birds"
       subtitle="Resident and migratory bird species across wetlands, forests, and alpine zones with seasonal migration patterns"
       icon="Activity"
-      color="from-sky-500 to-blue-600"
+      color="bg-[#160C27]"
       species={species}
       metrics={metrics}
       filters={filters}

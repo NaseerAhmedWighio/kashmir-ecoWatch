@@ -136,9 +136,9 @@ export default function EnvironmentalHealthPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-48 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/30 via-orange-900/20 to-slate-950" />
-        <div className="absolute inset-0 bg-grid opacity-10" />
+      <section className="relative pt-20 md:pt-48 pb-16 overflow-hidden">
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
@@ -158,7 +158,7 @@ export default function EnvironmentalHealthPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Environmental <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">Health</span>
+              Environmental <span className="text-emerald-400">Health</span>
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">

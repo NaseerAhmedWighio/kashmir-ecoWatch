@@ -39,6 +39,7 @@ coverage/
 # Qwen Code
 .qwen/
 ESRO
+kew
 
 # TypeScript cache
 *.tsbuildinfo

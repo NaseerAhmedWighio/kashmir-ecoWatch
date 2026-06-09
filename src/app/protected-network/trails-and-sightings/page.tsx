@@ -25,7 +25,9 @@ export default function TrailsAndSightingsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950"><div className="pt-48 pb-12 container mx-auto px-6">
+    <main className="min-h-screen bg-slate-950">
+      <div className='bg-[#160C27]'>
+      <div className="pt-48 pb-12 container mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
@@ -51,6 +53,7 @@ export default function TrailsAndSightingsPage() {
             </Button>
           </div>
         </motion.div>
+      </div>
       </div>
 
       {/* Metrics */}

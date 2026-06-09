@@ -106,9 +106,9 @@ export default function ContributeDataPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-48 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/50 via-indigo-950/30 to-slate-950" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
+      <section className="relative pt-20 md:pt-48 pb-16 overflow-hidden">
+        
+        <div className="absolute inset-0 bg-[#160C27]" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
@@ -126,7 +126,7 @@ export default function ContributeDataPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Contribute <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Data</span>
+              Contribute <span className="text-emerald-400">Data</span>
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">

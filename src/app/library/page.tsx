@@ -184,8 +184,8 @@ export default function LibraryPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section - Evidence Intelligence */}
-      <section className="relative pt-20 md:pt-48 pb-16 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/50 via-purple-950/30 to-slate-950" />
+      <section className="relative pt-20 md:pt-48 pb-16 md:pb-24 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -200,7 +200,7 @@ export default function LibraryPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-              Evidence <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Intelligence</span> Library
+              Evidence <span className="text-emerald-400">Intelligence</span> Library
             </h1>
 
             <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-4xl">

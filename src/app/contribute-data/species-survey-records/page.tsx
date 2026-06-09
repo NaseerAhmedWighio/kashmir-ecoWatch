@@ -108,8 +108,8 @@ export default function SpeciesSurveyRecordsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950"><section className="relative pt-48 pb-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/50 via-teal-950/30 to-slate-950" />
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 md:pt-48 pb-12 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
             <Link href="/contribute-data" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-6">
@@ -123,7 +123,7 @@ export default function SpeciesSurveyRecordsPage() {
               <Badge variant="success" size="lg">Biodiversity</Badge>
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Species Survey <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Records</span>
+              Species Survey <span className="text-emerald-400">Records</span>
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl">
               Submit structured species count data, population surveys, and distribution records. 

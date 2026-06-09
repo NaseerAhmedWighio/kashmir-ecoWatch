@@ -35,8 +35,8 @@ export default function CommunityOutreachPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950"><section className="relative pt-48 pb-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-950/50 via-orange-950/30 to-slate-950" />
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 md:pt-48 pb-12 overflow-hidden bg-[#160C27]">
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
             <Link href="/citizen-science" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-6"><ArrowLeft className="w-4 h-4" />Back to Citizen Science</Link>
@@ -44,7 +44,7 @@ export default function CommunityOutreachPage() {
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-xl"><Users className="w-7 h-7 text-white" /></div>
               <Badge variant="warning" size="lg">Outreach Program</Badge>
             </div>
-            <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Community <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">Outreach</span></h1>
+            <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Community <span className="text-emerald-400">Outreach</span></h1>
             <p className="text-lg text-slate-400 max-w-2xl">Engage local communities in conservation awareness, environmental monitoring training, and citizen science programs. Build bridges between science and society.</p>
           </motion.div>
         </div>
