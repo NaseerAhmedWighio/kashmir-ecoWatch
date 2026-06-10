@@ -123,7 +123,7 @@ export default function ReportIssuePage() {
   // Success screen
   if (submitted) {
     return (
-      <main className="min-h-screen bg-slate-950"><section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <main className="min-h-screen bg-slate-950"><section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
           
           <div className="container mx-auto px-6 relative z-10">
             <motion.div 
@@ -187,7 +187,7 @@ export default function ReportIssuePage() {
             </motion.div>
           </div>
         </section>
-        <AdvancedFooter />
+        
       </main>
     );
   }
@@ -195,7 +195,7 @@ export default function ReportIssuePage() {
   // Main form
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -218,7 +218,7 @@ export default function ReportIssuePage() {
               Report an <span className="text-emerald-400">Issue</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Report environmental hazards, emergencies, and urgent concerns for rapid response
               and district-level risk intelligence
             </p>
@@ -543,7 +543,7 @@ export default function ReportIssuePage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

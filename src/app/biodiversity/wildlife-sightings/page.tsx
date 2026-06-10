@@ -58,13 +58,13 @@ export default function WildlifeSightingsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Eye className="w-6 h-6 text-emerald-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Biodiversity Intelligence
               </span>
             </div>
@@ -121,7 +121,7 @@ export default function WildlifeSightingsPage() {
       {/* Filters */}
       <div className="container mx-auto px-6 py-8">
         <Card className="border border-white/10 bg-slate-900/50 mb-8" padding="md">
-          <div className="flex flex-wrap gap-4 items-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center">
             <div className="relative flex-1 min-w-[200px]">
               <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
               <input
@@ -238,7 +238,7 @@ export default function WildlifeSightingsPage() {
         )}
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

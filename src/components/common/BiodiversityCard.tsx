@@ -90,7 +90,7 @@ export function BiodiversityCard({ species, onQuickView, variant = 'default' }: 
         ) : null}
 
         {/* Taxonomic group */}
-        <div className="absolute bottom-20 left-4 right-4 z-10">
+        <div className="absolute bottom-16 left-4 right-4 z-10">
           <div className="flex items-center gap-2 mb-2">
             <Badge variant="info" size="sm" className="capitalize">
               {species.taxonomicGroup.replace('-', ' ')}

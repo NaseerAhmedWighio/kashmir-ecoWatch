@@ -93,7 +93,7 @@ export default function WaterSystemsDashboardsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -105,18 +105,18 @@ export default function WaterSystemsDashboardsPage() {
           >
             <div className="flex items-center gap-2 mb-4">
               <BarChart3 className="w-6 h-6 text-cyan-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Water Systems Analytics
               </span>
             </div>
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Water Dashboards
             </h1>
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Real-time analytics, trends, and heatmaps for hydrological monitoring, water quality tracking, 
               and aquatic ecosystem health across Kashmir
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-cyan-600 to-blue-500"
@@ -263,7 +263,7 @@ export default function WaterSystemsDashboardsPage() {
         </motion.div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

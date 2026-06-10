@@ -44,15 +44,16 @@ export default function PhenologyFloweringPage() {
   const breedingCount = records.filter(r => r.recordType === 'breeding').length;
 
   return (
-    <main className="min-h-screen bg-slate-950"><div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+    <main className="min-h-screen bg-slate-950">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Flower2 className="w-6 h-6 text-pink-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">Biodiversity Intelligence</span>
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Biodiversity Intelligence</span>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Phenology & Flowering Records</h1>
+            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Phenology & Flowering Records</h1>
             <p className="text-lg text-slate-400 mb-6">
               Flowering timing, seasonal observations, first bloom observations, and climate-linked phenology records across Kashmir.
             </p>
@@ -86,16 +87,16 @@ export default function PhenologyFloweringPage() {
       <div className="container mx-auto px-6 py-8">
         {/* Search + Filters */}
         <Card className="border border-white/10 bg-slate-900/50 mb-8" padding="md">
-          <div className="flex flex-wrap gap-4 items-center">
+          <div className="flex flex-row flex-wrap justify-between gap-4 items-center">
             <div className="relative flex-1 min-w-[200px]">
               <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
               <input type="text" placeholder="Search records..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full pl-9 pr-4 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder:text-slate-500 outline-none focus:border-pink-500/50" />
             </div>
-            <select value={filterType} onChange={e => setFilterType(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
+            <select value={filterType} onChange={e => setFilterType(e.target.value)} className="px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
               <option value="all">All Types</option>
               {recordTypes.map(t => <option key={t} value={t}>{t.replace(/-/g, ' ')}</option>)}
             </select>
-            <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
+            <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
               <option value="all">All Districts</option>
               {districts.map(d => <option key={d} value={d}>{d}</option>)}
             </select>
@@ -151,7 +152,7 @@ export default function PhenologyFloweringPage() {
         )}
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

@@ -264,17 +264,17 @@ export default function ModuleDirectoryPage() {
           >
             <div className="flex items-center gap-2 mb-4">
               <Grid3x3 className="w-6 h-6 text-violet-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Platform Modules
               </span>
             </div>
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Module Directory
             </h1>
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Complete system index of all Kashmir EcoWatch modules, intelligence layers, and operational pathways.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-violet-500 to-indigo-600"

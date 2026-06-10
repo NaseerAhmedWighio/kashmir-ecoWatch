@@ -296,7 +296,7 @@ export default function LiveIncidentMapPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -311,7 +311,7 @@ export default function LiveIncidentMapPage() {
               Live Incident <span className="text-emerald-400">Map</span>
             </h1>
 
-            <p className="text-xl text-slate-400 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Real-time spatial view of active environmental incidents, field reports, and hazard events across Kashmir.
             </p>
           </motion.div>
@@ -364,7 +364,7 @@ export default function LiveIncidentMapPage() {
       {/* Filter Controls */}
       <section className="border-b border-white/5 bg-slate-950/50">
         <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-slate-400" />
               <span className="text-sm font-medium text-slate-300">Filters:</span>
@@ -477,7 +477,7 @@ export default function LiveIncidentMapPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

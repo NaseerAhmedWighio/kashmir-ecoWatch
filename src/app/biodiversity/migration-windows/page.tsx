@@ -37,15 +37,15 @@ export default function MigrationWindowsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Clock className="w-6 h-6 text-sky-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">Biodiversity Intelligence</span>
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Biodiversity Intelligence</span>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Migration Windows</h1>
+            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Migration Windows</h1>
             <p className="text-lg text-slate-400 mb-6">
               Migratory bird timing across Kashmir wetlands — resident vs migratory patterns,
               district timing differences, and current migration status.
@@ -86,7 +86,7 @@ export default function MigrationWindowsPage() {
       {/* Filters + Grid */}
       <div className="container mx-auto px-6 py-8">
         <Card className="border border-white/10 bg-slate-900/50 mb-8" padding="md">
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
               <option value="all">All Districts</option>
               {districts.map(d => <option key={d} value={d}>{d}</option>)}
@@ -148,7 +148,7 @@ export default function MigrationWindowsPage() {
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

@@ -79,7 +79,7 @@ export function WaterEntityListingPage({
 
   return (
     <main className="min-h-screen bg-slate-950 flex flex-col">{/* Hero */}
-      <div className="relative pt-48 pb-12 overflow-hidden flex-shrink-0">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden flex-shrink-0">
         <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-20`} />
         <div className="absolute inset-0 bg-grid opacity-20" />
 
@@ -104,10 +104,10 @@ export function WaterEntityListingPage({
                   </div>
                   <Badge variant="info" size="lg">{entities.length} {entityType}</Badge>
                 </div>
-                <h1 className="text-5xl font-black text-white mb-4">
+                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
                   {title}
                 </h1>
-                <p className="text-xl text-slate-400 max-w-3xl leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 max-w-3xl leading-relaxed mb-8">
                   {description}
                 </p>
               </div>
@@ -354,7 +354,7 @@ export function WaterEntityListingPage({
 
       {renderAdditionalContent && renderAdditionalContent()}
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

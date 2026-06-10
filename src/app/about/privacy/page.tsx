@@ -35,7 +35,7 @@ export default function PrivacyPage() {
               Sensitivity & <span className="text-emerald-400">Privacy</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Commitment to protecting personal information and ensuring ethical
               handling of all data submitted to Kashmir EcoWatch
             </p>

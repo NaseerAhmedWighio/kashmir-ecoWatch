@@ -95,7 +95,7 @@ export default function RainwaterHarvestingPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[#160C27]" />
-        <div className="relative container mx-auto px-4 md:px-6 pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20">
+        <div className="relative container mx-auto px-4 md:px-6 pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20">
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span className="text-slate-600">/</span>

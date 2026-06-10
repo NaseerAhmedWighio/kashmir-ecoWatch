@@ -316,7 +316,7 @@ export default function EarthquakeRiskMonitoringPage() {
     <main className="min-h-screen bg-slate-950">
 
       {/* ========== HERO SECTION ========== */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-red-500/5 rounded-full blur-3xl" />
 
@@ -348,14 +348,14 @@ export default function EarthquakeRiskMonitoringPage() {
               Earthquake &amp; <span className="text-emerald-400">Seismic Risk</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               The Kashmir Himalayas sit in Seismic Zone V — India&apos;s highest hazard classification.
               The Indian plate continues thrusting beneath Eurasia at ~2 cm/year, accumulating strain
               that releases as devastating earthquakes. Monitoring, preparedness, and structural
               resilience are critical for the Valley&apos; 20 million+ residents.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white shadow-xl"
@@ -442,7 +442,7 @@ export default function EarthquakeRiskMonitoringPage() {
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-white mb-1">{zone.label}</h3>
                     <p className="text-sm text-slate-400 mb-3">{zone.description}</p>
-                    <div className="flex flex-wrap gap-4 text-sm">
+                    <div className="flex flex-col sm:flex-row flex-wrap gap-4 text-sm">
                       <div>
                         <span className="text-slate-500">Peak Ground Acceleration: </span>
                         <span className="text-red-400 font-semibold">{zone.peakGroundAcceleration}</span>
@@ -832,7 +832,7 @@ export default function EarthquakeRiskMonitoringPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

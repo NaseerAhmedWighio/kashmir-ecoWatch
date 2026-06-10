@@ -57,7 +57,7 @@ export default function LakesPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -85,7 +85,7 @@ export default function LakesPage() {
                 <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
                   All Lakes of Kashmir
                 </h1>
-                <p className="text-xl text-slate-400 max-w-3xl leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
                   Comprehensive inventory of every major, minor, urban, rural, high-altitude, floodplain, and district-level lake mapped across Kashmir. Includes water quality, biodiversity, hydrology, and threat monitoring.
                 </p>
               </div>
@@ -284,7 +284,7 @@ export default function LakesPage() {
         </motion.div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

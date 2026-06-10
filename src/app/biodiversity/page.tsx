@@ -190,7 +190,7 @@ export default function BiodiversityPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
         
@@ -200,24 +200,24 @@ export default function BiodiversityPage() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Leaf className="w-6 h-6 text-forest-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+            <div className="flex items-center gap-2 mb-3">
+              <Leaf className="w-4 h-4 text-forest-400" />
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Biodiversity Intelligence
               </span>
             </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-3 sm:mb-4 leading-tight tracking-tight">
               Species, Habitats & Ecological Intelligence
             </h1>
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-6 leading-relaxed max-w-3xl">
               Comprehensive species database with distribution, habitat associations, 
               seasonal patterns, conservation status, and ecological relevance across Kashmir
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-forest-600 to-forest-500"
-                icon={<Leaf className="w-5 h-5" />}
+                icon={<Leaf className="w-4 h-4" />}
               >
                 Browse All Species
               </Button>
@@ -225,7 +225,7 @@ export default function BiodiversityPage() {
                 size="lg" 
                 variant="outline" 
                 className="border-white/20 text-white"
-                icon={<Map className="w-5 h-5" />}
+                icon={<Map className="w-4 h-4" />}
               >
                 Biodiversity Atlas
               </Button>
@@ -233,7 +233,7 @@ export default function BiodiversityPage() {
                 size="lg" 
                 variant="outline" 
                 className="border-white/20 text-white"
-                icon={<Eye className="w-5 h-5" />}
+                icon={<Eye className="w-4 h-4" />}
               >
                 View Sightings
               </Button>
@@ -261,7 +261,7 @@ export default function BiodiversityPage() {
                 { label: 'Mammals', value: biodiversityMetrics.mammals, icon: Mountain },
                 { label: 'Fish Species', value: biodiversityMetrics.fish, icon: Droplet },
               ].map((metric, idx) => (
-                <div key={idx} className="text-center p-4 border-r border-white/5 last:border-r-0">
+                <div key={idx} className="text-center p-4 border-r border-white/5 even:border-r-0 md:even:border-r md:[&:nth-child(4n)]:border-r-0 lg:[&:nth-child(4n)]:border-r lg:last:border-r-0">
                   <metric.icon className="w-5 h-5 text-slate-500 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-white tabular-nums">
                     {metric.value.toLocaleString()}
@@ -290,10 +290,10 @@ export default function BiodiversityPage() {
               Explore by Taxonomic Group
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Biodiversity Categories
           </h2>
-          <p className="text-slate-400 max-w-2xl">
+          <p className="text-xs sm:text-sm md:text-base text-slate-400 max-w-2xl">
             Access specialized intelligence for each taxonomic group with habitat associations, 
             conservation status, and distribution data
           </p>
@@ -314,14 +314,14 @@ export default function BiodiversityPage() {
                   padding="lg"
                 >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} text-white flex items-center justify-center shadow-lg`}>
-                    <category.icon className="w-7 h-7" />
+                  <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl bg-gradient-to-br ${category.color} text-white flex items-center justify-center shadow-lg`}>
+                    <category.icon className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-white mb-1 group-hover:text-forest-300 transition-colors">
                       {category.title}
                     </h3>
-                    <div className="text-3xl font-bold text-white">
+                    <div className="text-2xl md:text-3xl font-bold text-white">
                       {category.count.toLocaleString()}
                     </div>
                     <div className="text-xs text-slate-500 uppercase">species</div>
@@ -358,17 +358,18 @@ export default function BiodiversityPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-3 gap-3">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                 <Layers className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">Habitat Intelligence</h2>
-                <p className="text-slate-400">Ecosystem-level biodiversity patterns</p>
+                <h2 className="text-xl font-bold text-white">Habitat Intelligence</h2>
+                <p className="text-xs sm:text-sm text-slate-400">Ecosystem-level biodiversity patterns</p>
               </div>
             </div>
             <Button
+              size="sm"
               variant="outline"
               className="border-white/20 text-white hover:bg-white/5"
               onClick={() => router.push('/biodiversity?filter=habitat')}
@@ -405,8 +406,8 @@ export default function BiodiversityPage() {
               <Filter className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-white">Distribution Intelligence</h2>
-              <p className="text-slate-400">Multiple pathways to explore biodiversity</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white">Distribution Intelligence</h2>
+              <p className="text-xs sm:text-sm md:text-base text-slate-400">Multiple pathways to explore biodiversity</p>
             </div>
           </div>
         </motion.div>
@@ -437,17 +438,17 @@ export default function BiodiversityPage() {
                 Featured Intelligence
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Featured Species
             </h2>
-            <p className="text-slate-400 max-w-2xl">
+            <p className="text-xs sm:text-sm md:text-base text-slate-400 max-w-2xl">
               Iconic and conservation-significant species representing Kashmir's biodiversity heritage
             </p>
           </div>
           <Button 
             variant="outline" 
             className="border-white/20 text-white"
-            icon={<ArrowRight className="w-5 h-5" />}
+            icon={<ArrowRight className="w-4 h-4" />}
           >
             View All Species
           </Button>
@@ -481,8 +482,8 @@ export default function BiodiversityPage() {
               <Shield className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-white">Conservation Intelligence</h2>
-              <p className="text-slate-400">Threatened species, legal protection, and vulnerability patterns</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white">Conservation Intelligence</h2>
+              <p className="text-xs sm:text-sm md:text-base text-slate-400">Threatened species, legal protection, and vulnerability patterns</p>
             </div>
           </div>
         </motion.div>
@@ -503,14 +504,14 @@ export default function BiodiversityPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
                 <Building2 className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">District Intelligence</h2>
-                <p className="text-slate-400">Biodiversity across all 16 districts of Kashmir</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-white">District Intelligence</h2>
+                <p className="text-xs sm:text-sm md:text-base text-slate-400">Biodiversity across all 16 districts of Kashmir</p>
               </div>
             </div>
             <Button
@@ -551,14 +552,14 @@ export default function BiodiversityPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                 <Leaf className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">Endemic Species</h2>
-                <p className="text-slate-400">Unique to Kashmir and the Himalayas</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-white">Endemic Species</h2>
+                <p className="text-xs sm:text-sm md:text-base text-slate-400">Unique to Kashmir and the Himalayas</p>
               </div>
             </div>
             <Button
@@ -607,14 +608,14 @@ export default function BiodiversityPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
                 <Calendar className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">Migration Intelligence</h2>
-                <p className="text-slate-400">Seasonal patterns and flyway data</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-white">Migration Intelligence</h2>
+                <p className="text-xs sm:text-sm md:text-base text-slate-400">Seasonal patterns and flyway data</p>
               </div>
             </div>
             <Button
@@ -628,7 +629,7 @@ export default function BiodiversityPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-12 gap-2">
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2">
           {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, idx) => {
             const count = getMigratorySpecies().filter(s => 
               s.migrationWindow?.peakPresence?.includes(idx + 1)
@@ -641,7 +642,7 @@ export default function BiodiversityPage() {
                 className={`${intensity} rounded-lg p-3 text-center hover:scale-105 transition-transform`}
               >
                 <div className="text-xs text-white/70 mb-1">{month}</div>
-                <div className="text-lg font-bold text-white">{count}</div>
+                <div className="text-sm sm:text-base lg:text-lg font-bold text-white">{count}</div>
               </div>
             );
           })}
@@ -658,14 +659,14 @@ export default function BiodiversityPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center">
                 <TrendingUp className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">Risk Dashboard</h2>
-                <p className="text-slate-400">Threat analysis and conservation priorities</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-white">Risk Dashboard</h2>
+                <p className="text-xs sm:text-sm md:text-base text-slate-400">Threat analysis and conservation priorities</p>
               </div>
             </div>
             <Button
@@ -686,7 +687,7 @@ export default function BiodiversityPage() {
               return (
                 <>
                   <div className="text-center">
-                    <div className={`text-5xl font-bold ${risk.overallRiskScore >= 50 ? 'text-red-400' : 'text-yellow-400'}`}>
+                    <div className={`text-3xl md:text-5xl font-bold ${risk.overallRiskScore >= 50 ? 'text-red-400' : 'text-yellow-400'}`}>
                       {risk.overallRiskScore}
                     </div>
                     <div className="text-sm text-slate-400 mt-1">Overall Risk Score</div>
@@ -752,7 +753,7 @@ export default function BiodiversityPage() {
         />
       )}
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

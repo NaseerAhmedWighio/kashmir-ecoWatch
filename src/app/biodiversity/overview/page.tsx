@@ -76,7 +76,7 @@ export default function BiodiversityOverviewPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -86,24 +86,24 @@ export default function BiodiversityOverviewPage() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Leaf className="w-6 h-6 text-forest-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+            <div className="flex items-center gap-2 mb-3">
+              <Leaf className="w-4 h-4 text-forest-400" />
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Biodiversity Intelligence
               </span>
             </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-3 sm:mb-4 leading-tight tracking-tight">
               Species, Habitat & Observation Intelligence
             </h1>
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-6 leading-relaxed max-w-3xl">
               Kashmir's comprehensive biodiversity database — species records, habitat intelligence,
               wildlife sightings, migration timing, phenology, and conservation priority tracking.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-forest-600 to-forest-500"
-                icon={<Leaf className="w-5 h-5" />}
+                icon={<Leaf className="w-4 h-4" />}
                 onClick={() => router.push('/biodiversity')}
               >
                 Species Directory
@@ -112,7 +112,7 @@ export default function BiodiversityOverviewPage() {
                 size="lg"
                 variant="outline"
                 className="border-white/20 text-white"
-                icon={<Eye className="w-5 h-5" />}
+                icon={<Eye className="w-4 h-4" />}
                 onClick={() => router.push('/biodiversity/wildlife-sightings')}
               >
                 Wildlife Sightings
@@ -121,7 +121,7 @@ export default function BiodiversityOverviewPage() {
                 size="lg"
                 variant="outline"
                 className="border-white/20 text-white"
-                icon={<BarChart3 className="w-5 h-5" />}
+                icon={<BarChart3 className="w-4 h-4" />}
                 onClick={() => router.push('/biodiversity/dashboards')}
               >
                 Dashboards
@@ -150,7 +150,7 @@ export default function BiodiversityOverviewPage() {
                 { label: 'Threatened', value: biodiversityMetrics.threatened, icon: Shield },
                 { label: 'Active Migrations', value: activeMigrations.length, icon: Clock },
               ].map((metric, idx) => (
-                <div key={idx} className="text-center p-4 border-r border-white/5 last:border-r-0">
+                <div key={idx} className="text-center p-4 border-r border-white/5 even:border-r-0 md:even:border-r md:[&:nth-child(4n)]:border-r-0 lg:[&:nth-child(4n)]:border-r lg:last:border-r-0">
                   <metric.icon className="w-5 h-5 text-slate-500 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-white tabular-nums">
                     {metric.value.toLocaleString()}
@@ -284,17 +284,18 @@ export default function BiodiversityOverviewPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col items-center gap-3 mb-3">
+            <div className="flex items-start justify-between gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
                 <Clock className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">Active Migration Periods</h2>
-                <p className="text-slate-400">Current migratory bird activity across Kashmir wetlands</p>
+                <h2 className="text-xl font-bold text-white">Active Migration Periods</h2>
+                <p className="text-xs sm:text-sm text-slate-400">Current migratory bird activity across Kashmir wetlands</p>
               </div>
             </div>
             <Button
+              size='sm'
               variant="outline"
               className="border-white/20 text-white hover:bg-white/5"
               onClick={() => router.push('/biodiversity/migration-windows')}
@@ -336,14 +337,14 @@ export default function BiodiversityOverviewPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col items-center gap-3 mb-3">
+            <div className="flex items-center justify-between gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                 <Flower2 className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">Recent Phenology & Flowering Records</h2>
-                <p className="text-slate-400">Latest flowering, breeding, and seasonal activity observations</p>
+                <h2 className="text-xl font-bold text-white">Recent Phenology & Flowering Records</h2>
+                <p className="text-xs sm:text-sm text-slate-400">Latest flowering, breeding, and seasonal activity observations</p>
               </div>
             </div>
             <Button
@@ -390,14 +391,14 @@ export default function BiodiversityOverviewPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col items-center gap-3 mb-3">
+            <div className="flex items-center justify-between gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
                 <AlertTriangle className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">Habitat Signal Alerts</h2>
-                <p className="text-slate-400">Seasonal habitat transitions and stress indicators</p>
+                <h2 className="text-xl font-bold text-white">Habitat Signal Alerts</h2>
+                <p className="text-xs sm:text-sm text-slate-400">Seasonal habitat transitions and stress indicators</p>
               </div>
             </div>
             <Button
@@ -437,14 +438,14 @@ export default function BiodiversityOverviewPage() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col items-center gap-3 mb-3">
+            <div className="flex items-center justify-between gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
                 <Building2 className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">District Biodiversity Leaders</h2>
-                <p className="text-slate-400">Top districts by species richness and conservation significance</p>
+                <h2 className="text-xl font-bold text-white">District Biodiversity Leaders</h2>
+                <p className="text-xs sm:text-sm text-slate-400">Top districts by species richness and conservation significance</p>
               </div>
             </div>
             <Button
@@ -465,7 +466,7 @@ export default function BiodiversityOverviewPage() {
               onClick={() => router.push(`/biodiversity/district/${district.district.toLowerCase().replace(/\s+/g, '-')}`)}
               className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all text-left"
             >
-              <div className="text-2xl font-bold text-white">{district.totalSpecies}</div>
+              <div className="text-xl font-bold text-white">{district.totalSpecies}</div>
               <div className="text-xs text-slate-400 truncate">{district.district}</div>
               <div className="text-xs text-slate-500 mt-1">
                 {district.threatenedSpecies} threatened
@@ -475,7 +476,7 @@ export default function BiodiversityOverviewPage() {
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

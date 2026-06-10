@@ -181,7 +181,7 @@ export default function AboutPage() {
               About <span className="text-emerald-400">Kashmir EcoWatch</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-4xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-4xl">
               A Kashmir Diaspora-Supported Initiative for Environmental Intelligence, Scientific Stewardship,
               and Public-Interest Environmental Knowledge, supported by Dr. Kumar Foundation USA.
             </p>
@@ -194,7 +194,7 @@ export default function AboutPage() {
               public contribution pathways within a structured institutional framework.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600" onClick={() => router.push('/about/mission')}>
                 Our Mission
               </Button>
@@ -572,7 +572,7 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 mt-8 pt-8 border-t border-white/5">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8 pt-8 border-t border-white/5">
                 <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600" onClick={() => router.push('/about/mission')}>
                   Our Mission
                 </Button>

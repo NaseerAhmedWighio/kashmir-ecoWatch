@@ -35,7 +35,7 @@ export default function MonitoringPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       <div className='bg-[#160C27]'>
-      <div className="pt-48 pb-12 container mx-auto px-6">
+      <div className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-12 container mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
@@ -48,11 +48,11 @@ export default function MonitoringPage() {
 
           <div className="flex items-center gap-2 mb-4">
             <Bell className="w-6 h-6 text-amber-400" />
-            <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">Conservation Intelligence</span>
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Conservation Intelligence</span>
           </div>
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Monitoring & Threats</h1>
           <p className="text-xl text-slate-400 mb-8">Pressure signals, habitat condition, and conservation alerts across protected areas</p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Button className="bg-gradient-to-r from-amber-600 to-amber-500" icon={<Bell className="w-5 h-5" />}>Subscribe to Alerts</Button>
             <Button variant="outline" className="border-white/20 text-white" icon={<TrendingUp className="w-5 h-5" />}>View Trends</Button>
           </div>
@@ -117,7 +117,7 @@ export default function MonitoringPage() {
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

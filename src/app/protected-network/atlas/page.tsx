@@ -30,7 +30,7 @@ export default function ProtectedAreaAtlasPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Header */}
-      <div className="pt-48 pb-6 container mx-auto px-6">
+      <div className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-6 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -235,7 +235,7 @@ export default function ProtectedAreaAtlasPage() {
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

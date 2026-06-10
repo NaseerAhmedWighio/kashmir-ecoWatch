@@ -236,7 +236,7 @@ function HeroSection() {
       >
         <div className="flex items-center gap-2 mb-4">
           <Network className="w-6 h-6 text-emerald-400" />
-          <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+          <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
             Conservation Intelligence
           </span>
         </div>
@@ -248,14 +248,14 @@ function HeroSection() {
           </span>
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+        <p className="text-lg md:text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
           Comprehensive documentation of the Environmental Development & Research Organisation (ESRO)
           conservation network architecture that formed the foundation for Kashmir&apos;s environmental
           intelligence platform. Four interconnected networks coordinating biodiversity conservation,
           climate action, Trans-Himalayan planning, and environment-peacebuilding.
         </p>
 
-        <div className="flex flex-wrap gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
           <Button
             size="lg"
             className="bg-gradient-to-r from-emerald-600 to-teal-600"

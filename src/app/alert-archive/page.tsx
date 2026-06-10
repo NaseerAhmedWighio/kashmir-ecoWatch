@@ -281,7 +281,7 @@ export default function AlertArchivePage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 relative overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -300,7 +300,7 @@ export default function AlertArchivePage() {
                 Alert Archive
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Searchable historical record of all alerts, advisories, and hazard warnings issued through Kashmir EcoWatch monitoring systems.
             </p>
           </motion.div>
@@ -470,7 +470,7 @@ export default function AlertArchivePage() {
                     </div>
 
                     {/* Meta info */}
-                    <div className="flex flex-wrap items-center gap-4 mb-3 text-sm text-slate-400">
+                    <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-3 text-sm text-slate-400">
                       <div className="flex items-center gap-1.5">
                         <MapPin className="w-3.5 h-3.5" />
                         <span>{alert.district}</span>
@@ -589,7 +589,7 @@ export default function AlertArchivePage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

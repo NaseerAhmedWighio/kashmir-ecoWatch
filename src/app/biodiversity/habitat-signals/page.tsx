@@ -34,13 +34,13 @@ export default function HabitatSignalsPage() {
   });
 
   return (
-    <main className="min-h-screen bg-slate-950"><div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+    <main className="min-h-screen bg-slate-950"><div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <Layers className="w-6 h-6 text-emerald-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">Biodiversity Intelligence</span>
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Biodiversity Intelligence</span>
             </div>
             <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Habitat Signals</h1>
             <p className="text-lg text-slate-400 mb-6">
@@ -131,7 +131,7 @@ export default function HabitatSignalsPage() {
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

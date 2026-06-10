@@ -72,7 +72,7 @@ function MonitoringOverviewPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* ===== HERO ===== */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl" />
@@ -698,7 +698,7 @@ function MonitoringOverviewPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

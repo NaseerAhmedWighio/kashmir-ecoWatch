@@ -36,7 +36,7 @@ export default function CriticalInfrastructureResponsePage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950"><section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
@@ -58,7 +58,7 @@ export default function CriticalInfrastructureResponsePage() {
               Emergency-linked facility monitoring, high-priority response nodes, critical environmental 
               infrastructure under stress, operational routing intelligence, and support asset awareness.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Button size="lg" className="bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-xl" onClick={() => router.push('/risk-monitoring/dashboards')}>
                 <Activity className="w-5 h-5 mr-2" />View Dashboards
               </Button>
@@ -136,7 +136,7 @@ export default function CriticalInfrastructureResponsePage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

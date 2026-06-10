@@ -28,7 +28,7 @@ export default function ReportsPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       <div className="bg-[#160C27]">
-      <div className="pt-48 pb-12 container mx-auto px-6">
+      <div className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-12 container mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
@@ -41,11 +41,11 @@ export default function ReportsPage() {
 
           <div className="flex items-center gap-2 mb-4">
             <Book className="w-6 h-6 text-amber-400" />
-            <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">Evidence & Documentation</span>
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Evidence & Documentation</span>
           </div>
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Reports & Management Plans</h1>
           <p className="text-xl text-slate-400 mb-8">Scientific reports, management plans, monitoring documents, and research publications</p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <div className="relative">
               <input type="text" placeholder="Search reports..." className="w-64 px-4 py-2.5 pl-10 rounded-lg glass-light border border-white/10 focus:border-amber-500/50 outline-none text-sm text-white placeholder-slate-500" />
               <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -123,7 +123,7 @@ export default function ReportsPage() {
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

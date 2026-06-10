@@ -405,7 +405,7 @@ export default function SoilPollutionPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* ── Hero Section ──────────────────────────────────────────────────── */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -436,7 +436,7 @@ export default function SoilPollutionPage() {
               Soil Pollution <span className="text-emerald-400">& Degradation</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-4 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Comprehensive soil health intelligence covering erosion, nutrient depletion,
               chemical contamination, and land degradation across Jammu & Kashmir — sourced from
               the ESRO Environmental Impact Assessment and Council for Plant Protection archives.
@@ -447,7 +447,7 @@ export default function SoilPollutionPage() {
               <span>Data sourced from ESRO legacy archive: <code className="text-amber-400/80">erc_eia_report_eienkashmir.htm</code> and <code className="text-amber-400/80">bcn_cfpr_eienkashmir_vital_stat_wastelands.htm</code></span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-amber-600 to-yellow-700 hover:from-amber-700 hover:to-yellow-800 text-white shadow-xl"

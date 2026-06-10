@@ -204,7 +204,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <div className="relative pt-48 pb-12 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/20 via-slate-950 to-slate-950" />
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
         
@@ -390,7 +390,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
         </Card>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 };

@@ -153,7 +153,7 @@ export default function AlertsPage() {
               Live Alerts & <span className="text-emerald-400">Advisories</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Public-facing live alert stream for Kashmir EcoWatch — real-time hazard alerts, 
               weather advisories, and emergency notifications for public safety and disaster preparedness.
             </p>

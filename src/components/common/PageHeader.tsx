@@ -18,7 +18,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ icon, title, subtitle, breadcrumbs, actions }: PageHeaderProps) {
   return (
-    <div className="pt-20 md:pt-48 pb-12 md:pb-16 container mx-auto px-6">
+    <div className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 container mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -49,15 +49,15 @@ export function PageHeader({ icon, title, subtitle, breadcrumbs, actions }: Page
         {/* Icon and Title */}
         <div className="flex items-center gap-2 mb-4">
           {icon}
-          <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+          <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
             Protected Network
           </span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-black text-white mb-4">{title}</h1>
-        <p className="text-xl text-slate-400 mb-8">{subtitle}</p>
+        <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">{title}</h1>
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">{subtitle}</p>
 
         {/* Actions */}
-        {actions && <div className="flex flex-wrap gap-4">{actions}</div>}
+        {actions && <div className="flex flex-col sm:flex-row flex-wrap gap-4">{actions}</div>}
       </motion.div>
     </div>
   );

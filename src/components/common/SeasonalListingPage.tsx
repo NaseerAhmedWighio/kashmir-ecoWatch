@@ -269,7 +269,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 };

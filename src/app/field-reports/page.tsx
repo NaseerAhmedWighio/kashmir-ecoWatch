@@ -32,7 +32,7 @@ export default function FieldReportsPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
@@ -47,7 +47,7 @@ export default function FieldReportsPage() {
               Field <span className="text-emerald-400">Intelligence Reports</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Field reports, survey findings, technical assessments, and monitoring bulletins supporting environmental intelligence across Kashmir. 
               These documents feed evidence layers, district profiles, alerts, and module intelligence throughout the platform.
             </p>
@@ -361,7 +361,7 @@ export default function FieldReportsPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

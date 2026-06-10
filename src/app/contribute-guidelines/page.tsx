@@ -151,7 +151,7 @@ export default function ContributeGuidelinesPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -181,7 +181,7 @@ export default function ContributeGuidelinesPage() {
               Contribution <span className="text-emerald-400">Guidelines</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl">
+            <p className="text-lg md:text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Evidence standards, submission rules, review logic, and sensitivity guidance for all Kashmir EcoWatch contribution pathways.
             </p>
           </motion.div>
@@ -517,7 +517,7 @@ export default function ContributeGuidelinesPage() {
             viewport={{ once: true }}
           >
             <Card className="glass-intense border-white/10 p-6 md:p-8">
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                 {quickActions.map((action) => (
                   <Button
                     key={action.label}
@@ -537,7 +537,7 @@ export default function ContributeGuidelinesPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

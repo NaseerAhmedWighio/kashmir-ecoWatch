@@ -185,7 +185,7 @@ export default function WaterQualityTestingPage() {
         <div className="absolute inset-0 bg-[#160C27]" />
         <div className="absolute inset-0 bg-[#160C27]" />
 
-        <div className="relative container mx-auto px-4 md:px-6 pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20">
+        <div className="relative container mx-auto px-4 md:px-6 pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6 flex-wrap">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -411,7 +411,7 @@ export default function WaterQualityTestingPage() {
               animate={{ opacity: 1, height: 'auto' }}
               className="bg-slate-800/50 border border-white/10 rounded-lg p-4 mb-6"
             >
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                 <div>
                   <label className="text-xs text-slate-400 mb-1 block">Status</label>
                   <select
@@ -554,7 +554,7 @@ export default function WaterQualityTestingPage() {
                         </span>
                       </div>
 
-                      <div className="flex flex-wrap gap-4 text-xs text-slate-400 mb-2">
+                      <div className="flex flex-col sm:flex-row flex-wrap gap-4 text-xs text-slate-400 mb-2">
                         <span>Detection Rate: <span className="text-white font-semibold">{item.detectionRate}</span></span>
                         <span>Threshold: <span className="text-slate-300 font-mono">{item.threshold}</span></span>
                       </div>
@@ -709,7 +709,7 @@ export default function WaterQualityTestingPage() {
                         )}
                       </div>
 
-                      <div className="flex flex-wrap gap-4 mt-2 text-xs">
+                      <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-2 text-xs">
                         <span className="flex items-center gap-1">
                           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                           <span className="text-slate-400">Safe</span>{' '}

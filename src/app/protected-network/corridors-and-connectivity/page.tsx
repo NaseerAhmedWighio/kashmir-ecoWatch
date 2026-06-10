@@ -35,7 +35,7 @@ export default function CorridorsPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       <div className='bg-[#160C27]'>
-      <div className="pt-48 pb-12 container mx-auto px-6">
+      <div className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-12 container mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
@@ -48,11 +48,11 @@ export default function CorridorsPage() {
 
           <div className="flex items-center gap-2 mb-4">
             <Map className="w-6 h-6 text-pink-400" />
-            <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">Ecological Intelligence</span>
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Ecological Intelligence</span>
           </div>
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Corridors & Connectivity</h1>
           <p className="text-xl text-slate-400 mb-8">Landscape continuity, movement value, and habitat linkage analysis for wildlife conservation</p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Button className="bg-gradient-to-r from-pink-600 to-pink-500" icon={<Search className="w-5 h-5" />}>Search Corridors</Button>
             <Button variant="outline" className="border-white/20 text-white" icon={<Map className="w-5 h-5" />}>Connectivity Map</Button>
           </div>
@@ -110,7 +110,7 @@ export default function CorridorsPage() {
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

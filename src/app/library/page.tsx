@@ -184,7 +184,7 @@ export default function LibraryPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section - Evidence Intelligence */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -203,7 +203,7 @@ export default function LibraryPage() {
               Evidence <span className="text-emerald-400">Intelligence</span> Library
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-4xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-4xl">
               A structured evidence and reference system linking environmental studies, monitoring records, datasets, district profiles, GIS resources, and reviewed knowledge inputs across Kashmir EcoWatch.
             </p>
 
@@ -937,7 +937,7 @@ export default function LibraryPage() {
       </section>
 
       {/* Footer */}
-      <AdvancedFooter />
+      
     </main>
   );
 }

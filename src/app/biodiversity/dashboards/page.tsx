@@ -160,7 +160,7 @@ export default function BiodiversityDashboardsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -172,7 +172,7 @@ export default function BiodiversityDashboardsPage() {
           >
             <div className="flex items-center gap-2 mb-4">
               <BarChart3 className="w-5 h-5 text-emerald-400" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Analytics & Trends
               </span>
             </div>
@@ -959,7 +959,7 @@ export default function BiodiversityDashboardsPage() {
 
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

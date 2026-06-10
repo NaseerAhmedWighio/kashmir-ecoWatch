@@ -287,7 +287,7 @@ export default function AirQualityDashboard() {
         </motion.div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

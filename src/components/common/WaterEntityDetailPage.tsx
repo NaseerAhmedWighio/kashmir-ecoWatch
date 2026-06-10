@@ -71,7 +71,7 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-48 pb-12 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         <div className={`absolute inset-0 bg-gradient-to-br ${getTypeColor(entity.type)} opacity-15`} />
         <div className="absolute inset-0 bg-grid opacity-20" />
 
@@ -111,13 +111,13 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
                     </Badge>
                   )}
                 </div>
-                <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
+                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
                   {entity.name}
                 </h1>
-                <p className="text-xl text-slate-400 max-w-3xl mb-6">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 max-w-3xl mb-6 leading-relaxed">
                   {entity.description}
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                   <Button
                     className={`bg-gradient-to-r ${getTypeColor(entity.type)}`}
                     icon={<MapPin className="w-5 h-5" />}
@@ -436,7 +436,7 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
         </motion.div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

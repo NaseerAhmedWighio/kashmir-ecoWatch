@@ -113,6 +113,7 @@ export function PremiumStickyHeader() {
         ];
       case 'Biodiversity':
         return [
+          { name: '📊 Overview', href: '/biodiversity/overview', desc: 'Module command center' },
           { name: '📊 Dashboards', href: '/biodiversity/dashboards', desc: 'Analytics & trends' },
           // Species Group
           { name: '── Species ──', href: '#', desc: '', isHeader: true },
@@ -134,7 +135,6 @@ export function PremiumStickyHeader() {
           { name: 'Seasonal Species Activity', href: '/biodiversity/seasonal-activity', desc: 'Breeding & activity windows' },
           // Intelligence Group
           { name: '── Intelligence ──', href: '#', desc: '', isHeader: true },
-          { name: 'Overview', href: '/biodiversity/overview', desc: 'Module command center' },
           { name: 'District Biodiversity Profiles', href: '/biodiversity/district-profiles', desc: 'Regional intelligence' },
         ];
       case 'Water Systems':
@@ -214,6 +214,7 @@ export function PremiumStickyHeader() {
           <Link
             key={subitem.name}
             href={subitem.href}
+            onClick={() => { setActiveDropdown(null); setIsMobileMenuOpen(false); }}
             className="block px-3 py-1 text-xs text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
           >
             <span className="font-medium">{subitem.name}</span>
@@ -250,7 +251,7 @@ export function PremiumStickyHeader() {
           <Logo variant={isCompact ? 'compact' : 'expanded'} />
 
           {/* Desktop navigation */}
-          <nav className="hidden xl:flex items-center gap-0.5">
+          <nav className="hidden xl:flex items-center gap-0">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -261,7 +262,7 @@ export function PremiumStickyHeader() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 cursor-pointer',
+                    'flex items-center gap-1 px-2 py-2 rounded-lg text-xs font-medium transition-all duration-200 cursor-pointer',
                     activeDropdown === item.label
                       ? 'text-white bg-white/10'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
@@ -271,7 +272,7 @@ export function PremiumStickyHeader() {
                   {item.hasDropdown && (
                     <ChevronDown
                       className={cn(
-                        'w-3.5 h-3.5 transition-transform duration-200',
+                        'w-3 h-3 -ml-0.5 transition-transform duration-200',
                         activeDropdown === item.label && 'rotate-180'
                       )}
                     />
@@ -344,24 +345,24 @@ export function PremiumStickyHeader() {
               variant="ghost"
               size="sm"
               onClick={() => setSearchOpen(!searchOpen)}
-              className="text-slate-300 hover:text-white p-2"
+              className="text-slate-300 hover:text-white p-1.5"
             >
               <Search className="w-5 h-5" />
             </Button>
 
             {/* Alerts */}
-            <Button variant="ghost" size="sm" className="relative text-slate-300 hover:text-white p-2">
+            <Button variant="ghost" size="sm" className="relative text-slate-300 hover:text-white p-1.5">
               <Bell className="w-5 h-5" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse" />
             </Button>
 
             {/* Settings */}
-            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white p-2">
+            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white p-1.5">
               <Settings className="w-5 h-5" />
             </Button>
 
             {/* Profile */}
-            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white p-2">
+            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white p-1.5">
               <User className="w-5 h-5" />
             </Button>
           </div>
@@ -475,7 +476,7 @@ export function PremiumStickyHeader() {
                       ) : (
                         <Link
                           href={item.href}
-                          className="block px-3 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm font-medium"
+                          onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm font-medium"
                         >
                           {item.label}
                         </Link>

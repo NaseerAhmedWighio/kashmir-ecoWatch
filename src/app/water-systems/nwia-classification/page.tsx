@@ -149,7 +149,7 @@ export default function NwiaClassificationExplorerPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -177,10 +177,10 @@ export default function NwiaClassificationExplorerPage() {
                 <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
                   NWIA Wetland Classification Explorer
                 </h1>
-                <p className="text-xl text-slate-400 max-w-3xl leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
                   Comprehensive wetland inventory and classification system for Kashmir Valley based on the National Wetland Inventory and Assessment (NWIA) Atlas by SAC/ISRO and University of Kashmir (2010).
                 </p>
-                <div className="flex flex-wrap gap-4 mt-6">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-6">
                   <div className="flex gap-2">
                     <Button
                       className="bg-gradient-to-r from-blue-500 to-cyan-600"
@@ -356,7 +356,7 @@ export default function NwiaClassificationExplorerPage() {
         </motion.div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

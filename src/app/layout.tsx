@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { PremiumStickyHeader } from '@/components/sections/PremiumStickyHeader';
 import './globals.css';
+import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning>
         <PremiumStickyHeader />
         {children}
+        <AdvancedFooter />
       </body>
     </html>
   );

@@ -136,7 +136,7 @@ export default function DrinkingWaterSourcesPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
 
         <div className="container mx-auto px-6 relative z-10">
@@ -148,7 +148,7 @@ export default function DrinkingWaterSourcesPage() {
           >
             <div className="flex items-center gap-2 mb-3">
               <div className="w-2 h-2 bg-blue-500 rounded-full" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Drinking Water Intelligence
               </span>
             </div>
@@ -157,7 +157,7 @@ export default function DrinkingWaterSourcesPage() {
               Drinking Water Sources of <span className="text-emerald-400">Kashmir</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Comprehensive monitoring and intelligence framework for Kashmir's drinking water sources —
               springs, river intakes, groundwater schemes, and piped supply networks. Sourced from the
               ESRO/eIEN Kashmir environmental archive and augmented with real-time monitoring data.
@@ -509,7 +509,7 @@ export default function DrinkingWaterSourcesPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

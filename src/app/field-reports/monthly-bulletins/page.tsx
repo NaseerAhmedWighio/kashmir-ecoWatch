@@ -52,7 +52,7 @@ export default function MonthlyBulletinsPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
         
         <div className="absolute top-32 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
@@ -77,7 +77,7 @@ export default function MonthlyBulletinsPage() {
               Monthly <span className="text-emerald-400">Environmental Bulletins</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Periodic environmental condition summaries tracking air quality trends, water quality parameters,
               seasonal indicators, and emerging risk patterns across Kashmir Valley. From current monitoring stations
               to the foundational ESRO archive (2005–2007).
@@ -363,7 +363,7 @@ export default function MonthlyBulletinsPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

@@ -48,7 +48,7 @@ export default function FishKillMonitoringPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -78,12 +78,12 @@ export default function FishKillMonitoringPage() {
               Fish Kill <span className="text-emerald-400">Monitoring</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Lake and river fish mortality events, oxygen depletion monitoring, pollution-linked kills,
               algal bloom linkage, seasonal mortality patterns, and aquaculture impact tracking across Kashmir waters
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white shadow-xl"
@@ -483,7 +483,7 @@ export default function FishKillMonitoringPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

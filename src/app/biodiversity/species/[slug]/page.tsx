@@ -38,7 +38,7 @@ export default function SpeciesDetailPage() {
           <h1 className="text-3xl font-bold text-white mb-4">Species not found</h1>
           <Button onClick={() => router.push('/biodiversity')}>Back to Biodiversity</Button>
         </div>
-        <AdvancedFooter />
+        
       </main>
     );
   }
@@ -67,7 +67,7 @@ export default function SpeciesDetailPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
         
@@ -143,7 +143,7 @@ export default function SpeciesDetailPage() {
                 </div>
 
                 {/* Primary CTAs */}
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                   <Button className="bg-gradient-to-r from-forest-600 to-forest-500" icon={<Map className="w-5 h-5" />}>
                     Open Distribution Map
                   </Button>
@@ -492,7 +492,7 @@ export default function SpeciesDetailPage() {
         )}
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

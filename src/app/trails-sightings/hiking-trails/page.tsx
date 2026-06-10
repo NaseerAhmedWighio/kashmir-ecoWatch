@@ -91,7 +91,7 @@ export default function HikingTrailsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -113,12 +113,12 @@ export default function HikingTrailsPage() {
               Hiking <span className="text-emerald-400">Trails</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Multi-day treks and day hikes across Kashmir's mountains, valleys, and alpine meadows.
               From challenging high-altitude routes to scenic valley walks.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-xl"
@@ -291,7 +291,7 @@ export default function HikingTrailsPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

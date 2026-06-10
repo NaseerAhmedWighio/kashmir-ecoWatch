@@ -138,7 +138,7 @@ export default function UtilityIncidentsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
@@ -163,7 +163,7 @@ export default function UtilityIncidentsPage() {
               Utility <span className="text-emerald-400">Incidents</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Real-time utility service failures, emergency advisories, infrastructure damage reports,
               and citizen complaint tracking across Kashmir&apos;s water and sanitation utility network
             </p>
@@ -438,7 +438,7 @@ export default function UtilityIncidentsPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

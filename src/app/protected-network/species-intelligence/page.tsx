@@ -25,7 +25,7 @@ export default function SpeciesIntelligencePage() {
   return (
     <main className="min-h-screen bg-slate-950">{/* Header */}
     <div className='bg-[#160C27]'>
-      <div className="pt-48 pb-12 container mx-auto px-6">
+      <div className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-12 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function SpeciesIntelligencePage() {
 
           <div className="flex items-center gap-2 mb-4">
             <Activity className="w-6 h-6 text-purple-400" />
-            <span className="text-sm font-semibold uppercase tracking-widest text-slate-400">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
               Ecological Intelligence
             </span>
           </div>
@@ -52,7 +52,7 @@ export default function SpeciesIntelligencePage() {
           <p className="text-xl text-slate-400 mb-8">
             Protected area overlap analysis, species distribution, and habitat associations across Kashmir's conservation network
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Button className="bg-gradient-to-r from-purple-600 to-purple-500" icon={<Search className="w-5 h-5" />}>
               Search Species
             </Button>
@@ -178,7 +178,7 @@ export default function SpeciesIntelligencePage() {
         </div>
       </div>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }

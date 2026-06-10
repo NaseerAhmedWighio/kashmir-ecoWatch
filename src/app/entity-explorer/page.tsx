@@ -139,7 +139,7 @@ export default function EntityExplorerPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 bg-gradient-to-br from-blue-950/50 via-sky-950/30 to-slate-950 relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 bg-gradient-to-br from-blue-950/50 via-sky-950/30 to-slate-950 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -284,7 +284,7 @@ export default function EntityExplorerPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+      
     </main>
   );
 }
