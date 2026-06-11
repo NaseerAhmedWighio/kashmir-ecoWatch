@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { BackgroundCarousel } from '@/components/ui/BackgroundCarousel';
 import {
   MapPin, Activity, Shield, TrendingUp, ArrowRight, ArrowLeft,
   Calendar, Mountain, Droplet, Leaf, Eye, FileText,
@@ -249,6 +250,24 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
   const intel = PARK_INTELLIGENCE[area.slug] ?? DEFAULT_INTELLIGENCE;
   const a = area as any;
 
+  const splitTitle = (name: string) => {
+    const words = name.split(' ');
+    if (words.length <= 1) return name;
+    const splitIndex = words.length > 3 ? 2 : 1;
+    const firstPart = words.slice(0, splitIndex).join(' ');
+    const secondPart = words.slice(splitIndex).join(' ');
+    return (
+      <>
+        <span className="block whitespace-nowrap">{firstPart}</span>
+        <span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">{secondPart}</span>
+      </>
+    );
+  };
+
+  const heroImages = area.imageUrl
+    ? [area.imageUrl, '/images/protected-network.png', '/images/bear.png']
+    : ['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png'];
+
   const tabs = [
     { id: 'overview',   label: 'Overview',        icon: Book },
     { id: 'habitats',   label: 'Habitats',         icon: Leaf },
@@ -268,20 +287,20 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
     <main className="min-h-screen bg-slate-950">
 
       {/* ── HERO ── */}
-      <div className="relative bg-[#160C27] pt-20 sm:pt-24 md:pt-28 lg:pt-40 pb-10 overflow-hidden">
-        <div className={`absolute inset-0 bg-gradient-to-br ${getCategoryColor(area.category)} opacity-10`} />
+      <div className="relative bg-[#160C27] pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-10 sm:pb-12 md:pb-20 overflow-hidden">
+        <BackgroundCarousel images={heroImages} />
         <div className="absolute inset-0 bg-grid opacity-10" />
 
         <div className="container mx-auto px-6 relative z-10">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6">
+          <nav className="flex items-center gap-2 text-xs text-slate-400 mb-6">
             <button onClick={() => router.push('/protected-network')} className="hover:text-white transition-colors">Protected Network</button>
-            <ChevronRight className="w-3 h-3" />
+            <ChevronRight className="w-3 h-3 text-slate-600" />
             <button onClick={() => router.push(`/protected-network/${getCategoryRoute(area.category)}`)} className="hover:text-white transition-colors capitalize">
               {area.category.replace(/_/g, ' ')}
             </button>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-white">{area.name}</span>
+            <ChevronRight className="w-3 h-3 text-slate-600" />
+            <span className="text-white font-medium">{area.name}</span>
           </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
@@ -295,8 +314,8 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                 <Badge variant="default" size="sm">{intel.iucnCategory}</Badge>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 leading-tight tracking-tight">
-                {area.name}
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight overflow-visible pb-1">
+                {splitTitle(area.name)}
               </h1>
 
               <p className="text-slate-400 leading-relaxed max-w-2xl mb-6 text-sm sm:text-base">
