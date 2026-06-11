@@ -109,71 +109,53 @@ export function ProtectedCategoryPage({
         </motion.div>
       </div>
 
-      {/* Tab Bar */}
-      {tabs && tabs.length > 0 && (
-        <div className="container mx-auto px-6 mt-6">
-          <div className="flex flex-wrap gap-2 p-1 glass-intense border border-white/10 rounded-xl w-fit">
-            {tabs.map(tab => (
-              <button
-                key={tab.key}
-                onClick={() => onTabChange?.(tab.key)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  activeTab === tab.key
-                    ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-          {tabs.find(t => t.key === activeTab) && (
-            <p className="text-xs text-slate-500 mt-2 ml-1">
-              {tabs.find(t => t.key === activeTab)!.description}
-            </p>
+      {/* Tab + Filters — single row */}
+      <div className="container mx-auto px-6 mt-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          {/* Tabs */}
+          {tabs && tabs.length > 0 && (
+            <div className="flex items-center gap-2 p-1 glass-intense border border-white/10 rounded-xl">
+              {tabs.map(tab => (
+                <button
+                  key={tab.key}
+                  onClick={() => onTabChange?.(tab.key)}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+                    activeTab === tab.key
+                      ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           )}
-        </div>
-      )}
 
-      {/* Content */}
-      <div className="container mx-auto px-6 py-12 space-y-8">
-        {/* Filters and View Toggle */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
-        >
-          <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
-              className="border-white/20 text-white"
-              icon={<Filter className="w-4 h-4" />}
-            >
+          {/* Active tab description */}
+          {tabs && tabs.find(t => t.key === activeTab) && (
+            <span className="text-xs text-slate-500 hidden lg:block flex-1 px-4 truncate">
+              {tabs.find(t => t.key === activeTab)!.description}
+            </span>
+          )}
+
+          {/* Filters + count + view toggle */}
+          <div className="flex items-center gap-3 ml-auto">
+            <Button variant="outline" className="border-white/20 text-white" icon={<Filter className="w-4 h-4" />}>
               Filters
             </Button>
-            <span className="text-sm text-slate-400">
+            <span className="text-sm text-slate-400 whitespace-nowrap">
               <strong className="text-white">{areas.length}</strong> protected areas
             </span>
+            <div className="flex items-center gap-1">
+              <Button variant="ghost" size="sm" onClick={() => setViewMode('grid')} className={viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} icon={<Grid3X3 className="w-4 h-4" />} />
+              <Button variant="ghost" size="sm" onClick={() => setViewMode('list')} className={viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} icon={<List className="w-4 h-4" />} />
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setViewMode('grid')}
-              className={viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'}
-              icon={<Grid3X3 className="w-4 h-4" />}
-            />
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setViewMode('list')}
-              className={viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'}
-              icon={<List className="w-4 h-4" />}
-            />
-          </div>
-        </motion.div>
+        </div>
+      </div>
 
+      {/* Content */}
+      <div className="container mx-auto px-6 py-8 space-y-6">
         {/* Protected Areas Grid/List */}
         {areas.length > 0 ? (
           <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-4'}>

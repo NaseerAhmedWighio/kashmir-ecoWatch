@@ -95,13 +95,14 @@ export interface SpeciesProfile {
 }
 
 export const nationalParksData: ProtectedArea[] = [
-  // ── KASHMIR CORE (Official J&K PAN) ──
+
+  // ── NP-JK-001 · KASHMIR CORE ──
   {
     id: 'dachigam',
     slug: 'dachigam-national-park',
     name: 'Dachigam National Park',
     category: 'national_park',
-    description: 'Temperate forest and montane conservation landscape near Srinagar, known as the critical habitat of the endangered Hangul. Supports watershed protection, forest biodiversity, high-altitude ecological gradients, and long-term conservation monitoring.',
+    description: 'Temperate forest and montane conservation landscape near Srinagar, known as the critical habitat of the endangered Hangul. Supports watershed protection, forest biodiversity, upper-lower elevation gradients, and long-term conservation monitoring.',
     area: 141,
     district: 'Srinagar',
     established: 1981,
@@ -109,54 +110,61 @@ export const nationalParksData: ProtectedArea[] = [
     keySpecies: ['Hangul (Kashmir Stag)', 'Himalayan black bear', 'Leopard', 'Musk deer'],
     scope: 'Kashmir Core',
     legalStatus: 'Verified',
+    altitudeRange: '1,700 to 4,300 m',
     flagshipSpecies: 'Hangul',
-    dataStatus: 'Verified — official J&K PAN Atlas',
+    dataStatus: 'Official Verified',
     latitude: 34.15,
     longitude: 75.05,
   },
+
+  // ── NP-JK-002 · KASHMIR CORE / TRANSBOUNDARY RELEVANCE ──
   {
     id: 'kazinag',
     slug: 'kazinag-national-park',
     name: 'Kazinag National Park',
     category: 'national_park',
-    description: 'Transboundary Pir Panjal conservation landscape in Baramulla, supporting Markhor habitat, coniferous forests, alpine meadows, and high-altitude biodiversity corridors near the Line of Control.',
+    description: 'Pir Panjal and transboundary conservation landscape in Baramulla, supporting Markhor habitat, conifer forests, alpine meadows, cliff ecosystems, and high-altitude biodiversity corridors near the Line of Control.',
     area: 160,
     district: 'Baramulla',
-    established: 2000,
+    established: 1992,
     ecosystems: ['Conifer forest', 'Alpine pasture', 'Cliff habitat', 'Subalpine scrub'],
-    keySpecies: ['Markhor', 'Musk deer', 'Himalayan black bear', 'Leopard', 'Western tragopan'],
+    keySpecies: ['Markhor', 'Musk deer', 'Himalayan black bear', 'Leopard', 'Pheasants'],
     scope: 'Kashmir Core',
     legalStatus: 'Verified',
+    altitudeRange: 'approx. 1,800 to 4,300 m',
     flagshipSpecies: 'Markhor',
-    dataStatus: 'Verified — official J&K PAN Atlas',
+    dataStatus: 'Boundary Pending',
     latitude: 34.25,
     longitude: 73.85,
   },
+
+  // ── NP-JK-003 · KASHMIR CORE ──
   {
     id: 'salim-ali',
     slug: 'salim-ali-national-park',
     name: 'Salim Ali / City Forest National Park',
     category: 'national_park',
-    description: 'Small urban-edge protected landscape in Srinagar with historical national park status. Current legal and spatial status requires verification due to reported land-use conversion concerns.',
+    description: 'Small urban-edge protected landscape in Srinagar with historical national park status. Important for urban biodiversity, bird habitat, woodland patches, and protected-area history, but current legal and spatial status should be reviewed.',
     area: 9.07,
     district: 'Srinagar',
-    established: 1992,
-    ecosystems: ['Urban forest', 'Wetland-edge habitat', 'Woodland patches'],
-    keySpecies: ['Urban birds', 'Small mammals', 'Riparian species', 'Forest-edge species'],
+    established: 1986,
+    ecosystems: ['Urban forest', 'Woodland patches', 'Wetland-edge habitat'],
+    keySpecies: ['Birds', 'Small mammals', 'Urban forest biodiversity'],
     scope: 'Kashmir Core',
     legalStatus: 'Under Review',
     flagshipSpecies: 'Resident birds',
-    dataStatus: 'Legal / Spatial Status Under Review',
+    dataStatus: 'Legal Status Under Review',
     latitude: 34.08,
     longitude: 74.82,
   },
-  // ── TRANS-DIVISIONAL (J&K / Chenab Division) ──
+
+  // ── NP-JK-004 · TRANS-DIVISIONAL ──
   {
     id: 'kishtwar',
     slug: 'kishtwar-national-park',
     name: 'Kishtwar High Altitude National Park',
     category: 'national_park',
-    description: 'Large high-altitude conservation landscape in the Chenab region, covering alpine meadows, glacial valleys, conifer forests, river catchments, snow-bound habitats, and critical high-mountain wildlife zones.',
+    description: 'Large high-altitude conservation landscape in the Chenab region, covering alpine meadows, glacial valleys, conifer forests, river catchments, snow-bound habitats, and high-mountain wildlife zones.',
     area: 2190.50,
     district: 'Kishtwar',
     established: 1981,
@@ -166,17 +174,18 @@ export const nationalParksData: ProtectedArea[] = [
     legalStatus: 'Verified',
     altitudeRange: '1,700 to 4,800 m',
     flagshipSpecies: 'Snow leopard',
-    dataStatus: 'Verified — official Kishtwar district source',
+    dataStatus: 'Official Verified',
     latitude: 33.35,
     longitude: 75.75,
   },
-  // ── TRANSBOUNDARY / EXTENDED ECOLOGICAL SCOPE ──
+
+  // ── NP-LD-001 · TRANSBOUNDARY / EXTENDED ──
   {
     id: 'hemis',
     slug: 'hemis-national-park',
     name: 'Hemis National Park',
     category: 'national_park',
-    description: 'High-altitude trans-Himalayan protected landscape in Ladakh, globally important for snow leopard conservation, cold desert biodiversity, alpine wildlife, and Himalayan ecological connectivity.',
+    description: 'High-altitude trans-Himalayan protected landscape in Ladakh, globally important for snow leopard conservation, cold desert biodiversity, alpine wildlife, and Himalayan ecological connectivity. Not part of J&K UT official PAN.',
     area: 4400,
     district: 'Leh',
     established: 1981,
@@ -185,18 +194,20 @@ export const nationalParksData: ProtectedArea[] = [
     scope: 'Transboundary / Extended',
     legalStatus: 'Extended Scope',
     flagshipSpecies: 'Snow leopard',
-    dataStatus: 'Extended scope — Ladakh UT',
+    dataStatus: 'Extended Scope',
     latitude: 33.75,
     longitude: 77.65,
   },
+
+  // ── NP-GB-001 · TRANSBOUNDARY / EXTENDED ──
   {
     id: 'deosai',
     slug: 'deosai-national-park',
     name: 'Deosai National Park',
     category: 'national_park',
-    description: 'High-altitude alpine plateau conservation landscape in Gilgit-Baltistan, ecologically important for Himalayan brown bear habitat, alpine wetlands, grasslands, and western Himalayan biodiversity.',
+    description: 'High-altitude alpine plateau conservation landscape in Gilgit-Baltistan, important for Himalayan brown bear habitat, alpine wetlands, grasslands, migratory birds, and western Himalayan biodiversity.',
     area: 3584,
-    district: 'Astore / Skardu',
+    district: 'Skardu / Astore',
     established: 1993,
     ecosystems: ['Alpine plateau', 'Wetland', 'Grassland', 'High-altitude lake system'],
     keySpecies: ['Himalayan brown bear', 'Himalayan ibex', 'Golden marmot', 'Migratory birds'],
@@ -204,16 +215,18 @@ export const nationalParksData: ProtectedArea[] = [
     legalStatus: 'Extended Scope',
     altitudeRange: '3,500 to 5,200 m',
     flagshipSpecies: 'Himalayan brown bear',
-    dataStatus: 'Extended scope — Gilgit-Baltistan',
+    dataStatus: 'Extended Scope',
     latitude: 35.08,
     longitude: 75.55,
   },
+
+  // ── NP-GB-002 · TRANSBOUNDARY / EXTENDED ──
   {
     id: 'khunjerab',
     slug: 'khunjerab-national-park',
     name: 'Khunjerab National Park',
     category: 'national_park',
-    description: 'High Karakoram borderland national park in Gilgit-Baltistan, established for Marco Polo sheep conservation and important for snow leopard, ibex, blue sheep, and alpine biodiversity.',
+    description: 'High Karakoram borderland national park in Gilgit-Baltistan, established for high-mountain wildlife conservation and important for Marco Polo sheep, snow leopard, ibex, blue sheep, and alpine biodiversity.',
     area: 2269.13,
     district: 'Hunza',
     established: 1975,
@@ -222,28 +235,33 @@ export const nationalParksData: ProtectedArea[] = [
     scope: 'Transboundary / Extended',
     legalStatus: 'Extended Scope',
     flagshipSpecies: 'Marco Polo sheep',
-    dataStatus: 'Extended scope — Gilgit-Baltistan',
+    dataStatus: 'Literature Supported',
     latitude: 36.85,
     longitude: 75.45,
   },
+
+  // ── NP-GB-003 · TRANSBOUNDARY / EXTENDED ──
   {
     id: 'cknp',
     slug: 'central-karakoram-national-park',
     name: 'Central Karakoram National Park',
     category: 'national_park',
     description: 'Large high-mountain protected landscape covering glaciers, major Karakoram peaks, alpine valleys, and extreme elevation ecosystems across multiple Gilgit-Baltistan districts.',
-    area: 10557.73,
+    area: 10000, // area range 10,000–10,557.73 km²; single authority figure pending
     district: 'Gilgit / Hunza / Ghanche',
     established: 1993,
     ecosystems: ['Glaciers', 'Alpine valleys', 'Rock desert', 'High mountain systems'],
     keySpecies: ['Snow leopard', 'Himalayan ibex', 'Brown bear', 'Blue sheep', 'High-altitude birds'],
     scope: 'Transboundary / Extended',
     legalStatus: 'Extended Scope',
+    altitudeRange: 'High Karakoram',
     flagshipSpecies: 'Snow leopard',
-    dataStatus: 'Extended scope — Gilgit-Baltistan',
+    dataStatus: 'Boundary Pending',
     latitude: 36.05,
     longitude: 75.85,
   },
+
+  // ── NP-AJK-001 · TRANSBOUNDARY / EXTENDED ──
   {
     id: 'machiara',
     slug: 'machiara-national-park',
@@ -258,29 +276,34 @@ export const nationalParksData: ProtectedArea[] = [
     scope: 'Transboundary / Extended',
     legalStatus: 'Extended Scope',
     flagshipSpecies: 'Western tragopan',
-    dataStatus: 'Extended scope — AJK',
+    dataStatus: 'Literature Supported',
     latitude: 34.45,
     longitude: 73.65,
   },
+
+  // ── NP-AJK-002 · TRANSBOUNDARY / EXTENDED ──
   {
     id: 'pir-lasura',
     slug: 'pir-lasura-national-park',
     name: 'Pir Lasura National Park',
     category: 'national_park',
     description: 'Mountain forest and ridge landscape in AJK, important for biodiversity baseline assessment, resident wildlife, subtropical pine systems, and community-linked conservation monitoring.',
-    area: 0,
-    district: 'AJK',
+    area: 0, // area TBD — needs official verification
+    district: 'Kotli / Pir Panjal zone',
     established: 2005,
     ecosystems: ['Pine forest', 'Broadleaf forest', 'Rocky ridges', 'Grassland patches'],
     keySpecies: ['Leopard', 'Goral', 'Pheasants', 'Small mammals', 'Migratory birds'],
     scope: 'Transboundary / Extended',
     legalStatus: 'Extended Scope',
     flagshipSpecies: 'Goral',
-    dataStatus: 'Data Under Verification — area needs official confirmation',
+    dataStatus: 'Species Data Pending',
     latitude: 33.95,
     longitude: 73.75,
   },
 ];
+
+
+
 
 export const wildlifeSanctuariesData: ProtectedArea[] = [
   {
