@@ -11,6 +11,7 @@ import {
   MapPin, Calendar, ArrowRight, BookOpen, Info, Shield, Activity
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 import {
   riskUpdates,
@@ -162,30 +163,24 @@ export default function RiskUpdatesPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="container mx-auto px-6 relative z-10">
+<Heading
+  title={<>Risk <span className="text-rose-400">Monitoring</span></>}
+  subtitle="Active environmental risks, early warnings, and hazard monitoring across the Kashmir Valley. Live tracking of flood zones, AQI hotspots, seismic activity, glacial lake conditions, and forest fire alerts — prioritising data-driven disaster preparedness."
+  icon={
+    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center shadow-2xl">
+      <Activity className="w-5 h-5 md:w-8 md:h-8 text-white" />
+    </div>
+  }
+  badge={<Badge variant="destructive" size="lg">Risk &amp; Alerts</Badge>}
+/>
+
+      <section className="relative bg-[#160C27]">
+        <div className="container mx-auto px-6 relative z-10 pb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-6xl"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <AlertTriangle className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="danger" size="lg">Risk Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Risk <span className="text-emerald-400">Updates</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-4xl">
-              Latest hazard assessments, evolving risk outlooks, and situational awareness briefings
-              supporting preparedness and environmental monitoring across Kashmir.
-            </p>
 
             {/* Search & Filter Bar */}
             <div className="flex flex-col md:flex-row gap-4 mb-8">

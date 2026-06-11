@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import { protectedNetworkMetrics, getProtectedAreas } from '@/data/protected-network';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Heading } from '@/components/common/Heading';
 
 const categoryCards = [
   {
@@ -23,6 +24,15 @@ const categoryCards = [
     description: 'Core mountain and forest conservation landscapes with highest protection status',
     color: 'from-emerald-500 to-teal-600',
     href: '/protected-network/national-parks',
+  },
+  {
+    id: 'protected-areas',
+    title: 'Protected Areas',
+    icon: Shield,
+    count: protectedNetworkMetrics.totalProtectedAreas,
+    description: 'Complete listing of all protected areas across Kashmir with detailed ecological intelligence',
+    color: 'from-indigo-500 to-purple-600',
+    href: '/protected-areas',
   },
   {
     id: 'wildlife-sanctuaries',
@@ -121,51 +131,24 @@ export default function ProtectedNetworkPage() {
   ].filter(Boolean);
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-2 mb-4">
-              <Shield className="w-6 h-6 text-emerald-400" />
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
-                Conservation Intelligence
-              </span>
-            </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Protected Network
-            </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Comprehensive protected area system including national parks, wildlife sanctuaries, 
-              wetland reserves, and conservation landscapes across Kashmir
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-emerald-600 to-emerald-500"
-                icon={<Map className="w-5 h-5" />}
-              >
-                Open PA Atlas
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white/20 text-white"
-                icon={<TrendingUp className="w-5 h-5" />}
-              >
-                Network Statistics
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        title="Kashmir Protected Areas Network"
+        subtitle="Comprehensive protected area system including national parks, wildlife sanctuaries, wetland reserves, and conservation landscapes across Kashmir"
+        icon={<Shield className="w-6 h-6 text-emerald-400" />}
+        label="Conservation Intelligence"
+        images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
+        actions={
+          <>
+            <Button size="lg" className="bg-gradient-to-r from-emerald-600 to-emerald-500" icon={<Map className="w-5 h-5" />}>
+              Open PA Atlas
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/20 text-white" icon={<TrendingUp className="w-5 h-5" />}>
+              Network Statistics
+            </Button>
+          </>
+        }
+      />
 
       {/* Metrics */}
       <div className="container mx-auto px-6 -mt-8 relative z-20">

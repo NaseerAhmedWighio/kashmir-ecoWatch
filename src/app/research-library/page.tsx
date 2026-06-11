@@ -11,6 +11,7 @@ import {
   Shield, Leaf, Droplet, Mountain, Eye, Calendar, Users
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 
 const librarySections = [
@@ -50,50 +51,32 @@ export default function ResearchLibraryPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-2 mb-4">
-              <BookOpen className="w-6 h-6 text-violet-400" />
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
-                Scientific Research
-              </span>
-            </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Research Library
-            </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Environmental impact assessments, research reports, and scientific publications 
-              documenting Kashmir&apos;s ecological systems and environmental challenges
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-violet-600 to-purple-500"
-                icon={<BookOpen className="w-5 h-5" />}
-                onClick={() => router.push('/library')}
-              >
-                Browse Evidence Library
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white"
-                icon={<Download className="w-5 h-5" />}
-              >
-                Download Reports
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+      <Heading
+        label="Scientific Research"
+        title="Research Library"
+        subtitle="Environmental impact assessments, research reports, and scientific publications documenting Kashmir&#39;s ecological systems and environmental challenges"
+        icon={<BookOpen className="w-6 h-6 text-violet-400" />}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-violet-600 to-purple-500"
+              icon={<BookOpen className="w-5 h-5" />}
+              onClick={() => router.push('/library')}
+            >
+              Browse Evidence Library
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white"
+              icon={<Download className="w-5 h-5" />}
+            >
+              Download Reports
+            </Button>
+          </div>
+        }
+      />
 
       <div className="container mx-auto px-6 -mt-8 relative z-20">
         <motion.div

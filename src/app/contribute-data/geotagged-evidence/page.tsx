@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Camera, ArrowLeft, Upload, MapPin, FileText, CheckCircle, Loader2, ExternalLink, Info, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import Link from 'next/link';
 
 const CONTRIBUTOR_TYPES = ['Individual', 'Academic/Research', 'Institution', 'NGO', 'Field Team', 'Monitoring Network'] as const;
@@ -45,7 +46,7 @@ export default function GeotaggedEvidencePage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Card className="glass-intense border-white/10 p-8 text-center">
               <div className="w-20 h-20 rounded-full bg-amber-500/20 flex items-center justify-center mx-auto mb-6"><CheckCircle className="w-10 h-10 text-amber-400" /></div>
-              <h1 className="text-3xl font-bold text-white mb-3">Submission Received</h1>
+              <h1 className="max-w-xl text-3xl font-bold text-white mb-3">Submission Received</h1>
               <p className="text-slate-400 mb-6">Your geotagged evidence has been successfully submitted.</p>
               <div className="bg-slate-800/50 rounded-xl p-4 mb-6"><p className="text-sm text-slate-400 mb-1">Submission Reference ID</p><p className="text-xl font-mono font-bold text-amber-400">{submissionId}</p></div>
               <div className="mb-8"><h3 className="text-sm font-semibold text-white mb-4">What happens next</h3>
@@ -64,20 +65,16 @@ export default function GeotaggedEvidencePage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
-            <Link href="/contribute-data" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-6"><ArrowLeft className="w-4 h-4" />Back to Contribute Data</Link>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-xl"><Camera className="w-7 h-7 text-white" /></div>
-              <Badge variant="warning" size="lg">Geotagged Evidence</Badge>
-            </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Geotagged Evidence <span className="text-emerald-400">Collections</span></h1>
-            <p className="text-lg text-slate-400 max-w-2xl">Submit location-tagged photos, drone imagery, and field documentation with GPS metadata. Approved records route into relevant modules by theme.</p>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        title={<>Geotagged Evidence <span className="text-emerald-400">Collections</span></>}
+        subtitle="Submit location-tagged photos, drone imagery, and field documentation with GPS metadata. Approved records route into relevant modules by theme."
+        icon={
+          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-xl"><Camera className="w-7 h-7 text-white" /></div>
+        }
+        badge={<Badge variant="warning" size="lg">Geotagged Evidence</Badge>}
+        breadcrumbs={[{ label: 'Back to Contribute Data', href: '/contribute-data' }]}
+      />
       <section className="py-12">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

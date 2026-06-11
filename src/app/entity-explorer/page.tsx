@@ -11,6 +11,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { Heading } from '@/components/common/Heading';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Shield,
@@ -138,28 +139,16 @@ export default function EntityExplorerPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* Hero Section */}
-      <section className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 bg-gradient-to-br from-blue-950/50 via-sky-950/30 to-slate-950 relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-400/30 mb-6">
-              <Search className="w-4 h-4 text-blue-400" />
-              <span className="text-sm font-medium text-blue-300">Browse & Filter</span>
-            </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Entity Explorer
-            </h1>
-            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Browse and filter all ecological entities across Kashmir EcoWatch — protected areas, water bodies, species, districts, trails, and monitoring zones.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        badge={
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-400/30 mb-6">
+            <Search className="w-4 h-4 text-blue-400" />
+            <span className="text-sm font-medium text-blue-300">Browse & Filter</span>
+          </div>
+        }
+        title="Entity Explorer"
+        subtitle="Browse and filter all ecological entities across Kashmir EcoWatch — protected areas, water bodies, species, districts, trails, and monitoring zones."
+      />
 
       {/* Filter Tabs & Search */}
       <section className="py-8 bg-slate-900/50 border-y border-white/5 sticky top-0 z-40 backdrop-blur-md">

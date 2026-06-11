@@ -114,7 +114,7 @@ export default function RainwaterHarvestingPage() {
               <Badge variant="outline" className="border-sky-400/30 text-sky-400 text-xs">Rainwater Intelligence</Badge>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h1 className="max-w-xl text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Rainwater Harvesting & Groundwater Recharge
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mb-6 leading-relaxed">

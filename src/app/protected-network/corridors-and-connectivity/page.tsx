@@ -5,13 +5,12 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Map, TrendingUp, ArrowRight, Search, ChevronRight } from 'lucide-react';
+import { Map, TrendingUp, ArrowRight, Search } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import { getCorridors } from '@/data/protected-network';
+import { Heading } from '@/components/common/Heading';
 
 export default function CorridorsPage() {
-  const router = useRouter();
   const corridors = getCorridors.all();
 
   const getPriorityColor = (priority: string) => {
@@ -34,33 +33,20 @@ export default function CorridorsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      <div className="relative bg-[#160C27] overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-12 container mx-auto px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-            <button onClick={() => router.push('/protected-network')} className="hover:text-white transition-colors">
-              Protected Network
-            </button>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-white font-medium">Corridors & Connectivity</span>
-          </nav>
-
-          <div className="flex items-center gap-2 mb-4">
-            <Map className="w-6 h-6 text-pink-400" />
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Ecological Intelligence</span>
-          </div>
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Corridors & Connectivity</h1>
-          <p className="text-xl text-slate-400 mb-8">Landscape continuity, movement value, and habitat linkage analysis for wildlife conservation</p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+      <Heading
+        title="Corridors & Connectivity"
+        subtitle="Landscape continuity, movement value, and habitat linkage analysis for wildlife conservation"
+        icon={<Map className="w-6 h-6 text-pink-400" />}
+        label="Ecological Intelligence"
+        breadcrumbs={[{ label: 'Corridors & Connectivity' }]}
+        images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
+        actions={
+          <>
             <Button className="bg-gradient-to-r from-pink-600 to-pink-500" icon={<Search className="w-5 h-5" />}>Search Corridors</Button>
             <Button variant="outline" className="border-white/20 text-white" icon={<Map className="w-5 h-5" />}>Connectivity Map</Button>
-          </div>
-        </motion.div>
-      </div>
-      </div>
+          </>
+        }
+      />
 
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

@@ -13,6 +13,7 @@ import {
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Heading } from '@/components/common/Heading';
 
 const speciesCategories = [
   { id: 'mammal', label: 'Mammal', icon: '🦌' },
@@ -149,7 +150,7 @@ export default function SubmitSightingPage() {
             >
               <div className="text-center mb-8">
                 <CheckCircle className="w-20 h-20 text-emerald-400 mx-auto mb-6" />
-                <h1 className="text-4xl font-bold text-white mb-4">Sighting Received</h1>
+                <h1 className="max-w-xl text-4xl font-bold text-white mb-4">Sighting Received</h1>
                 <p className="text-slate-400 text-lg">
                   Your observation has been logged and will be reviewed for inclusion in Kashmir's biodiversity records.
                 </p>
@@ -215,37 +216,18 @@ export default function SubmitSightingPage() {
 
   // Main form
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
-              <button onClick={() => router.push('/contribute')} className="hover:text-white transition-colors">Contribute</button>
-              <span className="text-slate-600">/</span>
-              <span className="text-white font-medium">Submit a Sighting</span>
-            </nav>
-
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                <Camera className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="success" size="md">Citizen Science</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Submit a <span className="text-emerald-400">Sighting</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Contribute wildlife observations to build Kashmir's most comprehensive
-              biodiversity database for conservation and research
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        breadcrumbs={[{ label: 'Contribute', href: '/contribute' }, { label: 'Submit a Sighting' }]}
+        title={<>Submit a <span className="text-emerald-400">Sighting</span></>}
+        subtitle="Contribute wildlife observations to build Kashmir&#39;s most comprehensive biodiversity database for conservation and research"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+            <Camera className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="success" size="md">Citizen Science</Badge>}
+      />
 
       {/* How Sightings Are Handled */}
       <section className="py-8 md:py-12">

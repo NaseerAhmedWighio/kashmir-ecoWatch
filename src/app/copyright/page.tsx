@@ -10,6 +10,7 @@ import {
   BarChart3, Activity, Building2, Eye, Users, Zap, Heart
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 
 // ─── Sections Data ──────────────────────────────────────────────────────────
 
@@ -463,32 +464,16 @@ export default function CopyrightPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* ─── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-slate-600 flex items-center justify-center shadow-2xl">
-                <Shield className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Legal Notice</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Copyright, Intellectual Property &amp; Technology <span className="text-emerald-400">Protection</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-300 mb-4 leading-relaxed max-w-3xl">
-              © {currentYear} Kashmir EcoWatch. All rights reserved.
-            </p>
-
-            <p className="text-base text-slate-400 leading-relaxed max-w-3xl">
-              Kashmir EcoWatch is a protected environmental intelligence platform. All original elements associated with the platform, including its identity, structure, technology-enabled systems, content architecture, evidence organization, environmental intelligence frameworks, geospatial presentation methods, dashboards, workflows, visual systems, written materials, reporting structures, and other original digital components, are protected under applicable copyright, intellectual property, database, proprietary systems, and related legal principles.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+  title={<>Copyright, Intellectual Property & Technology <span className="text-emerald-400">Protection</span></>}
+  subtitle={`\u00A9 ${currentYear} Kashmir EcoWatch. All rights reserved. Kashmir EcoWatch is a protected environmental intelligence platform. All original elements associated with the platform, including its identity, structure, technology-enabled systems, content architecture, evidence organization, environmental intelligence frameworks, geospatial presentation methods, dashboards, workflows, visual systems, written materials, reporting structures, and other original digital components, are protected under applicable copyright, intellectual property, database, proprietary systems, and related legal principles.`}
+  icon={
+    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-slate-600 flex items-center justify-center shadow-2xl">
+      <Shield className="w-5 h-5 md:w-8 md:h-8 text-white" />
+    </div>
+  }
+  badge={<Badge variant="info" size="lg">Legal Notice</Badge>}
+/>
 
       {/* ─── Platform Nature ──────────────────────────────────────────────── */}
       <section className="py-12 md:py-16 bg-gradient-to-b from-slate-950 to-slate-900">

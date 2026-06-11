@@ -11,6 +11,7 @@ import {
   Target, Cpu, Cloud, GitBranch, Monitor
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useState } from 'react';
 
 // ─── Team Data ──────────────────────────────────────────────────────────────
@@ -248,28 +249,16 @@ export default function TechnologyPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* ─── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-blue-700">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                <Heart className="w-8 h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Built for Kashmir</Badge>
-            </div>
-
-            <h1 className="text-4xl sm:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Made with <span className="text-emerald-400">Love</span> for Kashmir
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-3xl">
-              Kashmir EcoWatch is designed, engineered, and technologically integrated by <strong className="text-white">Prime Logic Solutions USA</strong> as a high-performance environmental intelligence platform built for scientific visibility, geospatial interpretation, modular knowledge systems, monitoring workflows, district-level environmental understanding, and structured public contribution.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        title={<>Made with <span className="text-emerald-400">Love</span> for Kashmir</>}
+        subtitle="Kashmir EcoWatch is designed, engineered, and technologically integrated by Prime Logic Solutions USA as a high-performance environmental intelligence platform built for scientific visibility, geospatial interpretation, modular knowledge systems, monitoring workflows, district-level environmental understanding, and structured public contribution."
+        icon={
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+            <Heart className="w-8 h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="info" size="lg">Built for Kashmir</Badge>}
+      />
 
       {/* ─── Platform Vision ──────────────────────────────────────────────── */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">

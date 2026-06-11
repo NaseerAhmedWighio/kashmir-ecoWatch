@@ -12,6 +12,7 @@ import {
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { VerificationStatusBadge } from '@/components/sightings/VerificationStatusBadge';
+import { Heading } from '@/components/common/Heading';
 import { getSightingsData, kashmirValidation } from '@/data/trails-sightings';
 
 export default function SightingsPage() {
@@ -38,52 +39,38 @@ export default function SightingsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <Eye className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="warning" size="lg">Field Observation Database</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Wildlife <span className="text-emerald-400">Sightings</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Comprehensive database of verified wildlife observations, bird sightings,
-              and ecological field records from across Kashmir
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-xl"
-                onClick={() => router.push('/submit-sighting')}
-              >
-                <Camera className="w-5 h-5 mr-2" />
-                Submit Sighting
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/atlas?layer=sightings')}
-              >
-                View on Map
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      
+      <Heading
+        title={<>Wildlife <span className="text-emerald-400">Sightings</span></>}
+        subtitle="Comprehensive database of verified wildlife observations, bird sightings, and ecological field records from across Kashmir"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
+            <Eye className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="warning" size="lg">Field Observation Database</Badge>}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-xl"
+              onClick={() => router.push('/submit-sighting')}
+            >
+              <Camera className="w-5 h-5 mr-2" />
+              Submit Sighting
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/atlas?layer=sightings')}
+            >
+              View on Map
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        }
+      />
 
       {/* Filters */}
       <section className="py-8 border-y border-white/5">

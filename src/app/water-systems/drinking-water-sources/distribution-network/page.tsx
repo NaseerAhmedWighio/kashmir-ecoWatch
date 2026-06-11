@@ -164,7 +164,7 @@ export default function DistributionNetworkPage() {
               <Badge variant="outline" className="border-indigo-400/30 text-indigo-400 text-xs">Distribution Intelligence</Badge>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h1 className="max-w-xl text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Distribution Network Analysis
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mb-6 leading-relaxed">

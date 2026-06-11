@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import * as Icons from 'lucide-react';
 import Link from 'next/link';
+import { Heading } from '@/components/common/Heading';
 import { getSeasonalEcologyData, seasonalEcologyMetrics, seasonalEcologyNavigationCards, kashmirDistrictSeasons } from '@/data/seasonal-ecology';
 
 export default function SeasonalEcologyHubPage() {
@@ -25,65 +26,33 @@ export default function SeasonalEcologyHubPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[#160C27]" />
-        <div className="absolute inset-0 bg-[#160C27]" />
-        
-        {/* Animated Gradient Orbs */}
-        <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-emerald-500/15 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/4 w-[600px] h-[600px] bg-teal-500/15 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-2000" />
-
-        <div className="relative max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
-            <Link href="/" className="hover:text-emerald-400 transition-colors">Home</Link>
-            <Icons.ChevronRight className="w-4 h-4" />
-            <span className="text-white">Seasonal Ecology</span>
-          </nav>
-
-          {/* Hero Content */}
-          <div className="max-w-[97rem] mx-auto">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 border border-white/10">
-                <Icons.Calendar className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="success" size="md">
-                <Icons.Clock className="w-3.5 h-3.5 mr-1" />
-                Current: {formatLabel(currentSeason)}
-              </Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Seasonal Ecology of{' '}
-              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                Kashmir
-              </span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-              Kashmir-wide phenology, seasonality, migration, habitat-transition, and ecological-timing 
-              intelligence system. Track bloom cycles, migration windows, pollinator activity, and 
-              seasonal ecological shifts across the Kashmir region.
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-              <Link href="/seasonal-ecology/bloom-mapping">
-                <Button variant="primary" size="lg">
-                  <Icons.Flower2 className="w-5 h-5 mr-2" />
-                  Explore Bloom Mapping
-                </Button>
-              </Link>
-              <Link href="/seasonal-ecology/migration-windows">
-                <Button variant="outline" size="lg">
-                  <Icons.Bird className="w-5 h-5 mr-2" />
-                  Migration Windows
-                </Button>
-              </Link>
-            </div>
+      <Heading
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Seasonal Ecology' }]}
+        title={<>Seasonal Ecology of{' '}<span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Kashmir</span></>}
+        subtitle="Kashmir-wide phenology, seasonality, migration, habitat-transition, and ecological-timing intelligence system. Track bloom cycles, migration windows, pollinator activity, and seasonal ecological shifts across the Kashmir region."
+        icon={
+          <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 border border-white/10">
+            <Icons.Calendar className="w-5 h-5 md:w-8 md:h-8 text-white" />
           </div>
-        </div>
-      </div>
+        }
+        badge={<Badge variant="success" size="md"><Icons.Clock className="w-3.5 h-3.5 mr-1" />Current: {formatLabel(currentSeason)}</Badge>}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+            <Link href="/seasonal-ecology/bloom-mapping">
+              <Button variant="primary" size="lg">
+                <Icons.Flower2 className="w-5 h-5 mr-2" />
+                Explore Bloom Mapping
+              </Button>
+            </Link>
+            <Link href="/seasonal-ecology/migration-windows">
+              <Button variant="outline" size="lg">
+                <Icons.Bird className="w-5 h-5 mr-2" />
+                Migration Windows
+              </Button>
+            </Link>
+          </div>
+        }
+      />
 
       {/* Metrics Ribbon */}
       <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">

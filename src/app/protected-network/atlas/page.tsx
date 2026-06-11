@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Map, Layers, Search, Filter, Download, Share2, Maximize2, Crosshair, Eye, EyeOff, Plus, Minus } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { getProtectedAreas } from '@/data/protected-network';
+import { Heading } from '@/components/common/Heading';
 
 const mapLayers = [
   { id: 'national-parks', label: 'National Parks', color: 'bg-emerald-500', visible: true, count: 3 },
@@ -29,30 +29,14 @@ export default function ProtectedAreaAtlasPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Header */}
-      <div className="relative bg-[#160C27] overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-6 container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6"
-        >
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Map className="w-5 h-5 text-emerald-400" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-                Spatial Intelligence
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Protected Area Atlas
-            </h1>
-            <p className="text-slate-400 max-w-2xl text-lg">
-              Interactive GIS mapping of all protected landscapes across Kashmir
-            </p>
-          </div>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        title="Protected Area Atlas"
+        subtitle="Interactive GIS mapping of all protected landscapes across Kashmir"
+        icon={<Map className="w-5 h-5 text-emerald-400" />}
+        label="Spatial Intelligence"
+        images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
+        actions={
           <div className="flex items-center gap-3">
             <Button variant="outline" size="sm" className="border-white/20 text-white" icon={<Share2 className="w-4 h-4" />}>
               Share
@@ -64,9 +48,8 @@ export default function ProtectedAreaAtlasPage() {
               Full Screen
             </Button>
           </div>
-        </motion.div>
-      </div>
-      </div>
+        }
+      />
 
       {/* Map Container */}
       <div className="container mx-auto px-6 pb-12">

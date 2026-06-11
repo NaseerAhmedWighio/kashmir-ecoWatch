@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Heading } from '@/components/common/Heading';
 import { Input } from '@/components/ui/Input';
 import {
   Bell, AlertTriangle, Clock, Calendar, ArrowRight, Filter, X,
@@ -137,29 +138,16 @@ export default function AlertsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* Hero Section */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-blue-700">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-2xl">
-                <Bell className="w-8 h-8 text-white" />
-              </div>
-              <Badge variant="danger" size="lg">Risk & Monitoring</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Live Alerts & <span className="text-emerald-400">Advisories</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Public-facing live alert stream for Kashmir EcoWatch — real-time hazard alerts, 
-              weather advisories, and emergency notifications for public safety and disaster preparedness.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        title={<>Live Alerts & <span className="text-emerald-400">Advisories</span></>}
+        subtitle="Public-facing live alert stream for Kashmir EcoWatch — real-time hazard alerts, weather advisories, and emergency notifications for public safety and disaster preparedness."
+        icon={
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-2xl">
+            <Bell className="w-8 h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="danger" size="lg">Risk & Monitoring</Badge>}
+      />
 
       {/* Summary Strip */}
       <section className="py-8 bg-slate-900/50 border-y border-white/5">

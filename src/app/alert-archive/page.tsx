@@ -11,6 +11,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Heading } from '@/components/common/Heading';
 
 interface ArchivedAlert {
   id: string;
@@ -280,32 +281,16 @@ export default function AlertArchivePage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* Hero Section */}
-      <section className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 relative overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
-              <Archive className="w-4 h-4 text-indigo-400" />
-              <span className="text-sm text-indigo-300">Historical Records</span>
-            </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              <span className="bg-gradient-to-r from-indigo-400 to-slate-300 bg-clip-text text-transparent">
-                Alert Archive
-              </span>
-            </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Searchable historical record of all alerts, advisories, and hazard warnings issued through Kashmir EcoWatch monitoring systems.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        badge={
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+            <Archive className="w-4 h-4 text-indigo-400" />
+            <span className="text-sm text-indigo-300">Historical Records</span>
+          </div>
+        }
+        title={<span className="bg-gradient-to-r from-indigo-400 to-slate-300 bg-clip-text text-transparent">Alert Archive</span>}
+        subtitle="Searchable historical record of all alerts, advisories, and hazard warnings issued through Kashmir EcoWatch monitoring systems."
+      />
 
       {/* Summary Strip */}
       <section className="py-8 border-y border-white/5 bg-slate-900/50">

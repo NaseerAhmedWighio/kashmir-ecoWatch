@@ -16,7 +16,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// --- Data --------------------------------------------------------------------
 
 const VALUE_CARDS = [
   { icon: Shield, title: 'Institutional Grounding', desc: 'Formal partnerships with departments, universities, labs, and environmental authorities that provide structural credibility and data access.', color: 'from-blue-500 to-cyan-600', iconColor: 'text-blue-400' },
@@ -152,7 +152,7 @@ const FAQS = [
   { q: 'Is there a separate route for technical and GIS collaboration?', a: 'Yes. Use the Strategic & Technical Collaboration section for geospatial systems, Earth observation, remote sensing, data engineering, and technical infrastructure inquiries.' },
 ];
 
-// ─── Page Component ──────────────────────────────────────────────────────────
+// --- Page Component ----------------------------------------------------------
 
 export default function PartnersPage() {
   const router = useRouter();
@@ -188,7 +188,7 @@ export default function PartnersPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* ─── 1. Hero ──────────────────────────────────────────────────────── */}
+      {/* --- 1. Hero -------------------------------------------------------- */}
       <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-blue-700">
         
         <div className="container mx-auto px-6 relative z-10">
@@ -200,7 +200,7 @@ export default function PartnersPage() {
               <Badge variant="info" size="lg">Partnerships, Expert Network & Onboarding</Badge>
             </div>
 
-            <h1 className="text-4xl sm:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="max-w-xl text-4xl sm:text-3xl xs:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Partner With <span className="text-emerald-400">Kashmir EcoWatch</span>
             </h1>
 
@@ -226,7 +226,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 2. Why Collaboration Matters ─────────────────────────────────── */}
+      {/* --- 2. Why Collaboration Matters ----------------------------------- */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
@@ -253,7 +253,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 3. Trusted Network Directory ─────────────────────────────────── */}
+      {/* --- 3. Trusted Network Directory ----------------------------------- */}
       <section id="directory" className="py-16 md:py-20 bg-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
@@ -294,7 +294,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 4. Choose Your Onboarding Path ───────────────────────────────── */}
+      {/* --- 4. Choose Your Onboarding Path --------------------------------- */}
       <section id="pathways" className="py-16 md:py-20 bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
@@ -326,7 +326,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 5. Contact the Right Pathway ─────────────────────────────────── */}
+      {/* --- 5. Contact the Right Pathway ----------------------------------- */}
       <section className="py-16 md:py-20 bg-slate-950">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl">
@@ -354,7 +354,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 6. How Collaboration Works ───────────────────────────────────── */}
+      {/* --- 6. How Collaboration Works ------------------------------------- */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
@@ -385,7 +385,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 7. Participation Standards ───────────────────────────────────── */}
+      {/* --- 7. Participation Standards ------------------------------------- */}
       <section className="py-16 md:py-20 bg-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
@@ -410,7 +410,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 8. Institutional Partner Onboarding ──────────────────────────── */}
+      {/* --- 8. Institutional Partner Onboarding ---------------------------- */}
       <section id="institutional-form" className="py-16 md:py-20 bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
@@ -635,7 +635,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 9. Individual Expert Onboarding ──────────────────────────────── */}
+      {/* --- 9. Individual Expert Onboarding -------------------------------- */}
       <section id="expert-form" className="py-16 md:py-20 bg-slate-950">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
@@ -824,7 +824,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 10. Field & Community Participation ──────────────────────────── */}
+      {/* --- 10. Field & Community Participation ---------------------------- */}
       <section id="community" className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl">
@@ -859,7 +859,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 11. Strategic & Technical Collaboration ──────────────────────── */}
+      {/* --- 11. Strategic & Technical Collaboration ------------------------ */}
       <section id="strategic" className="py-16 md:py-20 bg-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl">
@@ -881,7 +881,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ─── 12. FAQ ──────────────────────────────────────────────────────── */}
+      {/* --- 12. FAQ -------------------------------------------------------- */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-900 to-slate-950">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">

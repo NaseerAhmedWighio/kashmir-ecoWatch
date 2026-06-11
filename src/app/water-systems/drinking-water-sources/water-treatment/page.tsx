@@ -221,7 +221,7 @@ export default function WaterTreatmentPage() {
               <Badge variant="outline" className="border-cyan-400/30 text-cyan-400 text-xs">Water Treatment Intelligence</Badge>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h1 className="max-w-xl text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Water Treatment Plants of Kashmir
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mb-6 leading-relaxed">

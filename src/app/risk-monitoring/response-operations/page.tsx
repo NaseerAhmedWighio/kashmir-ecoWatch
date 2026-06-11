@@ -10,6 +10,7 @@ import {
   Map, Shield, Activity, TrendingUp
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 
 const responseModules = [
@@ -73,62 +74,40 @@ export default function ResponseOperationsPage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
-              <span>/</span>
-              <span className="text-white font-medium">Response & Operations</span>
-            </div>
-
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-2xl">
-                <TrendingUp className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="default" size="lg">Operational Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Response & <span className="text-emerald-400">Operations</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Emergency response coordination, live alerts, incident management,
-              and operational intelligence for effective risk mitigation
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white shadow-xl"
-                onClick={() => router.push('/risk-monitoring/live-alerts-advisories')}
-              >
-                <Bell className="w-5 h-5 mr-2" />
-                View Live Alerts
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring')}
-              >
-                Back to Overview
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950"><Heading
+        title={<>Response & <span className="text-emerald-400">Operations</span></>}
+        subtitle="Emergency response coordination, live alerts, incident management, and operational intelligence for effective risk mitigation"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-2xl">
+            <TrendingUp className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="default" size="lg">Operational Intelligence</Badge>}
+        breadcrumbs={[
+          { label: "Risk & Monitoring", href: "/risk-monitoring" },
+          { label: "Response & Operations" }
+        ]}
+        actions={
+          <>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white shadow-xl"
+              onClick={() => router.push('/risk-monitoring/live-alerts-advisories')}
+            >
+              <Bell className="w-5 h-5 mr-2" />
+              View Live Alerts
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring')}
+            >
+              Back to Overview
+            </Button>
+          </>
+        }
+      />
 
       {/* Response Modules Grid */}
       <section className="py-20">

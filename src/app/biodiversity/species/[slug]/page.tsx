@@ -35,7 +35,7 @@ export default function SpeciesDetailPage() {
   if (!species) {
     return (
       <main className="min-h-screen bg-slate-950"><div className="pt-48 text-center">
-          <h1 className="text-3xl font-bold text-white mb-4">Species not found</h1>
+          <h1 className="max-w-xl text-3xl font-bold text-white mb-4">Species not found</h1>
           <Button onClick={() => router.push('/biodiversity')}>Back to Biodiversity</Button>
         </div>
         
@@ -103,7 +103,7 @@ export default function SpeciesDetailPage() {
                   ) : null}
                 </div>
 
-                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+                <h1 className="max-w-xl text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
                   {species.commonName}
                 </h1>
                 <p className="text-2xl text-slate-400 italic mb-6">

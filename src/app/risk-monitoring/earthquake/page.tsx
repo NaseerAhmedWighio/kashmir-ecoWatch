@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   AlertTriangle, Map, BarChart3, ExternalLink,
@@ -10,6 +9,7 @@ import {
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Heading } from '@/components/common/Heading';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { useRouter } from 'next/navigation';
 
@@ -316,75 +316,46 @@ export default function EarthquakeRiskMonitoringPage() {
     <main className="min-h-screen bg-slate-950">
 
       {/* ========== HERO SECTION ========== */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-red-500/5 rounded-full blur-3xl" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl"
-          >
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
-              <Link href="/risk-monitoring" className="hover:text-white transition-colors">Risk &amp; Monitoring</Link>
-              <span className="text-slate-600">/</span>
-              <Link href="/risk-monitoring/hazard-risks" className="hover:text-white transition-colors">Hazard Risks</Link>
-              <span className="text-slate-600">/</span>
-              <span className="text-white font-medium">Earthquake &amp; Seismic Risk</span>
-            </div>
-
-            {/* Title Block */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <Siren className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="danger" size="lg">Zone V — Highest Seismic Hazard</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Earthquake &amp; <span className="text-emerald-400">Seismic Risk</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              The Kashmir Himalayas sit in Seismic Zone V — India&apos;s highest hazard classification.
-              The Indian plate continues thrusting beneath Eurasia at ~2 cm/year, accumulating strain
-              that releases as devastating earthquakes. Monitoring, preparedness, and structural
-              resilience are critical for the Valley&apos; 20 million+ residents.
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white shadow-xl"
-                onClick={() => router.push('/risk-monitoring/hazard-risks')}
-              >
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Back to Hazard Risks
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring')}
-              >
-                Overview
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/report-issue')}
-              >
-                <AlertTriangle className="w-5 h-5 mr-2" />
-                Report Seismic Event
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        breadcrumbs={[{ label: 'Risk & Monitoring', href: '/risk-monitoring' }, { label: 'Hazard Risks', href: '/risk-monitoring/hazard-risks' }, { label: 'Earthquake & Seismic Risk' }]}
+        title={<>Earthquake &amp; <span className="text-emerald-400">Seismic Risk</span></>}
+        subtitle="The Kashmir Himalayas sit in Seismic Zone V — India&apos;s highest hazard classification. The Indian plate continues thrusting beneath Eurasia at ~2 cm/year, accumulating strain that releases as devastating earthquakes. Monitoring, preparedness, and structural resilience are critical for the Valley&apos; 20 million+ residents."
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
+            <Siren className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="danger" size="lg">Zone V — Highest Seismic Hazard</Badge>}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white shadow-xl"
+              onClick={() => router.push('/risk-monitoring/hazard-risks')}
+            >
+              <ArrowRight className="w-5 h-5 mr-2" />
+              Back to Hazard Risks
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring')}
+            >
+              Overview
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/report-issue')}
+            >
+              <AlertTriangle className="w-5 h-5 mr-2" />
+              Report Seismic Event
+            </Button>
+          </div>
+        }
+      />
 
       {/* ========== STATS BAR ========== */}
       <section className="py-10 border-y border-white/5 bg-red-950/10">

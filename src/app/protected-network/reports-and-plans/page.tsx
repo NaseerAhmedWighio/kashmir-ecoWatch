@@ -5,13 +5,12 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { FileText, Download, ArrowRight, Search, Filter, Book, ChevronRight } from 'lucide-react';
+import { FileText, Download, ArrowRight, Search, Filter, Book } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import { getReports } from '@/data/protected-network';
+import { Heading } from '@/components/common/Heading';
 
 export default function ReportsPage() {
-  const router = useRouter();
   const reports = getReports.all();
 
   const getTypeColor = (type: string) => {
@@ -27,36 +26,23 @@ export default function ReportsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      <div className="relative bg-[#160C27] overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-12 container mx-auto px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-            <button onClick={() => router.push('/protected-network')} className="hover:text-white transition-colors">
-              Protected Network
-            </button>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-white font-medium">Reports & Plans</span>
-          </nav>
-
-          <div className="flex items-center gap-2 mb-4">
-            <Book className="w-6 h-6 text-amber-400" />
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Evidence & Documentation</span>
-          </div>
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Reports & Management Plans</h1>
-          <p className="text-xl text-slate-400 mb-8">Scientific reports, management plans, monitoring documents, and research publications</p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+      <Heading
+        title="Reports & Management Plans"
+        subtitle="Scientific reports, management plans, monitoring documents, and research publications"
+        icon={<Book className="w-6 h-6 text-amber-400" />}
+        label="Evidence & Documentation"
+        breadcrumbs={[{ label: 'Reports & Plans' }]}
+        images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
+        actions={
+          <>
             <div className="relative">
               <input type="text" placeholder="Search reports..." className="w-64 px-4 py-2.5 pl-10 rounded-lg glass-light border border-white/10 focus:border-amber-500/50 outline-none text-sm text-white placeholder-slate-500" />
               <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
             </div>
             <Button variant="outline" className="border-white/20 text-white" icon={<Filter className="w-4 h-4" />}>Filters</Button>
-          </div>
-        </motion.div>
-      </div>
-      </div>
+          </>
+        }
+      />
 
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">

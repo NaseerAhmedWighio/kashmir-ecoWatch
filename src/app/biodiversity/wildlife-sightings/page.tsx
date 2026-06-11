@@ -68,7 +68,7 @@ export default function WildlifeSightingsPage() {
                 Biodiversity Intelligence
               </span>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="max-w-xl text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Wildlife Sightings
             </h1>
             <p className="text-lg text-slate-400 mb-6">

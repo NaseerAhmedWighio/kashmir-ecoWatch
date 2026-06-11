@@ -11,6 +11,7 @@ import {
   FileText, Activity, Shield, Info, BarChart3
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import {
   getAllDistrictIntelligence,
   getDistrictSummaryStats,
@@ -95,35 +96,24 @@ export default function DistrictsPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="container mx-auto px-6 relative z-10">
+<Heading
+  title={<>District <span className="text-emerald-400">Profiles</span></>}
+  subtitle="Integrated district-level environmental intelligence bringing together ecological systems, water networks, monitoring, risk, evidence, and public contribution across the platform. Geographic Scope: Currently covering Kashmir Valley districts, with select profiles from Jammu Division and Ladakh. Expanded J&K coverage in progress."
+  icon={
+    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+      <Map className="w-5 h-5 md:w-8 md:h-8 text-white" />
+    </div>
+  }
+  badge={<Badge variant="info" size="lg">District Intelligence</Badge>}
+/>
+
+      <section className="relative bg-[#160C27]">
+        <div className="container mx-auto px-6 relative z-10 pb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-6xl"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                <Map className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">District Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              District <span className="text-emerald-400">Profiles</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-4xl">
-              Integrated district-level environmental intelligence bringing together ecological systems, water networks,
-              monitoring, risk, evidence, and public contribution across the platform.
-            </p>
-
-            <p className="text-sm text-slate-500 mb-8">
-              <strong className="text-slate-400">Geographic Scope:</strong> Currently covering Kashmir Valley districts, with select profiles from Jammu Division and Ladakh.
-              Expanded J&K coverage in progress.
-            </p>
 
             {/* Search & Filter Bar */}
             <div className="flex flex-col md:flex-row gap-4 mb-8">

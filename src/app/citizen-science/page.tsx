@@ -11,6 +11,7 @@ import {
   Route, FileCheck, Search, Layers, BookOpen
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import Link from 'next/link';
 
 const programs = [
@@ -86,52 +87,34 @@ const districtLeaders = [
 
 export default function CitizenSciencePage() {
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
-              <Link href="/contribute" className="hover:text-white transition-colors">Contribute</Link>
-              <span className="text-slate-600">/</span>
-              <span className="text-white font-medium">Citizen Science</span>
-            </nav>
-
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-violet-600 flex items-center justify-center shadow-2xl">
-                <Users className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="success" size="md">Community Science Program</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Citizen <span className="text-emerald-400">Science</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Join a growing community of 635+ citizen scientists contributing to Kashmir&apos;s
-              environmental monitoring, data verification, and conservation efforts
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Link href="/submit-sighting">
-                <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600">
-                  <Camera className="w-5 h-5 mr-2" />
-                  Start Contributing
-                </Button>
-              </Link>
-              <Link href="/contribute">
-                <Button size="lg" variant="outline" className="border-white/20 text-white">
-                  Explore All Paths
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        breadcrumbs={[{ label: 'Contribute', href: '/contribute' }, { label: 'Citizen Science' }]}
+        title={<>Citizen <span className="text-emerald-400">Science</span></>}
+        subtitle="Join a growing community of 635+ citizen scientists contributing to Kashmir&#39;s environmental monitoring, data verification, and conservation efforts"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-violet-600 flex items-center justify-center shadow-2xl">
+            <Users className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="success" size="md">Community Science Program</Badge>}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Link href="/submit-sighting">
+              <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600">
+                <Camera className="w-5 h-5 mr-2" />
+                Start Contributing
+              </Button>
+            </Link>
+            <Link href="/contribute">
+              <Button size="lg" variant="outline" className="border-white/20 text-white">
+                Explore All Paths
+                <ChevronRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        }
+      />
 
       {/* Stats */}
       <section className="py-12 border-y border-white/5">

@@ -88,7 +88,7 @@ export default function GroundwaterPage() {
               <Badge variant="outline" className="border-amber-400/30 text-amber-400 text-xs">Groundwater Intelligence</Badge>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h1 className="max-w-xl text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Groundwater Intelligence — Karewa Aquifer System
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mb-6 leading-relaxed">

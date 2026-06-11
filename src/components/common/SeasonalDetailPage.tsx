@@ -234,7 +234,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
               <IconComponent className="w-5 h-5 md:w-8 md:h-8 text-white" />
             </div>
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-white mb-2">{name}</h1>
+              <h1 className="text-3xl font-bold text-white mb-2 max-w-xl">{name}</h1>
               <p className="text-slate-300">{description}</p>
             </div>
           </div>

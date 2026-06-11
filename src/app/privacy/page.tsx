@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -9,6 +9,7 @@ import {
   AlertTriangle, Leaf, Globe, Activity, Users, Clock
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { cn } from '@/lib/utils';
 
 const privacyPrinciples = [
@@ -97,32 +98,16 @@ const contributionPathways = [
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* 1. Hero */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-blue-700">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                <Shield className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="success" size="md">Privacy & Data Handling</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Privacy <span className="text-emerald-400">Policy</span>
-            </h1>
-
-            <p className="text-xl text-slate-400 leading-relaxed max-w-4xl">
-              Kashmir EcoWatch is committed to protecting personal information, handling contributor data responsibly, and managing environmental evidence with care. Because the platform includes public contribution pathways, geospatial workflows, environmental reporting, biodiversity observations, and evidence-based publication systems, privacy on Kashmir EcoWatch includes both personal-data protection and responsible handling of sensitive environmental information.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        title={<>Privacy <span className="text-emerald-400">Policy</span></>}
+        subtitle="Kashmir EcoWatch is committed to protecting personal information, handling contributor data responsibly, and managing environmental evidence with care. Because the platform includes public contribution pathways, geospatial workflows, environmental reporting, biodiversity observations, and evidence-based publication systems, privacy on Kashmir EcoWatch includes both personal-data protection and responsible handling of sensitive environmental information."
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+            <Shield className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="success" size="md">Privacy & Data Handling</Badge>}
+      />
 
       {/* 2. Privacy Principles */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">

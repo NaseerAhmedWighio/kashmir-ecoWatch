@@ -172,7 +172,7 @@ export function ImmersiveHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-emerald-500"></span>
             </span>
-            <span className="text-[0.45rem] xs:text-[0.50rem] sm:text-xs md:text-[0.65rem] lg:text-xs font-medium text-slate-300 tracking-wide uppercase">
+            <span className="text-[0.40rem] xs:text-[0.45rem] sm:text-xs md:text-[0.65rem] lg:text-xs font-medium text-slate-300 tracking-wide uppercase">
               Live Environmental Intelligence System Active
             </span>
             <Radar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
@@ -215,12 +215,12 @@ export function ImmersiveHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap items-center gap-3 sm:gap-4"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
           >
             <Button
               size="lg"
               icon={<Map className="w-4 h-4 sm:w-5 sm:h-5" />}
-              className="group relative overflow-hidden bg-gradient-to-r from-forest-600 to-forest-500 hover:from-forest-500 hover:to-forest-400 text-white shadow-2xl glow-forest px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+              className="w-full sm:w-auto group relative overflow-hidden bg-gradient-to-r from-forest-600 to-forest-500 hover:from-forest-500 hover:to-forest-400 text-white shadow-2xl glow-forest px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
               onClick={() => router.push('/atlas')}
             >
               <span className="relative z-10">Open Atlas</span>
@@ -232,7 +232,7 @@ export function ImmersiveHero() {
               size="lg"
               variant="outline"
               icon={<Leaf className="w-4 h-4 sm:w-5 sm:h-5" />}
-              className="border-white/20 text-white hover:border-forest-400 hover:text-forest-300 glass-light backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+              className="w-full sm:w-auto border-white/20 text-white hover:border-forest-400 hover:text-forest-300 glass-light backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
               onClick={() => router.push('/risk-monitoring')}
             >
               Explore Intelligence
@@ -242,7 +242,7 @@ export function ImmersiveHero() {
               size="lg"
               variant="outline"
               icon={<BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />}
-              className="border-white/20 text-white hover:border-glacier-400 hover:text-glacier-300 glass-light backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+              className="w-full sm:w-auto border-white/20 text-white hover:border-glacier-400 hover:text-glacier-300 glass-light backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
               onClick={() => router.push('/risk-monitoring/dashboards')}
             >
               Live Dashboards

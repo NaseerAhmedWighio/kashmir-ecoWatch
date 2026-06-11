@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { Heading } from '@/components/common/Heading';
 import { getProtectedAreas, protectedNetworkMetrics } from '@/data/protected-network';
 
 const categoryFilters = [
@@ -73,51 +74,33 @@ export default function ProtectedAreasPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-2 mb-4">
-              <Shield className="w-6 h-6 text-emerald-400" />
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
-                Conservation Areas
-              </span>
-            </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Protected Areas
-            </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Explore Kashmir&apos;s national parks, wildlife sanctuaries, wetland reserves, 
-              and conservation areas with detailed ecological intelligence
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-emerald-600 to-emerald-500"
-                icon={<Map className="w-5 h-5" />}
-                onClick={() => router.push('/protected-network/atlas')}
-              >
-                Open PA Atlas
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white"
-                icon={<Activity className="w-5 h-5" />}
-                onClick={() => router.push('/protected-network')}
-              >
-                Protected Network Hub
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+      <Heading
+        label="Conservation Areas"
+        title="Protected Areas"
+        subtitle="Explore Kashmir&#39;s national parks, wildlife sanctuaries, wetland reserves, and conservation areas with detailed ecological intelligence"
+        icon={<Shield className="w-6 h-6 text-emerald-400" />}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-emerald-600 to-emerald-500"
+              icon={<Map className="w-5 h-5" />}
+              onClick={() => router.push('/protected-network/atlas')}
+            >
+              Open PA Atlas
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white"
+              icon={<Activity className="w-5 h-5" />}
+              onClick={() => router.push('/protected-network')}
+            >
+              Protected Network Hub
+            </Button>
+          </div>
+        }
+      />
 
       <div className="container mx-auto px-6 -mt-8 relative z-20">
         <motion.div

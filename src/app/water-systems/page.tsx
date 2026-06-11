@@ -11,6 +11,7 @@ import {
   Database, Layers, Activity, Shield, Leaf, Eye, Book
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 import {
   lakesData, wetlandsData, riversData, springsData,
@@ -150,46 +151,31 @@ export default function WaterSystemsPage() {
   const metrics = updatedWaterSystemsMetrics;
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl"
-          >
-            <Badge variant="info" size="lg" className="mb-4">
-              Comprehensive Hydrological Intelligence
-            </Badge>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Water Systems
-            </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Water Systems is a complete hydrological, ecological, aquatic, water-quality, watershed, cryosphere, flood-risk, and restoration intelligence system for all mapped water-related landscapes and processes across Kashmir.
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                className="bg-gradient-to-r from-blue-500 to-cyan-600"
-                icon={<Search className="w-5 h-5" />}
-                onClick={() => router.push('/water-systems/lakes')}
-              >
-                Explore Water Bodies
-              </Button>
-              <Button
-                variant="outline"
-                className="border-white/20 text-white"
-                icon={<Database className="w-5 h-5" />}
-                onClick={() => router.push('/dashboards/water-systems')}
-              >
-                View Dashboard
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        badge={<Badge variant="info" size="lg" className="mb-4">Comprehensive Hydrological Intelligence</Badge>}
+        title="Water Systems"
+        subtitle="Water Systems is a complete hydrological, ecological, aquatic, water-quality, watershed, cryosphere, flood-risk, and restoration intelligence system for all mapped water-related landscapes and processes across Kashmir."
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              className="bg-gradient-to-r from-blue-500 to-cyan-600"
+              icon={<Search className="w-5 h-5" />}
+              onClick={() => router.push('/water-systems/lakes')}
+            >
+              Explore Water Bodies
+            </Button>
+            <Button
+              variant="outline"
+              className="border-white/20 text-white"
+              icon={<Database className="w-5 h-5" />}
+              onClick={() => router.push('/dashboards/water-systems')}
+            >
+              View Dashboard
+            </Button>
+          </div>
+        }
+      />
 
       {/* Metrics Bar */}
       <div className="container mx-auto px-6 -mt-8 relative z-20">

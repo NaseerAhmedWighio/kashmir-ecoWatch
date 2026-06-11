@@ -13,6 +13,7 @@ import {
   Database, FileText, Eye, Globe
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 import {
   monitoringRegistry,
@@ -71,44 +72,21 @@ function MonitoringOverviewPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* ===== HERO ===== */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl" />
-        </div>
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-2xl">
-                <Activity className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">Monitoring Intelligence</span>
-                <Badge variant="success" size="md" className="ml-2">Monitoring Overview</Badge>
-              </div>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Monitoring{' '}
-              <span className="text-emerald-400">
-                Intelligence Overview
-              </span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-300 mb-4 leading-relaxed max-w-3xl">
-              Environmental monitoring systems tracking atmospheric, hydrological, seismic,
-              meteorological, wildlife, and cryosphere-linked conditions across Kashmir.
-            </p>
-            <p className="text-sm text-slate-400 max-w-3xl">
-              These networks form the platform&apos;s operational sensing layer — feeding alerts,
-              dashboards, district profiles, and module-specific intelligence with continuous
-              and periodic environmental data.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+  title={<>Monitoring <span className="text-emerald-400">Intelligence Overview</span></>}
+  subtitle="Environmental monitoring systems tracking atmospheric, hydrological, seismic, meteorological, wildlife, and cryosphere-linked conditions across Kashmir. These networks form the platform's operational sensing layer — feeding alerts, dashboards, district profiles, and module-specific intelligence with continuous and periodic environmental data."
+  icon={
+    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-2xl">
+      <Activity className="w-7 h-7 text-white" />
+    </div>
+  }
+  badge={
+    <div className="flex items-center gap-2">
+      <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">Monitoring Intelligence</span>
+      <Badge variant="success" size="md">Monitoring Overview</Badge>
+    </div>
+  }
+/>
 
       {/* ===== SUMMARY STRIP ===== */}
       <section className="pb-12">

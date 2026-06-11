@@ -57,7 +57,7 @@ const EndemicSpeciesPage: React.FC = () => {
             <span className="text-emerald-100">Endemic Species</span>
           </div>
 
-          <h1 className="text-4xl font-bold mb-4">Endemic Species of Kashmir</h1>
+          <h1 className="max-w-xl text-4xl font-bold mb-4">Endemic Species of Kashmir</h1>
           <p className="text-xl text-emerald-100 max-w-3xl">
             Unique species found only in the Kashmir region and the Himalayas. 
             These species represent our natural heritage and require special conservation attention.

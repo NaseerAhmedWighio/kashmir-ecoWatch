@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Heading } from '@/components/common/Heading';
 import {
   Droplets, ArrowRight, TrendingUp, MapPin, Clock, AlertTriangle, Waves, Eye
 } from 'lucide-react';
@@ -56,58 +57,38 @@ export default function FloodFlashFloodPage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
-              <span>/</span>
-              <a href="/risk-monitoring/hazard-risks" className="hover:text-white transition-colors">Hazard Risks</a>
-              <span>/</span>
-              <span className="text-white font-medium">Flood & Flash Flood</span>
-            </div>
-
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-2xl">
-                <Droplets className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">River & Inundation Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Flood & <span className="text-emerald-400">Flash Flood</span> Risk
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              River overflow monitoring, flash flood corridors, inundation risk assessment, 
-              and drainage stress intelligence across Kashmir's hydrological systems.
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white shadow-xl"
-                onClick={() => router.push('/risk-monitoring/live-alerts')}
-              >
-                <AlertTriangle className="w-5 h-5 mr-2" />
-                View Flood Alerts
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring/hazard-risks')}
-              >
-                Back to Hazard Risks
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        breadcrumbs={[{ label: 'Risk & Monitoring', href: '/risk-monitoring' }, { label: 'Hazard Risks', href: '/risk-monitoring/hazard-risks' }, { label: 'Flood & Flash Flood' }]}
+        title={<>Flood & <span className="text-emerald-400">Flash Flood</span> Risk</>}
+        subtitle="River overflow monitoring, flash flood corridors, inundation risk assessment, and drainage stress intelligence across Kashmir's hydrological systems."
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-2xl">
+            <Droplets className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="info" size="lg">River & Inundation Intelligence</Badge>}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white shadow-xl"
+              onClick={() => router.push('/risk-monitoring/live-alerts')}
+            >
+              <AlertTriangle className="w-5 h-5 mr-2" />
+              View Flood Alerts
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring/hazard-risks')}
+            >
+              Back to Hazard Risks
+            </Button>
+          </div>
+        }
+      />
 
       {/* Active Flood Alerts */}
       <section className="py-12">

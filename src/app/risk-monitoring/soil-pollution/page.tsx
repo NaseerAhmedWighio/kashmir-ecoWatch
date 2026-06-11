@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   Mountain, AlertTriangle, Map, BarChart3,
   Activity, Beaker, ExternalLink, ArrowRight, BookOpen,
   Shield, Droplet, Wind, Trees, FlaskConical
 } from 'lucide-react';
+import { Heading } from '@/components/common/Heading';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
@@ -404,79 +404,54 @@ export default function SoilPollutionPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* ── Hero Section ──────────────────────────────────────────────────── */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl"
-          >
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span>/</span>
-              <Link href="/risk-monitoring" className="hover:text-white transition-colors">Risk Monitoring</Link>
-              <span>/</span>
-              <span className="text-white font-medium">Soil Pollution & Degradation</span>
-            </nav>
-
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-600 to-yellow-700 flex items-center justify-center shadow-2xl">
-                <Mountain className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="warning" size="lg">Soil Pollution & Degradation Monitoring</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Soil Pollution <span className="text-emerald-400">& Degradation</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Comprehensive soil health intelligence covering erosion, nutrient depletion,
-              chemical contamination, and land degradation across Jammu & Kashmir — sourced from
-              the ESRO Environmental Impact Assessment and Council for Plant Protection archives.
-            </p>
-
-            <div className="flex items-center gap-2 text-sm text-slate-500 mb-8">
+      <Heading
+        title={<>Soil Pollution <span className="text-emerald-400">& Degradation</span></>}
+        subtitle="Comprehensive soil health intelligence covering erosion, nutrient depletion, chemical contamination, and land degradation across Jammu & Kashmir — sourced from the ESRO Environmental Impact Assessment and Council for Plant Protection archives."
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-600 to-yellow-700 flex items-center justify-center shadow-2xl">
+            <Mountain className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="warning" size="lg">Soil Pollution & Degradation Monitoring</Badge>}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Risk Monitoring", href: "/risk-monitoring" },
+          { label: "Soil Pollution & Degradation" }
+        ]}
+        actions={
+          <>
+            <div className="flex items-center gap-2 text-sm text-slate-500 w-full">
               <BookOpen className="w-4 h-4" />
               <span>Data sourced from ESRO legacy archive: <code className="text-amber-400/80">erc_eia_report_eienkashmir.htm</code> and <code className="text-amber-400/80">bcn_cfpr_eienkashmir_vital_stat_wastelands.htm</code></span>
             </div>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-amber-600 to-yellow-700 hover:from-amber-700 hover:to-yellow-800 text-white shadow-xl"
-                onClick={() => window.location.href = '/risk-monitoring/dashboards'}
-              >
-                <Activity className="w-5 h-5 mr-2" />
-                View Soil Dashboard
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => window.location.href = '/risk-monitoring/pollution-stress'}
-              >
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Back to Pollution & Stress
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => window.location.href = '/risk-monitoring'}
-              >
-                Overview
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-amber-600 to-yellow-700 hover:from-amber-700 hover:to-yellow-800 text-white shadow-xl"
+              onClick={() => window.location.href = '/risk-monitoring/dashboards'}
+            >
+              <Activity className="w-5 h-5 mr-2" />
+              View Soil Dashboard
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => window.location.href = '/risk-monitoring/pollution-stress'}
+            >
+              <ArrowRight className="w-5 h-5 mr-2" />
+              Back to Pollution & Stress
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => window.location.href = '/risk-monitoring'}
+            >
+              Overview
+            </Button>
+          </>
+        }
+      />
 
       {/* ── Key Stats Ribbon ──────────────────────────────────────────────── */}
       <section className="py-12 border-y border-white/5 bg-gradient-to-b from-slate-950 to-slate-900/50">

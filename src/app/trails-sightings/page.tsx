@@ -19,6 +19,7 @@ import { SightingAggregationPanel } from '@/components/sightings/SightingAggrega
 import { SeasonalWindowDisplay } from '@/components/trails/SeasonalWindowDisplay';
 import { CrossModuleLinkStrip } from '@/components/sections/CrossModuleLinkStrip';
 import { VerificationStatusBadge } from '@/components/sightings/VerificationStatusBadge';
+import { Heading } from '@/components/common/Heading';
 
 // Data Services
 import {
@@ -49,64 +50,47 @@ export default function TrailsAndSightingsPage() {
     <main className="min-h-screen bg-slate-950">{/* =========================================================
           BAND 1: HERO + COMMAND SURFACE
           ========================================================= */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                <Footprints className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Kashmir Ecological Access & Field Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Trails & <span className="text-emerald-400">Sightings</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Comprehensive ecological trail intelligence, field observation workflows, and citizen science 
-              database for Kashmir's biodiversity conservation and research
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-xl"
-                onClick={() => router.push('/submit-sighting')}
-              >
-                <Plus className="w-5 h-5 mr-2" />
-                Submit Sighting
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/trails-sightings/hiking-trails')}
-              >
-                <Search className="w-5 h-5 mr-2" />
-                Explore Trails
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/atlas?layer=trails')}
-              >
-                <Layers className="w-5 h-5 mr-2" />
-                View on Map
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      
+      <Heading
+        title={<>Trails & <span className="text-emerald-400">Sightings</span></>}
+        subtitle="Comprehensive ecological trail intelligence, field observation workflows, and citizen science database for Kashmir's biodiversity conservation and research"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+            <Footprints className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="info" size="lg">Kashmir Ecological Access & Field Intelligence</Badge>}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-xl"
+              onClick={() => router.push('/submit-sighting')}
+            >
+              <Plus className="w-5 h-5 mr-2" />
+              Submit Sighting
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/trails-sightings/hiking-trails')}
+            >
+              <Search className="w-5 h-5 mr-2" />
+              Explore Trails
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/atlas?layer=trails')}
+            >
+              <Layers className="w-5 h-5 mr-2" />
+              View on Map
+            </Button>
+          </div>
+        }
+      />
 
       {/* =========================================================
           BAND 1b: METRICS RIBBON

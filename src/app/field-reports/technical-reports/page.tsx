@@ -82,7 +82,7 @@ export default function TechnicalReportsPage() {
               <Badge variant="outline" size="lg" className="border-purple-500/30 text-purple-400">Scientific Research</Badge>
             </div>
 
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="max-w-xl text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Technical <span className="text-emerald-400">Reports</span>
             </h1>
 

@@ -41,7 +41,7 @@ export default function PollinatorActivityPage() {
               <Activity className="w-6 h-6 text-amber-400" />
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Biodiversity Intelligence</span>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Pollinator Activity</h1>
+            <h1 className="max-w-xl text-4xl md:text-3xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Pollinator Activity</h1>
             <p className="text-lg text-slate-400 mb-6">
               Pollinator windows, flowering-linked activity, and seasonal watch periods across Kashmir ecosystems.
             </p>

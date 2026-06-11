@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { Heading } from '@/components/common/Heading';
 import {
   ProtectedAreaSource,
   getProtectedAreasSource,
@@ -108,47 +109,23 @@ export default function ProtectedAreasRegistryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-              <button onClick={() => router.push('/protected-network')} className="hover:text-white transition-colors">
-                Protected Network
-              </button>
-              <ChevronRight className="w-4 h-4" />
-              <span className="text-white font-medium">Protected Areas Registry</span>
-            </nav>
-
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg">
-                    <Shield className="w-7 h-7 text-white" />
-                  </div>
-                  <Badge variant="info" size="lg">
-                    {PROTECTED_AREA_SOURCE_METADATA.sourceTitle}
-                  </Badge>
-                </div>
-                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-                  Protected Areas Registry
-                </h1>
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-                  Complete inventory of all protected areas from the source dataset. 
-                  Filter by region, category, and search by name. Default view shows Kashmir-focused data.
-                </p>
-              </div>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        title="Protected Areas Registry"
+        subtitle="Complete inventory of all protected areas from the source dataset. Filter by region, category, and search by name. Default view shows Kashmir-focused data."
+        icon={
+          <div className="flex items-center gap-3">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg">
+              <Shield className="w-7 h-7 text-white" />
             </div>
-          </motion.div>
-        </div>
-      </div>
+            <Badge variant="info" size="lg">
+              {PROTECTED_AREA_SOURCE_METADATA.sourceTitle}
+            </Badge>
+          </div>
+        }
+        breadcrumbs={[{ label: 'Protected Areas Registry' }]}
+        images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
+      />
 
       {/* Metrics Bar */}
       <div className="container mx-auto px-6 -mt-8 relative z-20">

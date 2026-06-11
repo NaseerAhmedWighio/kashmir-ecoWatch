@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { Heading } from '@/components/common/Heading';
 
 interface ProtectedArea {
   id: string;
@@ -54,50 +55,25 @@ export function ProtectedCategoryPage({
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
-        <div className="absolute inset-0 bg-grid" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <Icon className={`w-6 h-6 ${color.includes('emerald') ? 'text-emerald-400' : 'text-slate-400'}`} />
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
-                Protected Network
-              </span>
-            </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              {title}
-            </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              {subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button 
-                size="lg" 
-                className={`bg-gradient-to-r ${color}`}
-                icon={<Search className="w-5 h-5" />}
-              >
-                Search
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white/20 text-white"
-                icon={<Map className="w-5 h-5" />}
-              >
-                Distribution Map
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        title={title}
+        subtitle={subtitle}
+        icon={<Icon className={`w-6 h-6 ${color.includes('emerald') ? 'text-emerald-400' : 'text-slate-400'}`} />}
+        label="Protected Network"
+        gridOverlay
+        images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
+        actions={
+          <>
+            <Button size="lg" className={`bg-gradient-to-r ${color}`} icon={<Search className="w-5 h-5" />}>
+              Search
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/20 text-white" icon={<Map className="w-5 h-5" />}>
+              Distribution Map
+            </Button>
+          </>
+        }
+      />
 
       {/* Metrics */}
       <div className="container mx-auto px-6 -mt-8 relative z-20">

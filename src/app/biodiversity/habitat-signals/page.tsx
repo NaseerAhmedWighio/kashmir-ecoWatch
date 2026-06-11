@@ -42,7 +42,7 @@ export default function HabitatSignalsPage() {
               <Layers className="w-6 h-6 text-emerald-400" />
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Biodiversity Intelligence</span>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Habitat Signals</h1>
+            <h1 className="max-w-xl text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Habitat Signals</h1>
             <p className="text-lg text-slate-400 mb-6">
               Habitat stress, seasonal transitions, use patterns, and suitability shifts across Kashmir's ecosystems.
             </p>

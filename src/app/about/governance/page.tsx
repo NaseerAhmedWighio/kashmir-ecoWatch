@@ -15,6 +15,7 @@ import {
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { Heading } from '@/components/common/Heading';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -178,44 +179,29 @@ export default function GovernancePage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* ─── 1. Hero ──────────────────────────────────────────────────────── */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-blue-700">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-slate-600 flex items-center justify-center shadow-2xl">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Governance</Badge>
-            </div>
-
-            <h1 className="text-4xl sm:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              <span className="text-emerald-400">Governance</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl mb-8">
-              Governance structure, public composition, advisory systems, expert committee pathways, operational oversight, and governance participation for Kashmir EcoWatch.
-            </p>
-
-            <p className="text-base text-slate-400 leading-relaxed max-w-3xl mb-8">
-              Kashmir EcoWatch operates under a structured governance framework designed to support scientific integrity, public-interest stewardship, operational accountability, responsible publication, and institutionally grounded environmental intelligence across Kashmir.
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white" onClick={() => document.getElementById('pillars')?.scrollIntoView({ behavior: 'smooth' })}>
-                View Governance Structure <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-              <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => document.getElementById('composition')?.scrollIntoView({ behavior: 'smooth' })}>
-                Explore Current Composition
-              </Button>
-              <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => document.getElementById('interest-intake')?.scrollIntoView({ behavior: 'smooth' })}>
-                Express Interest in Participation
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        title={<span className="text-emerald-400">Governance</span>}
+        subtitle="Governance structure, public composition, advisory systems, expert committee pathways, operational oversight, and governance participation for Kashmir EcoWatch."
+        icon={
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-slate-600 flex items-center justify-center shadow-2xl">
+            <Shield className="w-8 h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="info" size="lg">Governance</Badge>}
+        actions={
+          <div className="flex flex-wrap gap-3">
+            <Button className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white" onClick={() => document.getElementById('pillars')?.scrollIntoView({ behavior: 'smooth' })}>
+              View Governance Structure <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+            <Button variant="outline" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/5" onClick={() => document.getElementById('composition')?.scrollIntoView({ behavior: 'smooth' })}>
+              Explore Current Composition
+            </Button>
+            <Button variant="outline" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/5" onClick={() => document.getElementById('interest-intake')?.scrollIntoView({ behavior: 'smooth' })}>
+              Express Interest in Participation
+            </Button>
+          </div>
+        }
+      />
 
       {/* ─── 2. Governance Statement ──────────────────────────────────────── */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">

@@ -66,7 +66,7 @@ const MigrationCalendarPage: React.FC = () => {
             <span className="text-sky-100">Migration Calendar</span>
           </div>
 
-          <h1 className="text-4xl font-bold mb-4">Migration Calendar</h1>
+          <h1 className="max-w-xl text-4xl font-bold mb-4">Migration Calendar</h1>
           <p className="text-xl text-sky-100 max-w-3xl">
             Track migratory species presence throughout the year. 
             Monitor arrival and departure patterns across Kashmir&apos;s wetlands and forests.

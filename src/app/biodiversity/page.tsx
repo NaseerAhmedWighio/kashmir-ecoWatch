@@ -16,6 +16,7 @@ import { motion } from 'framer-motion';
 import { biodiversityMetrics, mammalsData, birdsData, getBiodiversityData } from '@/data/biodiversity';
 import { RED_DATA_METRICS, PRIORITY_KASHMIR_SPECIES } from '@/data/red-data-book-kashmir';
 import { useRouter } from 'next/navigation';
+import { Heading } from '@/components/common/Heading';
 
 // New Components
 import { HabitatIntelligenceCard } from '@/components/biodiversity/HabitatIntelligenceCard';
@@ -189,58 +190,32 @@ export default function BiodiversityPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-2 mb-3">
-              <Leaf className="w-4 h-4 text-forest-400" />
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
-                Biodiversity Intelligence
-              </span>
-            </div>
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-3 sm:mb-4 leading-tight tracking-tight">
-              Species, Habitats & Ecological Intelligence
-            </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-6 leading-relaxed max-w-3xl">
-              Comprehensive species database with distribution, habitat associations, 
-              seasonal patterns, conservation status, and ecological relevance across Kashmir
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-forest-600 to-forest-500"
-                icon={<Leaf className="w-4 h-4" />}
-              >
-                Browse All Species
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white/20 text-white"
-                icon={<Map className="w-4 h-4" />}
-              >
-                Biodiversity Atlas
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white/20 text-white"
-                icon={<Eye className="w-4 h-4" />}
-              >
-                View Sightings
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        label="Biodiversity Intelligence"
+        title="Species, Habitats & Ecological Intelligence"
+        subtitle="Comprehensive species database with distribution, habitat associations, seasonal patterns, conservation status, and ecological relevance across Kashmir"
+        icon={<Leaf className="w-4 h-4 text-forest-400" />}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-forest-600 to-forest-500"
+              icon={<Leaf className="w-4 h-4" />}
+            >
+              Browse All Species
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white"
+              icon={<Map className="w-4 h-4" />}
+            >
+              Explore Habitats
+            </Button>
+          </div>
+        }
+      />
 
       {/* Live Metrics */}
       <div className="container mx-auto px-6 -mt-8 relative z-20">

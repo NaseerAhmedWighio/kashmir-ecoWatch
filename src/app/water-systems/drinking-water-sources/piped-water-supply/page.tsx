@@ -180,7 +180,7 @@ export default function PipedWaterSupplyPage() {
               <Badge variant="outline" className="border-green-400/30 text-green-400 text-xs">Piped Supply Intelligence</Badge>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h1 className="max-w-xl text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Piped Water Supply — PHED Network Coverage
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mb-6 leading-relaxed">

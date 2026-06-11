@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Heading } from '@/components/common/Heading';
 import {
   Bird, ArrowRight, Map, TrendingUp, Activity, Calendar,
   Filter, Layers, Eye
@@ -51,71 +52,46 @@ export default function BirdMigrationMonitoringPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl"
-          >
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
-              <span>/</span>
-              <a href="/risk-monitoring/biodiversity-risks" className="hover:text-white transition-colors">Biodiversity Risks</a>
-              <span>/</span>
-              <span className="text-white font-medium">Bird Migration Monitoring</span>
-            </div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-2xl">
-                <Bird className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Migration Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Bird Migration <span className="text-emerald-400">Monitoring</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Hokersar, Hygam, Shallabugh, Wular wetland monitoring, seasonal migration windows,
-              arrival/departure intelligence, migratory species tracking, and route/wetland sensitivity analysis
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-xl"
-                onClick={() => router.push('/risk-monitoring/dashboards')}
-              >
-                <Activity className="w-5 h-5 mr-2" />
-                View Migration Dashboard
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring/biodiversity-risks')}
-              >
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Back to Biodiversity Risks
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring')}
-              >
-                Overview
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        breadcrumbs={[{ label: 'Risk & Monitoring', href: '/risk-monitoring' }, { label: 'Biodiversity Risks', href: '/risk-monitoring/biodiversity-risks' }, { label: 'Bird Migration Monitoring' }]}
+        title={<>Bird Migration <span className="text-emerald-400">Monitoring</span></>}
+        subtitle="Hokersar, Hygam, Shallabugh, Wular wetland monitoring, seasonal migration windows, arrival/departure intelligence, migratory species tracking, and route/wetland sensitivity analysis"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-2xl">
+            <Bird className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="info" size="lg">Migration Intelligence</Badge>}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-xl"
+              onClick={() => router.push('/risk-monitoring/dashboards')}
+            >
+              <Activity className="w-5 h-5 mr-2" />
+              View Migration Dashboard
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring/biodiversity-risks')}
+            >
+              <ArrowRight className="w-5 h-5 mr-2" />
+              Back to Biodiversity Risks
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring')}
+            >
+              Overview
+            </Button>
+          </div>
+        }
+      />
 
       {/* Metrics Ribbon */}
       <section className="py-12 border-y border-white/5">

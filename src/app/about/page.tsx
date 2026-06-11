@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { Heading } from '@/components/common/Heading';
 import { cn } from '@/lib/utils';
 
 const platformModules = [
@@ -161,53 +162,29 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* 1. Hero Section */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-blue-700">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                <Leaf className="w-8 h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Institutional Overview</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              About <span className="text-emerald-400">Kashmir EcoWatch</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-4xl">
-              A Kashmir Diaspora-Supported Initiative for Environmental Intelligence, Scientific Stewardship,
-              and Public-Interest Environmental Knowledge, supported by Dr. Kumar Foundation USA.
-            </p>
-
-            <p className="text-base text-slate-500 mb-8 leading-relaxed max-w-4xl">
-              Kashmir EcoWatch is an environmental intelligence platform built to strengthen ecological understanding,
-              public environmental awareness, district-level environmental visibility, and evidence-based stewardship
-              across Kashmir. The platform brings together biodiversity knowledge, water systems intelligence,
-              environmental monitoring, risk interpretation, geospatial context, field evidence, and reviewed
-              public contribution pathways within a structured institutional framework.
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600" onClick={() => router.push('/about/mission')}>
-                Our Mission
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/about/data-sources')}>
-                Data & Trust Framework
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/about/contact')}>
-                Contact Us
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        title={<>About <span className="text-emerald-400">Kashmir EcoWatch</span></>}
+        subtitle="A Kashmir Diaspora-Supported Initiative for Environmental Intelligence, Scientific Stewardship, and Public-Interest Environmental Knowledge, supported by Dr. Kumar Foundation USA."
+        icon={
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+            <Leaf className="w-8 h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="info" size="lg">Institutional Overview</Badge>}
+        actions={
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600" onClick={() => router.push('/about/mission')}>
+              Our Mission
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/about/data-sources')}>
+              Data & Trust Framework
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/about/contact')}>
+              Contact Us
+            </Button>
+          </div>
+        }
+      />
 
       {/* 2. What Kashmir EcoWatch Is */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">

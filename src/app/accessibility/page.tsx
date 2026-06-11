@@ -11,6 +11,7 @@ import {
   Headphones, MousePointer, Ear
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 
 // ─── Platform Accessibility Sections ────────────────────────────────────────
 
@@ -146,32 +147,16 @@ const COMMITMENTS = [
 export default function AccessibilityPage() {
   return (
     <main className="min-h-screen bg-slate-950">
-      {/* ─── Hero Section ─────────────────────────────────────────────────── */}
-      <section className="relative pt-8 sm:pt-12 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-blue-700">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-2xl">
-                <A11yIcon className="w-8 h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Accessibility & Inclusive Access</Badge>
-            </div>
-
-            <h1 className="text-4xl sm:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Accessibility <span className="text-emerald-400">Statement</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-3xl">
-              Kashmir EcoWatch is committed to ensuring that environmental intelligence, maps, dashboards, reports, alerts, and contribution workflows remain as accessible and inclusive as possible for people with disabilities and users with different access needs. We are continually improving platform usability, accessibility support, and inclusive design across content, geospatial interfaces, monitoring tools, and public contribution pathways.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Heading
+        title={<>Accessibility <span className="text-emerald-400">Statement</span></>}
+        subtitle="Kashmir EcoWatch is committed to ensuring that environmental intelligence, maps, dashboards, reports, alerts, and contribution workflows remain as accessible and inclusive as possible for people with disabilities and users with different access needs. We are continually improving platform usability, accessibility support, and inclusive design across content, geospatial interfaces, monitoring tools, and public contribution pathways."
+        icon={
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-2xl">
+            <A11yIcon className="w-8 h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="info" size="lg">Accessibility & Inclusive Access</Badge>}
+      />
 
       {/* ─── Commitment & Conformance ─────────────────────────────────────── */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">

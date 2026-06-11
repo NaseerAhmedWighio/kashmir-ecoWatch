@@ -10,6 +10,7 @@ import {
   CheckCircle, Loader2, ExternalLink, Info, Shield
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -66,7 +67,7 @@ export default function WaterQualityReadingsPage() {
                 <div className="w-20 h-20 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-10 h-10 text-emerald-400" />
                 </div>
-                <h1 className="text-3xl font-bold text-white mb-3">Submission Received</h1>
+                <h1 className="max-w-xl text-3xl font-bold text-white mb-3">Submission Received</h1>
                 <p className="text-slate-400 mb-6">Your water quality readings have been successfully submitted.</p>
                 <div className="bg-slate-800/50 rounded-xl p-4 mb-6">
                   <p className="text-sm text-slate-400 mb-1">Submission Reference ID</p>
@@ -108,31 +109,18 @@ export default function WaterQualityReadingsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
-            <Link href="/contribute-data" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-6">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Contribute Data
-            </Link>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-xl">
-                <Droplets className="w-7 h-7 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Water Quality</Badge>
-            </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Water Quality <span className="text-emerald-400">Readings</span>
-            </h1>
-            <p className="text-lg text-slate-400 max-w-2xl">
-              Submit pH, dissolved oxygen, turbidity, temperature, and other water quality parameters from Kashmir&apos;s waterbodies. 
-              Approved records are routed into Water Systems and Water Quality modules.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        title={<>Water Quality <span className="text-emerald-400">Readings</span></>}
+        subtitle="Submit pH, dissolved oxygen, turbidity, temperature, and other water quality parameters from Kashmir's waterbodies. Approved records are routed into Water Systems and Water Quality modules."
+        icon={
+          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-xl">
+            <Droplets className="w-7 h-7 text-white" />
+          </div>
+        }
+        badge={<Badge variant="info" size="lg">Water Quality</Badge>}
+        breadcrumbs={[{ label: 'Back to Contribute Data', href: '/contribute-data' }]}
+      />
 
       {/* Form */}
       <section className="py-12">

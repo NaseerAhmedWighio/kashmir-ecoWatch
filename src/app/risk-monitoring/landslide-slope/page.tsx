@@ -9,6 +9,7 @@ import {
   Mountain, ArrowRight, TrendingUp, MapPin, Clock, AlertTriangle, Shield, AlertCircle
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 import { liveAlerts, districtRiskProfiles } from '@/data/risk-monitoring';
 import { AlertSeverity } from '@/types/alerts';
@@ -34,40 +35,30 @@ export default function LandslideSlopePage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950"><section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl">
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
-              <span>/</span>
-              <a href="/risk-monitoring/hazard-risks" className="hover:text-white transition-colors">Hazard Risks</a>
-              <span>/</span>
-              <span className="text-white font-medium">Landslide & Slope</span>
-            </div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <Mountain className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="warning" size="lg">Slope Instability Intelligence</Badge>
-            </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Landslide & <span className="text-emerald-400">Slope</span> Risk
-            </h1>
-            <p className="text-xl text-slate-400 mb-8">
-              Slope instability monitoring, landslide-prone corridors, road vulnerability intelligence, 
-              and hill/mountain risk assessment across Kashmir's terrain.
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-xl" onClick={() => router.push('/risk-monitoring/live-alerts')}>
-                <AlertTriangle className="w-5 h-5 mr-2" />View Alerts
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => router.push('/risk-monitoring/hazard-risks')}>Back to Hazard Risks</Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        title={<>Landslide & <span className="text-emerald-400">Slope</span> Risk</>}
+        subtitle="Slope instability monitoring, landslide-prone corridors, road vulnerability intelligence, and hill/mountain risk assessment across Kashmir's terrain."
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
+            <Mountain className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="warning" size="lg">Slope Instability Intelligence</Badge>}
+        breadcrumbs={[
+          { label: 'Risk & Monitoring', href: '/risk-monitoring' },
+          { label: 'Hazard Risks', href: '/risk-monitoring/hazard-risks' },
+          { label: 'Landslide & Slope' },
+        ]}
+        actions={
+          <>
+            <Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-xl" onClick={() => router.push('/risk-monitoring/live-alerts')}>
+              <AlertTriangle className="w-5 h-5 mr-2" />View Alerts
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => router.push('/risk-monitoring/hazard-risks')}>Back to Hazard Risks</Button>
+          </>
+        }
+      />
 
       {/* Active Landslide Alerts */}
       <section className="py-12">

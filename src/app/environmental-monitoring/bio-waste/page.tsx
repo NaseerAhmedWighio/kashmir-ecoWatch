@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Heading } from '@/components/common/Heading';
 import {
   Leaf, Map, BarChart3, Eye, ChevronRight, AlertTriangle,
   Droplets, Wind, MapPin, TrendingUp, Shield, ExternalLink,
@@ -133,39 +134,22 @@ export default function BioWastePage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
-              <button onClick={() => router.push('/')} className="hover:text-white transition-colors">Home</button>
-              <ChevronRight className="w-2 h-2 md:w-4 md:h-4" />
-              <button onClick={() => router.push('/environmental-monitoring')} className="hover:text-white transition-colors">Environmental Monitoring</button>
-              <ChevronRight className="w- h-2 md:w-4 md:h-4" />
-              <span className="text-white font-medium">Bio-Waste</span>
-            </nav>
-
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-2xl">
-                <Leaf className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="success" size="md">Organic Waste Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Bio-<span className="text-emerald-400">Waste</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Monitoring organic waste accumulation, slaughter waste discharge, market decomposition zones,
-              and bio-contamination pathways across Kashmir&apos;s ecological and residential interfaces
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950">
+      <Heading
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Environmental Monitoring', href: '/environmental-monitoring' },
+          { label: 'Bio-Waste' }
+        ]}
+        title={<>Bio-<span className="text-emerald-400">Waste</span></>}
+        subtitle="Monitoring organic waste accumulation, slaughter waste discharge, market decomposition zones, and bio-contamination pathways across Kashmir&apos;s ecological and residential interfaces"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-2xl">
+            <Leaf className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="success" size="md">Organic Waste Intelligence</Badge>}
+      />
 
       {/* Metrics */}
       <section className="py-12 border-y border-white/5">

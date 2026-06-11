@@ -14,6 +14,7 @@ import {
   CheckCircle2, AlertCircle, Info, Compass, Users
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 import {
   evidenceRegistry, collections, browseByDistrict, browseByModule, browseByCategory,
@@ -183,29 +184,24 @@ export default function LibraryPage() {
   const hasActiveFilters = Object.values(filters).some(arr => arr.length > 0) || searchQuery;
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero Section - Evidence Intelligence */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden bg-[#160C27]">
-        
-        <div className="container mx-auto px-6 relative z-10">
+    <main className="min-h-screen bg-slate-950"><Heading
+  title={<>Evidence <span className="text-emerald-400">Intelligence</span> Library</>}
+  subtitle="A structured evidence and reference system linking environmental studies, monitoring records, datasets, district profiles, GIS resources, and reviewed knowledge inputs across Kashmir EcoWatch."
+  icon={
+    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-2xl">
+      <Book className="w-5 h-5 md:w-8 md:h-8 text-white" />
+    </div>
+  }
+  badge={<Badge variant="info" size="lg">Evidence Intelligence</Badge>}
+/>
+
+      <section className="relative bg-[#160C27]">
+        <div className="container mx-auto px-6 relative z-10 pb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-6xl"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-2xl">
-                <Book className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="info" size="lg">Evidence Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Evidence <span className="text-emerald-400">Intelligence</span> Library
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-4xl">
-              A structured evidence and reference system linking environmental studies, monitoring records, datasets, district profiles, GIS resources, and reviewed knowledge inputs across Kashmir EcoWatch.
-            </p>
 
             {/* Search Bar */}
             <div className="flex flex-col md:flex-row gap-4 mb-8">

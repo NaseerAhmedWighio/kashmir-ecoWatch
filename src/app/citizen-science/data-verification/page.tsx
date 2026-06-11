@@ -44,7 +44,7 @@ export default function DataVerificationPage() {
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-xl"><CheckCircle className="w-7 h-7 text-white" /></div>
               <Badge variant="info" size="lg">Verification Program</Badge>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Data <span className="text-emerald-400">Verification</span></h1>
+            <h1 className="max-w-xl text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Data <span className="text-emerald-400">Verification</span></h1>
             <p className="text-lg text-slate-400 max-w-2xl">Review and validate community-submitted observations, species records, and environmental data for accuracy. Quality review is the backbone of environmental intelligence.</p>
           </motion.div>
         </div>

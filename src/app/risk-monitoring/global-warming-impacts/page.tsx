@@ -10,6 +10,7 @@ import {
   Droplets, Leaf, Mountain, Layers
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 
 const warmingImpacts = [
@@ -42,72 +43,50 @@ export default function GlobalWarmingImpactsPage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl"
-          >
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
-              <span>/</span>
-              <a href="/risk-monitoring/pollution-stress" className="hover:text-white transition-colors">Pollution & Stress</a>
-              <span>/</span>
-              <span className="text-white font-medium">Global Warming Impacts</span>
-            </div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-2xl">
-                <Thermometer className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="danger" size="lg">Warming Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Global Warming <span className="text-emerald-400">Impacts on Kashmir</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Comprehensive analysis of warming-linked impacts on Kashmir glaciers, springs, wetlands,
-              species, seasons, hydrology, and biodiversity across all ecological systems
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-xl"
-                onClick={() => router.push('/risk-monitoring/dashboards')}
-              >
-                <Activity className="w-5 h-5 mr-2" />
-                View Impact Dashboard
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring/pollution-stress')}
-              >
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Back to Pollution & Stress
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring')}
-              >
-                Overview
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950"><Heading
+        title={<>Global Warming <span className="text-emerald-400">Impacts on Kashmir</span></>}
+        subtitle="Comprehensive analysis of warming-linked impacts on Kashmir glaciers, springs, wetlands, species, seasons, hydrology, and biodiversity across all ecological systems"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-2xl">
+            <Thermometer className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="danger" size="lg">Warming Intelligence</Badge>}
+        breadcrumbs={[
+          { label: "Risk & Monitoring", href: "/risk-monitoring" },
+          { label: "Pollution & Stress", href: "/risk-monitoring/pollution-stress" },
+          { label: "Global Warming Impacts" }
+        ]}
+        actions={
+          <>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white shadow-xl"
+              onClick={() => router.push('/risk-monitoring/dashboards')}
+            >
+              <Activity className="w-5 h-5 mr-2" />
+              View Impact Dashboard
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring/pollution-stress')}
+            >
+              <ArrowRight className="w-5 h-5 mr-2" />
+              Back to Pollution & Stress
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring')}
+            >
+              Overview
+            </Button>
+          </>
+        }
+      />
 
       {/* Metrics Ribbon */}
       <section className="py-12 border-y border-white/5">

@@ -14,7 +14,7 @@ export default function WatershedDetailPage() {
     return (
       <main className="min-h-screen bg-slate-950 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Watershed Not Found</h1>
+          <h1 className="max-w-xl text-4xl font-bold text-white mb-4">Watershed Not Found</h1>
           <p className="text-slate-400">The watershed you're looking for doesn't exist or has been removed.</p>
         </div>
       </main>

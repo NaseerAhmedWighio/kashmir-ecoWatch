@@ -10,6 +10,7 @@ import {
   TrendingUp, Filter, Layers, Headphones
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 
 const noiseData = [
@@ -57,72 +58,50 @@ export default function NoisePollutionPage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-slate-950">{/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[#160C27]" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl"
-          >
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
-              <a href="/risk-monitoring" className="hover:text-white transition-colors">Risk & Monitoring</a>
-              <span>/</span>
-              <a href="/risk-monitoring/pollution-stress" className="hover:text-white transition-colors">Pollution & Stress</a>
-              <span>/</span>
-              <span className="text-white font-medium">Noise Pollution</span>
-            </div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <Volume2 className="w-5 h-5 md:w-8 md:h-8 text-white" />
-              </div>
-              <Badge variant="warning" size="lg">Noise Level Intelligence</Badge>
-            </div>
-
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
-              Noise Pollution <span className="text-emerald-400">Risk & Monitoring</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
-              Urban and tourism corridor noise monitoring, traffic and commercial noise assessment,
-              sensitive wildlife habitat disturbance tracking, and pilgrimage/event pressure analysis
-            </p>
-
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-xl"
-                onClick={() => router.push('/risk-monitoring/dashboards')}
-              >
-                <Activity className="w-5 h-5 mr-2" />
-                View Noise Dashboard
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring/pollution-stress')}
-              >
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Back to Pollution & Stress
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/5"
-                onClick={() => router.push('/risk-monitoring')}
-              >
-                Overview
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-950"><Heading
+        title={<>Noise Pollution <span className="text-emerald-400">Risk & Monitoring</span></>}
+        subtitle="Urban and tourism corridor noise monitoring, traffic and commercial noise assessment, sensitive wildlife habitat disturbance tracking, and pilgrimage/event pressure analysis"
+        icon={
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
+            <Volume2 className="w-5 h-5 md:w-8 md:h-8 text-white" />
+          </div>
+        }
+        badge={<Badge variant="warning" size="lg">Noise Level Intelligence</Badge>}
+        breadcrumbs={[
+          { label: "Risk & Monitoring", href: "/risk-monitoring" },
+          { label: "Pollution & Stress", href: "/risk-monitoring/pollution-stress" },
+          { label: "Noise Pollution" }
+        ]}
+        actions={
+          <>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-xl"
+              onClick={() => router.push('/risk-monitoring/dashboards')}
+            >
+              <Activity className="w-5 h-5 mr-2" />
+              View Noise Dashboard
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring/pollution-stress')}
+            >
+              <ArrowRight className="w-5 h-5 mr-2" />
+              Back to Pollution & Stress
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/5"
+              onClick={() => router.push('/risk-monitoring')}
+            >
+              Overview
+            </Button>
+          </>
+        }
+      />
 
       {/* Metrics Ribbon */}
       <section className="py-12 border-y border-white/5">

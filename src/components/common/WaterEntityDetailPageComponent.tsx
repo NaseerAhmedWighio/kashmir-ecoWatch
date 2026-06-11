@@ -109,7 +109,7 @@ export function WaterEntityDetailPageComponent({
                     </Badge>
                   )}
                 </div>
-                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight max-w-xl">
                   {entity.name}
                 </h1>
                 <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 max-w-3xl mb-6 leading-relaxed">

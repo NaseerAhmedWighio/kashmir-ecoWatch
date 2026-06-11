@@ -53,7 +53,7 @@ const HabitatDetailPage: React.FC = () => {
             <span className="text-green-100">{habitat.name}</span>
           </div>
 
-          <h1 className="text-4xl font-bold mb-4">{habitat.name}</h1>
+          <h1 className="max-w-xl text-4xl font-bold mb-4">{habitat.name}</h1>
           <p className="text-xl text-green-100 max-w-3xl">{habitat.description}</p>
         </div>
       </div>

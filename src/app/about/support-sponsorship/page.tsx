@@ -166,7 +166,7 @@ export default function SupportSponsorshipPage() {
               <Badge variant="info" size="lg">Support, Sponsorship & Institutional Backing</Badge>
             </div>
 
-            <h1 className="text-4xl sm:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="max-w-xl text-4xl sm:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Support, Sponsorship &amp; <span className="text-emerald-400">Institutional Backing</span>
             </h1>
 

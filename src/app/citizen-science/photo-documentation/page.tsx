@@ -39,7 +39,7 @@ export default function PhotoDocumentationPage() {
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-xl"><Camera className="w-7 h-7 text-white" /></div>
               <Badge variant="info" size="lg">Photo Program</Badge>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Photo <span className="text-emerald-400">Documentation</span></h1>
+            <h1 className="max-w-xl text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Photo <span className="text-emerald-400">Documentation</span></h1>
             <p className="text-lg text-slate-400 max-w-2xl">Capture seasonal changes, species records, habitat conditions, and environmental changes through geotagged photography. Every photo is a data point.</p>
           </motion.div>
         </div>

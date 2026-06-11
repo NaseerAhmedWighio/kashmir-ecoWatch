@@ -50,7 +50,7 @@ const DistrictDetailPage: React.FC = () => {
             <span className="text-blue-100">{displayName}</span>
           </div>
 
-          <h1 className="text-4xl font-bold mb-4">{displayName} District</h1>
+          <h1 className="max-w-xl text-4xl font-bold mb-4">{displayName} District</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
             District-level biodiversity intelligence including species richness, 
             endemic species, threatened species, and habitat distribution.
