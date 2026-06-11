@@ -15,7 +15,7 @@ export interface ProtectedArea {
   latitude?: number;
   longitude?: number;
   scope?: 'Kashmir Core' | 'Trans-Divisional' | 'Transboundary / Extended';
-  legalStatus?: 'Verified' | 'Historical' | 'Under Review' | 'Extended Scope';
+  legalStatus?: 'Verified' | 'Historical' | 'Under Review' | 'Extended Scope' | 'De-notified';
   altitudeRange?: string;
   flagshipSpecies?: string;
   dataStatus?: string;
@@ -144,16 +144,16 @@ export const nationalParksData: ProtectedArea[] = [
     slug: 'salim-ali-national-park',
     name: 'Salim Ali / City Forest National Park',
     category: 'national_park',
-    description: 'Small urban-edge protected landscape in Srinagar with historical national park status. Important for urban biodiversity, bird habitat, woodland patches, and protected-area history, but current legal and spatial status should be reviewed.',
+    description: 'Formerly designated as Salim Ali / City Forest National Park, this Srinagar landscape was later de-notified and converted into the Royal Springs Golf Course. The site is preserved within the Kashmir Protected Area Network archive as a significant case study in protected-area transformation and conservation history.',
     area: 9.07,
     district: 'Srinagar',
     established: 1986,
     ecosystems: ['Urban forest', 'Woodland patches', 'Wetland-edge habitat'],
     keySpecies: ['Birds', 'Small mammals', 'Urban forest biodiversity'],
     scope: 'Kashmir Core',
-    legalStatus: 'Under Review',
+    legalStatus: 'De-notified',
     flagshipSpecies: 'Resident birds',
-    dataStatus: 'Legal Status Under Review',
+    dataStatus: 'De-notified',
     latitude: 34.08,
     longitude: 74.82,
   },

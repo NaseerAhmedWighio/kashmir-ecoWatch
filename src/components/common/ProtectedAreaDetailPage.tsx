@@ -245,7 +245,7 @@ const getCategoryRoute = (cat: string) => {
 // ── Main component ─────────────────────────────────────────────────────────────
 export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAreaDetailPageProps) {
   const router = useRouter();
-  const [activeTab, setActiveTab] = React.useState<string>('overview');
+  const [activeTab, setActiveTab] = React.useState<string>(area.id === 'salim-ali' ? 'history' : 'overview');
 
   const intel = PARK_INTELLIGENCE[area.slug] ?? DEFAULT_INTELLIGENCE;
   const a = area as any;
@@ -268,7 +268,17 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
     ? [area.imageUrl, '/images/protected-network.png', '/images/bear.png']
     : ['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png'];
 
-  const tabs = [
+  const tabs = area.id === 'salim-ali' ? [
+    { id: 'history',    label: 'History & Archive', icon: Book },
+    { id: 'overview',   label: 'Overview',        icon: Info },
+    { id: 'habitats',   label: 'Habitats',         icon: Leaf },
+    { id: 'species',    label: 'Species',          icon: Activity },
+    { id: 'threats',    label: 'Threats',          icon: AlertTriangle },
+    { id: 'monitoring', label: 'Monitoring',       icon: Radio },
+    { id: 'research',   label: 'Research',         icon: Microscope },
+    { id: 'spatial',    label: 'Spatial Data',     icon: Layers },
+    { id: 'reports',    label: 'Reports',          icon: FileText },
+  ] : [
     { id: 'overview',   label: 'Overview',        icon: Book },
     { id: 'habitats',   label: 'Habitats',         icon: Leaf },
     { id: 'species',    label: 'Species',          icon: Activity },
@@ -296,9 +306,13 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
           <nav className="flex items-center gap-2 text-xs text-slate-400 mb-6">
             <button onClick={() => router.push('/protected-network')} className="hover:text-white transition-colors">Protected Network</button>
             <ChevronRight className="w-3 h-3 text-slate-600" />
-            <button onClick={() => router.push(`/protected-network/${getCategoryRoute(area.category)}`)} className="hover:text-white transition-colors capitalize">
-              {area.category.replace(/_/g, ' ')}
-            </button>
+            {area.id === 'salim-ali' ? (
+              <span className="text-slate-400 font-medium">Historic Protected Areas</span>
+            ) : (
+              <button onClick={() => router.push(`/protected-network/${getCategoryRoute(area.category)}`)} className="hover:text-white transition-colors capitalize">
+                {area.category.replace(/_/g, ' ')}
+              </button>
+            )}
             <ChevronRight className="w-3 h-3 text-slate-600" />
             <span className="text-white font-medium">{area.name}</span>
           </nav>
@@ -308,10 +322,21 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
             <div className="lg:col-span-2">
               {/* Scope + category badges — no duplicate name */}
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <Badge variant="info" size="sm" className="capitalize">{area.category.replace(/_/g, ' ')}</Badge>
-                {a.scope && <Badge variant="default" size="sm">{a.scope}</Badge>}
-                {a.legalStatus && a.legalStatus !== 'Verified' && <Badge variant="warning" size="sm">{a.legalStatus}</Badge>}
-                <Badge variant="default" size="sm">{intel.iucnCategory}</Badge>
+                {area.id === 'salim-ali' ? (
+                  <>
+                    <Badge variant="info" size="sm">Historic National Park</Badge>
+                    <Badge variant="default" size="sm">Kashmir Core</Badge>
+                    <Badge variant="warning" size="sm">De-notified</Badge>
+                    <Badge variant="secondary" size="sm">Converted Landscape</Badge>
+                  </>
+                ) : (
+                  <>
+                    <Badge variant="info" size="sm" className="capitalize">{area.category.replace(/_/g, ' ')}</Badge>
+                    {a.scope && <Badge variant="default" size="sm">{a.scope}</Badge>}
+                    {a.legalStatus && a.legalStatus !== 'Verified' && <Badge variant="warning" size="sm">{a.legalStatus}</Badge>}
+                    <Badge variant="default" size="sm">{intel.iucnCategory}</Badge>
+                  </>
+                )}
               </div>
 
               <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight overflow-visible pb-1">
@@ -347,7 +372,14 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
 
             {/* Right: intelligence panel */}
             <Card className={`${CARD} p-5 space-y-3`}>
-              {[
+              {(area.id === 'salim-ali' ? [
+                { icon: MapPin,        label: 'Area',               value: '9.07 km²' },
+                { icon: Calendar,     label: 'Established',        value: 1986 },
+                { icon: AlertTriangle,label: 'Status',             value: 'De-notified' },
+                { icon: Globe,        label: 'Current Land Use',   value: 'Royal Springs Golf Course' },
+                { icon: Shield,       label: 'District',           value: 'Srinagar' },
+                { icon: Book,         label: 'Conservation Record',value: 'Historic Protected Area' }
+              ] : [
                 { icon: MapPin,        label: 'Area',               value: area.area > 0 ? `${area.area} km²` : 'TBC' },
                 { icon: Calendar,     label: 'Established',        value: area.established },
                 { icon: Shield,       label: 'District',           value: area.district },
@@ -357,7 +389,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                 { icon: Activity,     label: 'Flagship Species',   value: a.flagshipSpecies ?? '—' },
                 { icon: Eye,          label: 'Visitor Access',     value: intel.visitorAccess },
                 { icon: Info,         label: 'Data Quality',       value: a.dataStatus ?? '—' },
-              ].map(({ icon: Icon, label, value }) => (
+              ]).map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-center gap-3">
                   <Icon className="w-4 h-4 text-emerald-500 shrink-0" />
                   <div className="flex-1 min-w-0">
@@ -381,22 +413,49 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
         </div>
       </div>
 
-      {/* ── CONSERVATION DASHBOARD ── */}
+      {/* ── CONSERVATION DASHBOARD / HISTORICAL RECORD ── */}
       <div className="container mx-auto px-6 -mt-6 relative z-20 mb-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
           <Card className="glass-intense border-white/10 p-5" padding="none">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-xs text-slate-400 font-semibold uppercase tracking-widest">Conservation Dashboard</div>
-              <div className="text-[10px] text-slate-600 uppercase">Scores are composite intelligence indicators · 0–100</div>
-            </div>
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 justify-items-center">
-              <Gauge value={intel.dashboard.conservationStatus}  label="Conservation Status"  color="#22c55e" />
-              <Gauge value={intel.dashboard.speciesRichness}     label="Species Richness"     color="#3b82f6" />
-              <Gauge value={intel.dashboard.habitatIntegrity}    label="Habitat Integrity"    color="#10b981" />
-              <Gauge value={100 - intel.dashboard.threatLevel}   label="Threat Resilience"   color="#f59e0b" />
-              <Gauge value={intel.dashboard.monitoringCoverage}  label="Monitoring Coverage"  color="#8b5cf6" />
-              <Gauge value={intel.dashboard.researchCoverage}    label="Research Coverage"    color="#06b6d4" />
-            </div>
+            {area.id === 'salim-ali' ? (
+              <>
+                <div className="flex items-center justify-between mb-4 px-4 pt-4">
+                  <div className="text-xs text-slate-400 font-semibold uppercase tracking-widest">Historical Record & Timeline</div>
+                  <div className="text-[10px] text-slate-600 uppercase">Salim Ali National Park / City Forest Archive</div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 p-4">
+                  {[
+                    { title: 'Protected Area Established', desc: '1986 — Notified under Jammu & Kashmir Wildlife Protection Act.', status: 'Completed' },
+                    { title: 'De-notification Event', desc: '2001 — Officially de-notified by state cabinet decision.', status: 'Completed' },
+                    { title: 'Land Use Conversion', desc: '2001–2002 — Converted to Royal Springs Golf Course landscape.', status: 'Completed' },
+                    { title: 'Conservation Legacy', desc: 'Ongoing — Monitored as historic wetland/lake buffer zone.', status: 'Active' },
+                    { title: 'Historical Documentation', desc: 'Archived notification records and court rulings.', status: 'Available' }
+                  ].map((item, idx) => (
+                    <div key={idx} className="p-3 bg-white/5 border border-white/5 rounded-xl text-left">
+                      <div className="text-xs text-emerald-400 font-semibold mb-1">Step {idx + 1}</div>
+                      <div className="text-sm font-bold text-white mb-1">{item.title}</div>
+                      <div className="text-xs text-slate-400 mb-2 leading-relaxed">{item.desc}</div>
+                      <Badge variant={idx < 3 ? "success" : "info"} size="sm" className="text-[9px] uppercase tracking-wide px-1.5 py-0.5 rounded">{item.status}</Badge>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="flex items-center justify-between mb-4 px-4 pt-4">
+                  <div className="text-xs text-slate-400 font-semibold uppercase tracking-widest">Conservation Dashboard</div>
+                  <div className="text-[10px] text-slate-600 uppercase">Scores are composite intelligence indicators · 0–100</div>
+                </div>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 justify-items-center p-4">
+                  <Gauge value={intel.dashboard.conservationStatus}  label="Conservation Status"  color="#22c55e" />
+                  <Gauge value={intel.dashboard.speciesRichness}     label="Species Richness"     color="#3b82f6" />
+                  <Gauge value={intel.dashboard.habitatIntegrity}    label="Habitat Integrity"    color="#10b981" />
+                  <Gauge value={100 - intel.dashboard.threatLevel}   label="Threat Resilience"   color="#f59e0b" />
+                  <Gauge value={intel.dashboard.monitoringCoverage}  label="Monitoring Coverage"  color="#8b5cf6" />
+                  <Gauge value={intel.dashboard.researchCoverage}    label="Research Coverage"    color="#06b6d4" />
+                </div>
+              </>
+            )}
           </Card>
         </motion.div>
       </div>
@@ -422,6 +481,77 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
           </div>
         </motion.div>
 
+        {/* ── HISTORY & ARCHIVE TAB ── */}
+        {activeTab === 'history' && (
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
+            <Card className={`${CARD} p-6`}>
+              <h2 className={SECTION_TITLE}>Historical Timeline & De-notification Record</h2>
+              <p className="text-slate-400 leading-relaxed mb-6">
+                Salim Ali National Park (originally known as City Forest National Park) is Srinagar’s most prominent case study in state-level land use transformation. Below is the documented history of notification, ecosystem value, subsequent de-notification, and transition into a recreational landscape.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
+                    <h3 className="text-sm font-bold text-white mb-2">1. Establishment & Notification (1986)</h3>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      Formally notified in 1986 under the Jammu & Kashmir Wildlife Protection Act, 1978. The park was named in honor of Dr. Salim Ali, the legendary Indian ornithologist. Spanning 9.07 km², it served as an urban forest lung, providing vital watershed protection, microclimate regulation, and educational value right next to Srinagar’s Dal Lake.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
+                    <h3 className="text-sm font-bold text-white mb-2">2. Ecological Importance</h3>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      Historically supported diverse waterfowl species, resident woodland birds, and small mammals. The park served as a key feeding and roosting ground adjacent to the Dal Lake ecosystem, with willow and poplar groves providing unique willow-swamp habitats rare in urban Srinagar.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
+                    <h3 className="text-sm font-bold text-white mb-2">3. De-notification Decision (2001)</h3>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      In 2001, the J&K State Cabinet officially de-notified Salim Ali National Park to pave the way for commercial development and a world-class recreational golf course. The de-notification drew significant legal challenges and public outcry from environmental organizations, which argued that national parks carry the highest legal protection and cannot be summarily de-notified for commercial projects.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
+                    <h3 className="text-sm font-bold text-white mb-2">4. Landscape Transformation</h3>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      The landscape underwent complete modification, including dredging, land filling, and turfing, to construct the 18-hole Royal Springs Golf Course designed by Robert Trent Jones II. The dense forest canopy and swampy marshlands were replaced by managed lawns, fairways, water hazards, and golf course facilities.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
+                    <h3 className="text-sm font-bold text-white mb-2">5. Conservation Impact & Perspectives</h3>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      The de-notification resulted in the fragmentation of Srinagar’s urban forest network, causing bird migration shifts and changes in local wetland-edge hydrology. While proponents highlight the golf course as a major tourism asset and premium attraction, conservationists cite it as a precedent of protected-area regression.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white/5 border border-white/5 rounded-xl">
+                    <h3 className="text-sm font-bold text-white mb-2">6. Archival Documents & Timeline</h3>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex justify-between border-b border-white/5 pb-1">
+                        <span className="text-slate-400">1986 Notification Order</span>
+                        <span className="text-emerald-400 font-semibold cursor-pointer hover:underline">SRO-321 (Archived)</span>
+                      </div>
+                      <div className="flex justify-between border-b border-white/5 pb-1">
+                        <span className="text-slate-400">2001 Cabinet Decision</span>
+                        <span className="text-emerald-400 font-semibold cursor-pointer hover:underline">De-notification Act (Archived)</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-400">Wildlife Board Assessment</span>
+                        <span className="text-emerald-400 font-semibold cursor-pointer hover:underline">1999 Feasibility Report</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        )}
+
         {/* ── OVERVIEW TAB ── */}
         {activeTab === 'overview' && (
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -431,14 +561,20 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                 <h2 className={SECTION_TITLE}>Protected Area Profile</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">{area.description}</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {[
+                  {(area.id === 'salim-ali' ? [
+                    { label: 'Location', value: 'Srinagar District' },
+                    { label: 'Established', value: 1986 },
+                    { label: 'De-notified', value: 2001 },
+                    { label: 'Current Land Use', value: 'Royal Springs Golf Course' },
+                    { label: 'Conservation Record', value: 'Historic Protected Area' },
+                  ] : [
                     { label: 'Location', value: `${area.district} District` },
                     { label: 'Established', value: area.established },
                     { label: 'Total Area', value: area.area > 0 ? `${area.area} km²` : 'TBC' },
                     { label: 'IUCN Category', value: intel.iucnCategory },
                     { label: 'Biogeographic Zone', value: intel.biogeographicZone },
                     { label: 'Visitor Access', value: intel.visitorAccess },
-                  ].map(({ label, value }) => (
+                  ]).map(({ label, value }) => (
                     <div key={label}>
                       <div className="text-[10px] text-slate-500 uppercase mb-0.5">{label}</div>
                       <div className="text-sm text-white font-semibold">{String(value)}</div>
