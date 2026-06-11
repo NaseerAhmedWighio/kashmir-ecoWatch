@@ -1,45 +1,41 @@
 'use client';
 
+import { useState } from 'react';
 import { ProtectedCategoryPage } from '@/components/common/ProtectedCategoryPage';
-import { getProtectedAreas, protectedNetworkMetrics } from '@/data/protected-network';
-import { getProtectedAreasSource, getProtectedAreaMetrics } from '@/data/protected-areas-source';
+import { getProtectedAreas } from '@/data/protected-network';
+
+const TABS = [
+  { key: 'core', label: 'Kashmir Core', description: 'Kashmir Valley / J&K official protected area system — 3 national parks' },
+  { key: 'trans', label: 'Trans-Divisional', description: 'J&K / Chenab / Pir Panjal / adjoining Himalayan divisions — 1 national park' },
+  { key: 'extended', label: 'Transboundary / Extended', description: 'Ladakh, Gilgit-Baltistan, AJK, and broader Himalayan ecological scope — 6 parks' },
+] as const;
+
+type TabKey = 'core' | 'trans' | 'extended';
 
 export default function NationalParksPage() {
-  // Use source data for National Parks (NP category)
-  const sourceAreas = getProtectedAreasSource.byCategory('NP');
-  const existingAreas = getProtectedAreas.nationalParks();
-  
-  // Combine source data with existing enriched data
-  const areas = sourceAreas.map(source => {
-    const existing = existingAreas.find(e => e.slug === source.slug);
-    if (existing) return existing;
-    
-    // Create enriched entry from source
-    return {
-      id: source.id,
-      slug: source.slug,
-      name: source.name,
-      category: 'national_park' as const,
-      description: `${source.name} National Park - ${source.regionRaw}. Part of the Protected Area Network of Jammu and Kashmir.`,
-      area: source.areaSqKm || 0,
-      district: source.districtHint,
-      established: 1981,
-      ecosystems: ['Protected landscape'],
-      keySpecies: [],
-      latitude: 0,
-      longitude: 0,
-    };
-  });
+  const [activeTab, setActiveTab] = useState<TabKey>('core');
+  const allParks = getProtectedAreas.nationalParks();
+
+  const coreParks    = allParks.filter(p => p.scope === 'Kashmir Core');
+  const transParks   = allParks.filter(p => p.scope === 'Trans-Divisional');
+  const extendedParks = allParks.filter(p => p.scope === 'Transboundary / Extended');
+
+  const activeParks =
+    activeTab === 'core'     ? coreParks :
+    activeTab === 'trans'    ? transParks :
+    extendedParks;
+
+  const officialParks = [...coreParks, ...transParks];
 
   const metrics = [
-    { label: 'Total Parks', value: areas.length, icon: 'Mountain' as const },
-    { label: 'Total Area', value: `${areas.reduce((acc, pa) => acc + pa.area, 0).toLocaleString()} km²`, icon: 'Map' as const },
-    { label: 'Districts', value: new Set(areas.map(pa => pa.district)).size, icon: 'MapPin' as const },
-    { label: 'Key Species', value: 47, icon: 'Activity' as const },
-    { label: 'Ecosystems', value: 14, icon: 'Leaf' as const },
-    { label: 'Altitude Zones', value: 3, icon: 'TrendingUp' as const },
-    { label: 'Est. (Earliest)', value: areas.length > 0 ? Math.min(...areas.map(pa => pa.established)) : 1981, icon: 'Shield' as const },
-    { label: 'PA Coverage', value: '2,847 km²', icon: 'Eye' as const },
+    { label: 'Official J&K Parks', value: officialParks.length, icon: 'Mountain' as const },
+    { label: 'Official Area',       value: '2,500.57 km²',       icon: 'Map'      as const },
+    { label: 'Districts',           value: new Set(officialParks.map(p => p.district)).size, icon: 'MapPin' as const },
+    { label: 'Est. Earliest',       value: 1981,                  icon: 'Shield'   as const },
+    { label: 'Extended Parks',      value: extendedParks.length,  icon: 'Activity' as const },
+    { label: 'Extended Area',       value: '20,946+ km²',         icon: 'TrendingUp' as const },
+    { label: 'Key Species',         value: 47,                    icon: 'Eye'      as const },
+    { label: 'Ecosystem Types',     value: 14,                    icon: 'Leaf'     as const },
   ];
 
   return (
@@ -48,13 +44,11 @@ export default function NationalParksPage() {
       subtitle="Mountain and temperate forest conservation landscapes spanning Kashmir's protected, trans-divisional, and transboundary ecological zones. Integrates species profiles, boundary data, habitat intelligence, and conservation monitoring for each park."
       icon="Mountain"
       color="from-emerald-600 to-emerald-500"
-      areas={areas}
+      areas={activeParks}
       metrics={metrics}
-      sourceData={{
-        title: 'Protected Area Network of Jammu and Kashmir',
-        count: sourceAreas.length,
-        totalArea: sourceAreas.reduce((sum, pa) => sum + (pa.areaSqKm || 0), 0)
-      }}
+      tabs={TABS as any}
+      activeTab={activeTab}
+      onTabChange={(tab) => setActiveTab(tab as TabKey)}
     />
   );
 }

@@ -39,6 +39,9 @@ interface ProtectedCategoryPageProps {
     count: number;
     totalArea: number;
   };
+  tabs?: Array<{ key: string; label: string; description: string }>;
+  activeTab?: string;
+  onTabChange?: (tab: string) => void;
 }
 
 export function ProtectedCategoryPage({
@@ -49,6 +52,9 @@ export function ProtectedCategoryPage({
   areas,
   metrics,
   sourceData,
+  tabs,
+  activeTab,
+  onTabChange,
 }: ProtectedCategoryPageProps) {
   const Icon = (Icons as any)[iconName] || Icons.MapPin;
   const router = useRouter();
@@ -102,6 +108,32 @@ export function ProtectedCategoryPage({
           </Card>
         </motion.div>
       </div>
+
+      {/* Tab Bar */}
+      {tabs && tabs.length > 0 && (
+        <div className="container mx-auto px-6 mt-6">
+          <div className="flex flex-wrap gap-2 p-1 glass-intense border border-white/10 rounded-xl w-fit">
+            {tabs.map(tab => (
+              <button
+                key={tab.key}
+                onClick={() => onTabChange?.(tab.key)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  activeTab === tab.key
+                    ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
+                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          {tabs.find(t => t.key === activeTab) && (
+            <p className="text-xs text-slate-500 mt-2 ml-1">
+              {tabs.find(t => t.key === activeTab)!.description}
+            </p>
+          )}
+        </div>
+      )}
 
       {/* Content */}
       <div className="container mx-auto px-6 py-12 space-y-8">
@@ -158,9 +190,17 @@ export function ProtectedCategoryPage({
                   <div className="relative h-40 bg-gradient-to-br from-emerald-500/20 to-slate-800/50">
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
-                      <Badge variant="info" size="sm" className="mb-2 capitalize">
-                        {area.category.replace('_', ' ')}
-                      </Badge>
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        <Badge variant="info" size="sm" className="capitalize">
+                          {area.category.replace('_', ' ')}
+                        </Badge>
+                        {(area as any).scope && (
+                          <Badge variant="default" size="sm">{(area as any).scope}</Badge>
+                        )}
+                        {(area as any).legalStatus && (area as any).legalStatus !== 'Verified' && (
+                          <Badge variant="warning" size="sm">{(area as any).legalStatus}</Badge>
+                        )}
+                      </div>
                       <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
                         {area.name}
                       </h3>
@@ -173,13 +213,27 @@ export function ProtectedCategoryPage({
                     <div className="flex items-center gap-4 text-sm text-slate-400">
                       <div>
                         <div className="text-xs text-slate-500 uppercase">Area</div>
-                        <div className="text-white font-semibold">{area.area} kmÂ²</div>
+                        <div className="text-white font-semibold">{area.area > 0 ? `${area.area} km²` : 'TBC'}</div>
                       </div>
                       <div>
                         <div className="text-xs text-slate-500 uppercase">District</div>
                         <div className="text-white font-semibold">{area.district}</div>
                       </div>
+                      {(area as any).flagshipSpecies && (
+                        <div>
+                          <div className="text-xs text-slate-500 uppercase">Flagship</div>
+                          <div className="text-white font-semibold text-sm">{(area as any).flagshipSpecies}</div>
+                        </div>
+                      )}
                     </div>
+                    {(area as any).altitudeRange && (
+                      <div className="mt-2 text-xs text-slate-400">
+                        <span className="text-slate-500 uppercase text-[10px]">Altitude: </span>{(area as any).altitudeRange}
+                      </div>
+                    )}
+                    {(area as any).dataStatus && (
+                      <div className="text-[10px] text-slate-500 italic mt-1">{(area as any).dataStatus}</div>
+                    )}
                     <div className="mt-4 pt-4 border-t border-white/5 flex justify-end">
                       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 transition-colors text-sm font-medium text-white">
                         View Details

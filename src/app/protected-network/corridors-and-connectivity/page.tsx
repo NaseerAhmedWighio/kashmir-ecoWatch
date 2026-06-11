@@ -57,6 +57,10 @@ export default function CorridorsPage() {
                 { label: 'Critical Priority', value: corridors.filter(c => c.priority === 'Critical').length, icon: TrendingUp },
                 { label: 'Total Length', value: '287 km', icon: Search },
                 { label: 'Active Status', value: corridors.filter(c => c.status === 'Active').length, icon: Activity },
+                { label: 'Degraded', value: corridors.filter(c => c.status === 'Degraded').length, icon: TrendingUp },
+                { label: 'Threatened', value: corridors.filter(c => c.status === 'Threatened').length, icon: Map },
+                { label: 'PA Connections', value: 24, icon: Activity },
+                { label: 'Frag. Zones', value: 11, icon: Search },
               ].map((metric, idx) => (
                 <div key={idx} className="py-2 px-1 lg:py-3 lg:px-2 rounded-xl text-center min-w-0">
                   <metric.icon className="w-4 h-4 text-emerald-500 mx-auto mb-1" />
@@ -106,7 +110,7 @@ export default function CorridorsPage() {
             </motion.a>
           ))}
         </div>
-      </div>
+
 
       
     </main>

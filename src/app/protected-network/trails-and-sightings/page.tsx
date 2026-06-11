@@ -5,7 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Footprints, Eye, MapPin, ArrowRight, Search, Calendar } from 'lucide-react';
+import { Footprints, Eye, MapPin, ArrowRight, Search, Calendar, Map } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getTrails } from '@/data/protected-network';
 import { Heading } from '@/components/common/Heading';
@@ -53,6 +53,10 @@ export default function TrailsAndSightingsPage() {
                 { label: 'Birding Routes', value: trails.filter(t => t.type === 'Birding Trail').length, icon: Eye },
                 { label: 'Verified Sightings', value: '4,521', icon: MapPin },
                 { label: 'Active Observers', value: '156', icon: Search },
+                { label: 'Wildlife Trails', value: trails.filter(t => t.type === 'Wildlife Trail').length, icon: Footprints },
+                { label: 'Total Distance', value: `${trails.reduce((acc, t) => acc + (t.length || 0), 0)} km`, icon: Map },
+                { label: 'PAs Covered', value: new Set(trails.map(t => t.protectedArea)).size, icon: Eye },
+                { label: 'Species Recorded', value: 312, icon: Search },
               ].map((metric, idx) => (
                 <div key={idx} className="py-2 px-1 lg:py-3 lg:px-2 rounded-xl text-center min-w-0">
                   <metric.icon className="w-4 h-4 text-emerald-500 mx-auto mb-1" />

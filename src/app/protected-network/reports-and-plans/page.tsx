@@ -46,6 +46,10 @@ export default function ReportsPage() {
                 { label: 'Management Plans', value: reports.filter(r => r.type === 'Management Plan').length, icon: Book },
                 { label: 'Scientific Reports', value: reports.filter(r => r.type === 'Scientific Report').length, icon: Search },
                 { label: 'Monitoring Data', value: reports.filter(r => r.type === 'Monitoring Data').length, icon: Download },
+                { label: 'Field Reports', value: reports.filter(r => r.type === 'Field Report').length, icon: FileText },
+                { label: 'PAs Covered', value: new Set(reports.map(r => r.protectedArea)).size, icon: Book },
+                { label: 'Most Recent', value: Math.max(...reports.map(r => r.year || 2024)), icon: Search },
+                { label: 'Open Access', value: reports.filter(r => r.access === 'Open').length, icon: Download },
               ].map((metric, idx) => (
                 <div key={idx} className="py-2 px-1 lg:py-3 lg:px-2 rounded-xl text-center min-w-0">
                   <metric.icon className="w-4 h-4 text-emerald-500 mx-auto mb-1" />

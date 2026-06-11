@@ -56,6 +56,10 @@ export default function SpeciesIntelligencePage() {
                 { label: 'Endangered', value: speciesList.filter(s => s.conservationStatus.includes('CR') || s.conservationStatus.includes('EN')).length, icon: Shield },
                 { label: 'PA Habitat Records', value: speciesList.reduce((acc, s) => acc + s.protectedAreas.length, 0), icon: MapPin },
                 { label: 'Conservation Focus', value: 'High', icon: TrendingUp },
+                { label: 'Vulnerable', value: speciesList.filter(s => s.conservationStatus.includes('VU')).length, icon: Shield },
+                { label: 'Mammal Profiles', value: speciesList.filter(s => s.group === 'Mammals').length, icon: Activity },
+                { label: 'Bird Profiles', value: speciesList.filter(s => s.group === 'Birds').length, icon: MapPin },
+                { label: 'PA Network', value: 47, icon: TrendingUp },
               ].map((metric, idx) => (
                 <div key={idx} className="py-2 px-1 lg:py-3 lg:px-2 rounded-xl text-center min-w-0">
                   <metric.icon className="w-4 h-4 text-emerald-500 mx-auto mb-1" />
