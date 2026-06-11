@@ -280,7 +280,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
     { id: 'reports',    label: 'Reports',          icon: FileText },
   ];
 
-  const CARD = 'card-intelligence border border-white/5 bg-[#160C27]';
+  const CARD = 'card-intelligence border border-white/10 bg-[#160C27]/75 backdrop-blur-md shadow-xl';
   const SECTION_TITLE = 'text-xl font-bold text-white mb-5';
 
   return (
