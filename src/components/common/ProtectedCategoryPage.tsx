@@ -168,7 +168,7 @@ export function ProtectedCategoryPage({
                 transition={{ delay: index * 0.05 }}
                 className="block group"
               >
-                <Card className="h-full overflow-hidden card-intelligence border border-white/5 bg-[#160C27]" padding="none">
+                <Card className="h-full flex flex-col overflow-hidden card-intelligence border border-white/5 bg-[#160C27]" padding="none">
                   <div className="relative h-40 bg-[#160C27]">
 
                     <div className="absolute bottom-4 left-4 right-4">
@@ -188,7 +188,7 @@ export function ProtectedCategoryPage({
                       </h3>
                     </div>
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 flex flex-col flex-1">
                     <p className="text-sm text-slate-400 mb-4 line-clamp-2">
                       {area.description}
                     </p>
@@ -216,7 +216,7 @@ export function ProtectedCategoryPage({
                     {(area as any).dataStatus && (
                       <div className="text-[10px] text-slate-500 italic mt-1">{(area as any).dataStatus}</div>
                     )}
-                    <div className="mt-4 pt-4 border-t border-white/5 flex justify-end">
+                    <div className="mt-auto pt-4 border-t border-white/5 flex justify-end">
                       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 transition-colors text-sm font-medium text-white">
                         View Details
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
