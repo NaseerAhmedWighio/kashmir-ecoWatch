@@ -134,7 +134,7 @@ export default function ProtectedNetworkPage() {
     <main className="min-h-screen bg-slate-950">
       <Heading
         title="Kashmir Protected Areas Network"
-        subtitle="Comprehensive protected area system including national parks, wildlife sanctuaries, wetland reserves, and conservation landscapes across Kashmir"
+        subtitle="A geospatial conservation intelligence layer mapping Kashmir's protected areas, wetlands, wildlife corridors, and sensitive ecosystems for monitoring, analysis, and decision support."
         icon={<Shield className="w-6 h-6 text-emerald-400" />}
         label="Conservation Intelligence"
         images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
