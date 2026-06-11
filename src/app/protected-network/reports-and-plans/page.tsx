@@ -13,22 +13,15 @@ import { Heading } from '@/components/common/Heading';
 export default function ReportsPage() {
   const reports = getReports.all();
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case 'Management Plan': return 'from-emerald-500 to-emerald-600';
-      case 'Scientific Report': return 'from-purple-500 to-purple-600';
-      case 'Monitoring Data': return 'from-blue-500 to-blue-600';
-      case 'Assessment': return 'from-amber-500 to-amber-600';
-      case 'Atlas': return 'from-pink-500 to-pink-600';
-      default: return 'from-slate-500 to-slate-600';
-    }
+  const getTypeColor = (_type: string) => {
+    return 'from-emerald-600 to-emerald-500';
   };
 
   return (
     <main className="min-h-screen bg-slate-950">
       <Heading
-        title="Reports & Management Plans"
-        subtitle="Scientific reports, management plans, monitoring documents, and research publications"
+        title={<><span className="block whitespace-nowrap">Reports and</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Plans</span></>}
+        subtitle="Scientific reports, management plans, monitoring documents, and research publications for Kashmir's protected areas. Records are linked to individual protected areas and conservation themes."
         icon={<Book className="w-6 h-6 text-amber-400" />}
         label="Evidence & Documentation"
         breadcrumbs={[{ label: 'Reports & Plans' }]}
@@ -77,7 +70,7 @@ export default function ReportsPage() {
                     </div>
                     <div>
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">{report.title}</h3>
+                        <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">{report.title}</h3>
                         <Badge variant="info" size="sm" className="capitalize">{report.type}</Badge>
                         <Badge variant="default" size="sm">{report.year}</Badge>
                       </div>

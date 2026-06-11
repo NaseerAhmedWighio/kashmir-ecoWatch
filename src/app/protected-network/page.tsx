@@ -22,7 +22,7 @@ const categoryCards = [
     icon: Mountain,
     count: protectedNetworkMetrics.nationalParks,
     description: 'Core mountain and forest conservation landscapes with highest protection status',
-    color: 'from-emerald-500 to-teal-600',
+    color: 'from-emerald-600 to-emerald-500',
     href: '/protected-network/national-parks',
   },
   {
@@ -31,7 +31,7 @@ const categoryCards = [
     icon: Shield,
     count: protectedNetworkMetrics.totalProtectedAreas,
     description: 'Complete listing of all protected areas across Kashmir with detailed ecological intelligence',
-    color: 'from-indigo-500 to-purple-600',
+    color: 'from-emerald-600 to-emerald-500',
     href: '/protected-areas',
   },
   {
@@ -40,7 +40,7 @@ const categoryCards = [
     icon: Shield,
     count: protectedNetworkMetrics.wildlifeSanctuaries,
     description: 'Protected habitats for mammals, birds, and mountain biodiversity',
-    color: 'from-blue-500 to-cyan-600',
+    color: 'from-emerald-600 to-emerald-500',
     href: '/protected-network/wildlife-sanctuaries',
   },
   {
@@ -49,7 +49,7 @@ const categoryCards = [
     icon: Droplet,
     count: protectedNetworkMetrics.wetlandReserves,
     description: 'Marsh, reedbed, and bird-use conservation systems including Ramsar sites',
-    color: 'from-sky-500 to-blue-600',
+    color: 'from-emerald-600 to-emerald-500',
     href: '/protected-network/wetland-reserves',
   },
   {
@@ -58,7 +58,7 @@ const categoryCards = [
     icon: Leaf,
     count: protectedNetworkMetrics.conservationReserves,
     description: 'Community-involved conservation landscapes and buffer zones',
-    color: 'from-amber-500 to-orange-600',
+    color: 'from-emerald-600 to-emerald-500',
     href: '/protected-network/conservation-reserves',
   },
   {
@@ -67,7 +67,7 @@ const categoryCards = [
     icon: Activity,
     count: protectedNetworkMetrics.importantBirdAreas,
     description: 'Important Bird and Biodiversity Areas (IBAs) with critical habitats',
-    color: 'from-purple-500 to-pink-600',
+    color: 'from-emerald-600 to-emerald-500',
     href: '/protected-network/bird-habitat-areas',
   },
   {
@@ -76,7 +76,7 @@ const categoryCards = [
     icon: Map,
     count: protectedNetworkMetrics.totalProtectedAreas,
     description: 'Interactive GIS mapping of all protected landscapes across Kashmir',
-    color: 'from-slate-500 to-slate-700',
+    color: 'from-emerald-600 to-emerald-500',
     href: '/protected-network/atlas',
   },
   {
@@ -85,7 +85,7 @@ const categoryCards = [
     icon: Shield,
     count: protectedNetworkMetrics.totalProtectedAreas,
     description: 'Complete inventory of all protected areas with detailed metadata and source information',
-    color: 'from-emerald-600 to-green-700',
+    color: 'from-emerald-600 to-emerald-500',
     href: '/protected-network/registry',
   },
 ];
@@ -133,8 +133,8 @@ export default function ProtectedNetworkPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       <Heading
-        title="Kashmir Protected Areas Network"
-        subtitle="A geospatial conservation intelligence layer mapping Kashmir's protected areas, wetlands, wildlife corridors, and sensitive ecosystems for monitoring, analysis, and decision support."
+        title={<><span className="block whitespace-nowrap">Kashmir Protected</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Area Network</span></>}
+        subtitle="A geospatial conservation intelligence layer mapping Kashmir's protected areas, wetlands, wildlife corridors, and sensitive ecosystems. Integrating biodiversity data, habitat assessments, and real-time threat signals for monitoring and spatial analysis."
         icon={<Shield className="w-6 h-6 text-emerald-400" />}
         label="Conservation Intelligence"
         images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
@@ -157,8 +157,8 @@ export default function ProtectedNetworkPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="glass-intense border-white/10 p-6" padding="none">
-            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
+          <Card className="glass-intense border-white/10 p-4 lg:p-5" padding="none">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-1 sm:gap-2">
               {[
                 { label: 'Total PAs', value: protectedNetworkMetrics.totalProtectedAreas, icon: Shield },
                 { label: 'Total Area', value: `${protectedNetworkMetrics.totalArea.toLocaleString()} km²`, icon: Map },
@@ -169,12 +169,12 @@ export default function ProtectedNetworkPage() {
                 { label: 'IBAs', value: protectedNetworkMetrics.importantBirdAreas, icon: Activity },
                 { label: 'Coverage', value: `${protectedNetworkMetrics.coveragePercentage}%`, icon: TrendingUp },
               ].map((metric, idx) => (
-                <div key={idx} className={`p-3 rounded-xl text-center${idx === 7 ? ' col-span-3 sm:col-span-1' : ''}`}>
-                  <metric.icon className="w-5 h-5 text-slate-500 mx-auto mb-2" />
-                  <div className="text-xl sm:text-2xl font-bold text-white tabular-nums">
+                <div key={idx} className="py-2 px-1 lg:py-3 lg:px-2 rounded-xl text-center min-w-0">
+                  <metric.icon className="w-4 h-4 text-emerald-500 mx-auto mb-1" />
+                  <div className="text-base sm:text-lg lg:text-base xl:text-lg font-bold text-white tabular-nums leading-tight truncate">
                     {metric.value}
                   </div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">
+                  <div className="text-[9px] sm:text-[10px] lg:text-[9px] xl:text-[10px] text-slate-500 uppercase tracking-wide mt-0.5 leading-tight break-words">
                     {metric.label}
                   </div>
                 </div>
@@ -364,9 +364,11 @@ export default function ProtectedNetworkPage() {
                         <div className="text-sm font-bold text-white">{pa.established}</div>
                       </div>
                     </div>
-                    <div className="mt-auto w-full py-2 text-sm rounded-lg flex items-center justify-center gap-2 font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors">
-                      <span>View Details</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <div className="mt-4 flex justify-end">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 transition-colors text-sm font-medium text-white">
+                        View Details
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
                     </div>
                   </div>
                 </Card>

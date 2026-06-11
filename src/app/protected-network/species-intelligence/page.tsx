@@ -24,8 +24,8 @@ export default function SpeciesIntelligencePage() {
   return (
     <main className="min-h-screen bg-slate-950">
       <Heading
-        title="Species Intelligence"
-        subtitle="Protected area overlap analysis, species distribution, and habitat associations across Kashmir's conservation network"
+        title={<><span className="block whitespace-nowrap">Species</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Intelligence</span></>}
+        subtitle="Species distribution, protected area overlap, and habitat association analysis across Kashmir's conservation network. Covers mammals, birds, plants, and aquatic species with conservation status."
         icon={<Activity className="w-6 h-6 text-purple-400" />}
         label="Ecological Intelligence"
         breadcrumbs={[{ label: 'Species Intelligence' }]}
@@ -58,7 +58,7 @@ export default function SpeciesIntelligencePage() {
                 { label: 'Conservation Focus', value: 'High', icon: TrendingUp },
               ].map((metric, idx) => (
                 <div key={idx} className="text-center p-4 border-r border-white/5 last:border-r-0">
-                  <metric.icon className="w-5 h-5 text-slate-500 mx-auto mb-2" />
+                  <metric.icon className="w-5 h-5 text-emerald-500 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-white tabular-nums">
                     {metric.value}
                   </div>
@@ -110,7 +110,7 @@ export default function SpeciesIntelligencePage() {
                         {species.conservationStatus.split(' ')[0]}
                       </Badge>
                     </div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
                       {species.name}
                     </h3>
                     <p className="text-sm text-slate-400 italic">{species.scientificName}</p>
@@ -146,9 +146,11 @@ export default function SpeciesIntelligencePage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-sm font-medium text-purple-400 group-hover:text-purple-300 transition-colors">
-                  <span>View Species Details</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <div className="mt-4 flex justify-end">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 transition-colors text-sm font-medium text-white">
+                    View Species Details
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </div>
               </Card>
             </motion.a>

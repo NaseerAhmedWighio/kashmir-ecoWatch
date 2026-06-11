@@ -34,8 +34,8 @@ export default function MonitoringPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       <Heading
-        title="Monitoring & Threats"
-        subtitle="Pressure signals, habitat condition, and conservation alerts across protected areas"
+        title={<><span className="block whitespace-nowrap">Monitoring and</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Threats</span></>}
+        subtitle="Pressure signals, encroachment records, habitat condition assessments, and active conservation alerts across Kashmir's protected areas. Data feeds into threat mapping and management planning."
         icon={<Bell className="w-6 h-6 text-amber-400" />}
         label="Conservation Intelligence"
         breadcrumbs={[{ label: 'Monitoring & Threats' }]}

@@ -25,8 +25,8 @@ export default function TrailsAndSightingsPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       <Heading
-        title="Trails & Sightings"
-        subtitle="Protected area trails, eco-routes, birding paths, and verified wildlife observations across Kashmir"
+        title={<><span className="block whitespace-nowrap">Trails and</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Sightings</span></>}
+        subtitle="Protected area trails, eco-routes, birding paths, and verified wildlife observations logged across Kashmir. Field records are reviewed and linked to protected area and species profiles."
         icon={<Footprints className="w-6 h-6 text-amber-400" />}
         label="Recreation & Observation"
         breadcrumbs={[{ label: 'Trails & Sightings' }]}
@@ -86,7 +86,7 @@ export default function TrailsAndSightingsPage() {
                         <Badge variant="info" size="sm">{trail.type}</Badge>
                         <Badge variant={getDifficultyColor(trail.difficulty)} size="sm">{trail.difficulty}</Badge>
                       </div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">{trail.name}</h3>
+                      <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">{trail.name}</h3>
                       <p className="text-sm text-slate-400">{trail.protectedArea}</p>
                     </div>
                   </div>
@@ -100,9 +100,11 @@ export default function TrailsAndSightingsPage() {
                       Wildlife: <strong className="text-white">{trail.wildlife.length} species</strong>
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-medium text-amber-400 group-hover:text-amber-300 transition-colors">
-                    <span>View Trail Details</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <div className="mt-4 flex justify-end">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 transition-colors text-sm font-medium text-white">
+                      View Trail Details
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </div>
                 </Card>
               </motion.a>

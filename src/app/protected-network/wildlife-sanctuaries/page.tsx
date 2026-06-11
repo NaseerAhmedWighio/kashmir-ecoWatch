@@ -15,10 +15,10 @@ export default function WildlifeSanctuariesPage() {
 
   return (
     <ProtectedCategoryPage
-      title="Wildlife Sanctuaries"
-      subtitle="Protected habitats for mammals, birds, and mountain biodiversity across Kashmir"
+      title={<><span className="block whitespace-nowrap">Wildlife</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Sanctuaries</span></>}
+      subtitle="Protected habitats supporting mammals, birds, and mountain biodiversity across Kashmir's forest and alpine zones. Records include species data, seasonal patterns, and habitat condition."
       icon="Shield"
-      color="from-blue-500 to-cyan-600"
+      color="from-emerald-600 to-emerald-500"
       areas={areas}
       metrics={metrics}
     />

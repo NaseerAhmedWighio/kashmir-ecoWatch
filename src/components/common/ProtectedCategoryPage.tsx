@@ -88,7 +88,7 @@ export function ProtectedCategoryPage({
                 const MetricIcon = (Icons as any)[metric.icon] || Icons.MapPin;
                 return (
                   <div key={idx} className="text-center p-4 border-r border-white/5 last:border-r-0">
-                    <MetricIcon className="w-5 h-5 text-slate-500 mx-auto mb-2" />
+                    <MetricIcon className="w-5 h-5 text-emerald-500 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-white tabular-nums">
                       {typeof metric.value === 'number' ? metric.value.toLocaleString() : metric.value}
                     </div>
@@ -180,9 +180,11 @@ export function ProtectedCategoryPage({
                         <div className="text-white font-semibold">{area.district}</div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors mt-4 pt-4 border-t border-white/5">
-                      <span>View Details</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <div className="mt-4 pt-4 border-t border-white/5 flex justify-end">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 transition-colors text-sm font-medium text-white">
+                        View Details
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
                     </div>
                   </div>
                 </Card>
@@ -208,7 +210,7 @@ export function ProtectedCategoryPage({
           >
             <Card className="glass-light border-white/10 p-6">
               <div className="flex items-start gap-4">
-                <Shield className="w-6 h-6 text-slate-400 mt-1" />
+                <Shield className="w-6 h-6 text-emerald-500 mt-1" />
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-white mb-2">Source Data</h3>
                   <p className="text-slate-400 text-sm mb-3">{sourceData.title}</p>

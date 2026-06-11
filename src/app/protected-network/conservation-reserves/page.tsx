@@ -15,10 +15,10 @@ export default function ConservationReservesPage() {
 
   return (
     <ProtectedCategoryPage
-      title="Conservation Reserves"
-      subtitle="Community-involved conservation landscapes and buffer zones"
+      title={<><span className="block whitespace-nowrap">Conservation</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Reserves</span></>}
+      subtitle="Community-involved conservation landscapes, buffer zones, and transition areas across Kashmir. Records include land use data, community engagement status, and ecological condition monitoring."
       icon="Leaf"
-      color="from-amber-500 to-orange-600"
+      color="from-emerald-600 to-emerald-500"
       areas={areas}
       metrics={metrics}
     />

@@ -76,8 +76,8 @@ export default function ProtectedAreasPage() {
     <main className="min-h-screen bg-slate-950">
       <Heading
         label="Conservation Areas"
-        title="Protected Areas"
-        subtitle="Explore Kashmir&#39;s national parks, wildlife sanctuaries, wetland reserves, and conservation areas with detailed ecological intelligence"
+        title={<><span className="block whitespace-nowrap">Protected</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Areas</span></>}
+        subtitle="A structured inventory of Kashmir's national parks, wildlife sanctuaries, wetland reserves, and conservation areas. Each record includes ecological profile, boundary data, and conservation status."
         icon={<Shield className="w-6 h-6 text-emerald-400" />}
         actions={
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
@@ -118,7 +118,7 @@ export default function ProtectedAreasPage() {
                 { label: 'Conservation Reserves', value: protectedNetworkMetrics.conservationReserves, icon: Leaf },
               ].map((metric, idx) => (
                 <div key={idx} className="text-center p-3">
-                  <metric.icon className="w-5 h-5 text-slate-500 mx-auto mb-2" />
+                  <metric.icon className="w-5 h-5 text-emerald-500 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-white tabular-nums">{metric.value}</div>
                   <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">{metric.label}</div>
                 </div>

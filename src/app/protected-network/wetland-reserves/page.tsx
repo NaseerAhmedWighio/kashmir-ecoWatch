@@ -15,10 +15,10 @@ export default function WetlandReservesPage() {
 
   return (
     <ProtectedCategoryPage
-      title="Wetland Reserves"
-      subtitle="Marsh, reedbed, and bird-use conservation systems including Ramsar sites"
+      title={<><span className="block whitespace-nowrap">Wetland</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Reserves</span></>}
+      subtitle="Marsh, reedbed, and bird-use conservation systems across Kashmir, including designated Ramsar wetland sites. Records cover hydrological data, bird usage patterns, and conservation assessments."
       icon="Droplet"
-      color="from-sky-500 to-blue-600"
+      color="from-emerald-600 to-emerald-500"
       areas={areas}
       metrics={metrics}
     />

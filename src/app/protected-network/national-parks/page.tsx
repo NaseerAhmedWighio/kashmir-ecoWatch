@@ -40,10 +40,10 @@ export default function NationalParksPage() {
 
   return (
     <ProtectedCategoryPage
-      title="National Parks"
-      subtitle="Core mountain and forest conservation landscapes with the highest protection status in Kashmir"
+      title={<><span className="block whitespace-nowrap">National</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Parks</span></>}
+      subtitle="Core mountain and temperate forest conservation landscapes carrying the highest legal protection status in Kashmir. Includes species profiles, boundary data, and habitat intelligence for each park."
       icon="Mountain"
-      color="from-emerald-500 to-teal-600"
+      color="from-emerald-600 to-emerald-500"
       areas={areas}
       metrics={metrics}
       sourceData={{

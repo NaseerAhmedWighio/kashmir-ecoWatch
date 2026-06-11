@@ -34,8 +34,8 @@ export default function CorridorsPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       <Heading
-        title="Corridors & Connectivity"
-        subtitle="Landscape continuity, movement value, and habitat linkage analysis for wildlife conservation"
+        title={<><span className="block whitespace-nowrap">Corridors and</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Connectivity</span></>}
+        subtitle="Landscape continuity and habitat linkage mapping across Kashmir's protected area network. Identifies movement corridors, fragmentation zones, and wildlife crossing points for spatial planning."
         icon={<Map className="w-6 h-6 text-pink-400" />}
         label="Ecological Intelligence"
         breadcrumbs={[{ label: 'Corridors & Connectivity' }]}

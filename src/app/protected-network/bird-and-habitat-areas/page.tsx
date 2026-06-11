@@ -15,10 +15,10 @@ export default function BirdHabitatAreasPage() {
 
   return (
     <ProtectedCategoryPage
-      title="Bird & Habitat Areas"
-      subtitle="Important Bird and Biodiversity Areas (IBAs) with critical habitats for avian conservation"
+      title={<><span className="block whitespace-nowrap">Bird and</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Habitat Areas</span></>}
+      subtitle="Important Bird and Biodiversity Areas across Kashmir with critical habitats for resident and migratory species. Records include site assessments, species checklists, and seasonal usage data."
       icon="Activity"
-      color="from-purple-500 to-pink-600"
+      color="from-emerald-600 to-emerald-500"
       areas={areas}
       metrics={metrics}
     />
