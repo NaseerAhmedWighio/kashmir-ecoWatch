@@ -70,7 +70,7 @@ export default function GroundwaterPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[#160C27]" />
         <div className="relative container mx-auto px-4 md:px-6 pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20">
-          <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+          <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span className="text-slate-600">/</span>
             <Link href="/water-systems" className="hover:text-white transition-colors">Water Systems</Link>
@@ -98,7 +98,7 @@ export default function GroundwaterPage() {
               reduced recharge and climate change impacts.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
               <Link href="/water-systems/drinking-water-sources">
                 <Button variant="outline" className="border-white/20 text-white">← Drinking Water Sources</Button>
               </Link>

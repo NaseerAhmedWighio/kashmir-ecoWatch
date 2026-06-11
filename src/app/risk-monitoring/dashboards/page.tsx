@@ -292,6 +292,15 @@ const GROUP_CONFIG: Record<DashboardGroup, { label: string; badge: string; descr
   },
 };
 
+// ─── Group Icon Config ───────────────────────────────────────────────────────
+
+const GROUP_ICONS: Record<DashboardGroup, { icon: React.ComponentType<{ className?: string }>; color: string }> = {
+  strategic: { icon: Layers, color: 'from-red-500 to-rose-600' },
+  hazard: { icon: AlertTriangle, color: 'from-amber-500 to-orange-600' },
+  environmental: { icon: Activity, color: 'from-emerald-500 to-teal-600' },
+  operational: { icon: Shield, color: 'from-violet-500 to-purple-600' },
+};
+
 // ─── Status Badge Config ─────────────────────────────────────────────────────
 
 const STATUS_COLORS: Record<DashboardStatus, string> = {
@@ -326,15 +335,15 @@ export default function DashboardsPage() {
               <span className="text-white font-medium">Risk Analytics</span>
             </div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-2xl">
-                <BarChart3 className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-2xl">
+                <BarChart3 className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="info" size="lg">Risk Analytics</Badge>
             </div>
-            <h1 className="text-4xl sm:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Risk <span className="text-emerald-400">Dashboards</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Integrated dashboards for multi-hazard visibility, district risk interpretation, incident response, and evolving environmental risk across Kashmir.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
@@ -406,13 +415,20 @@ export default function DashboardsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-10"
               >
-                <Badge variant="info">{group.badge}</Badge>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mt-4 mb-2">
-                  {group.label}
-                </h2>
-                <p className="text-slate-400 max-w-2xl">{group.description}</p>
+                <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+                  <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${GROUP_ICONS[groupKey].color} flex items-center justify-center`}>
+                    {(() => {
+                      const IconComp = GROUP_ICONS[groupKey].icon;
+                      return <IconComp className="w-4 h-4 text-white" />;
+                    })()}
+                  </div>
+                  <div>
+                    <Badge variant="info">{group.badge}</Badge>
+                    <h2 className="text-2xl font-bold text-white mt-2">{group.label}</h2>
+                    <p className="text-sm text-slate-400">{group.description}</p>
+                  </div>
+                </div>
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -495,11 +511,15 @@ export default function DashboardsPage() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <TrendingUp className="w-6 h-6 text-red-400" />
-              <h2 className="text-2xl font-bold text-white">Alert Trend (Last 7 Days)</h2>
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center">
+                <TrendingUp className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">Alert Trend (Last 7 Days)</h2>
+                <p className="text-sm text-slate-400">Daily active alert count showing trend direction across the monitoring week.</p>
+              </div>
             </div>
-            <p className="text-sm text-slate-400">Daily active alert count showing trend direction across the monitoring week.</p>
           </motion.div>
           <Card className="glass-intense border-white/10 p-6">
             <div className="h-64 flex items-end justify-around gap-2">
@@ -532,11 +552,15 @@ export default function DashboardsPage() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <Activity className="w-6 h-6 text-violet-400" />
-              <h2 className="text-2xl font-bold text-white">Incident Volume (Last 7 Days)</h2>
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                <Activity className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">Incident Volume (Last 7 Days)</h2>
+                <p className="text-sm text-slate-400">Daily incident count showing field reporting activity and response load.</p>
+              </div>
             </div>
-            <p className="text-sm text-slate-400">Daily incident count showing field reporting activity and response load.</p>
           </motion.div>
           <Card className="glass-intense border-white/10 p-6">
             <div className="h-64 flex items-end justify-around gap-2">
@@ -557,6 +581,80 @@ export default function DashboardsPage() {
               })}
             </div>
           </Card>
+        </div>
+      </section>
+
+      {/* ─── Export & Share ──────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-20 bg-slate-950">
+        <div className="container mx-auto px-6">
+          <Card className="glass-intense border-white/10 bg-gradient-to-r from-red-900/20 to-amber-900/20" padding="lg">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div>
+                <h3 className="text-lg font-bold text-white mb-1">Export & Share Analytics</h3>
+                <p className="text-sm text-slate-400">Download risk data reports and share insights</p>
+              </div>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" icon={<BarChart3 className="w-4 h-4" />}>
+                  Export PDF Report
+                </Button>
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" icon={<TrendingUp className="w-4 h-4" />}>
+                  Download CSV
+                </Button>
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" icon={<ArrowRight className="w-4 h-4" />}>
+                  Share Dashboard
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* ─── Sub-Page Links ──────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-500 to-slate-600 flex items-center justify-center">
+              <MapPin className="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-white">Explore Risk Monitoring</h2>
+              <p className="text-sm text-slate-400">Navigate to specialized risk pages</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { label: 'Live Alerts', href: '/risk-monitoring/live-alerts', icon: Bell },
+              { label: 'District Risk Profiles', href: '/risk-monitoring/district-risk-profiles', icon: MapPin },
+              { label: 'Flood Risk', href: '/risk-monitoring/flood-flash-flood', icon: Droplets },
+              { label: 'Landslide Monitoring', href: '/risk-monitoring/landslide-slope', icon: Mountain },
+              { label: 'Avalanche & Winter', href: '/risk-monitoring/avalanche-winter', icon: Snowflake },
+              { label: 'Forest Fire Risk', href: '/risk-monitoring/forest-fire', icon: Flame },
+              { label: 'Glacier & Cryosphere', href: '/risk-monitoring/glacier-cryosphere', icon: Zap },
+              { label: 'Hydrological Risk', href: '/risk-monitoring/hydrological-risk', icon: Waves },
+              { label: 'Environmental Incidents', href: '/risk-monitoring/environmental-incident-risk', icon: AlertTriangle },
+              { label: 'Response Operations', href: '/risk-monitoring/response-operations', icon: Activity },
+            ].map((link, idx) => {
+              const LinkIcon = link.icon;
+              return (
+                <motion.button
+                  key={link.href}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.04 }}
+                  onClick={() => router.push(link.href)}
+                  className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-red-500/30 transition-all text-left group"
+                >
+                  <LinkIcon className="w-5 h-5 text-red-400 mb-3 group-hover:scale-110 transition-transform" />
+                  <div className="text-sm font-semibold text-white">{link.label}</div>
+                  <div className="flex items-center gap-1 mt-2 text-xs text-slate-500 group-hover:text-red-400 transition-colors">
+                    <span>Explore</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </div>
+                </motion.button>
+              );
+            })}
+          </div>
         </div>
       </section>
 

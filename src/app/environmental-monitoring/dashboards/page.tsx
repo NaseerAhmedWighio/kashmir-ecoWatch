@@ -128,7 +128,7 @@ export default function DashboardsPage() {
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+            <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
               <button onClick={() => router.push('/')} className="hover:text-white transition-colors">Home</button>
               <ChevronRight className="w-4 h-4" />
               <button onClick={() => router.push('/environmental-monitoring')} className="hover:text-white transition-colors">Environmental Monitoring</button>
@@ -137,8 +137,8 @@ export default function DashboardsPage() {
             </nav>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-2xl">
-                <BarChart3 className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-2xl">
+                <BarChart3 className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="info" size="lg">Analytics & Intelligence</Badge>
             </div>
@@ -178,11 +178,15 @@ export default function DashboardsPage() {
       <section className="py-16">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
-              <Layers className="w-6 h-6 text-violet-400" />
-              Analytics Dashboard Modules
-            </h2>
-            <p className="text-slate-400">Interactive dashboards for environmental intelligence and decision support</p>
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                <Layers className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">Analytics Dashboard Modules</h2>
+                <p className="text-sm text-slate-400">Interactive dashboards for environmental intelligence and decision support</p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -215,11 +219,15 @@ export default function DashboardsPage() {
       <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
-              <TrendingUp className="w-6 h-6 text-violet-400" />
-              District Aggregate Profiles
-            </h2>
-            <p className="text-slate-400">Composite environmental stress scores and key performance indicators by district</p>
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                <TrendingUp className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">District Aggregate Profiles</h2>
+                <p className="text-sm text-slate-400">Composite environmental stress scores and key performance indicators by district</p>
+              </div>
+            </div>
           </motion.div>
 
           <Card className="glass-intense border-white/10 overflow-x-auto">
@@ -299,11 +307,15 @@ export default function DashboardsPage() {
       <section className="py-16">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
-              <Activity className="w-6 h-6 text-violet-400" />
-              Dashboard Features
-            </h2>
-            <p className="text-slate-400">Advanced analytics capabilities for environmental intelligence</p>
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                <Activity className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">Dashboard Features</h2>
+                <p className="text-sm text-slate-400">Advanced analytics capabilities for environmental intelligence</p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -345,8 +357,15 @@ export default function DashboardsPage() {
       <section className="py-16 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2">Coming Soon</h2>
-            <p className="text-slate-400">Additional analytics modules under development</p>
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-500 to-slate-600 flex items-center justify-center">
+                <Clock className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">Coming Soon</h2>
+                <p className="text-sm text-slate-400">Additional analytics modules under development</p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -376,8 +395,15 @@ export default function DashboardsPage() {
       <section className="py-16">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-2">Related Actions</h2>
-            <p className="text-slate-400">Explore domain-specific monitoring pages</p>
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-500 to-slate-600 flex items-center justify-center">
+                <ExternalLink className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">Related Actions</h2>
+                <p className="text-sm text-slate-400">Explore domain-specific monitoring pages</p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

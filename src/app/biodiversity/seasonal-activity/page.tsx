@@ -68,7 +68,7 @@ export default function SeasonalActivityPage() {
             <p className="text-lg text-slate-400 mb-6">
               Breeding periods, activity windows, appearance/disappearance timing, altitudinal movement cues, and seasonal behavior notes.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button size="lg" variant="outline" className="border-white/20 text-white" icon={<Clock className="w-5 h-5" />} onClick={() => router.push('/biodiversity/migration-windows')}>
                 Migration Windows
               </Button>

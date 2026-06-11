@@ -328,7 +328,7 @@ export default function EarthquakeRiskMonitoringPage() {
             className="max-w-5xl"
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+            <div className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
               <Link href="/risk-monitoring" className="hover:text-white transition-colors">Risk &amp; Monitoring</Link>
               <span className="text-slate-600">/</span>
               <Link href="/risk-monitoring/hazard-risks" className="hover:text-white transition-colors">Hazard Risks</Link>
@@ -338,8 +338,8 @@ export default function EarthquakeRiskMonitoringPage() {
 
             {/* Title Block */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <Siren className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
+                <Siren className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="danger" size="lg">Zone V — Highest Seismic Hazard</Badge>
             </div>
@@ -765,8 +765,8 @@ export default function EarthquakeRiskMonitoringPage() {
                 className="max-w-3xl mx-auto"
               >
                 <div className="flex items-center justify-center gap-3 mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                    <Siren className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
+                    <Siren className="w-5 h-5 md:w-8 md:h-8 text-white" />
                   </div>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

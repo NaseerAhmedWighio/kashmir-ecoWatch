@@ -172,7 +172,7 @@ export default function ReportIssuePage() {
                 </p>
               </Card>
 
-              <div className="flex flex-wrap gap-3 justify-center">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
                 <Button onClick={() => router.push('/report-issue')}>
                   Submit Another Report
                 </Button>
@@ -201,15 +201,15 @@ export default function ReportIssuePage() {
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+            <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
               <button onClick={() => router.push('/contribute')} className="hover:text-white transition-colors">Contribute</button>
               <span className="text-slate-600">/</span>
               <span className="text-white font-medium">Report an Issue</span>
             </nav>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <AlertTriangle className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center shadow-2xl">
+                <AlertTriangle className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="danger" size="lg">Emergency & Hazard Reporting</Badge>
             </div>
@@ -530,7 +530,7 @@ export default function ReportIssuePage() {
             </Card>
 
             {/* Related Links */}
-            <div className="mt-6 flex flex-wrap gap-3 justify-center">
+            <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
               <Link href="/contribute" className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1">
                 Explore Other Contribution Paths <ArrowRight className="w-3 h-3" />
               </Link>

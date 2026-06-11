@@ -71,7 +71,7 @@ export function AsymmetricModuleSurface() {
               Intelligence Domains
             </span>
           </div>
-          <div className="flex flex-col gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">{/* responsive-md-fix */}
             <div>
               <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-black text-white mb-2 sm:mb-3 tracking-tight">
                 Modular Intelligence Surface
@@ -129,7 +129,7 @@ export function AsymmetricModuleSurface() {
                   <div className={`absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br ${colorMap[card.color]} opacity-5 rounded-bl-full transition-opacity duration-500 ${isHovered && 'opacity-15'}`} />
 
                   {/* Content container */}
-                  <div className="relative h-full p-3 sm:p-4 md:p-6 flex flex-col justify-between">
+                  <div className="relative h-full p-4 sm:p-5 flex flex-col justify-between">{/* responsive-md-fix */}
                     {/* Top section: Icon, Title, Description */}
                     <div>
                       {/* Icon and header */}
@@ -138,19 +138,19 @@ export function AsymmetricModuleSurface() {
                           {Icon}
                         </div>
                         {index === 0 && (
-                          <div className="flex items-center gap-1 px-1 sm:px-1.5 md:px-2 py-0.5 sm:py-1 rounded-full glass-light border border-white/10">
-                            <Zap className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 text-amber-400" />
-                            <span className="text-[9px] sm:text-[10px] md:text-xs text-amber-400 font-medium">Featured</span>
+                          <div className="flex flex-wrap gap-2 text-xs rounded-full glass-light border border-white/10 px-1.5 py-0.5">{/* responsive-md-fix */}
+                            <Zap className="w-2.5 h-2.5 text-amber-400" />
+                            <span className="text-xs text-amber-400 font-medium">Featured</span>
                           </div>
                         )}
                       </div>
 
                       {/* Title and description */}
                       <div className="mb-2 sm:mb-3 md:mb-4">
-                        <h3 className={`font-bold text-white mb-1.5 sm:mb-2 group-hover:text-forest-300 transition-colors ${index === 0 ? 'text-base sm:text-lg md:text-xl' : 'text-sm sm:text-base md:text-lg'}`}>
+                        <h3 className="text-base font-semibold line-clamp-1 text-white group-hover:text-forest-300 transition-colors">{/* responsive-md-fix */}
                           {card.title}
                         </h3>
-                        <p className={`text-slate-400 leading-relaxed ${index === 0 ? 'text-xs sm:text-sm' : 'text-[10px] sm:text-xs'}`}>
+                        <p className="text-sm leading-relaxed line-clamp-3 text-slate-400">{/* responsive-md-fix */}
                           {card.description}
                         </p>
                       </div>
@@ -174,18 +174,13 @@ export function AsymmetricModuleSurface() {
                         </div>
 
                         {/* Action bar with top border - Access Module button on left, arrow on right */}
-                        <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-white/5">
+                        <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-white/5 mt-auto">{/* responsive-md-fix */}
                           <button
-                            className="flex items-center gap-1 sm:gap-1.5 md:gap-2 text-xs sm:text-sm font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
+                            className="mt-auto w-full text-sm py-2 rounded-lg flex items-center justify-center gap-2 font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
                           >
                             <span>Access Module</span>
-                            <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 group-hover/btn:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                           </button>
-                          <div
-                            className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg glass-light border border-white/10 flex items-center justify-center group-hover:border-forest-500/50 transition-colors"
-                          >
-                            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-slate-400 group-hover:text-forest-400 transition-colors" />
-                          </div>
                         </div>
                       </div>
                     )}
@@ -193,10 +188,10 @@ export function AsymmetricModuleSurface() {
                     {/* Access Module Button - for non-featured cards only */}
                     {!isFeaturedCard(index) && (
                       <button
-                        className="flex items-center gap-1 sm:gap-1.5 md:gap-2 text-xs sm:text-sm font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
+                        className="mt-auto w-full text-sm py-2 rounded-lg flex items-center justify-center gap-2 font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
                       >
                         <span>Access Module</span>
-                        <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 group-hover/btn:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                       </button>
                     )}
 

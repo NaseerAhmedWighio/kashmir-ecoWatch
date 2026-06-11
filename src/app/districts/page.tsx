@@ -105,8 +105,8 @@ export default function DistrictsPage() {
             className="max-w-6xl"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                <Map className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+                <Map className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="info" size="lg">District Intelligence</Badge>
             </div>
@@ -312,7 +312,7 @@ export default function DistrictsPage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {filteredDistricts.map((summary, i) => (
                 <DistrictCard key={summary.profile.slug} summary={summary} index={i} />
               ))}

@@ -68,8 +68,8 @@ export default function FishKillMonitoringPage() {
               <span className="text-white font-medium">Fish Kill Monitoring</span>
             </div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-2xl">
-                <Fish className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center shadow-2xl">
+                <Fish className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="warning" size="lg">Aquatic Mortality Intelligence</Badge>
             </div>

@@ -23,10 +23,10 @@ export default function ForestMeadowTrailsPage() {
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-lime-500 to-green-600 flex items-center justify-center shadow-2xl">
-                <Trees className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-lime-500 to-green-600 flex items-center justify-center shadow-2xl">
+                <Trees className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
-              <Badge variant="success" size="lg">Forests & Alpine Meadows</Badge>
+              <Badge variant="success" size="md">Forests & Alpine Meadows</Badge>
             </div>
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Forest & <span className="text-emerald-400">Meadow Trails</span></h1>
             <p className="text-xl text-slate-400 mb-8">Trails through dense forests and expansive alpine meadows (margs)</p>

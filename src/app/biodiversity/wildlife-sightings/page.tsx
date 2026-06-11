@@ -75,7 +75,7 @@ export default function WildlifeSightingsPage() {
               Verified and community-submitted wildlife observations across Kashmir.
               Submit your sightings to contribute to Kashmir's biodiversity database.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-emerald-600 to-emerald-500"

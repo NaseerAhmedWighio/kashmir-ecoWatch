@@ -50,11 +50,11 @@ export default function PhotoDocumentationPage() {
           <Card className="glass-intense border-blue-500/30 p-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div><h2 className="text-xl font-bold text-white mb-1">Ready to Start Documenting?</h2><p className="text-sm text-slate-400">Join 189+ volunteers contributing photo evidence</p></div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <Link href="/contribute-data/geotagged-evidence">
                   <Button size="lg" className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white"><Image className="w-5 h-5 mr-2" />Upload Photo Evidence</Button>
                 </Link>
-                {!joined ? (<Button size="lg" variant="outline" className="border-blue-500/50 text-blue-400" onClick={() => setJoined(true)}><Users className="w-5 h-5 mr-2" />Join This Program</Button>) : (<Badge variant="success" size="lg"><CheckCircle className="w-4 h-4 mr-1" /> Joined</Badge>)}
+                {!joined ? (<Button size="lg" variant="outline" className="border-blue-500/50 text-blue-400" onClick={() => setJoined(true)}><Users className="w-5 h-5 mr-2" />Join This Program</Button>) : (<Badge variant="success" size="md"><CheckCircle className="w-4 h-4 mr-1" /> Joined</Badge>)}
               </div>
             </div>
           </Card>

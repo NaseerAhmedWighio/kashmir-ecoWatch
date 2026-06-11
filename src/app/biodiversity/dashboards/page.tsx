@@ -176,14 +176,14 @@ export default function BiodiversityDashboardsPage() {
                 Analytics & Trends
               </span>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight leading-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight leading-tight">
               Biodiversity Dashboards
             </h1>
-            <p className="text-lg text-slate-400 mb-6 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-6 leading-relaxed max-w-3xl">
               Comprehensive analytics covering {biodiversityMetrics.totalSpecies.toLocaleString()} species across {biodiversityIntelligenceMetrics.totalHabitats} habitat systems and {biodiversityIntelligenceMetrics.totalDistricts} districts — species composition, conservation status distribution,
               sightings trends, district comparisons, habitat diversity, and threat analysis.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button
                 variant="outline"
                 className="border-white/20 text-white hover:bg-white/5"
@@ -211,7 +211,7 @@ export default function BiodiversityDashboardsPage() {
         {/* OVERVIEW METRICS ROW */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
               <Activity className="w-4 h-4 text-white" />
             </div>
@@ -225,7 +225,7 @@ export default function BiodiversityDashboardsPage() {
                 <Leaf className="w-5 h-5 text-emerald-400" />
                 <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Total Species</h3>
               </div>
-              <div className="text-4xl font-black text-white mb-4">{biodiversityMetrics.totalSpecies.toLocaleString()}</div>
+              <div className="text-3xl md:text-4xl font-black text-white mb-4">{biodiversityMetrics.totalSpecies.toLocaleString()}</div>
               <div className="space-y-2">
                 {speciesByTaxon.map(taxon => (
                   <div key={taxon.label} className="flex items-center justify-between text-xs">
@@ -245,7 +245,7 @@ export default function BiodiversityDashboardsPage() {
                 <Eye className="w-5 h-5 text-sky-400" />
                 <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Active Sightings</h3>
               </div>
-              <div className="text-4xl font-black text-white mb-4">{totalSightings.toLocaleString()}</div>
+              <div className="text-3xl md:text-4xl font-black text-white mb-4">{totalSightings.toLocaleString()}</div>
               <div className="space-y-2">
                 {[
                   { label: 'Verified', count: sightingsVerification.verified, color: 'bg-emerald-500' },
@@ -268,7 +268,7 @@ export default function BiodiversityDashboardsPage() {
                 <Shield className="w-5 h-5 text-red-400" />
                 <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Threatened Species</h3>
               </div>
-              <div className="text-4xl font-black text-white mb-4">{speciesCount.threatened}</div>
+              <div className="text-3xl md:text-4xl font-black text-white mb-4">{speciesCount.threatened}</div>
               <div className="space-y-2">
                 {Object.entries(statusBreakdown).filter(([k]) => ['CR', 'EN', 'VU'].includes(k)).map(([status, count]) => (
                   <div key={status} className="flex items-center gap-2">
@@ -296,7 +296,7 @@ export default function BiodiversityDashboardsPage() {
                 <Mountain className="w-5 h-5 text-amber-400" />
                 <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">Habitat Coverage</h3>
               </div>
-              <div className="text-4xl font-black text-white mb-1">{biodiversityIntelligenceMetrics.habitatAreaTotal.toLocaleString()}</div>
+              <div className="text-3xl md:text-4xl font-black text-white mb-1">{biodiversityIntelligenceMetrics.habitatAreaTotal.toLocaleString()}</div>
               <div className="text-xs text-slate-500 mb-4">total km² monitored</div>
               <div className="space-y-2">
                 {habitats.map(h => (
@@ -317,7 +317,7 @@ export default function BiodiversityDashboardsPage() {
         {/* 1. SPECIES COMPOSITION */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
               <BarChart3 className="w-4 h-4 text-white" />
             </div>
@@ -370,7 +370,7 @@ export default function BiodiversityDashboardsPage() {
         {/* 2. CONSERVATION STATUS DISTRIBUTION */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center">
               <Shield className="w-4 h-4 text-white" />
             </div>
@@ -477,7 +477,7 @@ export default function BiodiversityDashboardsPage() {
         {/* 3. SIGHTINGS TRENDS */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
               <TrendingUp className="w-4 h-4 text-white" />
             </div>
@@ -612,7 +612,7 @@ export default function BiodiversityDashboardsPage() {
         {/* 4. DISTRICT BIODIVERSITY COMPARISON */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
               <Building2 className="w-4 h-4 text-white" />
             </div>
@@ -672,7 +672,7 @@ export default function BiodiversityDashboardsPage() {
         {/* 5. HABITAT SPECIES DISTRIBUTION */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
               <Mountain className="w-4 h-4 text-white" />
             </div>
@@ -767,7 +767,7 @@ export default function BiodiversityDashboardsPage() {
         {/* 6. THREAT ANALYSIS */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center">
               <AlertTriangle className="w-4 h-4 text-white" />
             </div>
@@ -825,7 +825,7 @@ export default function BiodiversityDashboardsPage() {
         {/* 7. TEMPORAL TRENDS */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
               <TrendingUp className="w-4 h-4 text-white" />
             </div>
@@ -849,7 +849,7 @@ export default function BiodiversityDashboardsPage() {
                     transition={{ delay: idx * 0.1 }}
                     className="flex-1 flex flex-col items-center justify-end h-full"
                   >
-                    <div className="text-xs text-slate-400 mb-2 font-mono">{point.riskScore}</div>
+                    <div className="text-xs text-slate-400 mb-2 font-mono" suppressHydrationWarning>{point.riskScore}</div>
                     <motion.div
                       initial={{ height: 0 }}
                       whileInView={{ height: `${heightPct}%` }}
@@ -885,7 +885,7 @@ export default function BiodiversityDashboardsPage() {
         {/* CROSS-LINKS TO SUB-PAGES */}
         {/* ================================================================ */}
         <section>
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-500 to-slate-600 flex items-center justify-center">
               <Leaf className="w-4 h-4 text-white" />
             </div>
@@ -927,7 +927,7 @@ export default function BiodiversityDashboardsPage() {
                 <h3 className="text-lg font-bold text-white mb-1">Export & Share Analytics</h3>
                 <p className="text-sm text-slate-400">Download biodiversity data reports and share insights</p>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <Button
                   variant="outline"
                   className="border-white/20 text-white hover:bg-white/5"

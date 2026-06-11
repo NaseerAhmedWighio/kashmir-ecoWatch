@@ -152,7 +152,7 @@ export function PublicParticipationIntelligence() {
               View All <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">{/* responsive-md-fix */}
             {contributionPathways.map((pathway, index) => (
               <motion.div
                 key={pathway.id}
@@ -183,10 +183,9 @@ export function PublicParticipationIntelligence() {
                     {pathway.purpose}
                   </p>
                   <Button
-                    size="sm"
-                    className={`w-full bg-gradient-to-r ${pathway.color} hover:opacity-90 text-white text-xs sm:text-sm`}
+                    className={`mt-auto w-full py-2 text-sm rounded-lg bg-gradient-to-r ${pathway.color} hover:opacity-90 text-white`}
                     onClick={() => router.push(pathway.route)}
-                  >
+                  >{/* responsive-md-fix */}
                     <span>Get Involved</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -344,7 +343,7 @@ export function PublicParticipationIntelligence() {
             <Card className="glass-light border-white/10 flex-1">
               <div className="divide-y divide-white/[0.06]">
                 {districtParticipation.slice(0, 6).map((item) => (
-                  <div key={item.district} className="flex items-center justify-between gap-3 px-5 py-4 min-h-[72px]">
+                  <div key={item.district} className="flex items-center justify-between gap-3 flex-wrap px-5 py-4 min-h-[72px]">{/* responsive-md-fix */}
                     <div className="flex items-center gap-3 min-w-0">
                       <div className={`h-2.5 w-2.5 shrink-0 rounded-full ${
                         item.trend === 'increasing' ? 'bg-emerald-400' :

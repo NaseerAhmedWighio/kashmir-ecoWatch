@@ -67,61 +67,48 @@ export function BiodiversityCard({ species, onQuickView, variant = 'default' }: 
   }
 
   return (
-    <Card className="group overflow-hidden border border-white/5 bg-slate-900/50 card-intelligence" padding="none">
-      {/* Visual header */}
-      <div className="relative h-48 bg-gradient-to-br from-purple-500/20 to-slate-800/50 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
-        
-        {/* Conservation status badge */}
-        <div className="absolute top-4 left-4 z-10">
-          <Badge variant={getConservationStatusBadge(species.conservationStatus)} size="sm">
-            {species.conservationStatus}
-          </Badge>
-        </div>
-
-        {/* Sensitivity indicator */}
-        {species.sensitivity === 'critical' || species.sensitivity === 'high' ? (
-          <div className="absolute top-4 right-4 z-10">
-            <Badge variant="default" size="sm" className="bg-red-500/20 text-red-400 border border-red-500/30">
-              <Shield className="w-3 h-3 mr-1" />
-              Sensitive
+    <Card className="group border border-white/5 bg-slate-900/50 card-intelligence flex flex-col gap-3" padding="none">
+      <div className="p-5 sm:p-6 flex flex-col gap-3">
+        {/* Header: IUCN badge + Sensitive badge + taxon tag + hover actions */}
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex flex-wrap gap-2 items-center min-w-0">
+            <Badge
+              variant={getConservationStatusBadge(species.conservationStatus)}
+              size="sm"
+              className="text-xs font-bold px-2 py-0.5 rounded whitespace-nowrap"
+            >
+              {species.conservationStatus}
             </Badge>
-          </div>
-        ) : null}
-
-        {/* Taxonomic group */}
-        <div className="absolute bottom-16 left-4 right-4 z-10">
-          <div className="flex items-center gap-2 mb-2">
-            <Badge variant="info" size="sm" className="capitalize">
-              {species.taxonomicGroup.replace('-', ' ')}
-            </Badge>
-            {species.category && (
-              <Badge variant="default" size="sm">
-                {species.category}
+            {species.sensitivity === 'critical' || species.sensitivity === 'high' ? (
+              <Badge
+                variant="default"
+                size="sm"
+                className="text-xs px-2 py-0.5 rounded whitespace-nowrap bg-red-500/20 text-red-400 border border-red-500/30"
+              >
+                <Shield className="w-3 h-3 mr-1" />
+                Sensitive
               </Badge>
-            )}
+            ) : null}
+            <span className="text-xs capitalize">{species.taxonomicGroup.replace('-', ' ')}</span>
           </div>
-          <h3 className="text-xl font-bold text-white mb-1">{species.commonName}</h3>
-          <p className="text-sm text-slate-400 italic">{species.scientificName}</p>
+          <div className="flex gap-1 flex-shrink-0">
+            <button className="p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+              <Heart className="w-4 h-4 text-slate-400" />
+            </button>
+            <button className="p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+              <Share2 className="w-4 h-4 text-slate-400" />
+            </button>
+          </div>
         </div>
 
-        {/* Hover actions */}
-        <div className={`absolute top-4 right-4 z-10 flex gap-2 transition-opacity duration-300 ${
-          'opacity-0 group-hover:opacity-100'
-        }`}>
-          <button className="p-2 rounded-lg bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors">
-            <Heart className="w-4 h-4 text-white" />
-          </button>
-          <button className="p-2 rounded-lg bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors">
-            <Share2 className="w-4 h-4 text-white" />
-          </button>
-        </div>
-      </div>
+        {/* Species name */}
+        <h3 className="text-base sm:text-lg font-semibold text-white">{species.commonName}</h3>
 
-      {/* Content */}
-      <div className="p-5 space-y-4">
-        {/* Quick metrics */}
-        <div className="flex items-center gap-4 text-sm text-slate-400">
+        {/* Scientific name */}
+        <p className="text-xs italic text-slate-400">{species.scientificName}</p>
+
+        {/* Mini stats: districts / habitats / sightings */}
+        <div className="flex flex-col sm:flex-row flex-wrap gap-3 text-xs sm:text-sm text-slate-400">
           <div className="flex items-center gap-1">
             <MapPin className="w-4 h-4" />
             <span>{species.districts.length} districts</span>
@@ -139,52 +126,42 @@ export function BiodiversityCard({ species, onQuickView, variant = 'default' }: 
         </div>
 
         {/* Description */}
-        <p className="text-sm text-slate-400 line-clamp-2">
+        <p className="text-sm leading-relaxed text-slate-400 line-clamp-4">
           {species.description}
         </p>
 
         {/* Elevation range */}
-        <div className="p-3 rounded-lg glass-light border border-white/5">
-          <div className="text-xs text-slate-500 uppercase mb-1">Elevation Range</div>
-          <div className="text-sm text-white font-medium">
-            {species.elevationRange.min}m - {species.elevationRange.max}m
-          </div>
+        <div className="text-xs flex items-center gap-1 text-slate-500">
+          <span>Elevation: {species.elevationRange.min}m - {species.elevationRange.max}m</span>
         </div>
 
-        {/* Threats preview */}
+        {/* Primary Threats */}
         {species.threats && species.threats.length > 0 && (
-          <div>
-            <div className="text-xs text-slate-500 uppercase mb-2">Primary Threats</div>
-            <div className="flex flex-wrap gap-2">
-              {species.threats.slice(0, 3).map((threat, idx) => (
-                <Badge key={idx} variant="default" size="sm">
-                  {threat}
-                </Badge>
-              ))}
-              {species.threats.length > 3 && (
-                <Badge variant="default" size="sm">+{species.threats.length - 3}</Badge>
-              )}
-            </div>
+          <div className="flex flex-wrap gap-1.5 mt-2">
+            {species.threats.slice(0, 3).map((threat, idx) => (
+              <span
+                key={idx}
+                className="text-xs px-2 py-0.5 rounded whitespace-nowrap bg-slate-700/50 text-slate-300"
+              >
+                {threat}
+              </span>
+            ))}
+            {species.threats.length > 3 && (
+              <span className="text-xs px-2 py-0.5 rounded whitespace-nowrap bg-slate-700/50 text-slate-300">
+                +{species.threats.length - 3}
+              </span>
+            )}
           </div>
         )}
 
-        {/* Actions */}
-        <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-          <Button
-            onClick={() => window.location.href = `/biodiversity/species/${species.slug}`}
-            className="flex-1 bg-gradient-to-r from-forest-600 to-forest-500"
-            size="sm"
-            icon={<ArrowRight className="w-4 h-4" />}
-          >
-            View Details
-          </Button>
-          <button
-            onClick={() => onQuickView?.(species)}
-            className="p-2 rounded-lg glass-light border border-white/10 hover:border-forest-500/50 transition-colors"
-          >
-            <ExternalLink className="w-4 h-4 text-slate-400" />
-          </button>
-        </div>
+        {/* View Details */}
+        <Button
+          onClick={() => window.location.href = `/biodiversity/species/${species.slug}`}
+          className="w-full py-2 text-sm rounded-lg mt-auto bg-gradient-to-r from-forest-600 to-forest-500"
+          icon={<ArrowRight className="w-4 h-4" />}
+        >
+          View Details
+        </Button>
       </div>
     </Card>
   );

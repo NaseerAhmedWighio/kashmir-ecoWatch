@@ -84,7 +84,7 @@ export default function WaterQualityReadingsPage() {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
                   <Link href="/contribute-data">
                     <Button variant="outline" className="border-white/20 text-white">
                       <ArrowLeft className="w-4 h-4 mr-2" />

@@ -80,7 +80,7 @@ export default function BirdingHotspotsPage() {
               Prime birding routes, wildlife observation points, and habitat-linked watch zones across Kashmir.
               Season-sensitive observation areas with best-time guidance.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-teal-600 to-teal-500"

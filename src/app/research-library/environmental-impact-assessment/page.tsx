@@ -521,7 +521,7 @@ export default function EnvironmentalImpactAssessmentPage() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
         {/* ── Breadcrumb ──────────────────────────────────────────── */}
-        <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+        <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span>/</span>
           <Link href="/research-library" className="hover:text-white transition-colors">Research Library</Link>

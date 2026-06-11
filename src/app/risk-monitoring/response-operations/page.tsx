@@ -93,8 +93,8 @@ export default function ResponseOperationsPage() {
             </div>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-2xl">
-                <TrendingUp className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-2xl">
+                <TrendingUp className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="default" size="lg">Operational Intelligence</Badge>
             </div>

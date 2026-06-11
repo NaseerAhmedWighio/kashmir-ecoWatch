@@ -24,8 +24,10 @@ export default function SpeciesIntelligencePage() {
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Header */}
-    <div className='bg-[#160C27]'>
-      <div className="pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-12 container mx-auto px-6">
+    <div className="relative bg-[#160C27] overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-12 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

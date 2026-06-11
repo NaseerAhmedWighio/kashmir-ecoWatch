@@ -124,7 +124,8 @@ export default function ProtectedNetworkPage() {
     <main className="min-h-screen bg-slate-950">{/* Hero */}
       <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
         
-        <div className="absolute inset-0 bg-[#160C27]" />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -174,7 +175,7 @@ export default function ProtectedNetworkPage() {
           transition={{ delay: 0.2 }}
         >
           <Card className="glass-intense border-white/10 p-6" padding="none">
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
               {[
                 { label: 'Total PAs', value: protectedNetworkMetrics.totalProtectedAreas, icon: Shield },
                 { label: 'Total Area', value: `${protectedNetworkMetrics.totalArea.toLocaleString()} km²`, icon: Map },
@@ -185,9 +186,9 @@ export default function ProtectedNetworkPage() {
                 { label: 'IBAs', value: protectedNetworkMetrics.importantBirdAreas, icon: Activity },
                 { label: 'Coverage', value: `${protectedNetworkMetrics.coveragePercentage}%`, icon: TrendingUp },
               ].map((metric, idx) => (
-                <div key={idx} className="text-center p-4 border-r border-white/5 last:border-r-0">
+                <div key={idx} className={`p-3 rounded-xl text-center${idx === 7 ? ' col-span-3 sm:col-span-1' : ''}`}>
                   <metric.icon className="w-5 h-5 text-slate-500 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-white tabular-nums">
+                  <div className="text-xl sm:text-2xl font-bold text-white tabular-nums">
                     {metric.value}
                   </div>
                   <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">
@@ -219,7 +220,7 @@ export default function ProtectedNetworkPage() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
           {categoryCards.map((category, index) => (
             <motion.a
               key={category.id}
@@ -230,25 +231,25 @@ export default function ProtectedNetworkPage() {
               transition={{ delay: index * 0.05 }}
               className="block group"
             >
-              <Card className="h-full card-intelligence border border-white/5 bg-slate-900/50" padding="lg">
+              <Card className="p-4 sm:p-5 flex flex-col gap-2 h-full card-intelligence border border-white/5 bg-slate-900/50" padding="none">
                 <div className="flex items-start gap-4 mb-4">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} text-white flex items-center justify-center shadow-lg`}>
                     <category.icon className="w-7 h-7" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-1 group-hover:text-emerald-300 transition-colors">
+                    <h3 className="text-sm sm:text-base font-semibold text-white mb-1 group-hover:text-emerald-300 transition-colors">
                       {category.title}
                     </h3>
-                    <div className="text-3xl font-bold text-white">
+                    <div className="text-2xl sm:text-3xl font-bold text-white">
                       {category.count.toLocaleString()}
                     </div>
                     <div className="text-xs text-slate-500 uppercase">areas</div>
                   </div>
                 </div>
-                <p className="text-sm text-slate-400 mb-4 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-400 mb-4 leading-relaxed line-clamp-3">
                   {category.description}
                 </p>
-                <div className="flex items-center gap-2 text-sm font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors">
+                <div className="mt-auto w-full py-2 text-xs sm:text-sm rounded-lg flex items-center justify-center gap-2 font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors">
                   <span>Explore</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -277,7 +278,7 @@ export default function ProtectedNetworkPage() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {intelligenceCards.map((card, index) => (
             <motion.a
               key={card.title}
@@ -339,7 +340,7 @@ export default function ProtectedNetworkPage() {
           </Button>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {featuredPAs.map((pa: any, index) => (
             pa && (
               <motion.a
@@ -351,35 +352,36 @@ export default function ProtectedNetworkPage() {
                 transition={{ delay: index * 0.05 }}
                 className="block group"
               >
-                <Card className="h-full overflow-hidden card-intelligence border border-white/5 bg-slate-900/50" padding="none">
+                <Card className="p-5 sm:p-6 flex flex-col gap-3 h-full overflow-hidden card-intelligence border border-white/5 bg-slate-900/50" padding="none">
                   <div className="relative h-48 bg-gradient-to-br from-emerald-500/20 to-slate-800/50">
-                    <div className="absolute inset-0 bg-[#160C27]" />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80" />
                     <div className="absolute bottom-4 left-4 right-4">
-                      <Badge variant="info" size="sm" className="mb-2 capitalize">
+                      <Badge variant="info" size="sm" className="mb-2 capitalize text-xs px-2 py-0.5 rounded whitespace-nowrap">
                         {pa.category.replace('_', ' ')}
                       </Badge>
-                      <h3 className="text-xl font-bold text-white">{pa.name}</h3>
+                      <h3 className="text-base sm:text-lg font-semibold text-white">{pa.name}</h3>
                     </div>
                   </div>
                   <div className="p-5">
-                    <p className="text-sm text-slate-400 mb-4 line-clamp-2">
+                    <p className="text-sm text-slate-400 leading-relaxed line-clamp-3">
                       {pa.description}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-slate-400">
+                    <div className="grid grid-cols-3 gap-3 text-center mt-2">
                       <div>
                         <div className="text-xs text-slate-500 uppercase">Area</div>
-                        <div className="text-white font-semibold">{pa.area} km²</div>
+                        <div className="text-sm font-bold text-white">{pa.area} km²</div>
                       </div>
                       <div>
                         <div className="text-xs text-slate-500 uppercase">District</div>
-                        <div className="text-white font-semibold">{pa.district}</div>
+                        <div className="text-sm font-bold text-white">{pa.district}</div>
                       </div>
                       <div>
                         <div className="text-xs text-slate-500 uppercase">Established</div>
-                        <div className="text-white font-semibold">{pa.established}</div>
+                        <div className="text-sm font-bold text-white">{pa.established}</div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors mt-4 pt-4 border-t border-white/5">
+                    <div className="mt-auto w-full py-2 text-sm rounded-lg flex items-center justify-center gap-2 font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors">
                       <span>View Details</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>

@@ -93,17 +93,17 @@ export default function CitizenSciencePage() {
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+            <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
               <Link href="/contribute" className="hover:text-white transition-colors">Contribute</Link>
               <span className="text-slate-600">/</span>
               <span className="text-white font-medium">Citizen Science</span>
             </nav>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-violet-600 flex items-center justify-center shadow-2xl">
-                <Users className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-violet-600 flex items-center justify-center shadow-2xl">
+                <Users className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
-              <Badge variant="success" size="lg">Community Science Program</Badge>
+              <Badge variant="success" size="md">Community Science Program</Badge>
             </div>
 
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
@@ -383,7 +383,7 @@ export default function CitizenSciencePage() {
                   Your observations help build a comprehensive picture of Kashmir&apos;s environment
                   for better conservation decisions, policy-making, and public awareness
                 </p>
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
                   <Link href="/submit-sighting">
                     <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600">
                       <Camera className="w-5 h-5 mr-2" />

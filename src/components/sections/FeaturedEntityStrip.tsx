@@ -96,9 +96,9 @@ function EntityCard({ entity, onNavigate }: EntityCardProps) {
 
   return (
     <Card
-      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 backdrop-blur-xl hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-forest-500/10"
+      className="group relative overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 backdrop-blur-xl hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-forest-500/10"
       padding="none"
-    >
+    >{/* responsive-md-fix */}
       {/* Card wrapper for consistent sizing */}
       <div className="flex flex-col h-full">
         {/* Visual Header */}
@@ -120,7 +120,7 @@ function EntityCard({ entity, onNavigate }: EntityCardProps) {
 
           {/* Type Badge */}
           <div className="absolute top-3 left-3 z-10">
-            <Badge className={`${config.bgColor} text-white border-0 backdrop-blur-md shadow-lg`}>
+            <Badge className={`${config.bgColor} text-xs px-2 py-0.5 rounded whitespace-nowrap text-white border-0 backdrop-blur-md shadow-lg`}>{/* responsive-md-fix */}
               {config.icon}
               <span className="ml-1.5 text-xs font-semibold">{config.label}</span>
             </Badge>
@@ -160,7 +160,7 @@ function EntityCard({ entity, onNavigate }: EntityCardProps) {
           </p>
 
           {/* Metrics Grid */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 flex-shrink-0">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm mb-4 flex-shrink-0">{/* responsive-md-fix */}
             {entity.metrics.map((metric, idx) => (
               <div key={idx} className="text-center p-2 rounded-lg bg-slate-800/50 border border-white/5">
                 <div className="flex items-center justify-center gap-1 mb-1">
@@ -186,10 +186,9 @@ function EntityCard({ entity, onNavigate }: EntityCardProps) {
           <div className="mt-auto pt-4 border-t border-white/10 flex items-center gap-2">
             <Button
               variant="outline"
-              size="sm"
-              className="flex-1 border-white/20 text-white hover:border-forest-400 hover:bg-forest-500/10 text-xs sm:text-sm font-medium transition-all"
+              className="w-full text-sm py-2 mt-3 rounded-lg border-white/20 text-white hover:border-forest-400 hover:bg-forest-500/10 font-medium transition-all"
               onClick={() => onNavigate(entity.link)}
-            >
+            >{/* responsive-md-fix */}
               View Details
               <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Button>
@@ -344,10 +343,10 @@ export function FeaturedEntityStrip() {
           {/* Scrollable Tab List */}
           <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
             <div
-              className="flex items-center gap-2 p-1.5 sm:gap-3 sm:p-2 glass-light rounded-xl sm:rounded-2xl border border-white/10 w-fit min-w-max"
+              className="flex flex-wrap gap-2 text-xs sm:text-sm p-1.5 sm:p-2 glass-light rounded-xl sm:rounded-2xl border border-white/10"
               role="tablist"
               aria-label="Entity categories"
-            >
+            >{/* responsive-md-fix */}
               {tabs.map((tab) => {
                 const isActive = activeTab === tab.id;
                 return (

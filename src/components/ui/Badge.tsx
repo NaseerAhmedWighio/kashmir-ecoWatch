@@ -24,9 +24,9 @@ export function Badge({ children, variant = 'default', size = 'md', className, o
   };
 
   const sizes = {
-    sm: 'text-[8px] px-2 py-0.5 md:text-xs text-center',
-    md: 'px-2.5 py-1 text-xs',
-    lg: 'px-3 py-1.5 text-sm',
+    sm: 'text-[10px] xs:text-xs px-1.5 py-0.5 sm:px-2 sm:py-0.5 text-center whitespace-nowrap',
+    md: 'text-xs px-2 py-1 sm:px-2.5 sm:py-1 whitespace-nowrap',
+    lg: 'text-xs sm:text-sm px-2.5 py-1 sm:px-3 sm:py-1.5 whitespace-nowrap',
   };
 
   return (

@@ -230,7 +230,7 @@ export default function BiodiversityOverviewPage() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               onClick={() => router.push(item.href)}
-              className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-sky-500/30 transition-all text-left group"
+              className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-5 hover:bg-white/10 hover:border-sky-500/30 transition-all text-left group"
             >
               <item.icon className="w-6 h-6 text-sky-400 mb-3 group-hover:scale-110 transition-transform" />
               <div className="font-semibold text-white text-sm mb-1">{item.label}</div>
@@ -266,7 +266,7 @@ export default function BiodiversityOverviewPage() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               onClick={() => router.push(item.href)}
-              className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-violet-500/30 transition-all text-left group"
+              className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-5 hover:bg-white/10 hover:border-violet-500/30 transition-all text-left group"
             >
               <item.icon className="w-6 h-6 text-violet-400 mb-3 group-hover:scale-110 transition-transform" />
               <div className="font-semibold text-white text-sm mb-1">{item.label}</div>
@@ -285,7 +285,7 @@ export default function BiodiversityOverviewPage() {
           className="mb-12"
         >
           <div className="flex flex-col items-center gap-3 mb-3">
-            <div className="flex items-start justify-between gap-2">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
                 <Clock className="w-5 h-5 text-white" />
               </div>
@@ -338,7 +338,7 @@ export default function BiodiversityOverviewPage() {
           className="mb-12"
         >
           <div className="flex flex-col items-center gap-3 mb-3">
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                 <Flower2 className="w-5 h-5 text-white" />
               </div>
@@ -348,6 +348,7 @@ export default function BiodiversityOverviewPage() {
               </div>
             </div>
             <Button
+            size='sm'
               variant="outline"
               className="border-white/20 text-white hover:bg-white/5"
               onClick={() => router.push('/biodiversity/phenology-flowering')}
@@ -392,7 +393,7 @@ export default function BiodiversityOverviewPage() {
           className="mb-12"
         >
           <div className="flex flex-col items-center gap-3 mb-3">
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
                 <AlertTriangle className="w-5 h-5 text-white" />
               </div>
@@ -402,6 +403,7 @@ export default function BiodiversityOverviewPage() {
               </div>
             </div>
             <Button
+              size='sm'
               variant="outline"
               className="border-white/20 text-white hover:bg-white/5"
               onClick={() => router.push('/biodiversity/habitat-signals')}
@@ -439,7 +441,7 @@ export default function BiodiversityOverviewPage() {
           className="mb-12"
         >
           <div className="flex flex-col items-center gap-3 mb-3">
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
                 <Building2 className="w-5 h-5 text-white" />
               </div>
@@ -449,6 +451,7 @@ export default function BiodiversityOverviewPage() {
               </div>
             </div>
             <Button
+              size="sm"
               variant="outline"
               className="border-white/20 text-white hover:bg-white/5"
               onClick={() => router.push('/biodiversity/district-profiles')}

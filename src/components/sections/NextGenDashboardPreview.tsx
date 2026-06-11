@@ -72,7 +72,7 @@ export function NextGenDashboardPreview() {
         </motion.div>
 
         {/* Dashboard grid - asymmetric layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">{/* responsive-md-fix */}
           {/* Air Quality - Large card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -138,8 +138,8 @@ export function NextGenDashboardPreview() {
                   { label: 'Stations', value: '24', status: 'active' },
                 ].map((metric, idx) => (
                   <div key={idx}>
-                    <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mb-1">{metric.label}</div>
-                    <div className="text-lg sm:text-2xl font-bold text-white">{metric.value}</div>
+                    <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">{metric.label}</div>
+                    <div className="text-2xl font-bold text-white">{metric.value}</div>
                   </div>
                 ))}
               </div>
@@ -195,8 +195,8 @@ export function NextGenDashboardPreview() {
               <div className="mt-6 pt-6 border-t border-white/5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">Avg pH Level</div>
-                    <div className="text-xl sm:text-2xl font-bold text-white">7.1</div>
+                    <div className="text-xs text-slate-500 uppercase mb-1">Avg pH Level</div>
+                    <div className="text-2xl font-bold text-white">7.1</div>
                   </div>
                   <Button variant="ghost" size="sm" className="text-forest-400 flex-shrink-0" icon={<ArrowRight className="w-4 h-4" />} />
                 </div>
@@ -363,9 +363,9 @@ export function NextGenDashboardPreview() {
                   { label: 'Most Improved', district: 'Anantnag', score: '+12%' },
                 ].map((item, idx) => (
                   <div key={idx}>
-                    <div className="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">{item.label}</div>
+                    <div className="text-xs text-slate-500 uppercase mb-1">{item.label}</div>
                     <div className="text-xs sm:text-sm text-white font-medium truncate">{item.district}</div>
-                    <div className="text-base sm:text-lg font-bold text-forest-400">{item.score}</div>
+                    <div className="text-2xl font-bold text-forest-400">{item.score}</div>
                   </div>
                 ))}
               </div>

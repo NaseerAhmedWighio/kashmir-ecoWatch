@@ -61,7 +61,7 @@ export default function CommunityOutreachPage() {
                   Register for Outreach
                 </Button>
               ) : (
-                <Badge variant="success" size="lg"><CheckCircle className="w-4 h-4 mr-1" /> Registered</Badge>
+                <Badge variant="success" size="md"><CheckCircle className="w-4 h-4 mr-1" /> Registered</Badge>
               )}
             </div>
           </Card>

@@ -61,8 +61,8 @@ export default function TrailsAndSightingsPage() {
             className="max-w-5xl"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                <Footprints className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+                <Footprints className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="info" size="lg">Kashmir Ecological Access & Field Intelligence</Badge>
             </div>
@@ -414,8 +414,8 @@ export default function TrailsAndSightingsPage() {
               
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-3 mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
-                    <Plus className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl">
+                    <Plus className="w-5 h-5 md:w-8 md:h-8 text-white" />
                   </div>
                 </div>
                 

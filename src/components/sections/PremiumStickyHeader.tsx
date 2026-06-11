@@ -251,7 +251,7 @@ export function PremiumStickyHeader() {
           <Logo variant={isCompact ? 'compact' : 'expanded'} />
 
           {/* Desktop navigation */}
-          <nav className="hidden xl:flex items-center gap-0">
+          <nav className="hidden lg:flex items-center gap-0">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -315,7 +315,7 @@ export function PremiumStickyHeader() {
           </nav>
 
           {/* Right side actions */}
-          <div className="hidden xl:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {/* Search toggle */}
             <AnimatePresence>
               {searchOpen && (
@@ -371,7 +371,7 @@ export function PremiumStickyHeader() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(
-              'xl:hidden p-2 rounded-lg transition-colors',
+              'lg:hidden p-2 rounded-lg transition-colors',
               isCompact ? 'hover:bg-white/10' : 'hover:bg-white/5'
             )}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -397,7 +397,7 @@ export function PremiumStickyHeader() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/60 z-50 xl:hidden"
+              className="fixed inset-0 bg-black/60 z-50 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-hidden="true"
             />
@@ -409,7 +409,7 @@ export function PremiumStickyHeader() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-              className="fixed inset-y-0 left-0 w-[85%] sm:w-[75%] max-w-[320px] bg-slate-900 z-[51] xl:hidden shadow-2xl flex flex-col h-dvh border-r border-white/10"
+              className="fixed inset-y-0 left-0 w-[85%] sm:w-[75%] max-w-[320px] bg-slate-900 z-[51] lg:hidden shadow-2xl flex flex-col h-dvh border-r border-white/10"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"

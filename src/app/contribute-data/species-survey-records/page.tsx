@@ -84,7 +84,7 @@ export default function SpeciesSurveyRecordsPage() {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
                   <Link href="/contribute-data">
                     <Button variant="outline" className="border-white/20 text-white">
                       <ArrowLeft className="w-4 h-4 mr-2" />
@@ -120,7 +120,7 @@ export default function SpeciesSurveyRecordsPage() {
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-xl">
                 <Leaf className="w-7 h-7 text-white" />
               </div>
-              <Badge variant="success" size="lg">Biodiversity</Badge>
+              <Badge variant="success" size="md">Biodiversity</Badge>
             </div>
             <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Species Survey <span className="text-emerald-400">Records</span>

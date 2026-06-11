@@ -79,12 +79,8 @@ export function LiveMetricRibbon() {
         </Button>
       </div>
 
-      {/* Metrics scroll container */}
-      <div
-        id="metric-ribbon"
-        className="flex items-center gap-0 overflow-x-auto scrollbar-hide scroll-smooth"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
+      {/* Metrics grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
         {liveMetrics.map((metric, index) => (
           <MetricCard
             key={index}
@@ -93,7 +89,6 @@ export function LiveMetricRibbon() {
             unit={metric.unit}
             trend={metric.trend}
             trendValue={metric.trendValue}
-            className="flex-shrink-0"
           />
         ))}
       </div>

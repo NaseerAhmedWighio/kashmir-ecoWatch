@@ -86,7 +86,7 @@ function MonitoringOverviewPage() {
               </div>
               <div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">Monitoring Intelligence</span>
-                <Badge variant="success" size="lg" className="ml-2">Monitoring Overview</Badge>
+                <Badge variant="success" size="md" className="ml-2">Monitoring Overview</Badge>
               </div>
             </div>
 

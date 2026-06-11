@@ -199,7 +199,7 @@ export default function WaterSystemsPage() {
           transition={{ delay: 0.2 }}
         >
           <Card className="glass-intense border-white/10 p-6" padding="none">
-            <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-4">
+            <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-3">
               {[
                 { label: 'Lakes', value: metrics.totalLakes, icon: Droplet },
                 { label: 'Wetlands', value: metrics.totalWetlands, icon: Waves },
@@ -234,7 +234,7 @@ export default function WaterSystemsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-12">
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 text-xs text-center mt-4">
             {[
               { label: 'Excellent', value: metrics.excellentQuality, color: 'from-emerald-500 to-green-600' },
               { label: 'Good', value: metrics.goodQuality, color: 'from-lime-500 to-green-600' },
@@ -254,7 +254,7 @@ export default function WaterSystemsPage() {
         </motion.div>
 
         {/* Submodules Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {submodules.map((module, idx) => (
             <motion.div
               key={module.id}
@@ -262,39 +262,32 @@ export default function WaterSystemsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + idx * 0.05 }}
             >
-              <Card className="glass-intense border-white/10 p-6 h-full hover:border-white/20 transition-all cursor-pointer group">
-                <div className="flex items-start gap-4">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${module.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
-                    <module.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                        {module.title}
-                      </h3>
-                      <Badge variant="info" size="sm">{module.count} entities</Badge>
-                    </div>
-                    <p className="text-slate-400 text-sm mb-4 leading-relaxed">
-                      {module.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {module.features.map((feature, fIdx) => (
-                        <Badge key={fIdx} variant="outline" size="sm" className="text-xs border-white/10 text-slate-400">
-                          {feature}
-                        </Badge>
-                      ))}
-                    </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="border-white/20 text-white group-hover:bg-white/10 transition-all"
-                      icon={<ArrowRight className="w-4 h-4" />}
-                      onClick={() => router.push(module.route)}
-                    >
-                      Explore {module.title}
-                    </Button>
-                  </div>
+              <Card className="glass-intense border-white/10 p-4 sm:p-5 md:p-6 rounded-xl flex flex-col gap-3 h-full hover:border-white/20 transition-all cursor-pointer group">
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-white flex-1">
+                    {module.title}
+                  </h3>
+                  <Badge variant="info" size="sm" className="text-xs px-2 py-0.5 rounded whitespace-nowrap flex-shrink-0">{module.count} entities</Badge>
                 </div>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {module.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 text-xs">
+                  {module.features.map((feature, fIdx) => (
+                    <Badge key={fIdx} variant="outline" size="sm" className="px-2 py-0.5 rounded whitespace-nowrap text-xs border-white/10 text-slate-400">
+                      {feature}
+                    </Badge>
+                  ))}
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-auto w-full py-2 text-sm rounded-lg border-white/20 text-white group-hover:bg-white/10 transition-all"
+                  icon={<ArrowRight className="w-4 h-4" />}
+                  onClick={() => router.push(module.route)}
+                >
+                  Explore {module.title}
+                </Button>
               </Card>
             </motion.div>
           ))}
@@ -402,7 +395,7 @@ export default function WaterSystemsPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {getAllLakeHealthScores().slice(0, 6).map((scorecard) => (
             <LakeHealthScorecardComponent
               key={scorecard.lakeSlug}
@@ -437,7 +430,7 @@ export default function WaterSystemsPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {['Srinagar', 'Anantnag', 'Baramulla', 'Kupwara'].map((district) => (
             <DistrictWaterCard
               key={district}
@@ -466,7 +459,7 @@ export default function WaterSystemsPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
           {/* Springs Summary */}
           <div className="bg-white/5 border border-white/10 rounded-xl p-6">
             <h3 className="text-xl font-bold text-white mb-4">Spring Vulnerability</h3>
@@ -552,7 +545,7 @@ export default function WaterSystemsPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {getAllRiverCorridorStress().slice(0, 6).map((stress) => (
             <div
               key={stress.riverSlug}

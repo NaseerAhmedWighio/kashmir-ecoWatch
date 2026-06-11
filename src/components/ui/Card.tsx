@@ -12,9 +12,9 @@ interface CardProps {
 export function Card({ children, className, hover = true, padding = 'md', onClick }: CardProps) {
   const paddingStyles = {
     none: '',
-    sm: 'p-3',
-    md: 'p-5',
-    lg: 'p-7',
+    sm: 'p-3 sm:p-4',
+    md: 'p-4 sm:p-5 md:p-6',
+    lg: 'p-5 sm:p-6 md:p-7',
   };
 
   return (

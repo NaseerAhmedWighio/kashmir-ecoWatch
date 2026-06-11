@@ -49,7 +49,7 @@ export function CommandBand() {
   };
 
   return (
-    <section className="relative bg-slate-900/80 backdrop-blur-xl border-y border-white/5 py-6 overflow-hidden">
+    <section className="relative bg-slate-900/80 backdrop-blur-xl border-y border-white/5 py-6 sm:py-8 overflow-hidden">
       {/* Gradient fades */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-950 to-transparent z-20" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-950 to-transparent z-20" />
@@ -111,7 +111,7 @@ export function CommandBand() {
             transition={{ delay: index * 0.05 }}
             className="flex-shrink-0"
           >
-            <div className="group relative glass-light rounded-xl p-4 border border-white/5 min-w-[180px] hover:border-forest-500/30 transition-all duration-300 card-intelligence cursor-pointer">
+            <div className="group relative glass-light rounded-xl p-4 sm:p-5 border border-white/5 min-w-[180px] hover:border-forest-500/30 transition-all duration-300 card-intelligence cursor-pointer">
               {/* Live indicator */}
               <div className="absolute top-3 right-3">
                 <span className="relative flex h-2 w-2">

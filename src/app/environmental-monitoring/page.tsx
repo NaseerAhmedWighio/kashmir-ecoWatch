@@ -53,15 +53,15 @@ export default function EnvironmentalMonitoringOverview() {
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+            <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
               <button onClick={() => router.push('/')} className="hover:text-white transition-colors">Home</button>
               <ChevronRight className="w-4 h-4" />
               <span className="text-white font-medium">Environmental Monitoring</span>
             </nav>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <Factory className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
+                <Factory className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="warning" size="lg">Environmental Intelligence</Badge>
             </div>
@@ -81,7 +81,7 @@ export default function EnvironmentalMonitoringOverview() {
       {/* Metrics */}
       <section className="py-12 border-y border-white/5">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { label: 'Active Alerts', value: '38', sub: 'District-wide', color: 'text-red-400' },
               { label: 'Sewage Outfalls', value: '5', sub: 'Active discharge', color: 'text-blue-400' },
@@ -89,9 +89,9 @@ export default function EnvironmentalMonitoringOverview() {
               { label: 'AQI Status', value: 'Mod', sub: 'Kashmir avg', color: 'text-emerald-400' },
               { label: 'Water Advisories', value: '2', sub: 'Active notices', color: 'text-cyan-400' },
             ].map((m, i) => (
-              <motion.div key={m.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }} className="text-center">
-                <div className={`text-3xl md:text-4xl font-bold ${m.color} mb-1`}>{m.value}</div>
-                <div className="text-sm text-slate-400">{m.label}</div>
+              <motion.div key={m.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }} className="p-4 sm:p-5 rounded-xl text-center">
+                <div className={`text-2xl sm:text-3xl font-bold ${m.color} mb-1`}>{m.value}</div>
+                <div className="text-xs sm:text-sm text-slate-400">{m.label}</div>
                 <div className="text-xs text-slate-500">{m.sub}</div>
               </motion.div>
             ))}

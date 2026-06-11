@@ -88,6 +88,17 @@ const districtWaterStress = [
   { district: 'Shopian', stress: 42, status: 'Low' as const, aqi: 71, waterQuality: 'Good' as const },
 ];
 
+const subPageLinks = [
+  { label: 'Lakes', href: '/water-systems/lakes', icon: Waves },
+  { label: 'Rivers', href: '/water-systems/rivers', icon: Droplet },
+  { label: 'Springs', href: '/water-systems/springs', icon: Thermometer },
+  { label: 'Groundwater', href: '/water-systems/groundwater', icon: Map },
+  { label: 'Water Quality', href: '/water-systems/water-quality', icon: Activity },
+  { label: 'Flood Monitoring', href: '/water-systems/flood-monitoring', icon: AlertTriangle },
+  { label: 'Wetlands', href: '/water-systems/wetlands', icon: Waves },
+  { label: 'Conservation Areas', href: '/water-systems/conservation-areas', icon: Database },
+];
+
 export default function WaterSystemsDashboardsPage() {
   const router = useRouter();
 
@@ -109,7 +120,7 @@ export default function WaterSystemsDashboardsPage() {
                 Water Systems Analytics
               </span>
             </div>
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Water Dashboards
             </h1>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
@@ -145,7 +156,7 @@ export default function WaterSystemsDashboardsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="glass-intense border-white/10 p-6" padding="none">
+          <Card className="glass-intense border-white/10" padding="md">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {performanceMetrics.map((metric, idx) => (
                 <div key={idx} className="text-center p-4 border-r border-white/5 last:border-r-0">
@@ -172,7 +183,15 @@ export default function WaterSystemsDashboardsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <h2 className="text-2xl font-bold text-white mb-8">Available Dashboards</h2>
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+              <BarChart3 className="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-white">Available Dashboards</h2>
+              <p className="text-sm text-slate-400">Real-time analytics and monitoring dashboards for all water systems</p>
+            </div>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {dashboardModules.map((dash, idx) => (
               <motion.div
@@ -181,8 +200,9 @@ export default function WaterSystemsDashboardsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * idx }}
               >
-                <Card className="glass border-white/10 p-6 h-full hover:border-white/20 transition-all duration-300 group cursor-pointer"
+                <Card className="glass border-white/10 h-full hover:border-white/20 transition-all duration-300 group cursor-pointer"
                   onClick={() => dash.route && router.push(dash.route)}
+                  padding="md"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className={`p-3 rounded-xl bg-gradient-to-br ${dash.color}`}>
@@ -220,9 +240,16 @@ export default function WaterSystemsDashboardsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <Card className="glass border-white/10 p-6">
-            <h2 className="text-xl font-bold text-white mb-4">District Water Stress Index</h2>
-            <p className="text-sm text-slate-400 mb-6">Composite water stress scores across Kashmir districts</p>
+          <Card className="glass border-white/10" padding="md">
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                <Map className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">District Water Stress Index</h2>
+                <p className="text-sm text-slate-400">Composite water stress scores across Kashmir districts</p>
+              </div>
+            </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -256,14 +283,71 @@ export default function WaterSystemsDashboardsPage() {
                       </td>
                     </tr>
                   ))}
-                </tbody>
-              </table>
-            </div>
+              </tbody>
+            </table>
+          </div>
           </Card>
         </motion.div>
       </div>
 
-      
+      {/* Export / Share */}
+      <section className="container mx-auto px-6 pb-16">
+        <Card className="glass-intense border-white/10 bg-gradient-to-r from-cyan-900/20 to-blue-900/20" padding="lg">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+              <h3 className="text-lg font-bold text-white mb-1">Export & Share Analytics</h3>
+              <p className="text-sm text-slate-400">Download water data reports and share insights</p>
+            </div>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+              <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => alert('Export feature coming soon')}>
+                <BarChart3 className="w-4 h-4 mr-2" />
+                Export PDF Report
+              </Button>
+              <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => alert('Export feature coming soon')}>
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Download CSV
+              </Button>
+              <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => alert('Share feature coming soon')}>
+                <ArrowRight className="w-4 h-4 mr-2" />
+                Share Dashboard
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </section>
+
+      {/* Sub-page links */}
+      <section className="container mx-auto px-6 pb-16">
+        <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-slate-600 flex items-center justify-center">
+            <Database className="w-4 h-4 text-white" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-white">Explore Water Systems</h2>
+            <p className="text-sm text-slate-400">Navigate to specialized water pages</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {subPageLinks.map((link, idx) => (
+            <motion.button
+              key={link.href}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.04 }}
+              onClick={() => router.push(link.href)}
+              className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-cyan-500/30 transition-all text-left group"
+            >
+              <link.icon className="w-5 h-5 text-cyan-400 mb-3 group-hover:scale-110 transition-transform" />
+              <div className="text-sm font-semibold text-white">{link.label}</div>
+              <div className="flex items-center gap-1 mt-2 text-xs text-slate-500 group-hover:text-cyan-400 transition-colors">
+                <span>Explore</span>
+                <ArrowRight className="w-3 h-3" />
+              </div>
+            </motion.button>
+          ))}
+        </div>
+      </section>
+
     </main>
   );
 }

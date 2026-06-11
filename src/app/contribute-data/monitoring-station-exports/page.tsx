@@ -52,7 +52,7 @@ export default function MonitoringStationExportsPage() {
               <div className="mb-8"><h3 className="text-sm font-semibold text-white mb-4">What happens next</h3>
                 <div className="flex items-center justify-between gap-2 flex-wrap">{VERIFICATION_STEPS.map((step, i) => (<div key={step.label} className="flex items-center gap-1"><step.icon className={`w-5 h-5 ${step.color} ${i === 0 ? 'animate-pulse' : 'opacity-40'}`} /><span className="text-xs text-slate-400">{step.label}</span>{i < VERIFICATION_STEPS.length - 1 && <span className="text-slate-600 mx-1">→</span>}</div>))}</div>
               </div>
-              <div className="flex flex-wrap gap-3 justify-center">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
                 <Link href="/contribute-data"><Button variant="outline" className="border-white/20 text-white"><ArrowLeft className="w-4 h-4 mr-2" />Back to Contribute Data</Button></Link>
                 <Link href="/citizen-science"><Button className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white">Explore Citizen Science<ExternalLink className="w-4 h-4 ml-2" /></Button></Link>
               </div>

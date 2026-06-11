@@ -51,7 +51,7 @@ export default function WildlifeMonitoringPage() {
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-xl">
                 <Eye className="w-7 h-7 text-white" />
               </div>
-              <Badge variant="success" size="lg">Citizen Science Program</Badge>
+              <Badge variant="success" size="md">Citizen Science Program</Badge>
             </div>
             <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Wildlife <span className="text-emerald-400">Monitoring</span>
@@ -73,7 +73,7 @@ export default function WildlifeMonitoringPage() {
                 <h2 className="text-xl font-bold text-white mb-1">Ready to Start Monitoring?</h2>
                 <p className="text-sm text-slate-400">Join 234+ volunteers already contributing wildlife observations</p>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <Link href="/submit-sighting">
                   <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white">
                     <Camera className="w-5 h-5 mr-2" />
@@ -86,7 +86,7 @@ export default function WildlifeMonitoringPage() {
                     Join This Program
                   </Button>
                 ) : (
-                  <Badge variant="success" size="lg"><CheckCircle className="w-4 h-4 mr-1" /> Joined</Badge>
+                  <Badge variant="success" size="md"><CheckCircle className="w-4 h-4 mr-1" /> Joined</Badge>
                 )}
               </div>
             </div>

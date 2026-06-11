@@ -55,8 +55,8 @@ export default function DataVerificationPage() {
           <Card className="glass-intense border-violet-500/30 p-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div><h2 className="text-xl font-bold text-white mb-1">Ready to Start Verifying?</h2><p className="text-sm text-slate-400">Join 67+ reviewers maintaining data quality standards</p></div>
-              <div className="flex flex-wrap gap-3">
-                {!joined ? (<Button size="lg" className="bg-gradient-to-r from-violet-500 to-purple-600 text-white" onClick={() => setJoined(true)}><Shield className="w-5 h-5 mr-2" />Join This Program</Button>) : (<Badge variant="success" size="lg"><CheckCircle className="w-4 h-4 mr-1" /> Joined</Badge>)}
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                {!joined ? (<Button size="lg" className="bg-gradient-to-r from-violet-500 to-purple-600 text-white" onClick={() => setJoined(true)}><Shield className="w-5 h-5 mr-2" />Join This Program</Button>) : (<Badge variant="success" size="md"><CheckCircle className="w-4 h-4 mr-1" /> Joined</Badge>)}
               </div>
             </div>
           </Card>

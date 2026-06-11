@@ -142,7 +142,7 @@ export default function EnvironmentalHealthPage() {
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl">
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+            <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
               <button onClick={() => router.push('/')} className="hover:text-white transition-colors">Home</button>
               <ChevronRight className="w-4 h-4" />
               <button onClick={() => router.push('/environmental-monitoring')} className="hover:text-white transition-colors">Environmental Monitoring</button>
@@ -151,8 +151,8 @@ export default function EnvironmentalHealthPage() {
             </nav>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
-                <HeartPulse className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-2xl">
+                <HeartPulse className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="warning" size="lg">Health Signal Intelligence</Badge>
             </div>

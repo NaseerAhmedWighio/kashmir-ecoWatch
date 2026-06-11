@@ -7,9 +7,11 @@ import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import {
   Wind, Droplets, Flower, PawPrint, TrendingUp, AlertTriangle,
-  ArrowRight, Download, Share2, Calendar, Filter, Activity
+  ArrowRight, Download, Share2, Calendar, Filter, Activity,
+  BarChart3, Database
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { LineChart, Line, BarChart, Bar, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 
 const airQualityData = [
@@ -30,53 +32,65 @@ const waterQualityData = [
   { label: 'Jun', value: 7.0 },
 ];
 
+const subPageLinks = [
+  { label: 'Air Pollution Monitoring', href: '/environmental-monitoring/air-pollution', icon: Wind },
+  { label: 'Air Pollution Risk', href: '/risk-monitoring/air-pollution', icon: AlertTriangle },
+  { label: 'Environmental Dashboards', href: '/environmental-monitoring/dashboards', icon: BarChart3 },
+  { label: 'Risk Monitoring Hub', href: '/risk-monitoring/dashboards', icon: TrendingUp },
+  { label: 'Environmental Health', href: '/environmental-monitoring/environmental-health', icon: Database },
+  { label: 'Monitoring Overview', href: '/monitoring-overview', icon: Activity },
+  { label: 'Water Quality', href: '/environmental-monitoring/drinking-water', icon: Droplets },
+  { label: 'Alerts & Advisories', href: '/alerts', icon: Filter },
+];
+
 export default function AirQualityDashboard() {
+  const router = useRouter();
   return (
     <main className="min-h-screen bg-slate-950">{/* Page header */}
-      <div className="pt-48 pb-8 container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8"
-        >
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Wind className="w-5 h-5 text-slate-400" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-                Air Quality Dashboard
+      <div className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[#160C27]" />
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl"
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <Wind className="w-5 h-5 text-emerald-400" />
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
+                Air Quality Intelligence
               </span>
             </div>
-            <h1 className="text-4xl md:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Air Quality Intelligence
             </h1>
-            <p className="text-slate-400 max-w-2xl text-lg">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-8 leading-relaxed max-w-3xl">
               Real-time AQI monitoring, trend analysis, and health advisories across Kashmir
             </p>
-          </div>
-          <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm" className="border-white/20 text-white" icon={<Calendar className="w-4 h-4" />}>
-              Date Range
-            </Button>
-            <Button variant="outline" size="sm" className="border-white/20 text-white" icon={<Filter className="w-4 h-4" />}>
-              Filters
-            </Button>
-            <Button variant="outline" size="sm" className="border-white/20 text-white" icon={<Download className="w-4 h-4" />}>
-              Export
-            </Button>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Dashboard content */}
-      <div className="container mx-auto px-6 pb-12 space-y-6">
+      <div className="container mx-auto px-6 py-12 space-y-16">
         {/* Metric cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section>
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+              <Activity className="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-white">Air Quality Metrics</h2>
+              <p className="text-sm text-slate-400">Real-time air quality measurements across monitoring stations</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="none">
+            <Card className="glass-light border-white/5" padding="md">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-sm text-slate-500 uppercase mb-1">Current AQI</div>
@@ -99,7 +113,7 @@ export default function AirQualityDashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="none">
+            <Card className="glass-light border-white/5" padding="md">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-sm text-slate-500 uppercase mb-1">PM2.5</div>
@@ -121,7 +135,7 @@ export default function AirQualityDashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="none">
+            <Card className="glass-light border-white/5" padding="md">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-sm text-slate-500 uppercase mb-1">PM10</div>
@@ -143,7 +157,7 @@ export default function AirQualityDashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="none">
+            <Card className="glass-light border-white/5" padding="md">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-sm text-slate-500 uppercase mb-1">Active Stations</div>
@@ -160,8 +174,10 @@ export default function AirQualityDashboard() {
             </Card>
           </motion.div>
         </div>
+        </section>
 
         {/* Main chart */}
+        <section>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -211,8 +227,10 @@ export default function AirQualityDashboard() {
             </div>
           </Card>
         </motion.div>
+        </section>
 
         {/* District comparison */}
+        <section>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -248,18 +266,25 @@ export default function AirQualityDashboard() {
             </div>
           </Card>
         </motion.div>
+        </section>
 
         {/* Health advisories */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-        >
-          <Card className="glass-light border-white/5 p-6" padding="lg">
-            <div className="flex items-center gap-3 mb-6">
-              <AlertTriangle className="w-6 h-6 text-amber-400" />
-              <h2 className="text-xl font-bold text-white">Health Advisories</h2>
+        <section>
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+              <AlertTriangle className="w-4 h-4 text-white" />
             </div>
+            <div>
+              <h2 className="text-2xl font-bold text-white">Health Advisories</h2>
+              <p className="text-sm text-slate-400">Air quality health recommendations for all groups</p>
+            </div>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+          >
+          <Card className="glass-light border-white/5" padding="lg">
             <div className="space-y-4">
               {[
                 { level: 'Sensitive Groups', advice: 'Limit prolonged outdoor exertion', severity: 'medium' },
@@ -285,9 +310,70 @@ export default function AirQualityDashboard() {
             </div>
           </Card>
         </motion.div>
+        </section>
+
+        {/* Export / Share */}
+        <section>
+          <Card className="glass-intense border-white/10 bg-gradient-to-r from-amber-900/20 to-yellow-900/20" padding="lg">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div>
+                <h3 className="text-lg font-bold text-white mb-1">Export & Share Analytics</h3>
+                <p className="text-sm text-slate-400">Download air quality data reports and share insights</p>
+              </div>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => alert('Export feature coming soon')}>
+                  <BarChart3 className="w-4 h-4 mr-2" />
+                  Export PDF Report
+                </Button>
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => alert('Export feature coming soon')}>
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  Download CSV
+                </Button>
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => alert('Share feature coming soon')}>
+                  <ArrowRight className="w-4 h-4 mr-2" />
+                  Share Dashboard
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </section>
+
+        {/* Sub-page links */}
+        <section>
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-500 to-slate-600 flex items-center justify-center">
+              <Wind className="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-white">Explore Air Quality</h2>
+              <p className="text-sm text-slate-400">Navigate to specialized air quality pages</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {subPageLinks.map((link, idx) => (
+              <motion.button
+                key={link.href}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.04 }}
+                onClick={() => router.push(link.href)}
+                className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-emerald-500/30 transition-all text-left group"
+              >
+                <link.icon className="w-5 h-5 text-emerald-400 mb-3 group-hover:scale-110 transition-transform" />
+                <div className="text-sm font-semibold text-white">{link.label}</div>
+                <div className="flex items-center gap-1 mt-2 text-xs text-slate-500 group-hover:text-emerald-400 transition-colors">
+                  <span>Explore</span>
+                  <ArrowRight className="w-3 h-3" />
+                </div>
+              </motion.button>
+            ))}
+          </div>
+        </section>
+
       </div>
 
-      
+      <AdvancedFooter />
     </main>
   );
 }

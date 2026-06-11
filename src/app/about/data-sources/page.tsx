@@ -129,8 +129,8 @@ export default function DataSourcesPage() {
             </Link>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-2xl">
-                <Database className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-2xl">
+                <Database className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="info" size="lg">Data Provenance</Badge>
             </div>
@@ -253,7 +253,7 @@ export default function DataSourcesPage() {
               and community-supported evidence, and is handled according to source type, relevance, and verification
               status before publication.
             </p>
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
               <Link href="/about/methodology">
                 <Badge variant="outline" size="lg" className="cursor-pointer hover:border-white/30 transition-colors px-4 py-2">
                   <FlaskConical className="w-4 h-4 mr-2" />

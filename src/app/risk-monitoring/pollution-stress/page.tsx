@@ -102,10 +102,10 @@ export default function PollutionStressPage() {
             </div>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-2xl">
-                <Activity className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-2xl">
+                <Activity className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
-              <Badge variant="success" size="lg">Environmental Pressure</Badge>
+              <Badge variant="success" size="md">Environmental Pressure</Badge>
             </div>
 
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">

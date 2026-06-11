@@ -213,7 +213,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+          <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
             {breadcrumbs.map((crumb, idx) => (
               <React.Fragment key={idx}>
                 {idx > 0 && <Icons.ChevronRight className="w-4 h-4" />}
@@ -231,7 +231,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
           {/* Title Block */}
           <div className="flex items-start gap-4 mb-6">
             <div className={`p-3 rounded-xl bg-gradient-to-br ${getGradientForVariant()} border border-white/10`}>
-              <IconComponent className="w-8 h-8 text-white" />
+              <IconComponent className="w-5 h-5 md:w-8 md:h-8 text-white" />
             </div>
             <div className="flex-1">
               <h1 className="text-3xl font-bold text-white mb-2">{name}</h1>
@@ -276,7 +276,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
 
           {/* Timing Info */}
           {timingInfo && (
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+            <div className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
               <Icons.Calendar className="w-4 h-4" />
               <span>{timingInfo}</span>
             </div>
@@ -284,7 +284,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
 
           {/* Elevation Info */}
           {elevationInfo.zone && (
-            <div className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+            <div className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
               <Icons.Mountain className="w-4 h-4" />
               <span>{formatLabel(elevationInfo.zone)}</span>
               {elevationInfo.range && (

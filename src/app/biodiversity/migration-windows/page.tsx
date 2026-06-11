@@ -50,7 +50,7 @@ export default function MigrationWindowsPage() {
               Migratory bird timing across Kashmir wetlands — resident vs migratory patterns,
               district timing differences, and current migration status.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button size="lg" className="bg-gradient-to-r from-sky-600 to-sky-500" icon={<Bird className="w-5 h-5" />} onClick={() => router.push('/biodiversity/wildlife-sightings')}>
                 View Related Sightings
               </Button>

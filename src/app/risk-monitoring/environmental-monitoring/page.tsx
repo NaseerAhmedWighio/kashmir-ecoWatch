@@ -30,8 +30,8 @@ export default function EnvironmentalMonitoringPage() {
               <span className="text-white font-medium">Environmental Monitoring</span>
             </div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-2xl"><Activity className="w-8 h-8 text-white" /></div>
-              <Badge variant="success" size="lg">Environmental Health</Badge>
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-2xl"><Activity className="w-5 h-5 md:w-8 md:h-8 text-white" /></div>
+              <Badge variant="success" size="md">Environmental Health</Badge>
             </div>
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">Environmental <span className="text-emerald-400">Monitoring</span></h1>
             <p className="text-xl text-slate-400 mb-8">Air quality, water quality, and ecosystem health monitoring</p>

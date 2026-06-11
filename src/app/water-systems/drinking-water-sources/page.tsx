@@ -180,7 +180,7 @@ export default function DrinkingWaterSourcesPage() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Link href="/water-systems">
                 <Button variant="outline" className="border-white/20 text-white">
                   ← All Water Systems

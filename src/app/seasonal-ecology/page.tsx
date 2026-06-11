@@ -36,7 +36,7 @@ export default function SeasonalEcologyHubPage() {
 
         <div className="relative max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+          <nav className="flex items-center gap-1 text-xs md:text-sm text-slate-400 mb-6">
             <Link href="/" className="hover:text-emerald-400 transition-colors">Home</Link>
             <Icons.ChevronRight className="w-4 h-4" />
             <span className="text-white">Seasonal Ecology</span>
@@ -46,7 +46,7 @@ export default function SeasonalEcologyHubPage() {
           <div className="max-w-[97rem] mx-auto">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 border border-white/10">
-                <Icons.Calendar className="w-8 h-8 text-white" />
+                <Icons.Calendar className="w-5 h-5 md:w-8 md:h-8 text-white" />
               </div>
               <Badge variant="success" size="md">
                 <Icons.Clock className="w-3.5 h-3.5 mr-1" />
@@ -67,7 +67,7 @@ export default function SeasonalEcologyHubPage() {
               seasonal ecological shifts across the Kashmir region.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Link href="/seasonal-ecology/bloom-mapping">
                 <Button variant="primary" size="lg">
                   <Icons.Flower2 className="w-5 h-5 mr-2" />

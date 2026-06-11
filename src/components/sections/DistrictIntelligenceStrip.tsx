@@ -141,7 +141,7 @@ export function DistrictIntelligenceStrip() {
           transition={{ duration: 0.6 }}
           className="mb-6 sm:mb-8 md:mb-10 overflow-x-auto"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">{/* responsive-md-fix */}
             {superlatives.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -150,7 +150,7 @@ export function DistrictIntelligenceStrip() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Card className="glass-light border-white/10 p-3 sm:p-4 md:p-5 text-center h-full">
+                <Card className="glass-light border-white/10 p-3 sm:p-4 rounded-xl text-center h-full">{/* responsive-md-fix */}
                   <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${item.color} mx-auto mb-2 sm:mb-3`} />
                   <div className="text-[10px] sm:text-xs text-slate-400 mb-1 sm:mb-2 leading-tight line-clamp-2">{item.label}</div>
                   <div className="text-base sm:text-lg font-bold text-white mb-1 truncate">{item.district}</div>
@@ -172,8 +172,9 @@ export function DistrictIntelligenceStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
         >
+          {/* responsive-md-fix */}
           {districtData.map((district, index) => (
             <motion.div
               key={district.name}
@@ -182,7 +183,7 @@ export function DistrictIntelligenceStrip() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <Card className="glass-intense border-white/10 hover:border-blue-500/30 transition-all p-3 sm:p-4 md:p-6 group cursor-pointer">
+              <Card className="glass-intense border-white/10 hover:border-blue-500/30 transition-all p-4 sm:p-5 rounded-xl group cursor-pointer">{/* responsive-md-fix */}
                 <div className="flex items-start justify-between mb-3 sm:mb-4">
                   <div>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
@@ -196,33 +197,33 @@ export function DistrictIntelligenceStrip() {
                       district.ecologicalScore >= 70 ? 'warning' : 'danger'
                     }
                     size="sm"
-                    className="text-[10px] sm:text-xs"
+                    className="text-xl sm:text-2xl font-bold"
                   >
                     Score: {district.ecologicalScore}
                   </Badge>
                 </div>
 
                 {/* Metrics grid */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <div className="text-center">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm mb-3 sm:mb-4">{/* responsive-md-fix */}
+                  <div className="flex flex-col items-center">
                     <Droplet className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400 mx-auto mb-1" />
                     <div className="text-base sm:text-lg font-bold text-white">{district.wetlands}</div>
-                    <div className="text-[10px] sm:text-xs text-slate-500">Wetlands</div>
+                    <div className="text-xs text-slate-500">Wetlands</div>
                   </div>
-                  <div className="text-center">
+                  <div className="flex flex-col items-center">
                     <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 mx-auto mb-1" />
                     <div className="text-base sm:text-lg font-bold text-white">{district.protectedAreas}</div>
-                    <div className="text-[10px] sm:text-xs text-slate-500">Protected</div>
+                    <div className="text-xs text-slate-500">Protected</div>
                   </div>
-                  <div className="text-center">
+                  <div className="flex flex-col items-center">
                     <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400 mx-auto mb-1" />
                     <div className="text-base sm:text-lg font-bold text-white">{district.speciesCount}</div>
-                    <div className="text-[10px] sm:text-xs text-slate-500">Species</div>
+                    <div className="text-xs text-slate-500">Species</div>
                   </div>
                 </div>
 
                 {/* Trend */}
-                <div className="flex items-center gap-2 mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-white/5">
+                <div className="flex flex-wrap gap-2 items-center text-xs mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-white/5">{/* responsive-md-fix */}
                   <TrendingUp className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${
                     district.trend === 'improving' ? 'text-emerald-400' :
                     district.trend === 'declining' ? 'text-red-400' : 'text-slate-400'
@@ -239,7 +240,7 @@ export function DistrictIntelligenceStrip() {
                 </div>
 
                 {/* Strength & Challenge */}
-                <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+                <div className="flex flex-wrap gap-2 text-xs mt-2 mb-3 sm:mb-4">{/* responsive-md-fix */}
                   <div className="flex items-center gap-2">
                     <Leaf className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-400" />
                     <span className="text-[10px] sm:text-xs text-slate-400">Strength:</span>
@@ -253,11 +254,10 @@ export function DistrictIntelligenceStrip() {
                 </div>
 
                 <Button
-                  size="sm"
                   variant="outline"
-                  className="w-full border-white/20 text-white hover:border-blue-400 group-hover:bg-blue-500/10 text-xs sm:text-sm"
+                  className="w-full text-sm py-2 mt-3 rounded-lg border-white/20 text-white hover:border-blue-400 group-hover:bg-blue-500/10"
                   onClick={() => router.push(district.route)}
-                >
+                >{/* responsive-md-fix */}
                   <span>View Profile</span>
                   <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>

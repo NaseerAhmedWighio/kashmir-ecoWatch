@@ -102,7 +102,7 @@ export function AlertResponseSystem() {
                 anomalies with severity classification and response tracking.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">{/* responsive-md-fix */}
               <Button variant="outline" size="sm" className="border-white/20 text-white hover:border-forest-400 w-full sm:w-auto text-xs sm:text-sm" icon={<Filter className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
                 Filter
               </Button>
@@ -117,7 +117,7 @@ export function AlertResponseSystem() {
           {/* Alert feed - 2 columns */}
           <div className="lg:col-span-2">
               {/* Filter tabs - scrollable on mobile */}
-          <div className="flex gap-2 sm:gap-3 mb-6 p-2 sm:p-3 glass-light rounded-xl border border-white/10 overflow-x-auto">
+          <div className="flex flex-wrap gap-2 text-xs sm:text-sm mb-6 p-2 sm:p-3 glass-light rounded-xl border border-white/10">{/* responsive-md-fix */}
             {[
               { id: 'all', label: 'All Alerts', count: alerts.length },
               { id: 'high', label: 'Critical', count: alerts.filter(a => a.severity === 'high').length },
@@ -142,7 +142,7 @@ export function AlertResponseSystem() {
           </div>
 
             {/* Alert list */}
-            <motion.div className="space-y-4 sm:space-y-6">
+            <motion.div className="flex flex-col gap-3">{/* responsive-md-fix */}
               {filteredAlerts.map((alert, index) => {
                 const styles = getSeverityStyles(alert.severity);
 
@@ -155,9 +155,8 @@ export function AlertResponseSystem() {
                     transition={{ delay: index * 0.05, duration: 0.4 }}
                   >
                     <Card
-                      className={`group cursor-pointer transition-all duration-300 ${styles.bg} hover:shadow-lg hover:shadow-red-500/10 card-intelligence`}
-                      padding="sm"
-                    >
+                      className={`p-4 rounded-xl flex flex-col gap-2 group cursor-pointer transition-all duration-300 ${styles.bg} hover:shadow-lg hover:shadow-red-500/10 card-intelligence`}
+                    >{/* responsive-md-fix */}
 
                       {/* Status indicator */}
                       <div className={`flex-shrink-0 w-2.5 h-2.5 sm:w-3 sm:h-3 mb-2 rounded-full ${styles.pulse} signal-pulse mt-1`} />
@@ -171,21 +170,21 @@ export function AlertResponseSystem() {
 
                         {/* Content */}
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between gap-2 sm:gap-4 mb-2 flex-wrap">
+                          <div className="flex items-start justify-between gap-2 flex-wrap mb-2">{/* responsive-md-fix */}
                             <div className="flex-1 min-w-[200px]">
-                              <h4 className="text-sm sm:text-base md:text-lg font-semibold text-white group-hover:text-forest-300 transition-colors break-words">
+                              <h4 className="text-sm font-medium flex-1 min-w-0 truncate text-white group-hover:text-forest-300 transition-colors">{/* responsive-md-fix */}
                                 {alert.title}
                               </h4>
                               <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
                                 {alert.description}
                               </p>
                             </div>
-                            <Badge variant={styles.badge} size="sm" className="text-xs px-2 py-1 sm:px-3 inline-flex items-center flex-shrink-0">
+                            <Badge variant={styles.badge} size="sm" className="text-xs px-2 py-0.5 flex-shrink-0 whitespace-nowrap">{/* responsive-md-fix */}
                               {alert.severity.toUpperCase()}
                             </Badge>
                           </div>
 
-                          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-400">
+                          <div className="text-xs flex flex-wrap gap-2 text-slate-400">{/* responsive-md-fix */}
                             {alert.location && (
                               <div className="flex items-center gap-1 min-w-0 flex-[1_1_100%] sm:flex-[1_1_auto]">
                                 <MapPin className="w-3 h-3 flex-shrink-0" />
@@ -239,7 +238,7 @@ export function AlertResponseSystem() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2 sm:space-y-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">{/* responsive-md-fix */}
                     {[
                       { label: 'Critical', count: 3, color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20' },
                       { label: 'Warning', count: 8, color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20' },
@@ -289,7 +288,7 @@ export function AlertResponseSystem() {
                   <p className="text-xs sm:text-sm text-slate-400">Submit field observations or environmental concerns</p>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2">
+                  <div className="flex flex-wrap gap-2">{/* responsive-md-fix */}
                     {[
                       { label: 'Pollution Complaint', icon: AlertTriangle },
                       { label: 'Illegal Dumping', icon: AlertCircle },
@@ -299,8 +298,8 @@ export function AlertResponseSystem() {
                     ].map((category) => (
                       <button
                         key={category.label}
-                        className="w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg hover:bg-white/5 transition-colors flex items-center justify-between group"
-                      >
+                        className="text-xs px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-white/5 transition-colors flex items-center justify-between group"
+                      >{/* responsive-md-fix */}
                         <div className="flex items-center gap-2 sm:gap-3">
                           <category.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-500 group-hover:text-forest-400 transition-colors" />
                           <span className="text-xs sm:text-sm text-slate-300 group-hover:text-white transition-colors">

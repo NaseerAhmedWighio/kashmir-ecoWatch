@@ -486,3 +486,106 @@ p, h1, h2, h3, h4, h5, h6 {
     width: 100%;
   }
 }
+
+/* =============================================
+   SECTION 10 — SPAN & INLINE ELEMENT FIXES
+   ============================================= */
+
+/* Badge/chip spans: inline-flex to prevent misalignment */
+span[class*="badge"],
+span[class*="chip"],
+span[class*="tag"] {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Status indicator dots */
+.status-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+/* Numeric spans in stat cards — prevent layout shift */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Icon + text combos inside spans */
+.icon-text-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Multi-word labels that must stay together */
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+/* Long single-word scientific names */
+.scientific-name {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* =============================================
+   SECTION 7 — CARD SYSTEM CONSISTENCY
+   ============================================= */
+
+/* All cards in a grid row stretch equally */
+.card-grid-stretch {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.card-grid-stretch > * {
+  height: 100%;
+}
+
+/* Card CTA at bottom via flex column */
+.card-flex-cta {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-flex-cta > :last-child {
+  margin-top: auto;
+}
+
+/* =============================================
+   SECTION 12 — PERFORMANCE & MOBILE POLISH
+   ============================================= */
+
+/* Content-visibility auto on below-fold sections */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
+/* Loading skeleton for data panels */
+.skeleton-live {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+}
+
+/* Map container minimum heights */
+.map-container {
+  min-height: 300px;
+}
+
+@media (min-width: 640px) {
+  .map-container {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .map-container {
+    min-height: 500px;
+  }
+}
