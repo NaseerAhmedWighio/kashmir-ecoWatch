@@ -314,8 +314,12 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Button className={`bg-gradient-to-r ${getCategoryColor(area.category)}`} icon={<MapPin className="w-4 h-4" />}>View on Map</Button>
-                <Button variant="outline" className="border-white/20 text-white" icon={<FileText className="w-4 h-4" />}>Management Plan</Button>
+                <a href={`/protected-network/${getCategoryRoute(area.category)}/${area.slug}/map`}>
+                  <Button className={`bg-gradient-to-r ${getCategoryColor(area.category)}`} icon={<MapPin className="w-4 h-4" />}>View on Map</Button>
+                </a>
+                <a href={`/protected-network/${getCategoryRoute(area.category)}/${area.slug}/management-plan`}>
+                  <Button variant="outline" className="border-white/20 text-white" icon={<FileText className="w-4 h-4" />}>Management Plan</Button>
+                </a>
                 <Button variant="outline" className="border-white/20 text-white" icon={<Database className="w-4 h-4" />}>Raw Data</Button>
               </div>
             </div>
