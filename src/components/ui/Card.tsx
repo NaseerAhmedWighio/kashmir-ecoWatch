@@ -21,7 +21,7 @@ export function Card({ children, className, hover = true, padding = 'md', onClic
     <div
       onClick={onClick}
       className={cn(
-        'backdrop-blur-sm rounded-xl',
+        'backdrop-blur-sm rounded-[14px]',
         'border border-slate-200 dark:border-slate-700/50',
         'bg-white dark:bg-slate-800/50',
         paddingStyles[padding],
