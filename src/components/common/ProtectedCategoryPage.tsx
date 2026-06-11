@@ -170,8 +170,7 @@ export function ProtectedCategoryPage({
               >
                 <Card className="h-full overflow-hidden card-intelligence border border-white/5 bg-[#160C27]" padding="none">
                   <div className="relative h-40 bg-[#160C27]">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-emerald-900/20" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#160C27] via-[#160C27]/60 to-transparent" />
+
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex flex-wrap gap-1 mb-2">
                         <Badge variant="info" size="sm" className="capitalize">
