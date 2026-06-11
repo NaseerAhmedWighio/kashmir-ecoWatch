@@ -28,14 +28,14 @@ export default function NationalParksPage() {
   const officialParks = [...coreParks, ...transParks];
 
   const metrics = [
-    { label: 'Official J&K Parks', value: officialParks.length, icon: 'Mountain' as const },
-    { label: 'Official Area',       value: '2,500.57 km²',       icon: 'Map'      as const },
-    { label: 'Districts',           value: new Set(officialParks.map(p => p.district)).size, icon: 'MapPin' as const },
-    { label: 'Est. Earliest',       value: 1981,                  icon: 'Shield'   as const },
-    { label: 'Extended Parks',      value: extendedParks.length,  icon: 'Activity' as const },
-    { label: 'Extended Area',       value: '20,946+ km²',         icon: 'TrendingUp' as const },
-    { label: 'Key Species',         value: 47,                    icon: 'Eye'      as const },
-    { label: 'Ecosystem Types',     value: 14,                    icon: 'Leaf'     as const },
+    { label: 'Official J&K Parks',       value: officialParks.length,               icon: 'Mountain'   as const },
+    { label: 'Official Area',             value: '2,500.57 km²',                     icon: 'Map'        as const },
+    { label: 'Districts',                 value: new Set(officialParks.map(p => p.district)).size, icon: 'MapPin' as const },
+    { label: 'Earliest Establishment',    value: 1981,                               icon: 'Shield'     as const },
+    { label: 'Extended Parks',            value: extendedParks.length,               icon: 'Activity'   as const },
+    { label: 'Extended Area',             value: '20,948 km²',                       icon: 'TrendingUp' as const },
+    { label: 'Flagship Species',          value: '50+',                              icon: 'Eye'        as const },
+    { label: 'Ecosystem Types',           value: 14,                                 icon: 'Leaf'       as const },
   ];
 
   return (
