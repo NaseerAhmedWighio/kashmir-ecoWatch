@@ -168,9 +168,10 @@ export function ProtectedCategoryPage({
                 transition={{ delay: index * 0.05 }}
                 className="block group"
               >
-                <Card className="h-full overflow-hidden card-intelligence border border-white/5 bg-slate-900/50" padding="none">
-                  <div className="relative h-40 bg-gradient-to-br from-emerald-500/20 to-slate-800/50">
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
+                <Card className="h-full overflow-hidden card-intelligence border border-white/5 bg-[#160C27]" padding="none">
+                  <div className="relative h-40 bg-[#160C27]">
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-emerald-900/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#160C27] via-[#160C27]/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex flex-wrap gap-1 mb-2">
                         <Badge variant="info" size="sm" className="capitalize">
