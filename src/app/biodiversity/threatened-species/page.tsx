@@ -217,7 +217,7 @@ export default function ThreatenedSpeciesPage() {
                     placeholder="Search species by name or conservation theme..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-slate-900/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500"
                   />
                 </div>
               </div>
@@ -226,7 +226,7 @@ export default function ThreatenedSpeciesPage() {
               <select
                 value={taxonFilter}
                 onChange={(e) => setTaxonFilter(e.target.value as TaxonFilter)}
-                className="px-4 py-2.5 rounded-lg bg-slate-900/50 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
               >
                 <option value="All">All Taxon Groups</option>
                 <option value="mammals">Mammals</option>
@@ -238,7 +238,7 @@ export default function ThreatenedSpeciesPage() {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
-                className="px-4 py-2.5 rounded-lg bg-slate-900/50 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
               >
                 <option value="All">All IUCN Statuses</option>
                 <option value="Endangered">Endangered</option>

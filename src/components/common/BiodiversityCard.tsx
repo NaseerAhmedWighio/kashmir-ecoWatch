@@ -41,7 +41,7 @@ export function BiodiversityCard({ species, onQuickView, variant = 'default' }: 
 
   if (variant === 'compact') {
     return (
-      <Card className="group border border-white/[0.06] bg-slate-900/50 card-intelligence" padding="sm">
+      <Card className="group border border-white/10 bg-slate-900/50 card-intelligence" padding="sm">
         <div className="flex items-center gap-3">
           <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-purple-500/20 to-slate-800/50 flex items-center justify-center flex-shrink-0">
             <Activity className="w-8 h-8 text-purple-400" />
@@ -67,7 +67,7 @@ export function BiodiversityCard({ species, onQuickView, variant = 'default' }: 
   }
 
   return (
-    <Card className="group border border-white/[0.06] bg-slate-900/50 card-intelligence flex flex-col gap-3" padding="none">
+    <Card className="group border border-white/10 bg-slate-900/50 card-intelligence flex flex-col gap-3" padding="none">
       <div className="p-5 sm:p-6 flex flex-col gap-3">
         {/* Header: IUCN badge + Sensitive badge + taxon tag + hover actions */}
         <div className="flex items-start justify-between gap-2">

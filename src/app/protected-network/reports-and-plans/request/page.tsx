@@ -107,7 +107,7 @@ function RequestFormContent() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 flex flex-col justify-between">
+    <main className="min-h-screen bg-white/5 flex flex-col justify-between">
       <div>
         <Heading
           title={<><span className="block whitespace-nowrap">Academic Request</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Verification</span></>}
@@ -132,7 +132,7 @@ function RequestFormContent() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left: Document info */}
             <div className="lg:col-span-5 space-y-6">
-              <Card className="border border-white/10 bg-[#160C27] text-white p-6" padding="none">
+              <Card className="border border-white/10 bg-white/5 text-white p-6" padding="none">
                 <h3 className="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                   <Lock className="w-3.5 h-3.5" />
                   Requested Document
@@ -211,7 +211,7 @@ function RequestFormContent() {
 
             {/* Right: Registration/Request Module */}
             <div className="lg:col-span-7">
-              <Card className="border border-white/10 bg-[#160C27] text-white p-6 md:p-8" padding="none">
+              <Card className="border border-white/10 bg-white/5 text-white p-6 md:p-8" padding="none">
                 {submitSuccess ? (
                   <div className="text-center py-8 space-y-6">
                     <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto scale-110">
@@ -224,7 +224,7 @@ function RequestFormContent() {
                       </p>
                     </div>
 
-                    <div className="bg-slate-950 p-4 rounded-xl border border-white/5 max-w-md mx-auto space-y-2">
+                    <div className="bg-white/5 p-4 rounded-xl border border-white/5 max-w-md mx-auto space-y-2">
                       <span className="text-[10px] text-slate-500 uppercase tracking-widest block">SECURED DATA TOKEN</span>
                       <code className="text-sm font-mono text-emerald-400 font-bold block select-all bg-white/5 py-1 px-3 rounded">{securedToken}</code>
                       <span className="text-[10px] text-slate-400 block">This credentials key has been linked to your browser.</span>
@@ -270,7 +270,7 @@ function RequestFormContent() {
                             value={formData.fullName}
                             onChange={handleInputChange}
                             placeholder="Dr. Fayaz Ahmad"
-                            className={`w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-slate-950 border ${formErrors.fullName ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 transition-colors`}
+                            className={`w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-white/5 border ${formErrors.fullName ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 transition-colors`}
                           />
                         </div>
                         {formErrors.fullName && (
@@ -289,7 +289,7 @@ function RequestFormContent() {
                             value={formData.email}
                             onChange={handleInputChange}
                             placeholder="fayaz@uok.edu.in"
-                            className={`w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-slate-950 border ${formErrors.email ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 transition-colors`}
+                            className={`w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-white/5 border ${formErrors.email ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 transition-colors`}
                           />
                         </div>
                         {formErrors.email && (
@@ -309,7 +309,7 @@ function RequestFormContent() {
                               value={formData.organization}
                               onChange={handleInputChange}
                               placeholder="University of Kashmir"
-                              className={`w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-slate-950 border ${formErrors.organization ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 transition-colors`}
+                              className={`w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-white/5 border ${formErrors.organization ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 transition-colors`}
                             />
                           </div>
                           {formErrors.organization && (
@@ -323,7 +323,7 @@ function RequestFormContent() {
                             name="role"
                             value={formData.role}
                             onChange={handleInputChange}
-                            className={`w-full px-3 py-2.5 text-sm rounded-lg bg-slate-950 border ${formErrors.role ? 'border-red-500/50' : 'border-white/10'} text-white focus:outline-none focus:border-emerald-500/50 transition-colors`}
+                            className={`w-full px-3 py-2.5 text-sm rounded-lg bg-white/5 border ${formErrors.role ? 'border-red-500/50' : 'border-white/10'} text-white focus:outline-none focus:border-emerald-500/50 transition-colors`}
                           >
                             <option value="">Select Role...</option>
                             <option value="professor">University Professor / Researcher</option>
@@ -348,7 +348,7 @@ function RequestFormContent() {
                           value={formData.purpose}
                           onChange={handleInputChange}
                           placeholder="Please describe how this data/report will support your environmental research or analysis..."
-                          className={`w-full px-3 py-2 text-sm rounded-lg bg-slate-950 border ${formErrors.purpose ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 transition-colors resize-none`}
+                          className={`w-full px-3 py-2 text-sm rounded-lg bg-white/5 border ${formErrors.purpose ? 'border-red-500/50' : 'border-white/10'} text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 transition-colors resize-none`}
                         />
                         {formErrors.purpose && (
                           <span className="text-xs text-red-400 mt-1 block">{formErrors.purpose}</span>
@@ -363,7 +363,7 @@ function RequestFormContent() {
                           name="joinNetwork"
                           checked={formData.joinNetwork}
                           onChange={handleCheckboxChange}
-                          className="mt-1 h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 bg-slate-950 accent-emerald-500"
+                          className="mt-1 h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 bg-white/5 accent-emerald-500"
                         />
                         <label htmlFor="joinNetwork" className="text-xs text-slate-400 leading-normal select-none">
                           <strong className="text-slate-300">Join Kashmir EcoWatch Academic Network</strong> as a verified member. This grants you instant key credentials to bypass registration forms on all future document downloads.
@@ -395,7 +395,7 @@ function RequestFormContent() {
 
 export default function RequestPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Loading Verification Center...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-white/5 flex items-center justify-center text-white">Loading Verification Center...</div>}>
       <RequestFormContent />
     </Suspense>
   );

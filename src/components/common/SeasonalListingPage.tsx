@@ -120,7 +120,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
           />
 
           {/* Metrics Bar */}
-          <Card className="relative mt-8 border border-white/[0.06] bg-slate-900/50 backdrop-blur-sm">
+          <Card className="relative mt-8 border border-white/10 bg-slate-900/50 backdrop-blur-sm">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 p-4">
               {metrics.map((metric, idx) => {
                 const MetricIcon = (Icons as any)[metric.icon] || Icons.Mountain;
@@ -157,7 +157,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
 
               {/* Map Preview */}
               {mapPreviewEnabled && (
-                <Card className="mt-6 border border-white/[0.06] bg-slate-900/50 overflow-hidden">
+                <Card className="mt-6 border border-white/10 bg-slate-900/50 overflow-hidden">
                   <div className="relative h-48 bg-gradient-to-br from-slate-800/50 to-slate-900/50">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
@@ -243,7 +243,7 @@ export const SeasonalListingPage: React.FC<SeasonalListingPageProps> = ({
                 ))}
               </div>
             ) : (
-              <Card className="border border-white/[0.06] bg-slate-900/50 p-12 text-center">
+              <Card className="border border-white/10 bg-slate-900/50 p-12 text-center">
                 <Icons.Search className="w-12 h-12 text-slate-500 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-white mb-2">No Entities Found</h3>
                 <p className="text-slate-400 mb-4">

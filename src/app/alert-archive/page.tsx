@@ -357,7 +357,7 @@ export default function AlertArchivePage() {
                 placeholder="Search by title, description, or district..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-white/10 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all"
               />
             </div>
 
@@ -367,7 +367,7 @@ export default function AlertArchivePage() {
               <select
                 value={severityFilter}
                 onChange={(e) => setSeverityFilter(e.target.value)}
-                className="appearance-none pl-9 pr-10 py-3 bg-slate-900/80 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
+                className="appearance-none pl-9 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
               >
                 <option value="all">All Severities</option>
                 <option value="critical">Critical</option>
@@ -383,7 +383,7 @@ export default function AlertArchivePage() {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="appearance-none px-4 pr-10 py-3 bg-slate-900/80 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
+                className="appearance-none px-4 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
               >
                 <option value="all">All Statuses</option>
                 <option value="resolved">Resolved</option>
@@ -398,7 +398,7 @@ export default function AlertArchivePage() {
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
-                className="appearance-none px-4 pr-10 py-3 bg-slate-900/80 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
+                className="appearance-none px-4 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
               >
                 {categoryOptions.map((opt) => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>

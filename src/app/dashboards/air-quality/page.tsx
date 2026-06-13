@@ -90,7 +90,7 @@ export default function AirQualityDashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <Card className="glass-light border-white/5" padding="md">
+            <Card className="glass-light border-white/10" padding="md">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-sm text-slate-500 uppercase mb-1">Current AQI</div>
@@ -113,7 +113,7 @@ export default function AirQualityDashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="glass-light border-white/5" padding="md">
+            <Card className="glass-light border-white/10" padding="md">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-sm text-slate-500 uppercase mb-1">PM2.5</div>
@@ -135,7 +135,7 @@ export default function AirQualityDashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="glass-light border-white/5" padding="md">
+            <Card className="glass-light border-white/10" padding="md">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-sm text-slate-500 uppercase mb-1">PM10</div>
@@ -157,7 +157,7 @@ export default function AirQualityDashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <Card className="glass-light border-white/5" padding="md">
+            <Card className="glass-light border-white/10" padding="md">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-sm text-slate-500 uppercase mb-1">Active Stations</div>
@@ -183,7 +183,7 @@ export default function AirQualityDashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Card className="glass-light border-white/5 p-6" padding="lg">
+          <Card className="glass-light border-white/10 p-6" padding="lg">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-xl font-bold text-white mb-1">AQI Trend (6 Months)</h2>
@@ -236,7 +236,7 @@ export default function AirQualityDashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <Card className="glass-light border-white/5 p-6" padding="lg">
+          <Card className="glass-light border-white/10 p-6" padding="lg">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-xl font-bold text-white mb-1">District-wise AQI</h2>
@@ -284,7 +284,7 @@ export default function AirQualityDashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
           >
-          <Card className="glass-light border-white/5" padding="lg">
+          <Card className="glass-light border-white/10" padding="lg">
             <div className="space-y-4">
               {[
                 { level: 'Sensitive Groups', advice: 'Limit prolonged outdoor exertion', severity: 'medium' },

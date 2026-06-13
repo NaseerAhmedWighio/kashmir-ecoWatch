@@ -87,11 +87,11 @@ export default function MigrationWindowsPage() {
       <div className="container mx-auto px-6 py-8">
         <Card className="border border-white/10 bg-slate-900/50 mb-8" padding="md">
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
+            <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
               <option value="all">All Districts</option>
               {districts.map(d => <option key={d} value={d}>{d}</option>)}
             </select>
-            <select value={filterType} onChange={e => setFilterType(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
+            <select value={filterType} onChange={e => setFilterType(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
               <option value="all">All Types</option>
               {migrationTypes.map(t => <option key={t} value={t}>{t}</option>)}
             </select>

@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import { getReports, getProtectedAreas } from '@/data/protected-network';
 import { Heading } from '@/components/common/Heading';
 import { Pagination } from '@/components/ui/Pagination';
+import { Select } from '@/components/ui/Select';
 
 export default function ReportsPage() {
   const reports = getReports.all();
@@ -58,6 +59,18 @@ export default function ReportsPage() {
   }, [allPAs]);
 
   const scopesList = ['Kashmir Core', 'Trans-Divisional', 'Transboundary / Extended'];
+
+  const scopeToTabMap: Record<string, 'core' | 'trans' | 'extended'> = {
+    'Kashmir Core': 'core',
+    'Trans-Divisional': 'trans',
+    'Transboundary / Extended': 'extended',
+  };
+
+  useEffect(() => {
+    if (selectedScope !== 'all' && scopeToTabMap[selectedScope]) {
+      setActiveTab(scopeToTabMap[selectedScope]);
+    }
+  }, [selectedScope]);
 
   const coreCount = useMemo(() => {
     return reports.filter(r => r.linkedAreas.some(slug => paLookup.get(slug)?.scope === 'Kashmir Core') || r.linkedAreas.length === 0).length;
@@ -204,7 +217,7 @@ export default function ReportsPage() {
             {TABS.map(tab => (
               <button
                 key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
+                onClick={() => { setActiveTab(tab.key); setSelectedScope(tab.label); }}
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
                   activeTab === tab.key
                     ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
@@ -261,30 +274,28 @@ export default function ReportsPage() {
 
             <div>
               <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">District</label>
-              <select
+              <Select
                 value={selectedDistrict}
-                onChange={(e) => setSelectedDistrict(e.target.value)}
-                className="w-full px-3 py-2 text-sm rounded-lg bg-[#160C27] border border-white/10 text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-              >
-                <option value="all">All Districts</option>
-                {districtsList.map(d => (
-                  <option key={d} value={d}>{d}</option>
-                ))}
-              </select>
+                onChange={setSelectedDistrict}
+                options={[
+                  { value: 'all', label: 'All Districts' },
+                  ...districtsList.map(d => ({ value: d, label: d })),
+                ]}
+                placeholder="All Districts"
+              />
             </div>
 
             <div>
               <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Ecological Scope</label>
-              <select
+              <Select
                 value={selectedScope}
-                onChange={(e) => setSelectedScope(e.target.value)}
-                className="w-full px-3 py-2 text-sm rounded-lg bg-[#160C27] border border-white/10 text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-              >
-                <option value="all">All Scopes</option>
-                {scopesList.map(s => (
-                  <option key={s} value={s}>{s}</option>
-                ))}
-              </select>
+                onChange={setSelectedScope}
+                options={[
+                  { value: 'all', label: 'All Scopes' },
+                  ...scopesList.map(s => ({ value: s, label: s })),
+                ]}
+                placeholder="All Scopes"
+              />
             </div>
           </motion.div>
         )}
@@ -301,7 +312,7 @@ export default function ReportsPage() {
                 transition={{ delay: index * 0.05 }}
                 className={`${viewMode === 'grid' ? 'h-full' : ''} block group`}
               >
-                <Card className={`${viewMode === 'grid' ? 'h-full flex flex-col justify-between' : ''} card-intelligence border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl hover:border-emerald-500/20 transition-all duration-300`} padding="lg">
+                <Card className={`${viewMode === 'grid' ? 'h-full flex flex-col justify-between' : ''} card-intelligence border border-white/10 bg-white/5 hover:border-emerald-500/30 transition-all duration-300`} padding="lg">
                   {viewMode === 'grid' ? (
                     <div className="flex flex-col h-full justify-between">
                       <div>

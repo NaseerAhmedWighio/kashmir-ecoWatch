@@ -166,7 +166,7 @@ export default function LiveAlertsPage() {
                 placeholder="Search alerts by type, location, or description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-slate-900 border border-white/10 rounded-lg text-sm text-slate-300 placeholder:text-slate-500 focus:outline-none focus:border-red-500/50"
+                className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 placeholder:text-slate-500 focus:outline-none focus:border-red-500/50"
               />
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function LiveAlertsPage() {
                 <select
                   value={selectedHazard}
                   onChange={(e) => setSelectedHazard(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-900 border border-white/10 rounded-lg text-sm text-slate-300 focus:outline-none focus:border-red-500/50"
+                  className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 focus:outline-none focus:border-red-500/50"
                 >
                   {hazardTypes.map(type => (
                     <option key={type} value={type}>{type}</option>
@@ -194,7 +194,7 @@ export default function LiveAlertsPage() {
                 <select
                   value={selectedDistrict}
                   onChange={(e) => setSelectedDistrict(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-900 border border-white/10 rounded-lg text-sm text-slate-300 focus:outline-none focus:border-red-500/50"
+                  className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 focus:outline-none focus:border-red-500/50"
                 >
                   {districts.map(d => (
                     <option key={d} value={d}>{d}</option>

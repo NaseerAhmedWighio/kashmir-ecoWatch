@@ -233,7 +233,7 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 space-y-6">
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
                   <p className="text-slate-400 leading-relaxed mb-6">{entity.description}</p>
                   <div className="grid grid-cols-2 gap-4">
@@ -269,7 +269,7 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
                   <NwiaClassificationBadge nwiaCode={entity.nwiaCode} nwiaSignificance={entity.nwiaSignificance} />
                 )}
 
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h2 className="text-2xl font-bold text-white mb-4">Location</h2>
                   <div className="relative h-64 rounded-xl bg-gradient-to-br from-blue-500/10 to-slate-800/50 border border-white/10 flex items-center justify-center">
                     <div className="text-center">
@@ -284,7 +284,7 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
               </div>
 
               <div className="space-y-6">
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h3 className="text-lg font-bold text-white mb-4">Quick Stats</h3>
                   <div className="space-y-3">
                     {entity.area && (
@@ -310,7 +310,7 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
                   </div>
                 </Card>
 
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
                   <div className="space-y-2">
                     <Button variant="outline" size="sm" className="w-full border-white/20 text-white justify-start" icon={<FileText className="w-4 h-4" />}>
@@ -343,11 +343,11 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Biodiversity</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {entity.biodiversity?.map((species, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
                         <Activity className="w-5 h-5 text-emerald-400" />
@@ -368,7 +368,7 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Threats</h2>
               <div className="space-y-4">
                 {entity.threats?.map((threat, idx) => (
@@ -393,11 +393,11 @@ export function WaterEntityDetailPage({ entity, relatedEntities = [] }: WaterEnt
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Related Water Bodies</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {relatedEntities.slice(0, 4).map((related, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="flex items-center gap-3 mb-2">
                       <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${getTypeColor(related.type)} flex items-center justify-center`}>
                         <Droplet className="w-5 h-5 text-white" />
@@ -449,7 +449,7 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
       animate={{ opacity: 1, y: 0 }}
       className="space-y-6"
     >
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-6">Water Quality Parameters</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
@@ -464,7 +464,7 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
             { label: 'TDS', value: waterQuality.totalDissolvedSolids, unit: 'mg/L', status: 'neutral' },
             { label: 'Fecal Coliform', value: waterQuality.fecalColiform, unit: 'CFU/100mL', status: waterQuality.fecalColiform <= 200 ? 'good' : 'warning' },
           ].map((param, idx) => (
-            <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="text-xs text-slate-500 uppercase mb-1">{param.label}</div>
               <div className="text-2xl font-bold text-white">
                 {param.value} <span className="text-sm text-slate-500">{param.unit}</span>
@@ -479,10 +479,10 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
         </div>
       </Card>
 
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-4">Quality Trends</h2>
         <div className="grid grid-cols-3 gap-4">
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
             <div className="text-xs text-slate-500 uppercase mb-2">pH Trend</div>
             <div className={`text-lg font-bold ${
               waterQuality.trends?.pH === 'improving' ? 'text-emerald-400' : 
@@ -491,7 +491,7 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
               {waterQuality.trends?.pH?.toUpperCase() || 'STABLE'}
             </div>
           </div>
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
             <div className="text-xs text-slate-500 uppercase mb-2">Oxygen Trend</div>
             <div className={`text-lg font-bold ${
               waterQuality.trends?.dissolvedOxygen === 'improving' ? 'text-emerald-400' : 
@@ -500,7 +500,7 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
               {waterQuality.trends?.dissolvedOxygen?.toUpperCase() || 'STABLE'}
             </div>
           </div>
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
             <div className="text-xs text-slate-500 uppercase mb-2">Turbidity Trend</div>
             <div className={`text-lg font-bold ${
               waterQuality.trends?.turbidity === 'improving' ? 'text-emerald-400' : 
@@ -512,7 +512,7 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
         </div>
       </Card>
 
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-xl font-bold text-white mb-2">Last Tested</h3>
@@ -538,11 +538,11 @@ function HydrologyTab({ hydrology, type }: { hydrology: HydrologicalData; type: 
       animate={{ opacity: 1, y: 0 }}
       className="space-y-6"
     >
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-6">Hydrological Data</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {hydrology.flowRate && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="flex items-center gap-3 mb-2">
                 <Wind className="w-5 h-5 text-blue-400" />
                 <div className="text-xs text-slate-500 uppercase">Flow Rate</div>
@@ -551,7 +551,7 @@ function HydrologyTab({ hydrology, type }: { hydrology: HydrologicalData; type: 
             </div>
           )}
           {hydrology.discharge && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="flex items-center gap-3 mb-2">
                 <Droplet className="w-5 h-5 text-blue-400" />
                 <div className="text-xs text-slate-500 uppercase">Annual Discharge</div>
@@ -560,7 +560,7 @@ function HydrologyTab({ hydrology, type }: { hydrology: HydrologicalData; type: 
             </div>
           )}
           {hydrology.rechargeRate && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="flex items-center gap-3 mb-2">
                 <Activity className="w-5 h-5 text-blue-400" />
                 <div className="text-xs text-slate-500 uppercase">Recharge Rate</div>
@@ -569,7 +569,7 @@ function HydrologyTab({ hydrology, type }: { hydrology: HydrologicalData; type: 
             </div>
           )}
           {hydrology.waterLevel && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="flex items-center gap-3 mb-2">
                 <Ruler className="w-5 h-5 text-blue-400" />
                 <div className="text-xs text-slate-500 uppercase">Water Level</div>
@@ -578,7 +578,7 @@ function HydrologyTab({ hydrology, type }: { hydrology: HydrologicalData; type: 
             </div>
           )}
           {hydrology.drainageArea && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="flex items-center gap-3 mb-2">
                 <MapPin className="w-5 h-5 text-blue-400" />
                 <div className="text-xs text-slate-500 uppercase">Drainage Area</div>
@@ -586,21 +586,21 @@ function HydrologyTab({ hydrology, type }: { hydrology: HydrologicalData; type: 
               <div className="text-2xl font-bold text-white">{hydrology.drainageArea.toLocaleString()} km²</div>
             </div>
           )}
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
             <div className="flex items-center gap-3 mb-2">
               <Clock className="w-5 h-5 text-blue-400" />
               <div className="text-xs text-slate-500 uppercase">Seasonal Variation</div>
             </div>
             <div className="text-2xl font-bold text-white capitalize">{hydrology.seasonalVariation}</div>
           </div>
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
             <div className="flex items-center gap-3 mb-2">
               <Droplet className="w-5 h-5 text-blue-400" />
               <div className="text-xs text-slate-500 uppercase">Water Source</div>
             </div>
             <div className="text-2xl font-bold text-white capitalize">{hydrology.source}</div>
           </div>
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
             <div className="flex items-center gap-3 mb-2">
               <AlertTriangle className="w-5 h-5 text-blue-400" />
               <div className="text-xs text-slate-500 uppercase">Flood Risk</div>

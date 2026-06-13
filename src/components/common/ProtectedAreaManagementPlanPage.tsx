@@ -59,7 +59,7 @@ export function ProtectedAreaManagementPlanPage({ area, backHref, categoryLabel,
   const router = useRouter();
   const a = area as any;
   const flagship = a.flagshipSpecies ?? 'flagship species';
-  const CARD = 'bg-white/[0.03] backdrop-blur-xl border border-white/[0.06]';
+  const CARD = 'bg-white/5 border border-white/10';
 
   const objectives = [
     `Maintain and expand viable ${flagship} population within the park through habitat protection and population monitoring.`,
@@ -284,7 +284,7 @@ export function ProtectedAreaManagementPlanPage({ area, backHref, categoryLabel,
             </h2>
             <div className="space-y-3">
               {documents.map((doc, i) => (
-                <div key={i} className="flex items-center justify-between gap-4 p-4 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/20 transition-colors">
+                <div key={i} className="flex items-center justify-between gap-4 p-4 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/30 transition-colors">
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="w-9 h-9 rounded-lg bg-amber-500/15 flex items-center justify-center shrink-0">
                       <FileText className="w-4 h-4 text-amber-400" />

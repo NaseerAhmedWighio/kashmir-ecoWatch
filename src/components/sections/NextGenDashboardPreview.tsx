@@ -81,7 +81,7 @@ export function NextGenDashboardPreview() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2"
           >
-            <Card className="glass-light border-white/5 h-full" padding="lg">
+            <Card className="glass-light border-white/10 h-full" padding="lg">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-6">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-slate-500 to-slate-700 text-white flex items-center justify-center shadow-lg flex-shrink-0">
@@ -153,7 +153,7 @@ export function NextGenDashboardPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Card className="glass-light border-white/5 h-full" padding="lg">
+            <Card className="glass-light border-white/10 h-full" padding="lg">
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-glacier-500 to-glacier-700 text-white flex items-center justify-center shadow-lg glow-glacier flex-shrink-0">
@@ -211,7 +211,7 @@ export function NextGenDashboardPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="glass-light border-white/5 h-full" padding="lg">
+            <Card className="glass-light border-white/10 h-full" padding="lg">
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center shadow-lg flex-shrink-0">
@@ -263,7 +263,7 @@ export function NextGenDashboardPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Card className="glass-light border-white/5 h-full" padding="lg">
+            <Card className="glass-light border-white/10 h-full" padding="lg">
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center shadow-lg flex-shrink-0">
@@ -324,7 +324,7 @@ export function NextGenDashboardPreview() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="lg:col-span-2"
           >
-            <Card className="glass-light border-white/5 h-full" padding="lg">
+            <Card className="glass-light border-white/10 h-full" padding="lg">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-6">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-forest-500 to-forest-700 text-white flex items-center justify-center shadow-lg glow-forest flex-shrink-0">

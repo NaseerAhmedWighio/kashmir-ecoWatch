@@ -69,7 +69,7 @@ export default function WaterQualityReadingsPage() {
                 </div>
                 <h1 className="max-w-xl text-3xl font-bold text-white mb-3">Submission Received</h1>
                 <p className="text-slate-400 mb-6">Your water quality readings have been successfully submitted.</p>
-                <div className="bg-slate-800/50 rounded-xl p-4 mb-6">
+                <div className="bg-white/5 rounded-xl p-4 mb-6">
                   <p className="text-sm text-slate-400 mb-1">Submission Reference ID</p>
                   <p className="text-xl font-mono font-bold text-blue-400">{submissionId}</p>
                 </div>
@@ -143,7 +143,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.waterbodyName}
                         onChange={e => handleChange('waterbodyName', e.target.value)}
                         placeholder="e.g., Dal Lake, Jhelum River"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -154,7 +154,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.coordinates}
                         onChange={e => handleChange('coordinates', e.target.value)}
                         placeholder="e.g., 34.0837° N, 74.7973° E"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -164,7 +164,7 @@ export default function WaterQualityReadingsPage() {
                         required
                         value={formData.dateTime}
                         onChange={e => handleChange('dateTime', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                   </div>
@@ -188,7 +188,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.ph}
                         onChange={e => handleChange('ph', e.target.value)}
                         placeholder="e.g., 7.2"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -201,7 +201,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.dissolvedOxygen}
                         onChange={e => handleChange('dissolvedOxygen', e.target.value)}
                         placeholder="e.g., 8.5"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -214,7 +214,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.turbidity}
                         onChange={e => handleChange('turbidity', e.target.value)}
                         placeholder="e.g., 12.3"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -226,7 +226,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.temperature}
                         onChange={e => handleChange('temperature', e.target.value)}
                         placeholder="e.g., 18.5"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -238,7 +238,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.conductivity}
                         onChange={e => handleChange('conductivity', e.target.value)}
                         placeholder="Optional"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -248,7 +248,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.methodology}
                         onChange={e => handleChange('methodology', e.target.value)}
                         placeholder="e.g., Portable meter, lab analysis"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                   </div>
@@ -267,7 +267,7 @@ export default function WaterQualityReadingsPage() {
                         required
                         value={formData.contributorType}
                         onChange={e => handleChange('contributorType', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                       >
                         {CONTRIBUTOR_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
                       </select>
@@ -280,7 +280,7 @@ export default function WaterQualityReadingsPage() {
                         value={formData.contributorName}
                         onChange={e => handleChange('contributorName', e.target.value)}
                         placeholder="Your name or organization"
-                        className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
                   </div>
@@ -291,7 +291,7 @@ export default function WaterQualityReadingsPage() {
                       value={formData.notes}
                       onChange={e => handleChange('notes', e.target.value)}
                       placeholder="Additional context, weather conditions, visible pollution, etc."
-                      className="w-full px-3 py-2 rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   </div>
                 </Card>

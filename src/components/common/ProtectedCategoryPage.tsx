@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { Pagination } from '@/components/ui/Pagination';
+import { Select } from '@/components/ui/Select';
 import * as Icons from 'lucide-react';
 import {
   MapPin, Activity, ArrowRight, Search, Filter, Shield,
@@ -78,7 +79,7 @@ export function ProtectedCategoryPage({
   const filteredAreas = useMemo(() => {
     return areas.filter(area => {
       const query = searchQuery.toLowerCase().trim();
-      const matchesSearch = !query || 
+      const matchesSearch = !query ||
         area.name.toLowerCase().includes(query) ||
         area.district.toLowerCase().includes(query) ||
         area.description.toLowerCase().includes(query) ||
@@ -97,9 +98,22 @@ export function ProtectedCategoryPage({
     return filteredAreas.slice(start, start + PAGE_SIZE);
   }, [filteredAreas, currentPage]);
 
-  React.useEffect(() => {
-    setCurrentPage(1);
-  }, [searchQuery, selectedDistrict, selectedScope]);
+  useEffect(() => { setCurrentPage(1); }, [searchQuery, selectedDistrict, selectedScope]);
+
+  // Sync scope filter with tabs
+  useEffect(() => {
+    if (!tabs || !onTabChange || selectedScope === 'all') return;
+    const match = tabs.find(t => t.label === selectedScope);
+    if (match && match.key !== activeTab) onTabChange(match.key);
+  }, [selectedScope, tabs, activeTab, onTabChange]);
+
+  // Sync tab change with scope filter
+  const handleTabChange = (key: string) => {
+    onTabChange?.(key);
+    const tab = tabs?.find(t => t.key === key);
+    if (tab) setSelectedScope(tab.label);
+    else setSelectedScope('all');
+  };
 
   const getCategoryIcon = (category: string) => {
     const map: Record<string, string> = {
@@ -165,96 +179,95 @@ export function ProtectedCategoryPage({
       </div>
 
       {/* Tab + Filters — responsive row */}
-  {/* Sticky Tab Bar — fixed to viewport on mobile */}
-<div className="sticky top-0 z-30 bg-[#0d0720]/95 backdrop-blur-md border-b border-white/5 w-full">
-  <div className="container mx-auto px-4 sm:px-6">
+      {/* Sticky Tab Bar — fixed to viewport on mobile */}
+      <div className="sticky top-0 z-30 bg-[#0F373B] backdrop-blur-md w-full">
+        <div className="container mx-auto px-4 sm:px-6">
 
-    {/* Row 1: Tabs (scrollable internally, not page-wide) */}
-   {tabs && tabs.length > 0 && (
-  <div className="py-2">
-    {/* 
+          {/* Row 1: Tabs (scrollable internally, not page-wide) */}
+          {tabs && tabs.length > 0 && (
+            <div className="py-2">
+              {/* 
       ✅ Pill container: full width, stays fixed — does NOT scroll 
       overflow-hidden clips tabs that go outside
     */}
-    <div className="glass-intense border border-white/10 rounded-xl w-full overflow-hidden">
-      {/*
+              <div className="glass-intense border border-white/10 rounded-xl w-full overflow-hidden">
+                {/*
         ✅ Inner scroller: ONLY this scrolls horizontally
         The pill background stays put, only text/buttons move
       */}
-      <div
-        className="overflow-x-auto scrollbar-hide"
-        style={{ WebkitOverflowScrolling: 'touch' }}
-      >
-        <div className="flex items-center gap-2 p-1 w-max">
-          {tabs.map(tab => (
-            <button
-              key={tab.key}
-              onClick={() => onTabChange?.(tab.key)}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap touch-manipulation flex-shrink-0 ${
-                activeTab === tab.key
-                  ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
-              }`}
+                <div
+                  className="overflow-x-auto scrollbar-hide"
+                  style={{ WebkitOverflowScrolling: 'touch' }}
+                >
+                  <div className="flex items-center gap-2 p-1 w-max">
+                    {tabs.map(tab => (
+                      <button
+                        key={tab.key}
+                        onClick={() => handleTabChange(tab.key)}
+                        className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap touch-manipulation flex-shrink-0 ${activeTab === tab.key
+                            ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
+                            : 'text-slate-400 hover:text-white hover:bg-white/5'
+                          }`}
+                      >
+                        {tab.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Row 2: Filters + count + view toggle */}
+          <div className="flex items-center gap-2 pb-3 pt-2">
+
+            {/* Active tab description — only on large screens */}
+            {tabs?.find(t => t.key === activeTab)?.description && (
+              <span className="text-xs text-slate-500 hidden lg:block flex-1 truncate mr-2">
+                {tabs.find(t => t.key === activeTab)!.description}
+              </span>
+            )}
+
+            {/* Filter button */}
+            <Button
+              variant="outline"
+              className="border-white/20 text-white shrink-0"
+              size="sm"
+              icon={<Filter className="w-4 h-4" />}
+              onClick={() => setShowFilters(f => !f)}
             >
-              {tab.label}
-            </button>
-          ))}
+              {showFilters ? 'Hide Filters' : 'Filters'}
+            </Button>
+
+            {/* Count */}
+            <span className="text-xs sm:text-sm text-slate-400 whitespace-nowrap shrink-0">
+              <strong className="text-white">{filteredAreas.length}</strong>
+              <span className="hidden xs:inline">
+                {' '}of <strong className="text-white">{areas.length}</strong>
+              </span>
+            </span>
+
+            {/* View toggle — pushed to far right */}
+            <div className="flex items-center gap-1 ml-auto shrink-0">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setViewMode('grid')}
+                className={viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'}
+                icon={<Grid3X3 className="w-4 h-4" />}
+              />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setViewMode('list')}
+                className={viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'}
+                icon={<List className="w-4 h-4" />}
+              />
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-  </div>
-)}
-
-    {/* Row 2: Filters + count + view toggle */}
-    <div className="flex items-center gap-2 pb-3 border-t border-white/5 pt-2">
-      
-      {/* Active tab description — only on large screens */}
-      {tabs?.find(t => t.key === activeTab)?.description && (
-        <span className="text-xs text-slate-500 hidden lg:block flex-1 truncate mr-2">
-          {tabs.find(t => t.key === activeTab)!.description}
-        </span>
-      )}
-
-      {/* Filter button */}
-      <Button
-        variant="outline"
-        className="border-white/20 text-white shrink-0"
-        size="sm"
-        icon={<Filter className="w-4 h-4" />}
-        onClick={() => setShowFilters(f => !f)}
-      >
-        {showFilters ? 'Hide Filters' : 'Filters'}
-      </Button>
-
-      {/* Count */}
-      <span className="text-xs sm:text-sm text-slate-400 whitespace-nowrap shrink-0">
-        <strong className="text-white">{filteredAreas.length}</strong>
-        <span className="hidden xs:inline">
-          {' '}of <strong className="text-white">{areas.length}</strong>
-        </span>
-      </span>
-
-      {/* View toggle — pushed to far right */}
-      <div className="flex items-center gap-1 ml-auto shrink-0">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setViewMode('grid')}
-          className={viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'}
-          icon={<Grid3X3 className="w-4 h-4" />}
-        />
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setViewMode('list')}
-          className={viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'}
-          icon={<List className="w-4 h-4" />}
-        />
-      </div>
-    </div>
-
-  </div>
-</div>
 
       {/* Content */}
       <div className="container mx-auto px-6 py-8 space-y-6">
@@ -262,7 +275,7 @@ export function ProtectedCategoryPage({
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-5 glass-intense border border-white/10 rounded-xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6"
+            className="p-5 glass-intense border border-white/10 rounded-xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 relative z-[100] overflow-visible"
           >
             <div>
               <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Search Text</label>
@@ -280,31 +293,29 @@ export function ProtectedCategoryPage({
 
             <div>
               <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">District</label>
-              <select
+              <Select
                 value={selectedDistrict}
-                onChange={(e) => setSelectedDistrict(e.target.value)}
-                className="w-full px-3 py-2 text-sm rounded-lg bg-white/[0.06] border border-white/10 text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-              >
-                <option value="all">All Districts</option>
-                {districts.map(d => (
-                  <option key={d} value={d}>{d}</option>
-                ))}
-              </select>
+                onChange={setSelectedDistrict}
+                options={[
+                  { value: 'all', label: 'All Districts' },
+                  ...districts.map(d => ({ value: d, label: d })),
+                ]}
+                placeholder="All Districts"
+              />
             </div>
 
             {scopes.length > 0 && (
               <div>
                 <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Ecological Scope</label>
-                <select
+                <Select
                   value={selectedScope}
-                  onChange={(e) => setSelectedScope(e.target.value)}
-                className="w-full px-3 py-2 text-sm rounded-lg bg-white/[0.06] border border-white/10 text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-              >
-                  <option value="all">All Scopes</option>
-                  {scopes.map(s => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
+                  onChange={setSelectedScope}
+                  options={[
+                    { value: 'all', label: 'All Scopes' },
+                    ...scopes.map(s => ({ value: s, label: s })),
+                  ]}
+                  placeholder="All Scopes"
+                />
               </div>
             )}
           </motion.div>
@@ -315,79 +326,79 @@ export function ProtectedCategoryPage({
           <>
             <div className={viewMode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 xl:gap-6' : 'space-y-3 sm:space-y-4'}>
               {paginatedAreas.map((area, index) => {
-              const CatIcon = (Icons as any)[getCategoryIcon(area.category)] || Icons.MapPin;
-              return (
-              <motion.a
-                key={area.id}
-                href={`/protected-network/${area.category === 'national_park' ? 'national-parks' : area.category === 'wildlife_sanctuary' ? 'wildlife-sanctuaries' : area.category === 'wetland_reserve' ? 'wetland-reserves' : area.category === 'conservation_reserve' ? 'conservation-reserves' : 'bird-and-habitat-areas'}/${area.slug}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-                className={`${viewMode === 'grid' ? 'h-full' : ''} block group`}
-              >
-                <Card className="h-full flex flex-col overflow-hidden card-intelligence bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] hover:border-emerald-500/20" padding="none">
-                  <div className="relative h-44 bg-gradient-to-br from-emerald-900/40 via-slate-900/60 to-slate-950">
-                    <div className="absolute top-4 left-4 flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                        <CatIcon className="w-4 h-4 text-emerald-400" />
-                      </div>
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex flex-wrap gap-1.5 mb-2">
-                        <Badge variant="info" size="sm" className="capitalize">
-                          {area.category.replace('_', ' ')}
-                        </Badge>
-                        {(area as any).scope && (
-                          <Badge variant="default" size="sm">{(area as any).scope}</Badge>
-                        )}
-                        {(area as any).legalStatus && (area as any).legalStatus !== 'Verified' && (
-                          <Badge variant="warning" size="sm">{(area as any).legalStatus}</Badge>
-                        )}
-                      </div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug">
-                        {area.name}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <p className="text-sm text-slate-400 mb-4 line-clamp-2 leading-relaxed">
-                      {area.description}
-                    </p>
-                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-400">
-                      <div className="min-w-0">
-                        <div className="text-[10px] text-slate-500 uppercase tracking-wider">Area</div>
-                        <div className="text-white font-semibold tabular-nums">{area.area > 0 ? `${area.area.toLocaleString()} km²` : 'TBC'}</div>
-                      </div>
-                      <div className="min-w-0">
-                        <div className="text-[10px] text-slate-500 uppercase tracking-wider">District</div>
-                        <div className="text-white font-semibold">{area.district}</div>
-                      </div>
-                      {(area as any).flagshipSpecies && (
-                        <div className="min-w-0">
-                          <div className="text-[10px] text-slate-500 uppercase tracking-wider">Flagship</div>
-                          <div className="text-white font-semibold text-sm truncate max-w-[140px]">{(area as any).flagshipSpecies}</div>
+                const CatIcon = (Icons as any)[getCategoryIcon(area.category)] || Icons.MapPin;
+                return (
+                  <motion.a
+                    key={area.id}
+                    href={`/protected-network/${area.category === 'national_park' ? 'national-parks' : area.category === 'wildlife_sanctuary' ? 'wildlife-sanctuaries' : area.category === 'wetland_reserve' ? 'wetland-reserves' : area.category === 'conservation_reserve' ? 'conservation-reserves' : 'bird-and-habitat-areas'}/${area.slug}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className={`${viewMode === 'grid' ? 'h-full' : ''} block group`}
+                  >
+                    <Card className="h-full flex flex-col overflow-hidden card-intelligence bg-white/5 border border-white/10 hover:border-emerald-500/30" padding="none">
+                      <div className="relative h-44 bg-white/[0.05] hover:bg-white/10 transition-all">
+                        <div className="absolute top-4 left-4 flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                            <CatIcon className="w-4 h-4 text-emerald-400" />
+                          </div>
                         </div>
-                      )}
-                    </div>
-                    {(area as any).altitudeRange && (
-                      <div className="mt-2 text-xs text-slate-400">
-                        <span className="text-slate-500 uppercase text-[10px] tracking-wider">Altitude: </span>{(area as any).altitudeRange}
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <div className="flex flex-wrap gap-1.5 mb-2">
+                            <Badge variant="info" size="sm" className="capitalize">
+                              {area.category.replace('_', ' ')}
+                            </Badge>
+                            {(area as any).scope && (
+                              <Badge variant="default" size="sm">{(area as any).scope}</Badge>
+                            )}
+                            {(area as any).legalStatus && (area as any).legalStatus !== 'Verified' && (
+                              <Badge variant="warning" size="sm">{(area as any).legalStatus}</Badge>
+                            )}
+                          </div>
+                          <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug">
+                            {area.name}
+                          </h3>
+                        </div>
                       </div>
-                    )}
-                    {(area as any).dataStatus && (
-                      <div className="text-[10px] text-slate-500 italic mt-1">{(area as any).dataStatus}</div>
-                    )}
-                    <div className="mt-auto pt-4 border-t border-white/[0.06] flex justify-end">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 transition-all duration-300 text-sm font-medium text-white shadow-md shadow-emerald-500/20">
-                        View Details
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
-                </Card>
-              </motion.a>
-              );
-            })}
+                      <div className="p-5 flex flex-col flex-1">
+                        <p className="text-sm text-slate-400 mb-4 line-clamp-2 leading-relaxed">
+                          {area.description}
+                        </p>
+                        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-400">
+                          <div className="min-w-0">
+                            <div className="text-[10px] text-slate-500 uppercase tracking-wider">Area</div>
+                            <div className="text-white font-semibold tabular-nums">{area.area > 0 ? `${area.area.toLocaleString()} km²` : 'TBC'}</div>
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-[10px] text-slate-500 uppercase tracking-wider">District</div>
+                            <div className="text-white font-semibold">{area.district}</div>
+                          </div>
+                          {(area as any).flagshipSpecies && (
+                            <div className="min-w-0">
+                              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Flagship</div>
+                              <div className="text-white font-semibold text-sm truncate max-w-[140px]">{(area as any).flagshipSpecies}</div>
+                            </div>
+                          )}
+                        </div>
+                        {(area as any).altitudeRange && (
+                          <div className="mt-2 text-xs text-slate-400">
+                            <span className="text-slate-500 uppercase text-[10px] tracking-wider">Altitude: </span>{(area as any).altitudeRange}
+                          </div>
+                        )}
+                        {(area as any).dataStatus && (
+                          <div className="text-[10px] text-slate-500 italic mt-1">{(area as any).dataStatus}</div>
+                        )}
+                        <div className="mt-auto pt-4 border-t border-white/[0.06] flex justify-end">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 transition-all duration-300 text-sm font-medium text-white shadow-md shadow-emerald-500/20">
+                            View Details
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </span>
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.a>
+                );
+              })}
             </div>
 
             <Pagination
@@ -449,7 +460,7 @@ export function ProtectedCategoryPage({
         </div>
       )}
 
-      
+
     </main>
   );
 }

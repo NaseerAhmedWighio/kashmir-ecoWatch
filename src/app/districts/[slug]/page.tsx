@@ -76,7 +76,7 @@ export default function DistrictPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="glass-light border-white/5 p-8" padding="none">
+          <Card className="glass-light border-white/10 p-8" padding="none">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <h2 className="text-2xl font-bold text-white mb-2">Environmental Health Score</h2>
@@ -121,7 +121,7 @@ export default function DistrictPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="none">
+            <Card className="glass-light border-white/10 p-6" padding="none">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                   <Shield className="w-6 h-6 text-white" />
@@ -139,7 +139,7 @@ export default function DistrictPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="none">
+            <Card className="glass-light border-white/10 p-6" padding="none">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
                   <Droplet className="w-6 h-6 text-white" />
@@ -157,7 +157,7 @@ export default function DistrictPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="none">
+            <Card className="glass-light border-white/10 p-6" padding="none">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-forest-500 to-green-600 flex items-center justify-center">
                   <Leaf className="w-6 h-6 text-white" />
@@ -175,7 +175,7 @@ export default function DistrictPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="none">
+            <Card className="glass-light border-white/10 p-6" padding="none">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
                   <Activity className="w-6 h-6 text-white" />
@@ -196,7 +196,7 @@ export default function DistrictPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <Card className="glass-light border-white/5 p-6" padding="lg">
+            <Card className="glass-light border-white/10 p-6" padding="lg">
               <div className="flex items-center gap-3 mb-6">
                 <AlertTriangle className="w-6 h-6 text-amber-400" />
                 <h2 className="text-xl font-bold text-white">Environmental Hazards</h2>

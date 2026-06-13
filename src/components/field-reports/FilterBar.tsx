@@ -188,10 +188,10 @@ export function FilterBar({ reports, years, districts, modules, sources, onFilte
                     <select
                       value={filters[filter.key]}
                       onChange={(e) => handleFilterChange(filter.key, e.target.value)}
-                      className="w-full px-3 py-2.5 bg-slate-900/80 border border-white/10 rounded-lg text-sm text-white appearance-none cursor-pointer hover:border-white/20 focus:border-amber-500/50 focus:outline-none focus:ring-1 focus:ring-amber-500/20 transition-all"
+                      className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-white appearance-none cursor-pointer hover:border-white/20 focus:border-amber-500/50 focus:outline-none focus:ring-1 focus:ring-amber-500/20 transition-all"
                     >
                       {filter.options.map(opt => (
-                        <option key={opt.value} value={opt.value} className="bg-slate-900 text-white">
+                        <option key={opt.value} value={opt.value} className="bg-white/5 text-white">
                           {opt.label}
                         </option>
                       ))}

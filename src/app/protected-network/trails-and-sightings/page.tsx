@@ -34,6 +34,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heading } from '@/components/common/Heading';
 import { Pagination } from '@/components/ui/Pagination';
+import { Select } from '@/components/ui/Select';
 import {
   trailsObservationsData,
   mockObservations,
@@ -331,6 +332,18 @@ export default function TrailsAndSightingsPage() {
     return filteredTrails.slice(start, start + PAGE_SIZE);
   }, [filteredTrails, currentPage]);
 
+  const scopeToTabMap: Record<string, 'core' | 'trans' | 'extended'> = {
+    'Kashmir Core': 'core',
+    'Trans-Divisional': 'trans',
+    'Transboundary / Extended': 'extended',
+  };
+
+  useEffect(() => {
+    if (selectedScope !== 'all' && scopeToTabMap[selectedScope]) {
+      setActiveScopeTab(scopeToTabMap[selectedScope]);
+    }
+  }, [selectedScope]);
+
   useEffect(() => {
     setCurrentPage(1);
   }, [searchQuery, selectedDistrict, selectedScope, activeScopeTab]);
@@ -454,7 +467,7 @@ export default function TrailsAndSightingsPage() {
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Card 1: Summary */}
-                  <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl text-white p-6 h-full flex flex-col justify-between" padding="none">
+                  <Card className="border border-white/10 bg-white/5 text-white p-6 h-full flex flex-col justify-between" padding="none">
                     <div>
                       <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                         <Activity className="w-5 h-5 text-emerald-400" />
@@ -481,7 +494,7 @@ export default function TrailsAndSightingsPage() {
                   </Card>
 
                   {/* Card 2: eBird Integration */}
-                  <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl text-white p-6 h-full flex flex-col justify-between" padding="none">
+                  <Card className="border border-white/10 bg-white/5 text-white p-6 h-full flex flex-col justify-between" padding="none">
                     <div className="flex items-start gap-4">
                       <div className="p-3 bg-emerald-500/20 rounded-xl text-emerald-400">
                         <Globe className="w-6 h-6" />
@@ -504,7 +517,7 @@ export default function TrailsAndSightingsPage() {
                   </Card>
 
                   {/* Card 3: Verification Levels */}
-                  <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl text-white p-6 h-full flex flex-col justify-between" padding="none">
+                  <Card className="border border-white/10 bg-white/5 text-white p-6 h-full flex flex-col justify-between" padding="none">
                     <div>
                       <h3 className="text-base font-bold mb-4 flex items-center gap-2">
                         <Shield className="w-4 h-4 text-emerald-400" />
@@ -522,7 +535,7 @@ export default function TrailsAndSightingsPage() {
                   </Card>
 
                   {/* Card 4: Camera Traps status */}
-                  <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl text-white p-6 h-full flex flex-col justify-between" padding="none">
+                  <Card className="border border-white/10 bg-white/5 text-white p-6 h-full flex flex-col justify-between" padding="none">
                     <div>
                       <h3 className="text-base font-bold mb-3 flex items-center gap-2">
                         <Camera className="w-4 h-4 text-emerald-400" />
@@ -566,6 +579,7 @@ export default function TrailsAndSightingsPage() {
                         key={tab.key}
                         onClick={() => {
                           setActiveScopeTab(tab.key as any);
+                          setSelectedScope(tab.label);
                           setInspectedTrailId(null);
                         }}
                         className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
@@ -616,37 +630,35 @@ export default function TrailsAndSightingsPage() {
 
                     <div>
                       <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">District / Region</label>
-                      <select
+                      <Select
                         value={selectedDistrict}
-                        onChange={(e) => setSelectedDistrict(e.target.value)}
-                        className="w-full px-3 py-1.5 text-xs rounded-lg bg-[#160C27] border border-white/10 text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-                      >
-                        <option value="all">All Districts</option>
-                        {districtsList.map(d => (
-                          <option key={d} value={d}>{d}</option>
-                        ))}
-                      </select>
+                        onChange={setSelectedDistrict}
+                        options={[
+                          { value: 'all', label: 'All Districts' },
+                          ...districtsList.map(d => ({ value: d, label: d })),
+                        ]}
+                        placeholder="All Districts"
+                      />
                     </div>
 
                     <div>
                       <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Ecological Scope</label>
-                      <select
+                      <Select
                         value={selectedScope}
-                        onChange={(e) => setSelectedScope(e.target.value)}
-                        className="w-full px-3 py-1.5 text-xs rounded-lg bg-[#160C27] border border-white/10 text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-                      >
-                        <option value="all">All Scopes</option>
-                        {['Kashmir Core', 'Trans-Divisional', 'Transboundary / Extended'].map(s => (
-                          <option key={s} value={s}>{s}</option>
-                        ))}
-                      </select>
+                        onChange={setSelectedScope}
+                        options={[
+                          { value: 'all', label: 'All Scopes' },
+                          ...['Kashmir Core', 'Trans-Divisional', 'Transboundary / Extended'].map(s => ({ value: s, label: s })),
+                        ]}
+                        placeholder="All Scopes"
+                      />
                     </div>
                   </motion.div>
                 )}
 
                 {/* Inspected Trail Panel (Detailed View) */}
                 {inspectedTrailId && (
-                  <Card className="border border-emerald-500/30 bg-white/[0.03] backdrop-blur-xl text-white p-6 relative" padding="none">
+                  <Card className="border border-emerald-500/30 bg-white/5 text-white p-6 relative" padding="none">
                     <button
                       className="absolute top-4 right-4 text-slate-400 hover:text-white text-xs font-bold bg-white/5 px-2.5 py-1 rounded"
                       onClick={() => setInspectedTrailId(null)}
@@ -765,7 +777,7 @@ export default function TrailsAndSightingsPage() {
                         className={`${viewMode === 'grid' ? 'h-full flex flex-col' : ''} block cursor-pointer`}
                         onClick={() => setInspectedTrailId(trail.trail_id)}
                       >
-                        <Card className={`${viewMode === 'grid' ? 'h-full flex flex-col justify-between' : ''} card-intelligence border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl hover:border-emerald-500/20 transition-all duration-300`} padding="lg">
+                        <Card className={`${viewMode === 'grid' ? 'h-full flex flex-col justify-between' : ''} card-intelligence border border-white/10 bg-white/5 hover:border-emerald-500/30 transition-all duration-300`} padding="lg">
                           <div>
                             <div className="flex items-start justify-between mb-3">
                               <div className="flex flex-wrap items-center gap-1.5">
@@ -868,7 +880,7 @@ export default function TrailsAndSightingsPage() {
                     <select
                       value={sightingsFilterVerify}
                       onChange={(e) => setSightingsFilterVerify(e.target.value)}
-                      className="text-xs bg-[#160C27] border border-white/10 text-white rounded px-2 py-1 focus:outline-none"
+                      className="text-xs bg-white/5 border border-white/10 text-white rounded px-2 py-1 focus:outline-none"
                     >
                       <option value="all">All Levels</option>
                       <option value="Verified">Verified Only</option>
@@ -889,7 +901,7 @@ export default function TrailsAndSightingsPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
                       >
-                        <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl text-white p-5" padding="none">
+                        <Card className="border border-white/10 bg-white/5 text-white p-5" padding="none">
                           <div className="flex items-start justify-between mb-3">
                             <div>
                               <div className="flex items-center gap-2">
@@ -929,7 +941,7 @@ export default function TrailsAndSightingsPage() {
             {/* BIRDING ROUTES TAB */}
             {activeMainTab === 'birding' && (
               <div className="space-y-6">
-                <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl text-white p-6" padding="none">
+                <Card className="border border-white/10 bg-white/5 text-white p-6" padding="none">
                   <h3 className="text-lg font-bold flex items-center gap-2 mb-2">
                     <Globe className="w-5 h-5 text-emerald-400" />
                     Kashmir Avian Migration & Breeding Route Monitoring
@@ -947,7 +959,7 @@ export default function TrailsAndSightingsPage() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.05 }}
                     >
-                      <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-5 h-full flex flex-col" padding="none">
+                      <Card className="border border-white/10 bg-white/5 p-5 h-full flex flex-col" padding="none">
                         <div>
                           <div className="flex items-center justify-between mb-2">
                             <Badge variant="info">{route.route_type}</Badge>
@@ -981,7 +993,7 @@ export default function TrailsAndSightingsPage() {
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {trailsObservationsData.filter(t => t.route_type.toLowerCase().includes('network') || t.route_type.toLowerCase().includes('system')).map((site, idx) => (
-                    <Card key={idx} className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-5 flex flex-col justify-between" padding="none">
+                    <Card key={idx} className="border border-white/10 bg-white/5 p-5 flex flex-col justify-between" padding="none">
                       <div>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="default">Observation Site</Badge>
@@ -1018,7 +1030,7 @@ export default function TrailsAndSightingsPage() {
                     { id: 'CAM-DEO-02', location: 'Sheosar Meadow', status: 'Online', battery: '90%', triggers: 94, target: 'Brown Bear / Marmot' },
                     { id: 'CAM-SHM-01', location: 'Shimshal Gorge', status: 'Online', battery: '82%', triggers: 412, target: 'Snow Leopard' },
                   ].map((ct, idx) => (
-                    <Card key={idx} className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-4 text-white" padding="none">
+                    <Card key={idx} className="border border-white/10 bg-white/5 p-4 text-white" padding="none">
                       <div className="flex items-center justify-between mb-3">
                         <span className="font-mono text-xs text-emerald-400 font-bold">{ct.id}</span>
                         <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
@@ -1049,7 +1061,7 @@ export default function TrailsAndSightingsPage() {
                     { season: 'Autumn (October - November)', active: 'Himalayan Brown Bear intensive foraging prior to hibernation; Raptor migration passes along the Pir Panjal corridors; early winter waterfowl arrivals.' },
                     { season: 'Winter (December - March)', active: 'Mass Siberian & Central Asian waterfowl staging at Hokersar, Shallabugh, and Wular wetlands; Markhor and snow leopards descend to gorge floors.' },
                   ].map((sa, idx) => (
-                    <Card key={idx} className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-5" padding="none">
+                    <Card key={idx} className="border border-white/10 bg-white/5 p-5" padding="none">
                       <h4 className="font-bold text-base text-emerald-400 mb-2 flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
                         {sa.season}
@@ -1066,7 +1078,7 @@ export default function TrailsAndSightingsPage() {
               <div className="space-y-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Submit Observation Form */}
-                  <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-6 text-white" padding="none">
+                  <Card className="border border-white/10 bg-white/5 p-6 text-white" padding="none">
                     <form onSubmit={handleObsSubmit} className="space-y-4">
                       <div>
                         <h3 className="text-lg font-bold text-white mb-1">Submit Field Observation Record</h3>
@@ -1297,7 +1309,7 @@ export default function TrailsAndSightingsPage() {
                   {/* Verification Queue & eBird Info */}
                   <div className="space-y-6 flex flex-col justify-between h-full">
                     {/* Live Verification Queue widget */}
-                    <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-6 text-white flex-1" padding="none">
+                    <Card className="border border-white/10 bg-white/5 p-6 text-white flex-1" padding="none">
                       <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
                         <Shield className="w-5 h-5 text-emerald-400" />
                         Live Verification Pipeline
@@ -1355,7 +1367,7 @@ export default function TrailsAndSightingsPage() {
                     </Card>
 
                     {/* eBird Integration Status */}
-                    <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-6 text-white h-full flex flex-col justify-between" padding="none">
+                    <Card className="border border-white/10 bg-white/5 p-6 text-white h-full flex flex-col justify-between" padding="none">
                       <div>
                         <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
                           <Globe className="w-5 h-5 text-emerald-400" />
@@ -1382,7 +1394,7 @@ export default function TrailsAndSightingsPage() {
               <div className="space-y-6">
                 <div className="space-y-4">
                   {trailsObservationsData.slice(0, 8).map((t, idx) => (
-                    <Card key={idx} className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-4 text-white flex items-center justify-between" padding="none">
+                    <Card key={idx} className="border border-white/10 bg-white/5 p-4 text-white flex items-center justify-between" padding="none">
                       <div>
                         <h4 className="font-bold text-sm">{t.trail_name} - Monitoring Link</h4>
                         <span className="text-xs text-slate-400">Status: <strong className="text-emerald-400">{t.monitoring_status}</strong></span>
@@ -1397,7 +1409,7 @@ export default function TrailsAndSightingsPage() {
             {/* SPATIAL DATA TAB */}
             {activeMainTab === 'spatial' && (
               <div className="space-y-6">
-                <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-5 text-white" padding="none">
+                <Card className="border border-white/10 bg-white/5 p-5 text-white" padding="none">
                   <h3 className="text-base font-bold mb-3 flex items-center gap-2">
                     <MapIcon className="w-5 h-5 text-emerald-400" />
                     GIS Spatial Layer Index
@@ -1432,6 +1444,7 @@ export default function TrailsAndSightingsPage() {
                         key={tab.key}
                         onClick={() => {
                           setActiveScopeTab(tab.key as any);
+                          setSelectedScope(tab.label);
                         }}
                         className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
                           activeScopeTab === tab.key
@@ -1481,30 +1494,28 @@ export default function TrailsAndSightingsPage() {
 
                     <div>
                       <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">District / Region</label>
-                      <select
+                      <Select
                         value={selectedDistrict}
-                        onChange={(e) => setSelectedDistrict(e.target.value)}
-                        className="w-full px-3 py-1.5 text-xs rounded-lg bg-[#160C27] border border-white/10 text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-                      >
-                        <option value="all">All Districts</option>
-                        {districtsList.map(d => (
-                          <option key={d} value={d}>{d}</option>
-                        ))}
-                      </select>
+                        onChange={setSelectedDistrict}
+                        options={[
+                          { value: 'all', label: 'All Districts' },
+                          ...districtsList.map(d => ({ value: d, label: d })),
+                        ]}
+                        placeholder="All Districts"
+                      />
                     </div>
 
                     <div>
                       <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Ecological Scope</label>
-                      <select
+                      <Select
                         value={selectedScope}
-                        onChange={(e) => setSelectedScope(e.target.value)}
-                        className="w-full px-3 py-1.5 text-xs rounded-lg bg-[#160C27] border border-white/10 text-white focus:outline-none focus:border-emerald-500/50 transition-colors"
-                      >
-                        <option value="all">All Scopes</option>
-                        {['Kashmir Core', 'Trans-Divisional', 'Transboundary / Extended'].map(s => (
-                          <option key={s} value={s}>{s}</option>
-                        ))}
-                      </select>
+                        onChange={setSelectedScope}
+                        options={[
+                          { value: 'all', label: 'All Scopes' },
+                          ...['Kashmir Core', 'Trans-Divisional', 'Transboundary / Extended'].map(s => ({ value: s, label: s })),
+                        ]}
+                        placeholder="All Scopes"
+                      />
                     </div>
                   </motion.div>
                 )}
@@ -1521,7 +1532,7 @@ export default function TrailsAndSightingsPage() {
                         className={`${viewMode === 'grid' ? 'h-full' : ''} block group cursor-pointer`}
                         onClick={(e) => handleReportDownload(e, report.slug)}
                       >
-                        <Card className={`${viewMode === 'grid' ? 'h-full flex flex-col justify-between' : ''} card-intelligence border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl hover:border-emerald-500/20 transition-all duration-300`} padding="lg">
+                        <Card className={`${viewMode === 'grid' ? 'h-full flex flex-col justify-between' : ''} card-intelligence border border-white/10 bg-white/5 hover:border-emerald-500/30 transition-all duration-300`} padding="lg">
                           {viewMode === 'grid' ? (
                             <div className="flex flex-col h-full justify-between">
                               <div>

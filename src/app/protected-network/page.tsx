@@ -193,7 +193,15 @@ export default function ProtectedNetworkPage() {
       <section className="w-full overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
 
-          {/* ... heading ... */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 bg-[#0F373B] rounded-full" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+              Network Overview
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            Protected Areas
+          </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 w-full">
             {categoryCards.map((category, index) => (
@@ -206,7 +214,7 @@ export default function ProtectedNetworkPage() {
                 transition={{ delay: index * 0.05 }}
                 className="block group w-full min-w-0" // ← min-w-0 prevents flex/grid blowout
               >
-                <Card className="p-4 sm:p-5 flex flex-col h-full border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl w-full hover:border-emerald-500/20 transition-all duration-300" padding="none">
+                <Card className="p-4 sm:p-5 flex flex-col h-full border border-white/10 bg-white/5 w-full hover:border-emerald-500/30 transition-all duration-300" padding="none">
 
                   <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 shrink-0`}>
                     <category.icon className="w-5 h-5 text-white" />
@@ -238,9 +246,11 @@ export default function ProtectedNetworkPage() {
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="w-full h-px bg-[#0F373B]" />
 
       {/* Ecological Intelligence */}
-      <div className="container mx-auto px-6 py-16 bg-white/[0.02] rounded-3xl border border-white/[0.06]">
+      <div className="container mx-auto px-6 py-16 rounded-3xl bg-[#0F373B]/20 border border-[#0F373B]/30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -269,7 +279,7 @@ export default function ProtectedNetworkPage() {
               transition={{ delay: index * 0.05 }}
               className="block group"
             >
-              <Card className="h-full card-intelligence border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl hover:border-emerald-500/20" padding="lg">
+              <Card className="h-full card-intelligence border border-white/10 bg-white/5 hover:border-emerald-500/30" padding="lg">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center">
                     <card.icon className="w-6 h-6 text-slate-400 group-hover:text-purple-400 transition-colors" />
@@ -290,6 +300,9 @@ export default function ProtectedNetworkPage() {
           ))}
         </div>
       </div>
+
+      {/* Section Divider */}
+      <div className="w-full h-px bg-[#0F373B]" />
 
       {/* Featured Protected Areas */}
       <div className="container mx-auto px-6 py-16">
@@ -333,7 +346,7 @@ export default function ProtectedNetworkPage() {
                 transition={{ delay: index * 0.05 }}
                 className="block group"
               >
-                <Card className="p-5 sm:p-6 flex flex-col gap-3 h-full overflow-hidden card-intelligence border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl hover:border-emerald-500/20" padding="none">
+                <Card className="p-5 sm:p-6 flex flex-col gap-3 h-full overflow-hidden card-intelligence border border-white/10 bg-white/5 hover:border-emerald-500/30" padding="none">
                   <div className="relative h-48 bg-gradient-to-br from-emerald-500/20 to-slate-800/50">
                     <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/protected-network.png)' }} />
                     <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950/80" />

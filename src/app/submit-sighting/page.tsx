@@ -425,7 +425,7 @@ export default function SubmitSightingPage() {
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-emerald-500"
                     >
                       {observationMethods.map((method) => (
-                        <option key={method.id} value={method.id} className="bg-slate-800">{method.label}</option>
+                        <option key={method.id} value={method.id} className="bg-white/5">{method.label}</option>
                       ))}
                     </select>
                   </div>
@@ -466,9 +466,9 @@ export default function SubmitSightingPage() {
                     onChange={(e) => setHabitatType(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-emerald-500"
                   >
-                    <option value="" className="bg-slate-800">Select habitat type (optional)</option>
+                    <option value="" className="bg-white/5">Select habitat type (optional)</option>
                     {habitatTypes.map((habitat) => (
-                      <option key={habitat.id} value={habitat.id} className="bg-slate-800">{habitat.label}</option>
+                      <option key={habitat.id} value={habitat.id} className="bg-white/5">{habitat.label}</option>
                     ))}
                   </select>
                 </div>

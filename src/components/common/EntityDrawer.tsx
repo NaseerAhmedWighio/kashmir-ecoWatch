@@ -108,7 +108,7 @@ export function EntityDrawer({ isOpen, onClose, entity }: EntityDrawerProps) {
 
               {/* Location */}
               {entity.location && (
-                <div className="glass-light rounded-xl p-4 border border-white/5">
+                <div className="glass-light rounded-xl p-4 border border-white/10">
                   <div className="flex items-center gap-2 mb-2">
                     <MapPin className="w-4 h-4 text-slate-400" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Location</span>
@@ -122,7 +122,7 @@ export function EntityDrawer({ isOpen, onClose, entity }: EntityDrawerProps) {
 
               {/* Metrics */}
               {entity.metrics && entity.metrics.length > 0 && (
-                <div className="glass-light rounded-xl p-4 border border-white/5">
+                <div className="glass-light rounded-xl p-4 border border-white/10">
                   <div className="flex items-center gap-2 mb-4">
                     <TrendingUp className="w-4 h-4 text-slate-400" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Key Metrics</span>
@@ -140,7 +140,7 @@ export function EntityDrawer({ isOpen, onClose, entity }: EntityDrawerProps) {
 
               {/* Status */}
               {entity.status && (
-                <div className="glass-light rounded-xl p-4 border border-white/5">
+                <div className="glass-light rounded-xl p-4 border border-white/10">
                   <div className="flex items-center gap-2 mb-2">
                     <Activity className="w-4 h-4 text-slate-400" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Status</span>

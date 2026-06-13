@@ -264,7 +264,7 @@ function OverviewTab({ entity }: { entity: WaterEntity }) {
     <div className="space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
-          <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+          <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
             <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
             <p className="text-slate-400 leading-relaxed mb-6">{entity.description}</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -297,7 +297,7 @@ function OverviewTab({ entity }: { entity: WaterEntity }) {
             </div>
           </Card>
 
-          <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+          <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
             <h2 className="text-2xl font-bold text-white mb-4">Location</h2>
             <div className="relative h-64 rounded-xl bg-gradient-to-br from-blue-500/10 to-slate-800/50 border border-white/10 flex items-center justify-center">
               <div className="text-center">
@@ -312,7 +312,7 @@ function OverviewTab({ entity }: { entity: WaterEntity }) {
         </div>
 
         <div className="space-y-6">
-          <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+          <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
             <h3 className="text-lg font-bold text-white mb-4">Quick Stats</h3>
             <div className="space-y-3">
               {entity.area && (
@@ -342,7 +342,7 @@ function OverviewTab({ entity }: { entity: WaterEntity }) {
             </div>
           </Card>
 
-          <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+          <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
             <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
             <div className="space-y-2">
               <Button variant="outline" size="sm" className="w-full border-white/20 text-white justify-start" icon={<FileText className="w-4 h-4" />}>
@@ -366,7 +366,7 @@ function OverviewTab({ entity }: { entity: WaterEntity }) {
 function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
   return (
     <div className="space-y-6">
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-6">Water Quality Parameters</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
@@ -381,7 +381,7 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
             { label: 'TDS', value: waterQuality.totalDissolvedSolids || 'N/A', unit: 'mg/L', status: 'neutral' },
             { label: 'Fecal Coliform', value: waterQuality.fecalColiform || 'N/A', unit: 'CFU/100mL', status: (waterQuality.fecalColiform || 0) <= 200 ? 'good' : 'warning' },
           ].map((param, idx) => (
-            <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="text-xs text-slate-500 uppercase mb-1">{param.label}</div>
               <div className="text-2xl font-bold text-white">
                 {param.value} <span className="text-sm text-slate-500">{param.unit}</span>
@@ -396,10 +396,10 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
         </div>
       </Card>
 
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-4">Quality Trends</h2>
         <div className="grid grid-cols-3 gap-4">
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
             <div className="text-xs text-slate-500 uppercase mb-2">pH Trend</div>
             <div className={`text-lg font-bold ${
               waterQuality.trends?.pH === 'improving' ? 'text-emerald-400' :
@@ -408,7 +408,7 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
               {waterQuality.trends?.pH?.toUpperCase() || 'STABLE'}
             </div>
           </div>
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
             <div className="text-xs text-slate-500 uppercase mb-2">Oxygen Trend</div>
             <div className={`text-lg font-bold ${
               waterQuality.trends?.dissolvedOxygen === 'improving' ? 'text-emerald-400' :
@@ -417,7 +417,7 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
               {waterQuality.trends?.dissolvedOxygen?.toUpperCase() || 'STABLE'}
             </div>
           </div>
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
             <div className="text-xs text-slate-500 uppercase mb-2">Turbidity Trend</div>
             <div className={`text-lg font-bold ${
               waterQuality.trends?.turbidity === 'improving' ? 'text-emerald-400' :
@@ -436,48 +436,48 @@ function WaterQualityTab({ waterQuality }: { waterQuality: WaterQualityData }) {
 function HydrologyTab({ hydrology, type }: { hydrology: HydrologicalData; type: string }) {
   return (
     <div className="space-y-6">
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-6">Hydrological Data</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {hydrology.flowRate && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="text-xs text-slate-500 uppercase mb-1">Flow Rate</div>
               <div className="text-2xl font-bold text-white">{hydrology.flowRate} <span className="text-sm text-slate-500">m³/s</span></div>
             </div>
           )}
           {hydrology.discharge && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="text-xs text-slate-500 uppercase mb-1">Discharge</div>
               <div className="text-2xl font-bold text-white">{hydrology.discharge} <span className="text-sm text-slate-500">M m³/yr</span></div>
             </div>
           )}
           {hydrology.rechargeRate && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="text-xs text-slate-500 uppercase mb-1">Recharge Rate</div>
               <div className="text-2xl font-bold text-white">{hydrology.rechargeRate} <span className="text-sm text-slate-500">mm/yr</span></div>
             </div>
           )}
           {hydrology.waterLevel && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="text-xs text-slate-500 uppercase mb-1">Water Level</div>
               <div className="text-2xl font-bold text-white">{hydrology.waterLevel} <span className="text-sm text-slate-500">m</span></div>
             </div>
           )}
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
             <div className="text-xs text-slate-500 uppercase mb-1">Seasonal Variation</div>
             <div className="text-2xl font-bold text-white capitalize">{hydrology.seasonalVariation}</div>
           </div>
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
             <div className="text-xs text-slate-500 uppercase mb-1">Water Source</div>
             <div className="text-2xl font-bold text-white capitalize">{hydrology.source}</div>
           </div>
           {hydrology.drainageArea && (
-            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="text-xs text-slate-500 uppercase mb-1">Drainage Area</div>
               <div className="text-2xl font-bold text-white">{hydrology.drainageArea} <span className="text-sm text-slate-500">km²</span></div>
             </div>
           )}
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
             <div className="text-xs text-slate-500 uppercase mb-1">Flood Risk</div>
             <div className={`text-2xl font-bold capitalize ${
               hydrology.floodRisk === 'critical' ? 'text-red-400' :
@@ -496,12 +496,12 @@ function HydrologyTab({ hydrology, type }: { hydrology: HydrologicalData; type: 
 // Biodiversity Tab
 function BiodiversityTab({ biodiversity }: { biodiversity: string[] }) {
   return (
-    <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+    <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
       <h2 className="text-2xl font-bold text-white mb-6">Biodiversity</h2>
       {biodiversity.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {biodiversity.map((species, idx) => (
-            <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+            <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
                   <Activity className="w-5 h-5 text-emerald-400" />
@@ -522,7 +522,7 @@ function BiodiversityTab({ biodiversity }: { biodiversity: string[] }) {
 // Threats Tab
 function ThreatsTab({ threats }: { threats: string[] }) {
   return (
-    <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+    <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
       <h2 className="text-2xl font-bold text-white mb-6">Threats</h2>
       {threats.length > 0 ? (
         <div className="space-y-4">
@@ -549,7 +549,7 @@ function ThreatsTab({ threats }: { threats: string[] }) {
 function FisheryTab({ fishery }: { fishery: FisheryData }) {
   return (
     <div className="space-y-6">
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-6">Fishery Information</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
@@ -602,7 +602,7 @@ function FisheryTab({ fishery }: { fishery: FisheryData }) {
 function FloodRiskTab({ floodRisk }: { floodRisk: FloodRiskData }) {
   return (
     <div className="space-y-6">
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-6">Flood Risk Assessment</h2>
         
         <div className={`p-6 rounded-xl mb-6 ${
@@ -677,7 +677,7 @@ function FloodRiskTab({ floodRisk }: { floodRisk: FloodRiskData }) {
             <h3 className="text-lg font-bold text-white mb-4 mt-6">Historical Flood Events</h3>
             <div className="space-y-3">
               {floodRisk.historicalEvents.map((event, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-lg font-bold text-white">{event.year}</span>
                     <Badge variant={event.severity === 'catastrophic' || event.severity === 'severe' ? 'danger' : 'warning'} size="sm">
@@ -699,7 +699,7 @@ function FloodRiskTab({ floodRisk }: { floodRisk: FloodRiskData }) {
 function RestorationTab({ restoration }: { restoration: RestorationData }) {
   return (
     <div className="space-y-6">
-      <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+      <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
         <h2 className="text-2xl font-bold text-white mb-6">Restoration Project</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -728,7 +728,7 @@ function RestorationTab({ restoration }: { restoration: RestorationData }) {
         </div>
 
         {restoration.areaTreated && (
-          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] mb-6">
+          <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 mb-6">
             <div className="text-sm text-slate-500 uppercase mb-2">Area Treated</div>
             <div className="text-2xl font-bold text-white">{restoration.areaTreated} km²</div>
           </div>
@@ -764,7 +764,7 @@ function RestorationTab({ restoration }: { restoration: RestorationData }) {
           </>
         )}
 
-        <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+        <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
           <div className="flex items-center gap-3">
             <Leaf className="w-5 h-5 text-emerald-400" />
             <div>
@@ -783,14 +783,14 @@ function RelatedTab({ relatedEntities, color }: { relatedEntities: WaterEntity[]
   const router = useRouter();
   
   return (
-    <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+    <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
       <h2 className="text-2xl font-bold text-white mb-6">Related Water Bodies</h2>
       {relatedEntities.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {relatedEntities.slice(0, 6).map((related, idx) => (
             <div
               key={idx}
-              className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] cursor-pointer hover:border-white/20 transition-all"
+              className="p-4 rounded-xl bg-slate-800/50 border border-white/10 cursor-pointer hover:border-white/20 transition-all"
               onClick={() => router.push(`/water-systems/${related.type === 'river' || related.type === 'stream' ? 'rivers' : related.type === 'spring' ? 'springs' : related.type === 'wetland' ? 'wetlands' : 'lakes'}/${related.slug}`)}
             >
               <div className="flex items-center gap-3 mb-2">

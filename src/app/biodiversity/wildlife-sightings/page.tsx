@@ -129,13 +129,13 @@ export default function WildlifeSightingsPage() {
                 placeholder="Search species or location..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder:text-slate-500 focus:border-emerald-500/50 outline-none"
+                className="w-full pl-9 pr-4 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:border-emerald-500/50 outline-none"
               />
             </div>
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value as VerificationStatus | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
+              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
             >
               <option value="all">All Status</option>
               <option value="verified">Verified</option>
@@ -146,7 +146,7 @@ export default function WildlifeSightingsPage() {
             <select
               value={filterTaxon}
               onChange={(e) => setFilterTaxon(e.target.value as TaxonomicGroup | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
+              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
             >
               <option value="all">All Taxa</option>
               {taxa.map(t => <option key={t} value={t}>{t.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</option>)}
@@ -154,7 +154,7 @@ export default function WildlifeSightingsPage() {
             <select
               value={filterDistrict}
               onChange={(e) => setFilterDistrict(e.target.value as KashmirDistrict | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
+              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
             >
               <option value="all">All Districts</option>
               {districts.map(d => <option key={d} value={d}>{d}</option>)}

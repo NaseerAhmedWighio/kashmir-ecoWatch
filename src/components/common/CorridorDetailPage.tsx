@@ -177,7 +177,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               </div>
 
               {/* Quick Score Circle */}
-              <Card className="card-intelligence border border-white/[0.06] bg-transparent backdrop-blur-sm shadow-xl p-6 w-full lg:max-w-xs shrink-0 flex flex-col items-center justify-center text-center">
+              <Card className="card-intelligence border border-white/10 bg-transparent backdrop-blur-sm shadow-xl p-6 w-full lg:max-w-xs shrink-0 flex flex-col items-center justify-center text-center">
                 <div className="relative w-28 h-28 flex items-center justify-center mb-3">
                   {/* Outer circle */}
                   <svg className="w-full h-full transform -rotate-90">
@@ -270,7 +270,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
             >
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-2 space-y-6">
-                  <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                  <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                     <h2 className="text-2xl font-bold text-white mb-4">Corridor Profile</h2>
                     <p className="text-slate-400 leading-relaxed mb-6">{corridor.description}</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-white/[0.06]">
@@ -321,7 +321,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                     </div>
                   </Card>
 
-                  <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                  <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                     <h2 className="text-2xl font-bold text-white mb-4">Habitat Typology</h2>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {(corridor.linked_habitats || corridor.habitat_types || corridor.habitatTypes)?.map((habitat, idx) => (
@@ -340,7 +340,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
 
                 {/* Sidebar Intelligence Scores */}
                 <div className="space-y-6">
-                  <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                  <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                     <h3 className="text-lg font-bold text-white mb-4">Intelligence Scores</h3>
                     <div className="space-y-4">
                       {indicators.map((indicator, idx) => (
@@ -370,17 +370,17 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-6">Connected Protected Area Network</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {mappedPAs.map((pa, idx) => (
                     <motion.a
                       key={idx}
                       href={pa.href}
-                      className="p-4 rounded-xl bg-slate-900 border border-white/[0.06] hover:border-emerald-500/30 hover:bg-slate-850/80 transition-all duration-300 flex items-center justify-between group"
+                      className="p-4 rounded-xl bg-slate-900 border border-white/10 hover:border-emerald-500/30 hover:bg-slate-850/80 transition-all duration-300 flex items-center justify-between group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-emerald-950/20 flex items-center justify-center shrink-0 border border-white/[0.06]">
+                        <div className="w-10 h-10 rounded-lg bg-emerald-950/20 flex items-center justify-center shrink-0 border border-white/10">
                           <MapPin className="w-5 h-5 text-emerald-400" />
                         </div>
                         <div>
@@ -406,7 +406,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-2">Species Connectivity & Movement</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   {corridor.connectivity_function || 'Ensures genetic exchange, winter migration, and daily foraging movements for mountain and valley wildlife.'}
@@ -429,10 +429,10 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                     <motion.a
                       key={idx}
                       href={`/protected-network/species-intelligence/${speciesSlug}`}
-                      className="p-4 rounded-xl bg-slate-900 border border-white/[0.06] hover:border-emerald-500/30 hover:bg-slate-850/80 transition-all duration-300 flex items-center justify-between group"
+                      className="p-4 rounded-xl bg-slate-900 border border-white/10 hover:border-emerald-500/30 hover:bg-slate-850/80 transition-all duration-300 flex items-center justify-between group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-emerald-950/20 flex items-center justify-center shrink-0 border border-white/[0.06]">
+                        <div className="w-10 h-10 rounded-lg bg-emerald-950/20 flex items-center justify-center shrink-0 border border-white/10">
                           <Activity className="w-5 h-5 text-emerald-400" />
                         </div>
                         <div>
@@ -456,7 +456,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-4">Habitat Typology & Linkages</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   Kashmir's terrain requires diverse stepping-stones and continuous habitat complexes to maintain genetic links between isolated mountain networks.
@@ -494,7 +494,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-2">Habitat Fragmentation Profile</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   Analysis of structural and functional fragmentation elements interrupting wildlife movement pathways across this corridor.
@@ -503,14 +503,14 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Left Column: Metrics */}
                   <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                    <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                       <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold block mb-1">Fragmentation Risk Index</span>
                       <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-bold text-red-400">{corridor.fragmentationRisk || 45}%</span>
                         <span className="text-xs text-slate-500">structural resistance</span>
                       </div>
                     </div>
-                    <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                    <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                       <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold block mb-1">Connectivity Integrity Score</span>
                       <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-bold text-emerald-400">{corridor.connectivity_integrity_score || corridor.connectivityIntegrity || 75}/100</span>
@@ -521,7 +521,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
 
                   {/* Right Column: Barriers and Sources */}
                   <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                    <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                       <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold block mb-2">Primary Barrier Types</span>
                       <div className="flex flex-wrap gap-1.5">
                         {corridor.barrier_types && corridor.barrier_types.length > 0 ? (
@@ -535,7 +535,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                         )}
                       </div>
                     </div>
-                    <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                    <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                       <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold block mb-2">Primary Fragmentation Sources</span>
                       <div className="flex flex-wrap gap-1.5">
                         {corridor.fragmentation_sources && corridor.fragmentation_sources.length > 0 ? (
@@ -559,7 +559,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-2">Ecological Bottlenecks</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   Specific, localized pressure points where high-intensity human footprints or infrastructure restrict wildlife corridors to narrow, highly vulnerable pinch-points.
@@ -568,7 +568,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                 {activeFragmentationHotspots.length > 0 ? (
                   <div className="space-y-4">
                     {activeFragmentationHotspots.map((hotspot) => (
-                      <div key={hotspot.id} className="p-4 rounded-xl bg-slate-900 border border-white/[0.06] hover:border-emerald-500/20 transition-all duration-300">
+                      <div key={hotspot.id} className="p-4 rounded-xl bg-slate-900 border border-white/10 hover:border-emerald-500/30 transition-all duration-300">
                         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-2">
                           <div>
                             <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold mr-2">{hotspot.category}</span>
@@ -577,14 +577,14 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                             </Badge>
                             <h4 className="text-lg font-bold text-white mt-1">{hotspot.name}</h4>
                           </div>
-                          <span className="text-xs text-slate-400 bg-slate-850 px-2 py-1 rounded border border-white/[0.06] self-start">📍 {hotspot.location}</span>
+                          <span className="text-xs text-slate-400 bg-slate-850 px-2 py-1 rounded border border-white/10 self-start">📍 {hotspot.location}</span>
                         </div>
                         <p className="text-sm text-slate-300 mb-3">{hotspot.description}</p>
                         <div className="pt-2 border-t border-white/[0.06]">
                           <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold block mb-1">Mitigation Measures</span>
                           <div className="flex flex-wrap gap-1.5">
                             {hotspot.mitigationMeasures.map((measure, mIdx) => (
-                              <span key={mIdx} className="text-xs bg-slate-800 border border-white/[0.06] text-slate-300 px-2 py-0.5 rounded">
+                              <span key={mIdx} className="text-xs bg-slate-800 border border-white/10 text-slate-300 px-2 py-0.5 rounded">
                                 {measure}
                               </span>
                             ))}
@@ -610,7 +610,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-2">Threat Signals & Risks</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   General threat assessment indicates the following active pressure points along the corridor boundaries.
@@ -640,7 +640,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-4">Corridor Restoration Priorities</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   Restoring broken linkages requires purchasing land buffers, creating agricultural corridors, implementing grazing rotations, and constructing wildlife overpasses/underpasses.
@@ -660,7 +660,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                 <h3 className="text-lg font-bold text-white mb-4">Key Restoration Interventions</h3>
                 <div className="space-y-3">
                   {corridor.conservationMeasures.map((measure, idx) => (
-                    <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-white/[0.06]">
+                    <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-white/10">
                       <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" />
                       <span className="text-sm text-slate-300">{measure}</span>
                     </div>
@@ -676,15 +676,15 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-4">Assessments & Scientific Publications</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                     <span className="text-xs text-slate-500 uppercase tracking-wider block mb-1">Primary Source Authority</span>
                     <span className="text-sm font-semibold text-white">{corridor.source_primary || 'J&K Department of Wildlife Protection'}</span>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                     <span className="text-xs text-slate-500 uppercase tracking-wider block mb-1">Literature Citation</span>
                     <span className="text-sm font-semibold text-white">{corridor.source_literature || 'WII Wildlife Corridor Reports (2024)'}</span>
                   </div>
@@ -699,7 +699,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                     { title: `Structural and Functional Connectivity Modeling for ${corridor.name}`, journal: corridor.source_literature || 'Journal of Landscape Ecology (2024)', status: 'Indexed' },
                     { title: 'Mitigating Infrastructure Barriers: Design Standards for Wildlife Crossings in Kashmir', journal: 'UT Forest Department Tech Report (2023)', status: 'Approved' }
                   ].map((study, idx) => (
-                    <div key={idx} className="p-3 rounded-lg bg-slate-900 border border-white/[0.06] flex items-start justify-between gap-4">
+                    <div key={idx} className="p-3 rounded-lg bg-slate-900 border border-white/10 flex items-start justify-between gap-4">
                       <div>
                         <h4 className="text-sm font-semibold text-white">{study.title}</h4>
                         <p className="text-xs text-slate-500 mt-1">{study.journal}</p>
@@ -718,9 +718,9 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-4">GIS Spatial Layers</h2>
-                <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06] mb-6 flex items-center justify-between">
+                <div className="p-4 rounded-xl bg-slate-900 border border-white/10 mb-6 flex items-center justify-between">
                   <div>
                     <span className="text-xs text-slate-500 uppercase tracking-wider">GIS Layer Status</span>
                     <h4 className="text-base font-bold text-white mt-1">{corridor.gis_layer_status || 'Available'}</h4>
@@ -737,9 +737,9 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
                     { name: 'Corridor Centerline Vector', file: `${corridor.slug}_centerline.geojson`, size: '120 KB', type: 'Vector / Line' },
                     { name: 'Resistant Surface Raster Index', file: `${corridor.slug}_resistance_surface.tif`, size: '12.4 MB', type: 'Raster / GeoTIFF' }
                   ].map((layer, idx) => (
-                    <div key={idx} className="p-4 rounded-xl bg-slate-900 border border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div key={idx} className="p-4 rounded-xl bg-slate-900 border border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-emerald-950/20 flex items-center justify-center shrink-0 border border-white/[0.06]">
+                        <div className="w-10 h-10 rounded-lg bg-emerald-950/20 flex items-center justify-center shrink-0 border border-white/10">
                           <Layers className="w-5 h-5 text-emerald-400" />
                         </div>
                         <div>

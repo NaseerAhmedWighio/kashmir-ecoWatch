@@ -93,7 +93,7 @@ export function ProtectedAreaMapPage({ area, backHref, categoryLabel, categoryHr
   const tile = TILE_LAYERS[activeLayer];
   const connections = CONNECTIVITY[area.slug] ?? [];
 
-  const CARD = 'bg-white/[0.03] backdrop-blur-xl border border-white/[0.06]';
+  const CARD = 'bg-white/5 border border-white/10';
 
   return (
     <main className="min-h-screen bg-slate-950">

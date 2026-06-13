@@ -421,7 +421,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
     { id: 'reports',    label: 'Reports',          icon: FileText },
   ];
 
-  const CARD = 'card-intelligence border border-white/5 bg-transparent backdrop-blur-sm shadow-xl';
+  const CARD = 'card-intelligence border border-white/10 bg-white/5 backdrop-blur-sm shadow-xl';
   const SECTION_TITLE = 'text-xl font-bold text-white mb-5';
 
   return (
@@ -1307,7 +1307,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                     </div>
 
                     <div className="lg:col-span-2 space-y-4">
-                      <div className="relative h-96 rounded-xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl flex items-center justify-center overflow-hidden">
+                      <div className="relative h-96 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center overflow-hidden">
                         <div className="absolute inset-0 bg-grid opacity-10" />
                         <div className="text-center relative z-10 p-6">
                           <MapPin className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
@@ -1677,7 +1677,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                   <h2 className={SECTION_TITLE}>Known Species Records</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {area.keySpecies.map((sp, i) => (
-                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/20 transition-colors cursor-pointer">
+                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/30 transition-colors cursor-pointer">
                         <div className="w-8 h-8 rounded-lg bg-purple-500/15 flex items-center justify-center">
                           <Activity className="w-4 h-4 text-purple-400" />
                         </div>
@@ -1809,7 +1809,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                       { name: 'Forest Loop Trail', length: '5 km', difficulty: 'Moderate', type: 'Nature Trail' },
                       { name: 'Summit View Trail', length: '8 km', difficulty: 'Challenging', type: 'Trekking Route' },
                     ].map((trail, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-4 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/20 transition-colors">
+                      <div key={idx} className="flex items-center justify-between p-4 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/30 transition-colors">
                         <div>
                           <h3 className="text-sm font-semibold text-white mb-1">{trail.name}</h3>
                           <div className="flex items-center gap-3 text-xs text-slate-500">
@@ -1919,7 +1919,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                           { label: 'Secondary Source', value: area.source_secondary || 'J&K Protected Area Network Atlas', url: undefined },
                           { label: 'Literature / Citations', value: area.source_literature || 'Key Biodiversity Areas Registry / JoTT research databases', url: undefined },
                         ].map((src, idx) => (
-                          <div key={idx} className="p-4 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/20 transition-colors">
+                          <div key={idx} className="p-4 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/30 transition-colors">
                             <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold mb-1">{src.label}</div>
                             <div className="text-sm font-medium text-white mb-2 leading-snug">{src.value}</div>
                             {src.url ? (
@@ -2111,7 +2111,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                       { title: 'Species Monitoring Summary', type: 'Monitoring Data', year: 2024, source: 'Field Research Unit' },
                       { title: 'Biodiversity Baseline Survey', type: 'Biodiversity Survey', year: 2022, source: 'WII / GBIF' },
                     ].map((report, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-4 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/20 transition-colors">
+                      <div key={idx} className="flex items-center justify-between p-4 rounded-xl bg-white/3 border border-white/5 hover:border-emerald-500/30 transition-colors">
                         <div className="flex items-center gap-3">
                           <div className="w-9 h-9 rounded-lg bg-amber-500/15 flex items-center justify-center shrink-0">
                             <FileText className="w-4 h-4 text-amber-400" />
@@ -2262,8 +2262,8 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                   className="block group"
                   whileHover={{ y: -3 }}
                 >
-                  <Card className="h-full flex flex-col card-intelligence border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl" padding="none">
-                    <div className="relative h-28 bg-white/[0.03]">
+                  <Card className="h-full flex flex-col card-intelligence border border-white/10 bg-white/5" padding="none">
+                    <div className="relative h-28 bg-white/5">
                       <div className="absolute bottom-3 left-4 right-4">
                         <div className="flex flex-wrap gap-1 mb-1">
                           <Badge variant="info" size="sm" className="capitalize text-[10px]">{related.category.replace(/_/g, ' ')}</Badge>

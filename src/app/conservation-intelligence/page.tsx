@@ -1024,7 +1024,7 @@ export default function ConservationIntelligencePage() {
             {dashboardKPIs.map((kpi, idx) => (
               <Card 
                 key={idx} 
-                className="card-intelligence border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl hover:border-emerald-500/20 p-4 transition-all duration-300"
+                className="card-intelligence border border-white/10 bg-white/5 hover:border-emerald-500/30 p-4 transition-all duration-300"
               >
                 <div className="flex justify-between items-start mb-2">
                   <kpi.icon className="w-5 h-5 text-emerald-500" />
@@ -1056,7 +1056,7 @@ export default function ConservationIntelligencePage() {
             
             {/* Left selector menu of the 10 models */}
             <div className="lg:col-span-4 space-y-3">
-              <div className="p-4 bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-xl">
+              <div className="p-4 bg-white/5 border border-white/10 rounded-xl">
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-2">
                   Top 10 Recommended Models
                 </h3>
@@ -1076,7 +1076,7 @@ export default function ConservationIntelligencePage() {
                     className={`w-full text-left p-3 rounded-lg border transition-all duration-200 flex items-center justify-between group ${
                       selectedModel === model.id
                         ? 'bg-gradient-to-r from-emerald-950/40 to-teal-950/40 border-emerald-500/50 text-white'
-                        : 'bg-[#160C27] border-white/5 text-slate-400 hover:text-white hover:border-white/10'
+                        : 'bg-white/5 border-white/5 text-slate-400 hover:text-white hover:border-white/10'
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -1102,7 +1102,7 @@ export default function ConservationIntelligencePage() {
 
             {/* Right Interactive Simulator Pane */}
             <div className="lg:col-span-8">
-              <Card className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl h-full" padding="lg">
+              <Card className="border border-white/10 bg-white/5 h-full" padding="lg">
                 
                 {/* Active Model Title */}
                 {(() => {
@@ -1138,12 +1138,12 @@ export default function ConservationIntelligencePage() {
                               <select
                                 value={pahiPA}
                                 onChange={(e) => setPahiPA(e.target.value)}
-                                className="w-full bg-black/40 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
+                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
                               >
-                                <option value="Dachigam" className="bg-[#160C27]">Dachigam National Park</option>
-                                <option value="Hokersar" className="bg-[#160C27]">Hokersar Wetland Reserve</option>
-                                <option value="Wular" className="bg-[#160C27]">Wular Lake Wetland</option>
-                                <option value="Gulmarg" className="bg-[#160C27]">Gulmarg Wildlife Sanctuary</option>
+                                <option value="Dachigam" className="bg-white/5">Dachigam National Park</option>
+                                <option value="Hokersar" className="bg-white/5">Hokersar Wetland Reserve</option>
+                                <option value="Wular" className="bg-white/5">Wular Lake Wetland</option>
+                                <option value="Gulmarg" className="bg-white/5">Gulmarg Wildlife Sanctuary</option>
                               </select>
                             </div>
 
@@ -1222,7 +1222,7 @@ export default function ConservationIntelligencePage() {
                               <select
                                 value={cpiArea}
                                 onChange={(e) => handleCpiAreaChange(e.target.value)}
-                                className="w-full bg-black/40 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
+                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
                               >
                                 <option value="Hokersar">Hokersar Wetland Reserve</option>
                                 <option value="Wular">Wular Lake reserve</option>
@@ -1301,7 +1301,7 @@ export default function ConservationIntelligencePage() {
                               <select
                                 value={sciSpecies}
                                 onChange={(e) => handleSciSpeciesChange(e.target.value)}
-                                className="w-full bg-black/40 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
+                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
                               >
                                 <option value="Hangul">Hangul (Kashmir Stag)</option>
                                 <option value="Snow Leopard">Snow Leopard</option>
@@ -1371,7 +1371,7 @@ export default function ConservationIntelligencePage() {
                               <select
                                 value={habitatName}
                                 onChange={(e) => setHabitatName(e.target.value)}
-                                className="w-full bg-black/40 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
+                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
                               >
                                 <option value="Wular Wetland">Wular Wetland Systems</option>
                                 <option value="Dachigam Alpine Meadow">Dachigam Sub-Alpine Grasslands</option>
@@ -1423,7 +1423,7 @@ export default function ConservationIntelligencePage() {
                               <select
                                 value={corridorName}
                                 onChange={(e) => setCorridorName(e.target.value)}
-                                className="w-full bg-black/40 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
+                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
                               >
                                 <option value="Dachigam-Overa">Dachigam - Tral - Overa Corridor</option>
                                 <option value="Kishtwar-Kailash">Kishtwar High-Altitude Passages</option>
@@ -1470,7 +1470,7 @@ export default function ConservationIntelligencePage() {
                                 <select
                                   value={suitSpecies}
                                   onChange={(e) => { setSuitSpecies(e.target.value); setSelectedCell(null); }}
-                                  className="bg-[#160C27] border border-white/10 text-white rounded p-1 text-xs outline-none"
+                                  className="bg-white/5 border border-white/10 text-white rounded p-1 text-xs outline-none"
                                 >
                                   <option value="Hangul">Hangul (Kashmir Stag)</option>
                                   <option value="Snow Leopard">Snow Leopard</option>
@@ -1486,7 +1486,7 @@ export default function ConservationIntelligencePage() {
                                     type="checkbox"
                                     checked={checked}
                                     onChange={(e) => { setSuitLayers(prev => ({ ...prev, [layer]: e.target.checked })); setSelectedCell(null); }}
-                                    className="rounded bg-black/40 border-white/10 text-emerald-500 accent-emerald-500"
+                                    className="rounded bg-white/5 border-white/10 text-emerald-500 accent-emerald-500"
                                   />
                                   <span className="capitalize">{layer.replace('disturbance', 'Human Disturbance')}</span>
                                 </label>
@@ -1498,7 +1498,7 @@ export default function ConservationIntelligencePage() {
                             {/* Visual Grid Map */}
                             <div>
                               <div className="text-xs font-bold text-slate-400 mb-2 uppercase">Spatial Suitability Grid Map (Kashmir Landscape)</div>
-                              <div className="grid grid-cols-6 gap-1.5 bg-black/40 p-4 rounded-xl border border-white/5">
+                              <div className="grid grid-cols-6 gap-1.5 bg-white/5 p-4 rounded-xl border border-white/5">
                                 {getSuitabilityGrid().map((row, r) => 
                                   row.map((val, c) => (
                                     <button
@@ -1571,7 +1571,7 @@ export default function ConservationIntelligencePage() {
                               <select
                                 value={encroachmentArea}
                                 onChange={(e) => setEncroachmentArea(e.target.value)}
-                                className="bg-[#160C27] border border-white/10 text-white rounded p-1 text-xs outline-none"
+                                className="bg-white/5 border border-white/10 text-white rounded p-1 text-xs outline-none"
                               >
                                 <option value="Khrew">Khrew Conservation Reserve</option>
                                 <option value="Hokersar">Hokersar Wetland</option>
@@ -1599,7 +1599,7 @@ export default function ConservationIntelligencePage() {
 
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Imagery Comparison Mock */}
-                            <div className="bg-black/40 rounded-xl p-4 border border-white/5 flex flex-col justify-center items-center relative overflow-hidden h-[250px]">
+                            <div className="bg-white/5 rounded-xl p-4 border border-white/5 flex flex-col justify-center items-center relative overflow-hidden h-[250px]">
                               {compareYear === 2025 ? (
                                 <div className="text-center space-y-2">
                                   <div className="w-32 h-32 rounded-full border-2 border-emerald-500/20 bg-gradient-to-br from-emerald-900/40 to-teal-900/40 flex items-center justify-center text-emerald-400 text-xs">
@@ -1671,7 +1671,7 @@ export default function ConservationIntelligencePage() {
                               <select
                                 value={climateTarget}
                                 onChange={(e) => setClimateTarget(e.target.value)}
-                                className="w-full bg-black/40 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
+                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
                               >
                                 <option value="Hangul">Hangul (Species Target)</option>
                                 <option value="Hokersar">Hokersar Wetland (Habitat Target)</option>
@@ -1761,7 +1761,7 @@ export default function ConservationIntelligencePage() {
                           <div className="bg-black/20 rounded-xl border border-white/5 overflow-hidden">
                             <table className="w-full text-left border-collapse text-xs">
                               <thead>
-                                <tr className="border-b border-white/10 bg-black/40 text-slate-400">
+                                <tr className="border-b border-white/10 bg-white/5 text-slate-400">
                                   <th className="p-3">Target Name</th>
                                   <th className="p-3">Gap Level</th>
                                   <th className="p-3">Post-2015 Papers</th>
@@ -1822,7 +1822,7 @@ export default function ConservationIntelligencePage() {
                           </div>
 
                           {/* Chat Output */}
-                          <div className="bg-black/40 rounded-xl p-5 border border-white/5 min-h-[200px] flex flex-col justify-center">
+                          <div className="bg-white/5 rounded-xl p-5 border border-white/5 min-h-[200px] flex flex-col justify-center">
                             {isAnalystLoading ? (
                               <div className="text-center space-y-2 py-8">
                                 <motion.div 
@@ -1868,7 +1868,7 @@ export default function ConservationIntelligencePage() {
           <div className="space-y-6">
             
             {/* Controls */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] p-4 rounded-xl">
+            <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white/5 border border-white/10 p-4 rounded-xl">
               {/* Search */}
               <div className="relative w-full sm:w-80">
                 <Search className="absolute left-3 top-2.5 w-4 h-4 text-slate-500" />
@@ -1877,7 +1877,7 @@ export default function ConservationIntelligencePage() {
                   placeholder="Search 32 models..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-black/40 border border-white/5 rounded-lg pl-9 pr-4 py-2 text-sm text-white focus:border-emerald-500/50 outline-none"
+                  className="w-full bg-white/5 border border-white/5 rounded-lg pl-9 pr-4 py-2 text-sm text-white focus:border-emerald-500/50 outline-none"
                 />
               </div>
 
@@ -1885,7 +1885,7 @@ export default function ConservationIntelligencePage() {
               <div className="flex flex-wrap gap-2 text-xs">
                 <button
                   onClick={() => setSelectedTier('all')}
-                  className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === 'all' ? 'bg-emerald-600 text-white border-emerald-500' : 'bg-black/40 border-white/5 text-slate-400'}`}
+                  className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === 'all' ? 'bg-emerald-600 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
                 >
                   All Tiers
                 </button>
@@ -1893,7 +1893,7 @@ export default function ConservationIntelligencePage() {
                   <button
                     key={tier}
                     onClick={() => setSelectedTier(tier)}
-                    className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === tier ? 'bg-emerald-600 text-white border-emerald-500' : 'bg-black/40 border-white/5 text-slate-400'}`}
+                    className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === tier ? 'bg-emerald-600 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
                   >
                     Tier {tier}
                   </button>
@@ -1906,7 +1906,7 @@ export default function ConservationIntelligencePage() {
               {filteredModels.map((model) => (
                 <Card 
                   key={model.id} 
-                  className="card-intelligence border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-5 hover:border-emerald-500/20 transition-all duration-200"
+                  className="card-intelligence border border-white/10 bg-white/5 p-5 hover:border-emerald-500/30 transition-all duration-200"
                 >
                   <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-3">
                     <div>
@@ -1988,7 +1988,7 @@ export default function ConservationIntelligencePage() {
               {conservationNetworks.map((network) => {
                 const Icon = network.icon;
                 return (
-                  <Card key={network.id} className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-5 h-full flex flex-col justify-between">
+                  <Card key={network.id} className="border border-white/10 bg-white/5 p-5 h-full flex flex-col justify-between">
                     <div>
                       <div className="flex items-start gap-4 mb-4">
                         <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${network.color} text-white flex items-center justify-center shadow-lg flex-shrink-0`}>
@@ -2030,7 +2030,7 @@ export default function ConservationIntelligencePage() {
                           <Link 
                             key={mIdx} 
                             href={mapItem.path}
-                            className="text-[10px] px-2.5 py-1 rounded bg-[#1f163b] text-slate-300 hover:text-emerald-300 hover:border-emerald-500/20 border border-white/5 transition-all"
+                            className="text-[10px] px-2.5 py-1 rounded bg-[#1f163b] text-slate-300 hover:text-emerald-300 hover:border-emerald-500/30 border border-white/5 transition-all"
                           >
                             {mapItem.module}
                           </Link>
@@ -2051,7 +2051,7 @@ export default function ConservationIntelligencePage() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {researchPartners.map((part, idx) => (
-                  <Card key={idx} className="border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-4 flex flex-col justify-between">
+                  <Card key={idx} className="border border-white/10 bg-white/5 p-4 flex flex-col justify-between">
                     <div>
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-xs font-semibold text-white">{part.domain}</span>

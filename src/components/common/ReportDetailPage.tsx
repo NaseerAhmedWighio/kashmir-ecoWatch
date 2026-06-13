@@ -139,7 +139,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
               </div>
 
               {/* Quick Stats */}
-              <Card className="card-intelligence border border-white/[0.06] bg-transparent backdrop-blur-sm shadow-xl p-6 hidden lg:block">
+              <Card className="card-intelligence border border-white/10 bg-transparent backdrop-blur-sm shadow-xl p-6 hidden lg:block">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-slate-400" />
@@ -235,7 +235,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 space-y-6">
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h2 className="text-2xl font-bold text-white mb-4">Document Overview</h2>
                   <p className="text-slate-400 leading-relaxed mb-6">{report.description}</p>
                   <div className="grid grid-cols-2 gap-4">
@@ -258,11 +258,11 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
                   </div>
                 </Card>
 
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h2 className="text-2xl font-bold text-white mb-4">Authors & Contributors</h2>
                   <div className="space-y-3">
                     {report.authors.map((author, idx) => (
-                      <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] flex items-center gap-3">
+                      <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10 flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
                           <Users className="w-5 h-5 text-amber-400" />
                         </div>
@@ -277,7 +277,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
               </div>
 
               <div className="space-y-6">
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
                   <div className="space-y-2">
                     <Button 
@@ -301,7 +301,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
                   </div>
                 </Card>
 
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h3 className="text-lg font-bold text-white mb-4">Key Themes</h3>
                   <div className="flex flex-wrap gap-2">
                     {report.themes.map((theme, idx) => (
@@ -322,11 +322,11 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Linked Protected Areas</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {report.linkedAreas.map((area, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] flex items-center gap-3">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10 flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-emerald-400" />
                     </div>
@@ -339,9 +339,9 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-4">Geographic Coverage</h2>
-              <div className="h-64 rounded-xl bg-slate-800/50 border border-white/[0.06] flex items-center justify-center">
+              <div className="h-64 rounded-xl bg-slate-800/50 border border-white/10 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-12 h-12 text-amber-500 mx-auto mb-3" />
                   <p className="text-slate-400 text-sm">Interactive map of linked areas</p>
@@ -358,7 +358,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Key Themes</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {report.themes.map((theme, idx) => (
@@ -383,12 +383,12 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Related Species</h2>
               {report.linkedSpecies.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {report.linkedSpecies.map((species, idx) => (
-                    <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                    <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
                           <Activity className="w-5 h-5 text-purple-400" />
@@ -415,23 +415,23 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Document Metadata</h2>
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="text-xs text-slate-500 uppercase mb-1">Document Type</div>
                     <div className="text-white font-medium">{report.type}</div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="text-xs text-slate-500 uppercase mb-1">Publication Year</div>
                     <div className="text-white font-medium">{report.year}</div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="text-xs text-slate-500 uppercase mb-1">Authors</div>
                     <div className="text-white font-medium">{report.authors.join(', ')}</div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="text-xs text-slate-500 uppercase mb-1">Linked Areas</div>
                     <div className="text-white font-medium">{report.linkedAreas.length} areas</div>
                   </div>
@@ -439,7 +439,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">Cite This Document</h3>

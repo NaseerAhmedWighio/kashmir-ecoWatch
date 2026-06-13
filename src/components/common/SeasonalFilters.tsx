@@ -111,7 +111,7 @@ export const SeasonalFilters: React.FC<SeasonalFiltersProps> = ({
     filterState.selectedHabitats.length;
 
   return (
-    <Card className="border border-white/[0.06] bg-slate-900/50 backdrop-blur-sm">
+    <Card className="border border-white/10 bg-slate-900/50 backdrop-blur-sm">
       <div className="p-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">

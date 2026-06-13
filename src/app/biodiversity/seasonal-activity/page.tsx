@@ -125,11 +125,11 @@ export default function SeasonalActivityPage() {
         {/* Filters */}
         <Card className="border border-white/10 bg-slate-900/50 mb-8" padding="md">
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <select value={filterTaxon} onChange={e => setFilterTaxon(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
+            <select value={filterTaxon} onChange={e => setFilterTaxon(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
               <option value="all">All Taxa</option>
               {taxa.map(t => <option key={t} value={t}>{t}</option>)}
             </select>
-            <select value={filterActivity} onChange={e => setFilterActivity(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
+            <select value={filterActivity} onChange={e => setFilterActivity(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
               <option value="all">All Activity Types</option>
               {activityTypes.map(t => <option key={t} value={t}>{t.replace(/-/g, ' ')}</option>)}
             </select>

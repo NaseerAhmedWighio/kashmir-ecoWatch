@@ -129,7 +129,7 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
               </div>
 
               {/* Quick Stats */}
-              <Card className="card-intelligence border border-white/[0.06] bg-transparent backdrop-blur-sm shadow-xl p-6 hidden lg:block">
+              <Card className="card-intelligence border border-white/10 bg-transparent backdrop-blur-sm shadow-xl p-6 hidden lg:block">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-slate-400" />
@@ -225,7 +225,7 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 space-y-6">
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h2 className="text-2xl font-bold text-white mb-4">Threat Overview</h2>
                   <p className="text-slate-400 leading-relaxed mb-6">{threat.description}</p>
                   <div className="grid grid-cols-2 gap-4">
@@ -248,7 +248,7 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
                   </div>
                 </Card>
 
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h2 className="text-2xl font-bold text-white mb-4">Threat Classification</h2>
                   <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r ${getSeverityColor(threat.severity)} text-white mb-4`}>
                     <AlertTriangle className="w-5 h-5" />
@@ -262,7 +262,7 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
               </div>
 
               <div className="space-y-6">
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
                   <div className="space-y-2">
                     <Button variant="outline" size="sm" className="w-full border-white/20 text-white justify-start" icon={<Bell className="w-4 h-4" />}>
@@ -277,7 +277,7 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
                   </div>
                 </Card>
 
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h3 className="text-lg font-bold text-white mb-4">Monitoring Status</h3>
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
                     <CheckCircle className="w-5 h-5 text-emerald-400" />
@@ -298,11 +298,11 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Signals & Indicators</h2>
               <div className="space-y-4">
                 {threat.indicators.map((indicator, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="flex items-start gap-3">
                       <div className={`w-3 h-3 rounded-full mt-2 ${
                         threat.severity === 'critical' ? 'bg-red-500 signal-pulse' :
@@ -319,9 +319,9 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-4">Indicator Trends</h2>
-              <div className="h-48 rounded-xl bg-slate-800/50 border border-white/[0.06] flex items-center justify-center">
+              <div className="h-48 rounded-xl bg-slate-800/50 border border-white/10 flex items-center justify-center">
                 <div className="text-center">
                   <BarChart3 className="w-12 h-12 text-slate-500 mx-auto mb-3" />
                   <p className="text-slate-400 text-sm">Indicator trend visualization</p>
@@ -338,11 +338,11 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Affected Protected Areas</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {threat.affectedAreas.map((area, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] flex items-center gap-3">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10 flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-red-400" />
                     </div>
@@ -355,11 +355,11 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Impacted Species</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {threat.impactedSpecies.map((species, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
                         <Activity className="w-5 h-5 text-purple-400" />
@@ -380,7 +380,7 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Mitigation Strategies</h2>
               <div className="space-y-4">
                 {threat.mitigationStrategies.map((strategy, idx) => (
@@ -397,18 +397,18 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-4">Conservation Response</h2>
               <p className="text-slate-400 leading-relaxed mb-4">
                 Multiple mitigation strategies are being implemented to address this threat, 
                 involving protected area management, community engagement, and policy interventions.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                   <div className="text-xs text-slate-500 uppercase mb-1">Response Status</div>
                   <div className="text-emerald-400 font-medium">Active</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                   <div className="text-xs text-slate-500 uppercase mb-1">Strategies</div>
                   <div className="text-white font-medium">{threat.mitigationStrategies.length} interventions</div>
                 </div>
@@ -423,7 +423,7 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Monitoring Dashboard Preview</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <div className="p-6 rounded-xl bg-gradient-to-br from-red-500/10 to-slate-800/50 border border-red-500/30">
@@ -442,7 +442,7 @@ export function ThreatDetailPage({ threat, relatedThreats = [] }: ThreatDetailPa
                   <div className="text-sm text-slate-400">Active Interventions</div>
                 </div>
               </div>
-              <div className="h-64 rounded-xl bg-slate-800/50 border border-white/[0.06] flex items-center justify-center">
+              <div className="h-64 rounded-xl bg-slate-800/50 border border-white/10 flex items-center justify-center">
                 <div className="text-center">
                   <BarChart3 className="w-12 h-12 text-slate-500 mx-auto mb-3" />
                   <p className="text-slate-400 text-sm">Full dashboard with charts and analytics</p>

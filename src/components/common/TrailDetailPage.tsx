@@ -131,7 +131,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
               </div>
 
               {/* Quick Stats */}
-              <Card className="card-intelligence border border-white/[0.06] bg-transparent backdrop-blur-sm shadow-xl p-6 hidden lg:block">
+              <Card className="card-intelligence border border-white/10 bg-transparent backdrop-blur-sm shadow-xl p-6 hidden lg:block">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Ruler className="w-5 h-5 text-slate-400" />
@@ -227,7 +227,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 space-y-6">
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h2 className="text-2xl font-bold text-white mb-4">Trail Overview</h2>
                   <p className="text-slate-400 leading-relaxed mb-6">{trail.description}</p>
                   <div className="grid grid-cols-2 gap-4">
@@ -250,7 +250,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
                   </div>
                 </Card>
 
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h2 className="text-2xl font-bold text-white mb-4">Trail Highlights</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {trail.highlights.map((highlight, idx) => (
@@ -266,7 +266,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
               </div>
 
               <div className="space-y-6">
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h3 className="text-lg font-bold text-white mb-4">Wildlife Species</h3>
                   <div className="space-y-2">
                     {trail.wildlife.map((species, idx) => (
@@ -278,7 +278,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
                   </div>
                 </Card>
 
-                <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                   <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
                   <div className="space-y-2">
                     <Button
@@ -309,7 +309,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Route Map & Elevation</h2>
               <div className="relative h-96 rounded-xl bg-gradient-to-br from-amber-500/10 to-slate-800/50 border border-white/10 flex items-center justify-center">
                 <div className="text-center">
@@ -321,9 +321,9 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-4">Elevation Profile</h2>
-              <div className="h-32 rounded-xl bg-slate-800/50 border border-white/[0.06] flex items-end justify-between p-4 gap-2">
+              <div className="h-32 rounded-xl bg-slate-800/50 border border-white/10 flex items-end justify-between p-4 gap-2">
                 {[40, 55, 70, 85, 100, 90, 75, 60, 50, 45].map((height, idx) => (
                   <div
                     key={idx}
@@ -347,7 +347,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Trail Ecology</h2>
               <p className="text-slate-400 leading-relaxed mb-6">
                 This trail passes through diverse ecosystems within {trail.protectedArea}, offering opportunities 
@@ -371,11 +371,11 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-4">Species Along Trail</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {trail.wildlife.map((species, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
                         <Bird className="w-5 h-5 text-amber-400" />
@@ -396,7 +396,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Best Time to Visit</h2>
               <div className="p-6 rounded-xl bg-gradient-to-r from-amber-500/10 to-slate-800/50 border border-amber-500/30 mb-6">
                 <div className="flex items-center gap-3 mb-3">
@@ -409,22 +409,22 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
                 </p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
                   <Sun className="w-6 h-6 text-amber-400 mx-auto mb-2" />
                   <div className="text-xs text-slate-500 uppercase">Spring</div>
                   <div className="text-white font-medium">Good</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
                   <Sun className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
                   <div className="text-xs text-slate-500 uppercase">Summer</div>
                   <div className="text-white font-medium">Best</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
                   <Wind className="w-6 h-6 text-orange-400 mx-auto mb-2" />
                   <div className="text-xs text-slate-500 uppercase">Autumn</div>
                   <div className="text-white font-medium">Good</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] text-center">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10 text-center">
                   <Thermometer className="w-6 h-6 text-blue-400 mx-auto mb-2" />
                   <div className="text-xs text-slate-500 uppercase">Winter</div>
                   <div className="text-white font-medium">Limited</div>
@@ -440,7 +440,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Safety Notes & Access</h2>
               <div className="space-y-4 mb-6">
                 {trail.safetyNotes.map((note, idx) => (
@@ -456,22 +456,22 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-4">Access Information</h2>
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                   <div className="text-xs text-slate-500 uppercase mb-1">Starting Point</div>
                   <div className="text-white font-medium">{trail.protectedArea} Entrance</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                   <div className="text-xs text-slate-500 uppercase mb-1">Permit Required</div>
                   <div className="text-white font-medium">Yes (Park Entry)</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                   <div className="text-xs text-slate-500 uppercase mb-1">Guide Recommended</div>
                   <div className="text-white font-medium">{trail.difficulty === 'Challenging' ? 'Yes' : 'Optional'}</div>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06]">
+                <div className="p-4 rounded-xl bg-slate-800/50 border border-white/10">
                   <div className="text-xs text-slate-500 uppercase mb-1">Mobile Coverage</div>
                   <div className="text-white font-medium">Limited</div>
                 </div>
@@ -486,11 +486,11 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <h2 className="text-2xl font-bold text-white mb-6">Recent Sightings on Trail</h2>
               <div className="space-y-4">
                 {trail.wildlife.slice(0, 4).map((species, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/[0.06] flex items-center justify-between">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-800/50 border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
                         <Eye className="w-5 h-5 text-amber-400" />
@@ -506,7 +506,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
               </div>
             </Card>
 
-            <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+            <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">Log Your Sighting</h3>

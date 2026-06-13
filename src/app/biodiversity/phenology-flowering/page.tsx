@@ -90,13 +90,13 @@ export default function PhenologyFloweringPage() {
           <div className="flex flex-row flex-wrap justify-between gap-4 items-center">
             <div className="relative flex-1 min-w-[200px]">
               <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
-              <input type="text" placeholder="Search records..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full pl-9 pr-4 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white placeholder:text-slate-500 outline-none focus:border-pink-500/50" />
+              <input type="text" placeholder="Search records..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full pl-9 pr-4 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-slate-500 outline-none focus:border-pink-500/50" />
             </div>
-            <select value={filterType} onChange={e => setFilterType(e.target.value)} className="px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
+            <select value={filterType} onChange={e => setFilterType(e.target.value)} className="px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
               <option value="all">All Types</option>
               {recordTypes.map(t => <option key={t} value={t}>{t.replace(/-/g, ' ')}</option>)}
             </select>
-            <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white outline-none">
+            <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
               <option value="all">All Districts</option>
               {districts.map(d => <option key={d} value={d}>{d}</option>)}
             </select>

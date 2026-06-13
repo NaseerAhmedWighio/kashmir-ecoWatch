@@ -230,7 +230,7 @@ export function AlertResponseSystem() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="glass-light border-white/5" padding="md">
+              <Card className="glass-light border-white/10" padding="md">
                 <CardHeader className="mb-4 sm:mb-6">
                   <div className="flex items-center justify-between">
                     <h3 className="text-base sm:text-lg font-bold text-white">Alert Summary</h3>
@@ -282,7 +282,7 @@ export function AlertResponseSystem() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <Card className="glass-light border-white/5" padding="md">
+              <Card className="glass-light border-white/10" padding="md">
                 <CardHeader className="mb-3 sm:mb-4">
                   <h3 className="text-base sm:text-lg font-bold text-white">Report an Issue</h3>
                   <p className="text-xs sm:text-sm text-slate-400">Submit field observations or environmental concerns</p>
@@ -324,7 +324,7 @@ export function AlertResponseSystem() {
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <Card className="glass-light border-white/5" padding="md">
+              <Card className="glass-light border-white/10" padding="md">
                 <CardContent>
                   <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" />

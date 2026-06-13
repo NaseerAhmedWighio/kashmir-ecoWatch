@@ -225,14 +225,14 @@ export default function SpeciesDetailPage() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-6">
-                <Card className="glass-light border-white/5 p-8" padding="none">
+                <Card className="glass-light border-white/10 p-8" padding="none">
                   <h2 className="text-2xl font-bold text-white mb-4">Species Overview</h2>
                   <p className="text-slate-300 leading-relaxed mb-6">{species.description}</p>
                   <p className="text-slate-300 leading-relaxed">{species.ecologicalRole}</p>
                 </Card>
 
                 {/* Habitats */}
-                <Card className="glass-light border-white/5 p-8" padding="none">
+                <Card className="glass-light border-white/10 p-8" padding="none">
                   <h3 className="text-xl font-bold text-white mb-4">Habitats</h3>
                   <div className="flex flex-wrap gap-2">
                     {species.habitats.map((habitat, idx) => (
@@ -247,7 +247,7 @@ export default function SpeciesDetailPage() {
               {/* Sidebar */}
               <div className="space-y-6">
                 {/* Quick Facts */}
-                <Card className="glass-light border-white/5 p-6" padding="none">
+                <Card className="glass-light border-white/10 p-6" padding="none">
                   <h3 className="text-lg font-bold text-white mb-4">Quick Facts</h3>
                   <div className="space-y-4">
                     <div>
@@ -271,7 +271,7 @@ export default function SpeciesDetailPage() {
                 </Card>
 
                 {/* Districts */}
-                <Card className="glass-light border-white/5 p-6" padding="none">
+                <Card className="glass-light border-white/10 p-6" padding="none">
                   <h3 className="text-lg font-bold text-white mb-4">Districts</h3>
                   <div className="space-y-2">
                     {species.districts.map((district, idx) => (
@@ -297,7 +297,7 @@ export default function SpeciesDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Card className="glass-light border-white/5 p-8" padding="none">
+            <Card className="glass-light border-white/10 p-8" padding="none">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-white">Distribution Map</h2>
                 <Button variant="outline" size="sm" className="border-white/20 text-white" icon={<Map className="w-4 h-4" />}>
@@ -333,7 +333,7 @@ export default function SpeciesDetailPage() {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="glass-light border-white/5 p-8" padding="none">
+            <Card className="glass-light border-white/10 p-8" padding="none">
               <h2 className="text-2xl font-bold text-white mb-4">Ecological Role</h2>
               <p className="text-slate-300 leading-relaxed mb-6">{species.ecologicalRole}</p>
               
@@ -358,7 +358,7 @@ export default function SpeciesDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Card className="glass-light border-white/5 p-8" padding="none">
+            <Card className="glass-light border-white/10 p-8" padding="none">
               <div className="flex items-center gap-3 mb-6">
                 <Calendar className="w-6 h-6 text-forest-400" />
                 <h2 className="text-2xl font-bold text-white">Seasonality & Phenology</h2>
@@ -374,7 +374,7 @@ export default function SpeciesDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Card className="glass-light border-white/5 p-8" padding="none">
+            <Card className="glass-light border-white/10 p-8" padding="none">
               <div className="flex items-center gap-3 mb-6">
                 <AlertTriangle className="w-6 h-6 text-amber-400" />
                 <h2 className="text-2xl font-bold text-white">Threats & Pressures</h2>
@@ -398,7 +398,7 @@ export default function SpeciesDetailPage() {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <Card className="glass-light border-white/5 p-8" padding="none">
+            <Card className="glass-light border-white/10 p-8" padding="none">
               <div className="flex items-center gap-3 mb-6">
                 <Shield className="w-6 h-6 text-emerald-400" />
                 <h2 className="text-2xl font-bold text-white">Conservation Status</h2>
@@ -434,7 +434,7 @@ export default function SpeciesDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Card className="glass-light border-white/5 p-8" padding="none">
+            <Card className="glass-light border-white/10 p-8" padding="none">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <Eye className="w-6 h-6 text-purple-400" />
@@ -461,7 +461,7 @@ export default function SpeciesDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Card className="glass-light border-white/5 p-8" padding="none">
+            <Card className="glass-light border-white/10 p-8" padding="none">
               <div className="flex items-center gap-3 mb-6">
                 <Book className="w-6 h-6 text-amber-400" />
                 <h2 className="text-2xl font-bold text-white">Related Reports & References</h2>

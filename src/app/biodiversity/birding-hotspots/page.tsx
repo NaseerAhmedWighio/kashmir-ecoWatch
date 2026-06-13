@@ -131,7 +131,7 @@ export default function BirdingHotspotsPage() {
             <select
               value={filterDistrict}
               onChange={(e) => setFilterDistrict(e.target.value as KashmirDistrict | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white focus:border-teal-500/50 outline-none"
+              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-teal-500/50 outline-none"
             >
               <option value="all">All Districts</option>
               {districts.map(d => <option key={d} value={d}>{d}</option>)}
@@ -139,7 +139,7 @@ export default function BirdingHotspotsPage() {
             <select
               value={filterAccess}
               onChange={(e) => setFilterAccess(e.target.value as AccessStatus | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white focus:border-teal-500/50 outline-none"
+              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-teal-500/50 outline-none"
             >
               <option value="all">All Access</option>
               <option value="open">Open</option>
@@ -150,7 +150,7 @@ export default function BirdingHotspotsPage() {
             <select
               value={filterDifficulty}
               onChange={(e) => setFilterDifficulty(e.target.value as Difficulty | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white focus:border-teal-500/50 outline-none"
+              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-teal-500/50 outline-none"
             >
               <option value="all">All Difficulties</option>
               <option value="easy">Easy</option>
@@ -161,7 +161,7 @@ export default function BirdingHotspotsPage() {
             <select
               value={filterSeason}
               onChange={(e) => setFilterSeason(e.target.value as Season | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-slate-800/50 border border-white/10 text-white focus:border-teal-500/50 outline-none"
+              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-teal-500/50 outline-none"
             >
               <option value="all">All Seasons</option>
               <option value="spring">Spring</option>

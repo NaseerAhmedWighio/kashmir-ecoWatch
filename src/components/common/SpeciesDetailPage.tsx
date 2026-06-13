@@ -216,7 +216,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               </div>
 
               {/* Quick Stats sidebar */}
-              <Card className="card-intelligence border border-white/[0.06] bg-transparent backdrop-blur-sm shadow-xl p-6 w-full lg:max-w-xs shrink-0">
+              <Card className="card-intelligence border border-white/10 bg-transparent backdrop-blur-sm shadow-xl p-6 w-full lg:max-w-xs shrink-0">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-emerald-500" />
@@ -315,12 +315,12 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
             >
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-2 space-y-6">
-                  <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                  <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                     <h2 className="text-2xl font-bold text-white mb-4">Identity & Profile</h2>
                     <p className="text-slate-400 leading-relaxed mb-6">{species.description}</p>
                     
                     {species.localNames && species.localNames.length > 0 && (
-                      <div className="mb-6 p-4 rounded-xl bg-slate-800/40 border border-white/[0.06]">
+                      <div className="mb-6 p-4 rounded-xl bg-slate-800/40 border border-white/10">
                         <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-2">Local & Regional Names</div>
                         <div className="flex flex-wrap gap-2">
                           {species.localNames.map((name, idx) => (
@@ -352,10 +352,10 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     </div>
                   </Card>
 
-                  <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                  <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                     <h2 className="text-2xl font-bold text-white mb-4">Seasonality & Life Cycle</h2>
                     <p className="text-slate-400 leading-relaxed mb-4">{species.seasonality}</p>
-                    <div className="p-4 rounded-xl bg-slate-800/40 border border-white/[0.06] flex items-center gap-3">
+                    <div className="p-4 rounded-xl bg-slate-800/40 border border-white/10 flex items-center gap-3">
                       <Calendar className="w-5 h-5 text-emerald-500 shrink-0" />
                       <span className="text-sm text-slate-400">Behavioral and movement cycles are monitored relative to seasonality across conservation zones.</span>
                     </div>
@@ -364,7 +364,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
 
                 {/* Sidebar Intelligence */}
                 <div className="space-y-6">
-                  <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                  <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                     <h3 className="text-lg font-bold text-white mb-4">Key Intelligence Indicators</h3>
                     <div className="space-y-4">
                       <div>
@@ -412,7 +412,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     </div>
                   </Card>
 
-                  <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+                  <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                     <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
                     <div className="space-y-2">
                       <Button
@@ -446,7 +446,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-6">Scientific Taxonomy & Classification</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                   {[
@@ -456,7 +456,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     { level: 'Genus', value: species.genus, desc: 'Rank used in biological classification of living and fossil organisms.' },
                     { level: 'Species', value: species.species, desc: 'The basic unit of classification and taxonomic rank.' },
                   ].map((tax, idx) => (
-                    <div key={idx} className="p-4 rounded-xl bg-slate-900/80 border border-white/[0.06] flex flex-col justify-between">
+                    <div key={idx} className="p-4 rounded-xl bg-slate-900/80 border border-white/10 flex flex-col justify-between">
                       <div>
                         <div className="text-[10px] text-emerald-500 uppercase tracking-widest font-black mb-1">{tax.level}</div>
                         <div className="text-xl font-bold text-white tracking-tight">{tax.value || 'N/A'}</div>
@@ -466,7 +466,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                   ))}
                 </div>
                 
-                <div className="mt-6 p-6 rounded-xl bg-slate-900 border border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div className="mt-6 p-6 rounded-xl bg-slate-900 border border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
                     <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">Scientific Binomial Name</div>
                     <div className="text-2xl font-bold text-emerald-450 italic font-mono">{species.scientificName}</div>
@@ -486,7 +486,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-6">GIS Distribution & Habitat Range</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">{species.distribution}</p>
 
@@ -549,7 +549,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-6">Habitat Association & Ecology</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">{species.ecology}</p>
 
@@ -587,7 +587,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-4">Protected Area Network Overlap</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   The species has verified occurrences and records inside the following protected area units. Click any sanctuary or park to open its full profile and ecological atlas.
@@ -604,7 +604,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                           className="block p-4 rounded-xl bg-slate-900/80 border border-white/10 hover:border-emerald-500/30 hover:bg-slate-900 transition-all duration-300 group"
                         >
                           <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center shrink-0 border border-white/[0.06]">
+                            <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center shrink-0 border border-white/10">
                               <MapPin className="w-5 h-5 text-emerald-400" />
                             </div>
                             <div>
@@ -635,7 +635,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                           className="block p-4 rounded-xl bg-slate-900/80 border border-white/10 hover:border-emerald-500/30 hover:bg-slate-900 transition-all duration-300 group"
                         >
                           <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center shrink-0 border border-white/[0.06]">
+                            <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center shrink-0 border border-white/10">
                               <MapPin className="w-5 h-5 text-emerald-400" />
                             </div>
                             <div>
@@ -666,7 +666,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                           className="block p-4 rounded-xl bg-slate-900/80 border border-white/10 hover:border-emerald-500/30 hover:bg-slate-900 transition-all duration-300 group"
                         >
                           <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center shrink-0 border border-white/[0.06]">
+                            <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center shrink-0 border border-white/10">
                               <MapPin className="w-5 h-5 text-emerald-400" />
                             </div>
                             <div>
@@ -697,7 +697,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                           className="block p-4 rounded-xl bg-slate-900/80 border border-white/10 hover:border-emerald-500/30 hover:bg-slate-900 transition-all duration-300 group"
                         >
                           <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center shrink-0 border border-white/[0.06]">
+                            <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center shrink-0 border border-white/10">
                               <MapPin className="w-5 h-5 text-emerald-400" />
                             </div>
                             <div>
@@ -730,7 +730,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-6">Ecosystem Threat Analysis</h2>
                 <div className="space-y-4">
                   {species.threats.map((threat, idx) => (
@@ -757,14 +757,14 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-4">Active Monitoring & Field Surveys</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   {species.monitoringDetail || 'Ecological monitoring involves camera traps, radio telemetry, field census, and habitat quality sampling.'}
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  <div className="p-4 rounded-xl bg-slate-800/40 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-800/40 border border-white/10">
                     <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">Monitoring Level</div>
                     <div className="flex items-center gap-2">
                       <Badge variant={species.monitoringStatus === 'Active' ? 'success' : 'default'}>
@@ -773,7 +773,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                       <span className="text-xs text-slate-400">Regular field census</span>
                     </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-800/40 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-800/40 border border-white/10">
                     <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">Primary Equipment</div>
                     <div className="text-sm font-semibold text-white">Camera Traps, Telemetry Collars, GPS Records</div>
                   </div>
@@ -798,13 +798,13 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-4">Scientific Publications & Assessments</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   {species.researchDetail || 'Ongoing scientific and genetic studies focus on species range shifts, corridor connectivity, and threat mitigation models.'}
                 </p>
 
-                <div className="p-4 rounded-xl bg-slate-800/40 border border-white/[0.06] mb-6">
+                <div className="p-4 rounded-xl bg-slate-800/40 border border-white/10 mb-6">
                   <div className="text-xs text-slate-500 uppercase tracking-wider mb-1.5">Research Coverage Level</div>
                   <div className="flex items-center gap-2">
                     <span className={`px-2.5 py-0.5 rounded text-xs font-bold ${
@@ -823,7 +823,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     { title: `Genetic Diversity and Population Structure Analysis of ${species.name} Across Protected Area Network`, journal: 'Conservation Genetics & Research (2022)', status: 'Published' },
                     { title: `Assessing the Impact of Climatic Shifts and Grazing Pressures on ${species.name} Forage Availability`, journal: 'Himalayan Science Review (2025)', status: 'In Review' }
                   ].map((study, idx) => (
-                    <div key={idx} className="p-3 rounded-lg bg-slate-900 border border-white/[0.06] flex items-start justify-between gap-4">
+                    <div key={idx} className="p-3 rounded-lg bg-slate-900 border border-white/10 flex items-start justify-between gap-4">
                       <div>
                         <h4 className="text-sm font-semibold text-white">{study.title}</h4>
                         <p className="text-xs text-slate-500 mt-1">{study.journal}</p>
@@ -838,19 +838,19 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     <h3 className="text-lg font-bold text-white mb-4">Scientific Database Metadata</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {species.sourcePrimary && (
-                        <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                        <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                           <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Primary Source</div>
                           <div className="text-white font-semibold break-words text-sm">{species.sourcePrimary}</div>
                         </div>
                       )}
                       {species.sourceSecondary && (
-                        <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                        <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                           <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Secondary Source</div>
                           <div className="text-white font-semibold break-words text-sm">{species.sourceSecondary}</div>
                         </div>
                       )}
                       {species.lastVerifiedDate && (
-                        <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                        <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                           <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Last Scientific Audit</div>
                           <div className="text-white font-semibold text-sm">{species.lastVerifiedDate}</div>
                         </div>
@@ -868,7 +868,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-4">Spatial Layers & GIS Downloads</h2>
                 <p className="text-slate-400 leading-relaxed mb-6">
                   Access GIS data catalog mapping species occurrences, range boundaries, and key migration vectors. Data formats are provided in ESRI shapefile and GeoJSON formats.
@@ -880,9 +880,9 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     { name: 'Occurrence Point Coordinates Dataset', file: `${species.slug}_occurrences.geojson`, size: '340 KB', type: 'Vector / Point' },
                     { name: 'Habitat Suitability Raster Index', file: `${species.slug}_suitability_model.tif`, size: '8.2 MB', type: 'Raster / TIFF' }
                   ].map((layer, idx) => (
-                    <div key={idx} className="p-4 rounded-xl bg-slate-900 border border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-slate-900/90 transition-colors">
+                    <div key={idx} className="p-4 rounded-xl bg-slate-900 border border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-slate-900/90 transition-colors">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-emerald-950/20 flex items-center justify-center shrink-0 border border-white/[0.06]">
+                        <div className="w-10 h-10 rounded-lg bg-emerald-950/20 flex items-center justify-center shrink-0 border border-white/10">
                           <Layers className="w-5 h-5 text-emerald-400" />
                         </div>
                         <div>
@@ -919,10 +919,10 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <Card className="card-intelligence border border-white/[0.06] bg-slate-900/50" padding="lg">
+              <Card className="card-intelligence border border-white/10 bg-slate-900/50" padding="lg">
                 <h2 className="text-2xl font-bold text-white mb-6">Conservation Protection & Legal Status</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 xl:gap-6 mb-8">
-                  <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                     <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">IUCN Red List Status</div>
                     <div className="text-xl font-bold text-white">{species.conservationStatus}</div>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed">
@@ -930,7 +930,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     </p>
                   </div>
                   
-                  <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                     <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">CITES Listing</div>
                     <div className="text-xl font-bold text-white">{species.citesStatus || 'Not Listed'}</div>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed">
@@ -938,7 +938,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     </p>
                   </div>
                   
-                  <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                     <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Wildlife Protection Act (WPA)</div>
                     <div className="text-xl font-bold text-white">{species.wildlifeProtectionStatus || 'Schedule I'}</div>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed">
@@ -946,7 +946,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                     <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Endemic Status</div>
                     <div className="text-xl font-bold text-white">{species.endemicStatus || (species.isEndemic ? 'Endemic' : 'Native')}</div>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed">
@@ -954,7 +954,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                     <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Migratory Status</div>
                     <div className="text-xl font-bold text-white">{species.migratoryStatus || 'Resident'}</div>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed">
@@ -962,7 +962,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-900 border border-white/10">
                     <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Population Status</div>
                     <div className="text-xl font-bold text-white">{species.populationStatus || 'Monitored'}</div>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed">
@@ -973,7 +973,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
 
                 <h3 className="text-lg font-bold text-white mb-4">Population Trends & Dynamics</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                  <div className="p-4 rounded-xl bg-slate-800/40 border border-white/[0.06]">
+                  <div className="p-4 rounded-xl bg-slate-800/40 border border-white/10">
                     <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">Current Trend</div>
                     <div className={`text-xl font-bold ${
                       species.populationTrend === 'Increasing' ? 'text-emerald-400' :
@@ -982,7 +982,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                       {species.populationTrend || 'Stable'}
                     </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-800/40 border border-white/[0.06] md:col-span-2">
+                  <div className="p-4 rounded-xl bg-slate-800/40 border border-white/10 md:col-span-2">
                     <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">Distribution Status</div>
                     <div className="text-white font-medium">Verified Range Occurrence</div>
                   </div>
@@ -993,7 +993,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                 </p>
 
                 {/* Population Trend Chart Mock */}
-                <div className="h-48 rounded-xl bg-slate-900/60 border border-white/[0.06] flex items-end p-4 justify-between gap-2 overflow-hidden relative">
+                <div className="h-48 rounded-xl bg-slate-900/60 border border-white/10 flex items-end p-4 justify-between gap-2 overflow-hidden relative">
                   <div className="absolute top-4 left-4 z-10">
                     <div className="text-xs text-slate-500 uppercase tracking-wider">Historical Population Index</div>
                   </div>

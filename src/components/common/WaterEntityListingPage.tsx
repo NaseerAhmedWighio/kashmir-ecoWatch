@@ -132,7 +132,7 @@ export function WaterEntityListingPage({
                   placeholder={`Search ${entityType.toLowerCase()}...`}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-slate-900/50 border-white/10 text-white"
+                  className="pl-10 bg-white/5 border-white/10 text-white"
                 />
               </div>
 
@@ -140,7 +140,7 @@ export function WaterEntityListingPage({
               <select
                 value={selectedDistrict}
                 onChange={(e) => setSelectedDistrict(e.target.value)}
-                className="px-4 py-2.5 rounded-lg bg-slate-900/50 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="all">All Districts</option>
                 {filters.districts.map(d => (
@@ -152,7 +152,7 @@ export function WaterEntityListingPage({
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2.5 rounded-lg bg-slate-900/50 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="all">All Categories</option>
                 {filters.categories.map(c => (
@@ -165,7 +165,7 @@ export function WaterEntityListingPage({
                 <select
                   value={selectedQuality}
                   onChange={(e) => setSelectedQuality(e.target.value)}
-                  className="px-4 py-2.5 rounded-lg bg-slate-900/50 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="all">All Quality Levels</option>
                   {filters.qualityStatuses.map(s => (

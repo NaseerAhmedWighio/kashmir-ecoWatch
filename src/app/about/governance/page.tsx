@@ -282,7 +282,7 @@ export default function GovernancePage() {
                       {section.id === 'leadership' && (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {LEADERSHIP_SEATS.map(seat => (
-                            <Card key={seat.title} className="bg-white/5 border-white/5 p-3">
+                            <Card key={seat.title} className="bg-white/5 border-white/10 p-3">
                               <div className="flex items-center justify-between mb-1">
                                 <h4 className="text-xs font-bold text-white">{seat.title}</h4>
                                 <span className={cn('text-xs px-1.5 py-0.5 rounded-full', visibilityBadge(seat.visibility))}>{seat.visibility}</span>
@@ -298,7 +298,7 @@ export default function GovernancePage() {
                       {section.id === 'advisory' && (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {ADVISORY_SEATS.map(seat => (
-                            <Card key={seat.title} className="bg-white/5 border-white/5 p-3">
+                            <Card key={seat.title} className="bg-white/5 border-white/10 p-3">
                               <h4 className="text-xs font-bold text-white mb-1">{seat.title}</h4>
                               <div className="flex items-center gap-2">
                                 <span className={cn('text-xs px-1.5 py-0.5 rounded-full', visibilityBadge(seat.status))}>{seat.status}</span>
@@ -336,7 +336,7 @@ export default function GovernancePage() {
                       {section.id === 'ops' && (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {OPS_ROLES.map(role => (
-                            <Card key={role.role} className="bg-white/5 border-white/5 p-3">
+                            <Card key={role.role} className="bg-white/5 border-white/10 p-3">
                               <h4 className="text-xs font-bold text-white mb-1">{role.role}</h4>
                               <span className={cn('text-xs px-1.5 py-0.5 rounded-full', visibilityBadge(role.status))}>{role.status}</span>
                             </Card>
@@ -348,7 +348,7 @@ export default function GovernancePage() {
                           <p className="text-xs text-slate-400">Affiliated expert seats are open for qualified individuals. Institutional partners are listed below.</p>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             {INSTITUTIONAL_PARTNERS_PREVIEW.map(p => (
-                              <Card key={p.name} className="bg-white/5 border-white/5 p-3">
+                              <Card key={p.name} className="bg-white/5 border-white/10 p-3">
                                 <div className="flex items-center justify-between mb-1">
                                   <h4 className="text-xs font-bold text-white">{p.name}</h4>
                                   <span className={cn('text-xs px-1.5 py-0.5 rounded-full', visibilityBadge(p.badge))}>{p.badge}</span>
