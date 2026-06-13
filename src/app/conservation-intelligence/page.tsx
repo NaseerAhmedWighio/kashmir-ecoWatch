@@ -18,6 +18,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Heading } from '@/components/common/Heading';
+import { Select } from '@/components/ui/Select';
 
 // ============================================================
 // DATA: ESRO Conservation Networks (Legacy Preservation)
@@ -1135,16 +1136,16 @@ export default function ConservationIntelligencePage() {
                               <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
                                 Select Protected Area
                               </label>
-                              <select
+                              <Select
                                 value={pahiPA}
-                                onChange={(e) => setPahiPA(e.target.value)}
-                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
-                              >
-                                <option value="Dachigam" className="bg-white/5">Dachigam National Park</option>
-                                <option value="Hokersar" className="bg-white/5">Hokersar Wetland Reserve</option>
-                                <option value="Wular" className="bg-white/5">Wular Lake Wetland</option>
-                                <option value="Gulmarg" className="bg-white/5">Gulmarg Wildlife Sanctuary</option>
-                              </select>
+                                onChange={(value) => setPahiPA(value)}
+                                options={[
+                                  { value: 'Dachigam', label: 'Dachigam National Park' },
+                                  { value: 'Hokersar', label: 'Hokersar Wetland Reserve' },
+                                  { value: 'Wular', label: 'Wular Lake Wetland' },
+                                  { value: 'Gulmarg', label: 'Gulmarg Wildlife Sanctuary' },
+                                ]}
+                              />
                             </div>
 
                             <div className="space-y-3 pt-2">
@@ -1219,16 +1220,16 @@ export default function ConservationIntelligencePage() {
                               <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
                                 Select Area Sector
                               </label>
-                              <select
+                              <Select
                                 value={cpiArea}
-                                onChange={(e) => handleCpiAreaChange(e.target.value)}
-                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
-                              >
-                                <option value="Hokersar">Hokersar Wetland Reserve</option>
-                                <option value="Wular">Wular Lake reserve</option>
-                                <option value="Dachigam">Dachigam National Park</option>
-                                <option value="Khrew">Khrew Conservation Reserve</option>
-                              </select>
+                                onChange={(value) => handleCpiAreaChange(value)}
+                                options={[
+                                  { value: 'Hokersar', label: 'Hokersar Wetland Reserve' },
+                                  { value: 'Wular', label: 'Wular Lake reserve' },
+                                  { value: 'Dachigam', label: 'Dachigam National Park' },
+                                  { value: 'Khrew', label: 'Khrew Conservation Reserve' },
+                                ]}
+                              />
                             </div>
 
                             <div className="space-y-3">
@@ -1298,16 +1299,16 @@ export default function ConservationIntelligencePage() {
                               <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
                                 Select Species
                               </label>
-                              <select
+                              <Select
                                 value={sciSpecies}
-                                onChange={(e) => handleSciSpeciesChange(e.target.value)}
-                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
-                              >
-                                <option value="Hangul">Hangul (Kashmir Stag)</option>
-                                <option value="Snow Leopard">Snow Leopard</option>
-                                <option value="Markhor">Markhor</option>
-                                <option value="Black-necked Crane">Black-necked Crane</option>
-                              </select>
+                                onChange={(value) => handleSciSpeciesChange(value)}
+                                options={[
+                                  { value: 'Hangul', label: 'Hangul (Kashmir Stag)' },
+                                  { value: 'Snow Leopard', label: 'Snow Leopard' },
+                                  { value: 'Markhor', label: 'Markhor' },
+                                  { value: 'Black-necked Crane', label: 'Black-necked Crane' },
+                                ]}
+                              />
                             </div>
 
                             <div className="space-y-3">
@@ -1368,15 +1369,15 @@ export default function ConservationIntelligencePage() {
                               <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
                                 Select Habitat Type
                               </label>
-                              <select
+                              <Select
                                 value={habitatName}
-                                onChange={(e) => setHabitatName(e.target.value)}
-                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
-                              >
-                                <option value="Wular Wetland">Wular Wetland Systems</option>
-                                <option value="Dachigam Alpine Meadow">Dachigam Sub-Alpine Grasslands</option>
-                                <option value="Jhelum Riparian Corridor">Jhelum Riverine Floods Zones</option>
-                              </select>
+                                onChange={(value) => setHabitatName(value)}
+                                options={[
+                                  { value: 'Wular Wetland', label: 'Wular Wetland Systems' },
+                                  { value: 'Dachigam Alpine Meadow', label: 'Dachigam Sub-Alpine Grasslands' },
+                                  { value: 'Jhelum Riparian Corridor', label: 'Jhelum Riverine Floods Zones' },
+                                ]}
+                              />
                             </div>
 
                             <div className="space-y-3">
@@ -1420,14 +1421,14 @@ export default function ConservationIntelligencePage() {
                               <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
                                 Select Connectivity Corridor
                               </label>
-                              <select
+                              <Select
                                 value={corridorName}
-                                onChange={(e) => setCorridorName(e.target.value)}
-                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
-                              >
-                                <option value="Dachigam-Overa">Dachigam - Tral - Overa Corridor</option>
-                                <option value="Kishtwar-Kailash">Kishtwar High-Altitude Passages</option>
-                              </select>
+                                onChange={(value) => setCorridorName(value)}
+                                options={[
+                                  { value: 'Dachigam-Overa', label: 'Dachigam - Tral - Overa Corridor' },
+                                  { value: 'Kishtwar-Kailash', label: 'Kishtwar High-Altitude Passages' },
+                                ]}
+                              />
                             </div>
 
                             <div className="space-y-3">
@@ -1467,14 +1468,14 @@ export default function ConservationIntelligencePage() {
                             <div className="flex gap-4">
                               <div>
                                 <label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Species Target</label>
-                                <select
+                                <Select
                                   value={suitSpecies}
-                                  onChange={(e) => { setSuitSpecies(e.target.value); setSelectedCell(null); }}
-                                  className="bg-white/5 border border-white/10 text-white rounded p-1 text-xs outline-none"
-                                >
-                                  <option value="Hangul">Hangul (Kashmir Stag)</option>
-                                  <option value="Snow Leopard">Snow Leopard</option>
-                                </select>
+                                  onChange={(value) => { setSuitSpecies(value); setSelectedCell(null); }}
+                                  options={[
+                                    { value: 'Hangul', label: 'Hangul (Kashmir Stag)' },
+                                    { value: 'Snow Leopard', label: 'Snow Leopard' },
+                                  ]}
+                                />
                               </div>
                             </div>
                             
@@ -1568,14 +1569,14 @@ export default function ConservationIntelligencePage() {
                           <div className="flex justify-between items-center bg-black/20 p-4 rounded-xl border border-white/5">
                             <div>
                               <label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Select Study Area</label>
-                              <select
+                              <Select
                                 value={encroachmentArea}
-                                onChange={(e) => setEncroachmentArea(e.target.value)}
-                                className="bg-white/5 border border-white/10 text-white rounded p-1 text-xs outline-none"
-                              >
-                                <option value="Khrew">Khrew Conservation Reserve</option>
-                                <option value="Hokersar">Hokersar Wetland</option>
-                              </select>
+                                onChange={(value) => setEncroachmentArea(value)}
+                                options={[
+                                  { value: 'Khrew', label: 'Khrew Conservation Reserve' },
+                                  { value: 'Hokersar', label: 'Hokersar Wetland' },
+                                ]}
+                              />
                             </div>
                             
                             <div className="flex items-center gap-3">
@@ -1668,14 +1669,14 @@ export default function ConservationIntelligencePage() {
                               <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
                                 Select Target Asset
                               </label>
-                              <select
+                              <Select
                                 value={climateTarget}
-                                onChange={(e) => setClimateTarget(e.target.value)}
-                                className="w-full bg-white/5 border border-white/5 text-white rounded-lg p-2 text-sm focus:border-emerald-500/50 outline-none"
-                              >
-                                <option value="Hangul">Hangul (Species Target)</option>
-                                <option value="Hokersar">Hokersar Wetland (Habitat Target)</option>
-                              </select>
+                                onChange={(value) => setClimateTarget(value)}
+                                options={[
+                                  { value: 'Hangul', label: 'Hangul (Species Target)' },
+                                  { value: 'Hokersar', label: 'Hokersar Wetland (Habitat Target)' },
+                                ]}
+                              />
                             </div>
 
                             <div>

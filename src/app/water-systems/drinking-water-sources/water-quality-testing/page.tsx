@@ -13,6 +13,7 @@ import {
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Select } from '@/components/ui/Select';
 
 // ─── Data ───────────────────────────────────────────────────────────────
 
@@ -414,16 +415,16 @@ export default function WaterQualityTestingPage() {
               <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                 <div>
                   <label className="text-xs text-slate-400 mb-1 block">Status</label>
-                  <select
+                  <Select
                     value={selectedStation}
-                    onChange={(e) => setSelectedStation(e.target.value)}
-                    className="px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white focus:outline-none focus:border-teal-500/50 appearance-none"
-                  >
-                    <option value="all" className="bg-slate-800">All Statuses</option>
-                    <option value="operational" className="bg-slate-800">Operational</option>
-                    <option value="partial" className="bg-slate-800">Partial</option>
-                    <option value="non-functional" className="bg-slate-800">Non-Functional</option>
-                  </select>
+                    onChange={setSelectedStation}
+                    options={[
+                      { value: 'all', label: 'All Statuses' },
+                      { value: 'operational', label: 'Operational' },
+                      { value: 'partial', label: 'Partial' },
+                      { value: 'non-functional', label: 'Non-Functional' },
+                    ]}
+                  />
                 </div>
                 <div className="flex items-end">
                   <Button

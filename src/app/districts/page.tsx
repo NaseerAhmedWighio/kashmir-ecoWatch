@@ -105,6 +105,7 @@ export default function DistrictsPage() {
     </div>
   }
   badge={<Badge variant="info" size="lg">District Intelligence</Badge>}
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Districts' }]}
 />
 
       <section className="relative bg-[#160C27]">

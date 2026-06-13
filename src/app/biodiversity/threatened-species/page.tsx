@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Select } from '@/components/ui/Select';
 import { Button } from '@/components/ui/Button';
 import {
   Shield,
@@ -223,29 +224,29 @@ export default function ThreatenedSpeciesPage() {
               </div>
 
               {/* Taxon Filter */}
-              <select
+              <Select
                 value={taxonFilter}
-                onChange={(e) => setTaxonFilter(e.target.value as TaxonFilter)}
-                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
-              >
-                <option value="All">All Taxon Groups</option>
-                <option value="mammals">Mammals</option>
-                <option value="birds">Birds</option>
-                <option value="reptiles-amphibians">Reptiles & Amphibians</option>
-              </select>
+                onChange={(value) => setTaxonFilter(value as TaxonFilter)}
+                options={[
+                  { value: 'All', label: 'All Taxon Groups' },
+                  { value: 'mammals', label: 'Mammals' },
+                  { value: 'birds', label: 'Birds' },
+                  { value: 'reptiles-amphibians', label: 'Reptiles & Amphibians' },
+                ]}
+              />
 
               {/* IUCN Status Filter */}
-              <select
+              <Select
                 value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
-                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
-              >
-                <option value="All">All IUCN Statuses</option>
-                <option value="Endangered">Endangered</option>
-                <option value="Vulnerable">Vulnerable</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Data Deficient">Data Deficient</option>
-              </select>
+                onChange={(value) => setStatusFilter(value as StatusFilter)}
+                options={[
+                  { value: 'All', label: 'All IUCN Statuses' },
+                  { value: 'Endangered', label: 'Endangered' },
+                  { value: 'Vulnerable', label: 'Vulnerable' },
+                  { value: 'Intermediate', label: 'Intermediate' },
+                  { value: 'Data Deficient', label: 'Data Deficient' },
+                ]}
+              />
             </div>
 
             <div className="flex items-center justify-between flex-wrap gap-4">

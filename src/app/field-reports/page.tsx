@@ -41,6 +41,7 @@ export default function FieldReportsPage() {
           </div>
         }
         badge={<Badge variant="warning" size="lg">Field Intelligence</Badge>}
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Field Reports' }]}
       />
 
       {/* Summary Strip */}

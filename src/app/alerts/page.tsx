@@ -147,6 +147,7 @@ export default function AlertsPage() {
           </div>
         }
         badge={<Badge variant="danger" size="lg">Risk & Monitoring</Badge>}
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Alerts' }]}
       />
 
       {/* Summary Strip */}
@@ -434,7 +435,7 @@ export default function AlertsPage() {
       </section>
 
       {/* Footer */}
-      <AdvancedFooter />
+       
     </main>
   );
 }

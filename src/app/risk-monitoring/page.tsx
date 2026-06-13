@@ -108,9 +108,10 @@ export default function RiskMonitoringOverviewPage() {
               <AlertTriangle className="w-5 h-5 mr-2" />
               Report Hazard
             </Button>
-          </div>
-        }
-      />
+           </div>
+         }
+         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Risk & Monitoring' }]}
+       />
 
       {/* Critical Alerts Ribbon */}
       {criticalAlerts.length > 0 && (

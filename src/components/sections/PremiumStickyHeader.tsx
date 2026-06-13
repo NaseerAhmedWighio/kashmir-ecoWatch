@@ -209,8 +209,8 @@ export function PremiumStickyHeader() {
     <>
       {items.map((subitem) => (
         subitem.isHeader ? (
-          <div key={subitem.name} className="px-4 py-1.5 bg-slate-800/30">
-            <span className="text-[9px] font-semibold uppercase tracking-wider text-slate-500">{subitem.name.replace(/──/g, '').trim()}</span>
+          <div key={subitem.name} className="px-4 py-1.5 flex flex-col justify-center bg-[#0F373B]">
+            <span className="text-[9px] font-semibold uppercase tracking-wider text-white/70">{subitem.name.replace(/──/g, '').trim()}</span>
           </div>
         ) : (
           <Link
@@ -291,16 +291,16 @@ export function PremiumStickyHeader() {
                     className="absolute top-full left-0 w-80 max-w-[calc(100vw-2rem)] glass-intense rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 pt-2"
                   >
                     {/* Dropdown Header */}
-                    <div className="px-4 py-3 border-b border-white/5 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
+                    <div className="px-4 py-2 border-b border-[#0F373B] bg-[#0F373B]">
                       <div className="flex items-center gap-2">
-                        {item.label === 'Protected Areas' && <Shield className="w-4 h-4 text-emerald-400" />}
-                        {item.label === 'Biodiversity' && <Leaf className="w-4 h-4 text-emerald-400" />}
-                        {item.label === 'Water Systems' && <Droplet className="w-4 h-4 text-sky-400" />}
-                        {item.label === 'Environmental Monitoring' && <BarChart3 className="w-4 h-4 text-amber-400" />}
-                        {item.label === 'Field Intelligence' && <FileText className="w-4 h-4 text-orange-400" />}
-                        {item.label === 'Seasonal Ecology' && <Calendar className="w-4 h-4 text-amber-400" />}
-                        {item.label === 'Risk & Monitoring' && <AlertTriangle className="w-4 h-4 text-red-400" />}
-                        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                        {item.label === 'Protected Areas' && <Shield className="w-4 h-4 text-white/70" />}
+                        {item.label === 'Biodiversity' && <Leaf className="w-4 h-4 text-white/70" />}
+                        {item.label === 'Water Systems' && <Droplet className="w-4 h-4 text-white/70" />}
+                        {item.label === 'Environmental Monitoring' && <BarChart3 className="w-4 h-4 text-white/70" />}
+                        {item.label === 'Field Intelligence' && <FileText className="w-4 h-4 text-white/70" />}
+                        {item.label === 'Seasonal Ecology' && <Calendar className="w-4 h-4 text-white/70" />}
+                        {item.label === 'Risk & Monitoring' && <AlertTriangle className="w-4 h-4 text-white/70" />}
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-white/70">
                           {item.label}
                         </span>
                       </div>

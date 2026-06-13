@@ -258,6 +258,7 @@ export default function TechnologyPage() {
           </div>
         }
         badge={<Badge variant="info" size="lg">Built for Kashmir</Badge>}
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Made with Love' }]}
       />
 
       {/* ─── Platform Vision ──────────────────────────────────────────────── */}
@@ -509,7 +510,7 @@ export default function TechnologyPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

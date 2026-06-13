@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, X, ChevronDown } from 'lucide-react';
 import { FieldReport, ReportStatus, ReportType } from '@/types';
+import { Select } from '@/components/ui/Select';
 
 interface FilterState {
   year: string;
@@ -184,23 +185,13 @@ export function FilterBar({ reports, years, districts, modules, sources, onFilte
             >
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                 {filterOptions.map((filter) => (
-                  <div key={filter.key} className="relative">
-                    <select
-                      value={filters[filter.key]}
-                      onChange={(e) => handleFilterChange(filter.key, e.target.value)}
-                      className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-white appearance-none cursor-pointer hover:border-white/20 focus:border-amber-500/50 focus:outline-none focus:ring-1 focus:ring-amber-500/20 transition-all"
-                    >
-                      {filter.options.map(opt => (
-                        <option key={opt.value} value={opt.value} className="bg-white/5 text-white">
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
-                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 pointer-events-none">
-                      {filter.label}
-                    </div>
-                  </div>
+                  <Select
+                    key={filter.key}
+                    value={filters[filter.key]}
+                    onChange={(value) => handleFilterChange(filter.key, value)}
+                    options={filter.options}
+                    placeholder={filter.label}
+                  />
                 ))}
               </div>
             </motion.div>

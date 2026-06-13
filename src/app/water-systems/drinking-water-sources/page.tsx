@@ -21,6 +21,7 @@ import {
   policyRecommendations,
   type DrinkingWaterSource, type DrinkingWaterSourceType
 } from '@/data/drinking-water-sources';
+import { Select } from '@/components/ui/Select';
 
 const statusColors: Record<string, string> = {
   operational: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
@@ -542,15 +543,11 @@ function FilterSelect({ label, value, onChange, options }: {
   return (
     <div>
       <label className="text-xs text-slate-400 mb-1 block">{label}</label>
-      <select
+      <Select
         value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white focus:outline-none focus:border-blue-500/50 appearance-none"
-      >
-        {options.map(opt => (
-          <option key={opt.value} value={opt.value} className="bg-slate-800 text-white">{opt.label}</option>
-        ))}
-      </select>
+        onChange={onChange}
+        options={options}
+      />
     </div>
   );
 }

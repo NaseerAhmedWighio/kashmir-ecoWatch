@@ -76,6 +76,7 @@ export default function ResearchLibraryPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Research Library' }]}
       />
 
       <div className="container mx-auto px-6 -mt-8 relative z-20">

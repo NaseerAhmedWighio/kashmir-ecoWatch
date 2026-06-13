@@ -66,6 +66,7 @@ export default function EcoTrailsPage() {
             Back to Trails & Sightings
           </Button>
         }
+        breadcrumbs={[{ label: 'Trails & Sightings', href: '/trails-sightings' }, { label: 'Eco Trails' }]}
       />
 
       <section className="py-20">

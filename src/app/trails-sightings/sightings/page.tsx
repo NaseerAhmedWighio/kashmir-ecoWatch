@@ -70,6 +70,7 @@ export default function SightingsPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Trails & Sightings', href: '/trails-sightings' }, { label: 'Sightings' }]}
       />
 
       {/* Filters */}

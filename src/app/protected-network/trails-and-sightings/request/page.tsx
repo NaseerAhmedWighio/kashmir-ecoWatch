@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Heading } from '@/components/common/Heading';
-import { 
+import { Select } from '@/components/ui/Select';
+import {
   Footprints, Shield, Download, Lock, CheckCircle2, 
   ArrowLeft, User, Mail, Building, FileQuestion, Send, Globe, Map, FileText
 } from 'lucide-react';
@@ -399,20 +400,19 @@ function RequestFormContent() {
 
                         <div>
                           <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Researcher Role</label>
-                          <select
-                            name="role"
+                          <Select
                             value={formData.role}
-                            onChange={handleInputChange}
-                            className={`w-full px-3 py-2.5 text-sm rounded-lg bg-white/5 border ${formErrors.role ? 'border-red-500/50' : 'border-white/10'} text-white focus:outline-none focus:border-emerald-500/50 transition-colors`}
-                          >
-                            <option value="">Select Role...</option>
-                            <option value="professor">University Professor / Researcher</option>
-                            <option value="student">Graduate / Research Student</option>
-                            <option value="gis_specialist">GIS Analyst / Specialist</option>
-                            <option value="ngo">NGO Conservation Coordinator</option>
-                            <option value="government">Government Official / Department Member</option>
-                            <option value="other">Independent Ecologist</option>
-                          </select>
+                            onChange={(value) => handleInputChange({ target: { name: 'role', value } } as any)}
+                            options={[
+                              { value: '', label: 'Select Role...' },
+                              { value: 'professor', label: 'University Professor / Researcher' },
+                              { value: 'student', label: 'Graduate / Research Student' },
+                              { value: 'gis_specialist', label: 'GIS Analyst / Specialist' },
+                              { value: 'ngo', label: 'NGO Conservation Coordinator' },
+                              { value: 'government', label: 'Government Official / Department Member' },
+                              { value: 'other', label: 'Independent Ecologist' },
+                            ]}
+                          />
                           {formErrors.role && (
                             <span className="text-xs text-red-400 mt-1 block">{formErrors.role}</span>
                           )}
@@ -468,7 +468,7 @@ function RequestFormContent() {
           </div>
         </div>
       </div>
-      <AdvancedFooter />
+       
     </main>
   );
 }

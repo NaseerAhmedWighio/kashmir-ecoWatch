@@ -29,6 +29,7 @@ export default function LiveAlertsAdvisoriesPage() {
         actions={
           <Button size="lg" className="bg-gradient-to-r from-red-500 to-rose-600" onClick={() => router.push('/risk-monitoring')}><ArrowRight className="w-5 h-5 mr-2" />Back to Risk Monitoring</Button>
         }
+        breadcrumbs={[{ label: 'Risk & Monitoring', href: '/risk-monitoring' }, { label: 'Live Alerts & Advisories' }]}
       />
       <section className="py-20">
         <div className="container mx-auto px-6">

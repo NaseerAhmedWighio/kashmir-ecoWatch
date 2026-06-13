@@ -100,6 +100,7 @@ export default function ProtectedAreasPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Protected Areas' }]}
       />
 
       <div className="container mx-auto px-6 -mt-8 relative z-20">

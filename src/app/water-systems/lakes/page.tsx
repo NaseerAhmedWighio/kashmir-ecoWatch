@@ -13,6 +13,7 @@ import {
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { lakesData, WaterEntity } from '@/data/water-systems';
+import { Select } from '@/components/ui/Select';
 
 export default function LakesPage() {
   const router = useRouter();
@@ -114,26 +115,16 @@ export default function LakesPage() {
                   />
                 </div>
               </div>
-              <select
+              <Select
                 value={selectedDistrict}
-                onChange={(e) => setSelectedDistrict(e.target.value)}
-                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="all">All Districts</option>
-                {districts.map(d => (
-                  <option key={d} value={d}>{d}</option>
-                ))}
-              </select>
-              <select
+                onChange={setSelectedDistrict}
+                options={[{ value: 'all', label: 'All Districts' }, ...districts.map(d => ({ value: d, label: d }))]}
+              />
+              <Select
                 value={selectedQuality}
-                onChange={(e) => setSelectedQuality(e.target.value)}
-                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="all">All Quality Levels</option>
-                {qualityStatuses.map(s => (
-                  <option key={s} value={s} className="capitalize">{s}</option>
-                ))}
-              </select>
+                onChange={setSelectedQuality}
+                options={[{ value: 'all', label: 'All Quality Levels' }, ...qualityStatuses.map(s => ({ value: s, label: s.charAt(0).toUpperCase() + s.slice(1) }))]}
+              />
             </div>
             <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
               <div className="text-sm text-slate-400">

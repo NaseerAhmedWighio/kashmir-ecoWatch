@@ -69,6 +69,7 @@ export default function ProtectedAreaAtlasPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Protected Network', href: '/protected-network' }, { label: 'Atlas' }]}
       />
 
       {/* Map Container */}

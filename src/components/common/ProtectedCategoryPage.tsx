@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { Pagination } from '@/components/ui/Pagination';
 import { Select } from '@/components/ui/Select';
+import { TabBar } from '@/components/common/TabBar';
 import * as Icons from 'lucide-react';
 import {
   MapPin, Activity, ArrowRight, Search, Filter, Shield,
@@ -44,6 +45,7 @@ interface ProtectedCategoryPageProps {
   tabs?: Array<{ key: string; label: string; description: string }>;
   activeTab?: string;
   onTabChange?: (tab: string) => void;
+  districtOptions?: string[];
 }
 
 export function ProtectedCategoryPage({
@@ -57,6 +59,7 @@ export function ProtectedCategoryPage({
   tabs,
   activeTab,
   onTabChange,
+  districtOptions,
 }: ProtectedCategoryPageProps) {
   const Icon = (Icons as any)[iconName] || Icons.MapPin;
   const router = useRouter();
@@ -69,8 +72,9 @@ export function ProtectedCategoryPage({
   const PAGE_SIZE = 6;
 
   const districts = useMemo(() => {
+    if (districtOptions) return districtOptions;
     return Array.from(new Set(areas.map(a => a.district).filter(Boolean))).sort();
-  }, [areas]);
+  }, [areas, districtOptions]);
 
   const scopes = useMemo(() => {
     return Array.from(new Set(areas.map((a: any) => a.scope).filter(Boolean))).sort();
@@ -178,96 +182,24 @@ export function ProtectedCategoryPage({
         </motion.div>
       </div>
 
-      {/* Tab + Filters — responsive row */}
-      {/* Sticky Tab Bar — fixed to viewport on mobile */}
-      <div className="sticky top-0 z-30 bg-[#0F373B] backdrop-blur-md w-full">
-        <div className="container mx-auto px-4 sm:px-6">
-
-          {/* Row 1: Tabs (scrollable internally, not page-wide) */}
-          {tabs && tabs.length > 0 && (
-            <div className="py-2">
-              {/* 
-      ✅ Pill container: full width, stays fixed — does NOT scroll 
-      overflow-hidden clips tabs that go outside
-    */}
-              <div className="glass-intense border border-white/10 rounded-xl w-full overflow-hidden">
-                {/*
-        ✅ Inner scroller: ONLY this scrolls horizontally
-        The pill background stays put, only text/buttons move
-      */}
-                <div
-                  className="overflow-x-auto scrollbar-hide"
-                  style={{ WebkitOverflowScrolling: 'touch' }}
-                >
-                  <div className="flex items-center gap-2 p-1 w-max">
-                    {tabs.map(tab => (
-                      <button
-                        key={tab.key}
-                        onClick={() => handleTabChange(tab.key)}
-                        className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap touch-manipulation flex-shrink-0 ${activeTab === tab.key
-                            ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
-                            : 'text-slate-400 hover:text-white hover:bg-white/5'
-                          }`}
-                      >
-                        {tab.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Row 2: Filters + count + view toggle */}
-          <div className="flex items-center gap-2 pb-3 pt-2">
-
-            {/* Active tab description — only on large screens */}
-            {tabs?.find(t => t.key === activeTab)?.description && (
-              <span className="text-xs text-slate-500 hidden lg:block flex-1 truncate mr-2">
-                {tabs.find(t => t.key === activeTab)!.description}
-              </span>
-            )}
-
-            {/* Filter button */}
-            <Button
-              variant="outline"
-              className="border-white/20 text-white shrink-0"
-              size="sm"
-              icon={<Filter className="w-4 h-4" />}
-              onClick={() => setShowFilters(f => !f)}
-            >
-              {showFilters ? 'Hide Filters' : 'Filters'}
-            </Button>
-
-            {/* Count */}
-            <span className="text-xs sm:text-sm text-slate-400 whitespace-nowrap shrink-0">
-              <strong className="text-white">{filteredAreas.length}</strong>
-              <span className="hidden xs:inline">
-                {' '}of <strong className="text-white">{areas.length}</strong>
-              </span>
-            </span>
-
-            {/* View toggle — pushed to far right */}
-            <div className="flex items-center gap-1 ml-auto shrink-0">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setViewMode('grid')}
-                className={viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'}
-                icon={<Grid3X3 className="w-4 h-4" />}
-              />
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setViewMode('list')}
-                className={viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'}
-                icon={<List className="w-4 h-4" />}
-              />
-            </div>
-          </div>
-
-        </div>
-      </div>
+      {/* Tab + Filters — single row */}
+      <TabBar
+        tabs={tabs || []}
+        activeTab={activeTab || ''}
+        onTabChange={(key) => {
+          onTabChange?.(key);
+          const tab = tabs?.find(t => t.key === key);
+          if (tab) setSelectedScope(tab.label);
+        }}
+        onScopeSync={(label) => setSelectedScope(label)}
+        showFilters={showFilters}
+        onToggleFilters={() => setShowFilters(f => !f)}
+        filteredCount={filteredAreas.length}
+        totalCount={areas.length}
+        countLabel="areas"
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+      />
 
       {/* Content */}
       <div className="container mx-auto px-6 py-8 space-y-6">
@@ -275,7 +207,7 @@ export function ProtectedCategoryPage({
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-5 glass-intense border border-white/10 rounded-xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 relative z-[100] overflow-visible"
+            className="p-5 glass-intense border border-white/10 rounded-xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 relative z-30 overflow-visible"
           >
             <div>
               <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Search Text</label>
@@ -459,8 +391,6 @@ export function ProtectedCategoryPage({
           </motion.div>
         </div>
       )}
-
-
     </main>
   );
 }

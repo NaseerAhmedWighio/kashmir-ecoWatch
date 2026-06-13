@@ -15,6 +15,7 @@ import {
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { WaterEntity } from '@/data/water-systems';
+import { Select } from '@/components/ui/Select';
 
 interface ListingPageProps {
   title: string;
@@ -137,41 +138,26 @@ export function WaterEntityListingPage({
               </div>
 
               {/* District */}
-              <select
+              <Select
                 value={selectedDistrict}
-                onChange={(e) => setSelectedDistrict(e.target.value)}
-                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="all">All Districts</option>
-                {filters.districts.map(d => (
-                  <option key={d} value={d}>{d}</option>
-                ))}
-              </select>
+                onChange={setSelectedDistrict}
+                options={[{ value: 'all', label: 'All Districts' }, ...filters.districts.map(d => ({ value: d, label: d }))]}
+              />
 
               {/* Category */}
-              <select
+              <Select
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="all">All Categories</option>
-                {filters.categories.map(c => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
-              </select>
+                onChange={setSelectedCategory}
+                options={[{ value: 'all', label: 'All Categories' }, ...filters.categories.map(c => ({ value: c, label: c }))]}
+              />
 
               {/* Quality Status (conditional) */}
               {filters.qualityStatuses ? (
-                <select
+                <Select
                   value={selectedQuality}
-                  onChange={(e) => setSelectedQuality(e.target.value)}
-                  className="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="all">All Quality Levels</option>
-                  {filters.qualityStatuses.map(s => (
-                    <option key={s} value={s} className="capitalize">{s}</option>
-                  ))}
-                </select>
+                  onChange={setSelectedQuality}
+                  options={[{ value: 'all', label: 'All Quality Levels' }, ...filters.qualityStatuses.map(s => ({ value: s, label: s.charAt(0).toUpperCase() + s.slice(1) }))]}
+                />
               ) : (
                 <div />
               )}

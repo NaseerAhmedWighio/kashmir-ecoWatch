@@ -107,6 +107,7 @@ export default function PrivacyPage() {
           </div>
         }
         badge={<Badge variant="success" size="md">Privacy & Data Handling</Badge>}
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]}
       />
 
       {/* 2. Privacy Principles */}

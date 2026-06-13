@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
+import { Select } from '@/components/ui/Select';
 import {
   Eye, ArrowRight, MapPin, Calendar, Clock, Filter,
   Search, Camera, User, CheckCircle, AlertCircle, Users
@@ -132,33 +133,33 @@ export default function WildlifeSightingsPage() {
                 className="w-full pl-9 pr-4 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:border-emerald-500/50 outline-none"
               />
             </div>
-            <select
+            <Select
               value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value as VerificationStatus | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
-            >
-              <option value="all">All Status</option>
-              <option value="verified">Verified</option>
-              <option value="reviewed">Reviewed</option>
-              <option value="community">Community</option>
-              <option value="pending">Pending</option>
-            </select>
-            <select
+              onChange={(value) => setFilterStatus(value as VerificationStatus | 'all')}
+              options={[
+                { value: 'all', label: 'All Status' },
+                { value: 'verified', label: 'Verified' },
+                { value: 'reviewed', label: 'Reviewed' },
+                { value: 'community', label: 'Community' },
+                { value: 'pending', label: 'Pending' },
+              ]}
+            />
+            <Select
               value={filterTaxon}
-              onChange={(e) => setFilterTaxon(e.target.value as TaxonomicGroup | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
-            >
-              <option value="all">All Taxa</option>
-              {taxa.map(t => <option key={t} value={t}>{t.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</option>)}
-            </select>
-            <select
+              onChange={(value) => setFilterTaxon(value as TaxonomicGroup | 'all')}
+              options={[
+                { value: 'all', label: 'All Taxa' },
+                ...taxa.map(t => ({ value: t, label: t.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) })),
+              ]}
+            />
+            <Select
               value={filterDistrict}
-              onChange={(e) => setFilterDistrict(e.target.value as KashmirDistrict | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-emerald-500/50 outline-none"
-            >
-              <option value="all">All Districts</option>
-              {districts.map(d => <option key={d} value={d}>{d}</option>)}
-            </select>
+              onChange={(value) => setFilterDistrict(value as KashmirDistrict | 'all')}
+              options={[
+                { value: 'all', label: 'All Districts' },
+                ...districts.map(d => ({ value: d, label: d })),
+              ]}
+            />
           </div>
         </Card>
 

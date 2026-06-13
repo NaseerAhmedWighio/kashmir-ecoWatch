@@ -152,6 +152,7 @@ export default function ProtectedNetworkPage() {
             </a>
           </>
         }
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Protected Network' }]}
       />
 
       {/* Metrics */}
@@ -193,15 +194,7 @@ export default function ProtectedNetworkPage() {
       <section className="w-full overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
 
-          <div className="flex items-center gap-2 mb-3">
-            <span className="w-2 h-2 bg-[#0F373B] rounded-full" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Network Overview
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-            Protected Areas
-          </h2>
+          {/* ... heading ... */}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 w-full">
             {categoryCards.map((category, index) => (
@@ -246,11 +239,9 @@ export default function ProtectedNetworkPage() {
         </div>
       </section>
 
-      {/* Section Divider */}
-      <div className="w-full h-px bg-[#0F373B]" />
 
       {/* Ecological Intelligence */}
-      <div className="container mx-auto px-6 py-16 rounded-3xl bg-[#0F373B]/20 border border-[#0F373B]/30">
+      <div className="container mx-auto px-6 py-16 bg-white/[0.02] rounded-3xl border border-white/[0.06]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -300,9 +291,6 @@ export default function ProtectedNetworkPage() {
           ))}
         </div>
       </div>
-
-      {/* Section Divider */}
-      <div className="w-full h-px bg-[#0F373B]" />
 
       {/* Featured Protected Areas */}
       <div className="container mx-auto px-6 py-16">

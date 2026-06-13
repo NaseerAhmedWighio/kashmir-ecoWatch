@@ -7,9 +7,10 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import {
   Bell, ArrowRight, AlertTriangle, Clock, MapPin, Filter,
-  Search, ChevronDown, Eye, Shield, AlertCircle
+  Search, Eye, Shield, AlertCircle
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Select } from '@/components/ui/Select';
 import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
 import { liveAlerts } from '@/data/risk-monitoring';
@@ -125,6 +126,7 @@ export default function LiveAlertsPage() {
             </Button>
           </>
         }
+        breadcrumbs={[{ label: 'Risk & Monitoring', href: '/risk-monitoring' }, { label: 'Live Alerts' }]}
       />
 
       {/* Alert Statistics Ribbon */}
@@ -179,27 +181,19 @@ export default function LiveAlertsPage() {
             >
               <div>
                 <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 block">Hazard Type</label>
-                <select
+                <Select
                   value={selectedHazard}
-                  onChange={(e) => setSelectedHazard(e.target.value)}
-                  className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 focus:outline-none focus:border-red-500/50"
-                >
-                  {hazardTypes.map(type => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
+                  onChange={setSelectedHazard}
+                  options={hazardTypes.map(type => ({ value: type, label: type }))}
+                />
               </div>
               <div>
                 <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 block">District</label>
-                <select
+                <Select
                   value={selectedDistrict}
-                  onChange={(e) => setSelectedDistrict(e.target.value)}
-                  className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 focus:outline-none focus:border-red-500/50"
-                >
-                  {districts.map(d => (
-                    <option key={d} value={d}>{d}</option>
-                  ))}
-                </select>
+                  onChange={setSelectedDistrict}
+                  options={districts.map(d => ({ value: d, label: d }))}
+                />
               </div>
             </motion.div>
           )}

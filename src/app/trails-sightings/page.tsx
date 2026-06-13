@@ -90,6 +90,7 @@ export default function TrailsAndSightingsPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Trails & Sightings' }]}
       />
 
       {/* =========================================================

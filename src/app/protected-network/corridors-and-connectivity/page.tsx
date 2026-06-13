@@ -11,6 +11,7 @@ import { getCorridors } from '@/data/protected-network';
 import { Heading } from '@/components/common/Heading';
 import { Pagination } from '@/components/ui/Pagination';
 import { Select } from '@/components/ui/Select';
+import { TabBar } from '@/components/common/TabBar';
 
 export default function CorridorsPage() {
   const corridors = getCorridors.all();
@@ -161,45 +162,19 @@ export default function CorridorsPage() {
       </div>
 
       {/* Tab + Filters — single row */}
-      <div className="container mx-auto px-6 mt-6">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          {/* Tabs */}
-          <div className="flex items-center gap-2 p-1 glass-intense border border-white/10 rounded-xl">
-            {TABS.map(tab => (
-              <button
-                key={tab.key}
-                onClick={() => { setActiveTab(tab.key); setSelectedScope(tab.label); }}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
-                  activeTab === tab.key
-                    ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Active tab description */}
-          <span className="text-xs text-slate-500 hidden lg:block flex-1 px-4 truncate">
-            {TABS.find(t => t.key === activeTab)!.description}
-          </span>
-
-          {/* Filters + count + view mode toggle */}
-          <div className="flex items-center gap-3 ml-auto">
-            <Button variant="outline" className="border-white/20 text-white" icon={<Filter className="w-4 h-4" />} onClick={() => setShowFilters(f => !f)}>
-              {showFilters ? 'Hide Filters' : 'Filters'}
-            </Button>
-            <span className="text-sm text-slate-400 whitespace-nowrap">
-              <strong className="text-white">{filteredCorridors.length}</strong> of <strong className="text-white">{corridors.length}</strong> corridors
-            </span>
-            <div className="flex items-center gap-1">
-              <Button variant="ghost" size="sm" onClick={() => setViewMode('grid')} className={viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} icon={<Grid3X3 className="w-4 h-4" />} />
-              <Button variant="ghost" size="sm" onClick={() => setViewMode('list')} className={viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} icon={<List className="w-4 h-4" />} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <TabBar
+        tabs={TABS as any}
+        activeTab={activeTab}
+        onTabChange={(key) => setActiveTab(key as 'core' | 'trans' | 'extended')}
+        onScopeSync={(label) => setSelectedScope(label)}
+        showFilters={showFilters}
+        onToggleFilters={() => setShowFilters(f => !f)}
+        filteredCount={filteredCorridors.length}
+        totalCount={corridors.length}
+        countLabel="corridors"
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+      />
 
       {/* Content */}
       <div className="container mx-auto px-6 py-8 space-y-6">
@@ -345,8 +320,6 @@ export default function CorridorsPage() {
           </div>
         )}
       </div>
-
-      <AdvancedFooter />
     </main>
   );
 }

@@ -361,7 +361,7 @@ export default function MissionPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

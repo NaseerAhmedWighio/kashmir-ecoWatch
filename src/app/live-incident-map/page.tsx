@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { Select } from '@/components/ui/Select';
 import { motion } from 'framer-motion';
 import { Heading } from '@/components/common/Heading';
 import { useRouter } from 'next/navigation';
@@ -305,6 +306,7 @@ export default function LiveIncidentMapPage() {
     </div>
   }
   badge={<Badge variant="danger" size="lg">Live Operations</Badge>}
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Live Incident Map' }]}
 />
 
       {/* Summary Strip */}
@@ -361,31 +363,31 @@ export default function LiveIncidentMapPage() {
             <div className="flex items-center gap-3 flex-wrap">
               <div className="flex items-center gap-2">
                 <label className="text-xs text-slate-500 uppercase tracking-wider">Severity</label>
-                <select
+                <Select
                   value={severityFilter}
-                  onChange={(e) => setSeverityFilter(e.target.value)}
-                  className="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-red-500/50"
-                >
-                  <option value="all">All</option>
-                  <option value="critical">Critical</option>
-                  <option value="serious">Serious</option>
-                  <option value="moderate">Moderate</option>
-                  <option value="low">Low</option>
-                </select>
+                  onChange={setSeverityFilter}
+                  options={[
+                    { value: 'all', label: 'All' },
+                    { value: 'critical', label: 'Critical' },
+                    { value: 'serious', label: 'Serious' },
+                    { value: 'moderate', label: 'Moderate' },
+                    { value: 'low', label: 'Low' },
+                  ]}
+                />
               </div>
               <div className="flex items-center gap-2">
                 <label className="text-xs text-slate-500 uppercase tracking-wider">Status</label>
-                <select
+                <Select
                   value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value)}
-                  className="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-red-500/50"
-                >
-                  <option value="all">All</option>
-                  <option value="active">Active</option>
-                  <option value="monitoring">Monitoring</option>
-                  <option value="responding">Responding</option>
-                  <option value="resolved">Resolved</option>
-                </select>
+                  onChange={setStatusFilter}
+                  options={[
+                    { value: 'all', label: 'All' },
+                    { value: 'active', label: 'Active' },
+                    { value: 'monitoring', label: 'Monitoring' },
+                    { value: 'responding', label: 'Responding' },
+                    { value: 'resolved', label: 'Resolved' },
+                  ]}
+                />
               </div>
             </div>
             <div className="ml-auto text-xs text-slate-500">

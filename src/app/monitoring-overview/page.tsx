@@ -86,6 +86,7 @@ function MonitoringOverviewPage() {
       <Badge variant="success" size="md">Monitoring Overview</Badge>
     </div>
   }
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Monitoring Overview' }]}
 />
 
       {/* ===== SUMMARY STRIP ===== */}

@@ -164,7 +164,7 @@ export default function BiodiversityDashboardsPage() {
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -176,7 +176,7 @@ export default function BiodiversityDashboardsPage() {
                 Analytics & Trends
               </span>
             </div>
-            <h1 className="max-w-xl text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight leading-tight">
+            <h1 className="max-w-xl text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
               Biodiversity Dashboards
             </h1>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-6 leading-relaxed max-w-3xl">
@@ -205,7 +205,7 @@ export default function BiodiversityDashboardsPage() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-12 space-y-16">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16">
 
         {/* ================================================================ */}
         {/* OVERVIEW METRICS ROW */}
@@ -218,7 +218,7 @@ export default function BiodiversityDashboardsPage() {
             <h2 className="text-2xl font-bold text-white">Overview Metrics</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Total Species */}
             <Card className="glass-intense border-white/10 bg-slate-900/60" padding="md">
               <div className="flex items-center gap-2 mb-4">
@@ -381,7 +381,7 @@ export default function BiodiversityDashboardsPage() {
           </div>
 
           <Card className="glass-intense border-white/10 bg-slate-900/60" padding="lg">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {/* Status bars */}
               <div className="space-y-5">
                 {Object.entries(statusBreakdown).map(([status, count], idx) => {
@@ -487,7 +487,7 @@ export default function BiodiversityDashboardsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
             {/* By Verification Status */}
             <Card className="glass-intense border-white/10 bg-slate-900/60" padding="md">
               <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4 flex items-center gap-2">

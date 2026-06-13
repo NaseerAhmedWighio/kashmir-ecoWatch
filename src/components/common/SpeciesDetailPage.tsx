@@ -1038,7 +1038,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
         </motion.div>
       </div>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

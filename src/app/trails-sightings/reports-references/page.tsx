@@ -33,6 +33,7 @@ export default function ReportsReferencesPage() {
         actions={
           <Button size="lg" className="bg-gradient-to-r from-slate-500 to-slate-600" onClick={() => router.push('/trails-sightings')}><ArrowRight className="w-5 h-5 mr-2" />Back to Trails</Button>
         }
+        breadcrumbs={[{ label: 'Trails & Sightings', href: '/trails-sightings' }, { label: 'Reports & References' }]}
       />
       <section className="py-20">
         <div className="container mx-auto px-6">

@@ -193,6 +193,7 @@ export default function LibraryPage() {
     </div>
   }
   badge={<Badge variant="info" size="lg">Evidence Intelligence</Badge>}
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Library' }]}
 />
 
       <section className="relative bg-[#160C27]">

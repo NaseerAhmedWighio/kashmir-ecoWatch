@@ -176,6 +176,7 @@ export default function WaterSystemsPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Water Systems' }]}
       />
 
       {/* Metrics Bar */}

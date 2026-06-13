@@ -797,7 +797,7 @@ export function CorridorDetailPage({ corridor, relatedCorridors = [] }: Corridor
         </motion.div>
       </div>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

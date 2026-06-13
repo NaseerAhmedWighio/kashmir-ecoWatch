@@ -215,6 +215,7 @@ export default function BiodiversityPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Biodiversity' }]}
       />
 
       {/* Live Metrics */}

@@ -12,6 +12,7 @@ import {
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Select } from '@/components/ui/Select';
 
 const treatmentPlants = [
   {
@@ -312,18 +313,21 @@ export default function WaterTreatmentPage() {
             <input type="text" placeholder="Search treatment plants..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500/50" />
           </div>
-          <select value={selectedDistrict} onChange={(e) => setSelectedDistrict(e.target.value)}
-            className="px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white focus:outline-none focus:border-cyan-500/50">
-            <option value="all" className="bg-slate-800">All Districts</option>
-            {districts.map(d => <option key={d} value={d} className="bg-slate-800">{d}</option>)}
-          </select>
-          <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}
-            className="px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white focus:outline-none focus:border-cyan-500/50">
-            <option value="all" className="bg-slate-800">All Statuses</option>
-            <option value="operational" className="bg-slate-800">Operational</option>
-            <option value="partial" className="bg-slate-800">Partial</option>
-            <option value="needs-upgrade" className="bg-slate-800">Needs Upgrade</option>
-          </select>
+          <Select
+            value={selectedDistrict}
+            onChange={setSelectedDistrict}
+            options={[{ value: 'all', label: 'All Districts' }, ...districts.map(d => ({ value: d, label: d }))]}
+          />
+          <Select
+            value={selectedStatus}
+            onChange={setSelectedStatus}
+            options={[
+              { value: 'all', label: 'All Statuses' },
+              { value: 'operational', label: 'Operational' },
+              { value: 'partial', label: 'Partial' },
+              { value: 'needs-upgrade', label: 'Needs Upgrade' },
+            ]}
+          />
           <div className="text-sm text-slate-400">{filtered.length} of {treatmentPlants.length} plants</div>
         </div>
       </section>

@@ -13,6 +13,7 @@ import {
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Select } from '@/components/ui/Select';
 import { Heading } from '@/components/common/Heading';
 
 const speciesCategories = [
@@ -419,15 +420,11 @@ export default function SubmitSightingPage() {
                       <Binoculars className="w-4 h-4 inline mr-1" />
                       Observation Method
                     </label>
-                    <select
+                    <Select
                       value={observationMethod}
-                      onChange={(e) => setObservationMethod(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-emerald-500"
-                    >
-                      {observationMethods.map((method) => (
-                        <option key={method.id} value={method.id} className="bg-white/5">{method.label}</option>
-                      ))}
-                    </select>
+                      onChange={setObservationMethod}
+                      options={observationMethods.map(m => ({ value: m.id, label: m.label }))}
+                    />
                   </div>
                 </div>
 
@@ -461,16 +458,14 @@ export default function SubmitSightingPage() {
                     <Leaf className="w-4 h-4 inline mr-1" />
                     Habitat Type
                   </label>
-                  <select
+                  <Select
                     value={habitatType}
-                    onChange={(e) => setHabitatType(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-emerald-500"
-                  >
-                    <option value="" className="bg-white/5">Select habitat type (optional)</option>
-                    {habitatTypes.map((habitat) => (
-                      <option key={habitat.id} value={habitat.id} className="bg-white/5">{habitat.label}</option>
-                    ))}
-                  </select>
+                    onChange={setHabitatType}
+                    placeholder="Select habitat type (optional)"
+                    options={[
+                      ...habitatTypes.map(h => ({ value: h.id, label: h.label })),
+                    ]}
+                  />
                 </div>
 
                 {/* Behavior Observed */}

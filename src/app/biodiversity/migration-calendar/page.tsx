@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Select } from '@/components/ui/Select';
 import Link from 'next/link';
 import { getMigrationCalendar, getMigratorySpecies, getFlywayData } from '@/data/biodiversity-access';
 import type { MigrationType, Flyway, Season } from '@/types/biodiversity';
@@ -140,33 +141,33 @@ const MigrationCalendarPage: React.FC = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Migration Type
               </label>
-              <select
+              <Select
                 value={filterType}
-                onChange={(e) => setFilterType(e.target.value as MigrationType | 'all')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
-              >
-                <option value="all">All Types</option>
-                <option value="breeder">Breeding Species</option>
-                <option value="winter-visitor">Winter Visitors</option>
-                <option value="summer-visitor">Summer Visitors</option>
-                <option value="passage-migrant">Passage Migrants</option>
-              </select>
+                onChange={(value) => setFilterType(value as MigrationType | 'all')}
+                options={[
+                  { value: 'all', label: 'All Types' },
+                  { value: 'breeder', label: 'Breeding Species' },
+                  { value: 'winter-visitor', label: 'Winter Visitors' },
+                  { value: 'summer-visitor', label: 'Summer Visitors' },
+                  { value: 'passage-migrant', label: 'Passage Migrants' },
+                ]}
+              />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Flyway
               </label>
-              <select
+              <Select
                 value={filterFlyway}
-                onChange={(e) => setFilterFlyway(e.target.value as Flyway | 'all')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
-              >
-                <option value="all">All Flyways</option>
-                <option value="central-asian">Central Asian</option>
-                <option value="east-asian">East Asian</option>
-                <option value="west-asian">West Asian</option>
-              </select>
+                onChange={(value) => setFilterFlyway(value as Flyway | 'all')}
+                options={[
+                  { value: 'all', label: 'All Flyways' },
+                  { value: 'central-asian', label: 'Central Asian' },
+                  { value: 'east-asian', label: 'East Asian' },
+                  { value: 'west-asian', label: 'West Asian' },
+                ]}
+              />
             </div>
           </div>
         </div>

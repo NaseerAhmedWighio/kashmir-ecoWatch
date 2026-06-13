@@ -722,7 +722,7 @@ export default function SupportSponsorshipPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

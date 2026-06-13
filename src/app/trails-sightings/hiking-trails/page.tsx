@@ -123,6 +123,7 @@ export default function HikingTrailsPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Trails & Sightings', href: '/trails-sightings' }, { label: 'Hiking Trails' }]}
       />
 
       {/* Filters */}

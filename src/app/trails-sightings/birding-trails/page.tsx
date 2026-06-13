@@ -32,6 +32,7 @@ export default function BirdingTrailsPage() {
         actions={
           <Button size="lg" className="bg-gradient-to-r from-sky-500 to-blue-600" onClick={() => router.push('/trails-sightings')}><ArrowRight className="w-5 h-5 mr-2" />Back to Trails</Button>
         }
+        breadcrumbs={[{ label: 'Trails & Sightings', href: '/trails-sightings' }, { label: 'Birding Trails' }]}
       />
       <section className="py-20">
         <div className="container mx-auto px-6">

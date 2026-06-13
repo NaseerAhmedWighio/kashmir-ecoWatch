@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
+import { Select } from '@/components/ui/Select';
 import { Flower2, Calendar, MapPin, Leaf, ArrowRight, Search, Sprout } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -92,14 +93,22 @@ export default function PhenologyFloweringPage() {
               <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
               <input type="text" placeholder="Search records..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full pl-9 pr-4 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-slate-500 outline-none focus:border-pink-500/50" />
             </div>
-            <select value={filterType} onChange={e => setFilterType(e.target.value)} className="px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
-              <option value="all">All Types</option>
-              {recordTypes.map(t => <option key={t} value={t}>{t.replace(/-/g, ' ')}</option>)}
-            </select>
-            <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
-              <option value="all">All Districts</option>
-              {districts.map(d => <option key={d} value={d}>{d}</option>)}
-            </select>
+            <Select
+              value={filterType}
+              onChange={setFilterType}
+              options={[
+                { value: 'all', label: 'All Types' },
+                ...recordTypes.map(t => ({ value: t, label: t.replace(/-/g, ' ') })),
+              ]}
+            />
+            <Select
+              value={filterDistrict}
+              onChange={setFilterDistrict}
+              options={[
+                { value: 'all', label: 'All Districts' },
+                ...districts.map(d => ({ value: d, label: d })),
+              ]}
+            />
           </div>
         </Card>
 

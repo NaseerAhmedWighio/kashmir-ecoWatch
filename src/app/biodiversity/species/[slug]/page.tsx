@@ -196,7 +196,7 @@ export default function SpeciesDetailPage() {
       {/* Tabs */}
       <div className="sticky top-16 z-40 bg-slate-950/95 backdrop-blur-xl border-b border-white/5">
         <div className="container mx-auto px-6">
-          <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide">
+          <div className="flex items-center gap-1 overflow-x-auto">
             {tabs.map((tab) => (
               <button
                 key={tab.id}

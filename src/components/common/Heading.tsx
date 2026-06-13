@@ -75,15 +75,17 @@ export function Heading({
           )}
 
           <div className="flex items-center gap-3 mb-6">
+            <div className='mb-2 w-4 h-4 sm:w-3 sm:h-3 md:w-4 md:h-4'>
             {icon}
+            </div>
             {badge ? badge : label ? (
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
+              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-slate-400">
                 {label}
               </span>
             ) : null}
           </div>
 
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight overflow-visible pb-1">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight overflow-visible pb-1">
             {title}
           </h1>
 

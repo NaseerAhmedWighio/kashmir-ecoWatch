@@ -401,7 +401,7 @@ export default function TrailsAndSightingsPage() {
       />
 
       {/* KPI Dashboard */}
-      <div className="container mx-auto px-6 -mt-8 relative z-20 mb-6">
+      <div className="container mx-auto px-4 sm:px-6 -mt-6 sm:-mt-8 relative z-20 mb-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
           <Card className="glass-intense border-white/10 p-4 lg:p-5" padding="none">
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
@@ -431,8 +431,8 @@ export default function TrailsAndSightingsPage() {
       </div>
 
       {/* Main Scientific Tabs navigation */}
-      <div className="container mx-auto px-6 mb-6">
-        <div className="flex flex-wrap gap-2 p-1.5 glass-intense border border-white/10 rounded-2xl overflow-x-auto scrollbar-hide">
+      <div className="container mx-auto px-4 sm:px-6 mb-6">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 p-1.5 glass-intense border border-white/10 rounded-2xl overflow-x-auto">
           {MAIN_TABS.map(tab => (
             <button
               key={tab.key}
@@ -440,7 +440,7 @@ export default function TrailsAndSightingsPage() {
                 setActiveMainTab(tab.key);
                 setInspectedTrailId(null);
               }}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold tracking-wide transition-all whitespace-nowrap ${
                 activeMainTab === tab.key
                   ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-md'
                   : 'text-slate-400 hover:text-white hover:bg-white/5'
@@ -453,7 +453,7 @@ export default function TrailsAndSightingsPage() {
       </div>
 
       {/* Content Rendering based on Tab */}
-      <div className="container mx-auto px-6 py-6 min-h-[500px]">
+      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 min-h-[500px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeMainTab}
@@ -465,7 +465,7 @@ export default function TrailsAndSightingsPage() {
             {/* OVERVIEW TAB */}
             {activeMainTab === 'overview' && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   {/* Card 1: Summary */}
                   <Card className="border border-white/10 bg-white/5 text-white p-6 h-full flex flex-col justify-between" padding="none">
                     <div>
@@ -476,16 +476,16 @@ export default function TrailsAndSightingsPage() {
                       <p className="text-slate-300 text-sm leading-relaxed mb-4">
                         The Kashmir Trails and Sightings Network functions as a high-fidelity spatial database designed to record, audit, and analyze wildlife movement and biodiversity indexes across the Himalayan region. Built specifically for conservation ecologists, forest management divisions, and research groups, the system tracks ecological corridors and indicator species population trends.
                       </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                        <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                          <h4 className="font-semibold text-emerald-400 text-sm mb-1">Active Observation Modalities</h4>
-                          <p className="text-xs text-slate-400 leading-normal">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
+                        <div className="p-3 sm:p-4 rounded-xl bg-white/5 border border-white/5">
+                          <h4 className="font-semibold text-emerald-400 text-xs sm:text-sm mb-1">Active Observation Modalities</h4>
+                          <p className="text-[11px] sm:text-xs text-slate-400 leading-normal">
                             Direct sight logs, camera trap indices, environmental audio recordings, tracks/signs matching, and nesting surveys.
                           </p>
                         </div>
-                        <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                          <h4 className="font-semibold text-emerald-400 text-sm mb-1">Taxonomic Indexes Supported</h4>
-                          <p className="text-xs text-slate-400 leading-normal">
+                        <div className="p-3 sm:p-4 rounded-xl bg-white/5 border border-white/5">
+                          <h4 className="font-semibold text-emerald-400 text-xs sm:text-sm mb-1">Taxonomic Indexes Supported</h4>
+                          <p className="text-[11px] sm:text-xs text-slate-400 leading-normal">
                             Strict coverage of Himalayan mammals, alpine avifauna checklists, endemic plant phenology records, and riverine macroinvertebrates.
                           </p>
                         </div>
@@ -544,16 +544,16 @@ export default function TrailsAndSightingsPage() {
                       <p className="text-slate-400 text-xs leading-normal mb-4">
                         Real-time status of motion-activated camera arrays mapping sensitive wildlife corridors.
                       </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-xs">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
+                        <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[11px] sm:text-xs">
                           <span className="text-slate-400 block mb-1">CT-DC-01 (Dachigam)</span>
                           <span className="text-emerald-400 font-semibold">ONLINE</span>
                         </div>
-                        <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-xs">
+                        <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[11px] sm:text-xs">
                           <span className="text-slate-400 block mb-1">CT-HP-03 (Hirpora)</span>
                           <span className="text-emerald-400 font-semibold">ONLINE</span>
                         </div>
-                        <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-xs">
+                        <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[11px] sm:text-xs">
                           <span className="text-slate-400 block mb-1">CT-KHT-09 (Kishtwar)</span>
                           <span className="text-amber-400 font-semibold">MAINTENANCE</span>
                         </div>
@@ -568,8 +568,8 @@ export default function TrailsAndSightingsPage() {
             {activeMainTab === 'trails' && (
               <div className="space-y-6">
                 {/* 3 Scope Tabs + Filter Controls */}
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 p-1 glass-intense border border-white/10 rounded-xl">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 p-1 glass-intense border border-white/10 rounded-xl overflow-x-auto">
                     {[
                       { key: 'core', label: 'Kashmir Core' },
                       { key: 'trans', label: 'Trans-Divisional' },
@@ -582,7 +582,7 @@ export default function TrailsAndSightingsPage() {
                           setSelectedScope(tab.label);
                           setInspectedTrailId(null);
                         }}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
+                        className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold transition-all whitespace-nowrap ${
                           activeScopeTab === tab.key
                             ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
                             : 'text-slate-400 hover:text-white hover:bg-white/5'
@@ -593,16 +593,16 @@ export default function TrailsAndSightingsPage() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-3 ml-auto">
-                    <Button variant="outline" size="sm" className="border-white/20 text-white" icon={<Filter className="w-4 h-4" />} onClick={() => setShowFilters(f => !f)}>
+                  <div className="flex items-center gap-2 sm:gap-3 ml-auto w-full sm:w-auto">
+                    <Button variant="outline" size="sm" className="border-white/20 text-white text-[11px] sm:text-xs flex-1 sm:flex-none justify-center" icon={<Filter className="w-3.5 h-3.5 sm:w-4 sm:h-4" />} onClick={() => setShowFilters(f => !f)}>
                       {showFilters ? 'Hide Filters' : 'Filters'}
                     </Button>
-                    <span className="text-xs text-slate-400 whitespace-nowrap">
-                      <strong className="text-white">{filteredTrails.length}</strong> of <strong className="text-white">{trailsObservationsData.length}</strong> routes
+                    <span className="text-[11px] sm:text-xs text-slate-400 whitespace-nowrap">
+                      <strong className="text-white">{filteredTrails.length}</strong> of <strong className="text-white">{trailsObservationsData.length}</strong>
                     </span>
                     <div className="flex items-center gap-1">
-                      <Button variant="ghost" size="sm" onClick={() => setViewMode('grid')} className={viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} icon={<Grid3X3 className="w-4 h-4" />} />
-                      <Button variant="ghost" size="sm" onClick={() => setViewMode('list')} className={viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} icon={<List className="w-4 h-4" />} />
+                      <Button variant="ghost" size="sm" onClick={() => setViewMode('grid')} className={`${viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} !p-1.5`} icon={<Grid3X3 className="w-3.5 h-3.5" />} />
+                      <Button variant="ghost" size="sm" onClick={() => setViewMode('list')} className={`${viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} !p-1.5`} icon={<List className="w-3.5 h-3.5" />} />
                     </div>
                   </div>
                 </div>
@@ -855,15 +855,15 @@ export default function TrailsAndSightingsPage() {
             {/* WILDLIFE SIGHTINGS TAB */}
             {activeMainTab === 'sightings' && (
               <div className="space-y-6">
-                <div className="flex flex-wrap items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold text-slate-400">Class:</span>
-                    <div className="flex gap-1.5">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 bg-white/5 p-3 sm:p-4 rounded-xl border border-white/5">
+                  <div className="flex fle gap-2">
+                    <span className="text-[11px] sm:text-xs font-semibold text-slate-400">Class:</span>
+                    <div className="flex flex-wrap items-center gap-1.5">
                       {['all', 'Mammal', 'Bird', 'Reptile'].map(grp => (
                         <button
                           key={grp}
                           onClick={() => setSightingsFilterGroup(grp)}
-                          className={`text-xs px-2.5 py-1 rounded-md transition-all ${
+                          className={`text-[11px] sm:text-xs px-2 sm:px-2.5 py-1 rounded-md transition-all whitespace-nowrap ${
                             sightingsFilterGroup === grp
                               ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
                               : 'text-slate-400 hover:text-white'
@@ -875,22 +875,24 @@ export default function TrailsAndSightingsPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 ml-auto">
-                    <span className="text-xs font-semibold text-slate-400">Verification:</span>
-                    <select
-                      value={sightingsFilterVerify}
-                      onChange={(e) => setSightingsFilterVerify(e.target.value)}
-                      className="text-xs bg-white/5 border border-white/10 text-white rounded px-2 py-1 focus:outline-none"
-                    >
-                      <option value="all">All Levels</option>
-                      <option value="Verified">Verified Only</option>
-                      <option value="Staff Confirmed">Staff Confirmed</option>
-                      <option value="Community Confirmed">Community Confirmed</option>
-                    </select>
+                  <div className="flex items-center gap-2 sm:ml-auto w-full sm:w-auto">
+                    <span className="text-[11px] sm:text-xs font-semibold text-slate-400 whitespace-nowrap">Verification:</span>
+                    <div className="flex-1 sm:flex-none">
+                      <Select
+                        value={sightingsFilterVerify}
+                        onChange={(value) => setSightingsFilterVerify(value)}
+                        options={[
+                          { value: 'all', label: 'All Levels' },
+                          { value: 'Verified', label: 'Verified Only' },
+                          { value: 'Staff Confirmed', label: 'Staff Confirmed' },
+                          { value: 'Community Confirmed', label: 'Community Confirmed' },
+                        ]}
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   {observations
                     .filter(obs => sightingsFilterGroup === 'all' || obs.species_group === sightingsFilterGroup)
                     .filter(obs => sightingsFilterVerify === 'all' || obs.verification_status === sightingsFilterVerify)
@@ -951,7 +953,7 @@ export default function TrailsAndSightingsPage() {
                   </p>
                 </Card>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   {birdingRoutes.map((route, idx) => (
                     <motion.div
                       key={route.trail_id}
@@ -991,7 +993,7 @@ export default function TrailsAndSightingsPage() {
             {/* OBSERVATION SITES TAB */}
             {activeMainTab === 'sites' && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   {trailsObservationsData.filter(t => t.route_type.toLowerCase().includes('network') || t.route_type.toLowerCase().includes('system')).map((site, idx) => (
                     <Card key={idx} className="border border-white/10 bg-white/5 p-5 flex flex-col justify-between" padding="none">
                       <div>
@@ -1021,7 +1023,7 @@ export default function TrailsAndSightingsPage() {
             {/* CAMERA TRAPS TAB */}
             {activeMainTab === 'traps' && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                   {[
                     { id: 'CAM-DT-01', location: 'Lower Dachigam', status: 'Online', battery: '84%', triggers: 1242, target: 'Hangul / Black Bear' },
                     { id: 'CAM-DT-04', location: 'Dagwan River Upper', status: 'Online', battery: '92%', triggers: 341, target: 'Musk Deer / Leopard' },
@@ -1124,26 +1126,24 @@ export default function TrailsAndSightingsPage() {
                         <div className="grid grid-cols-2 gap-3">
                           <div>
                             <label className="block text-slate-400 mb-1">Species Group</label>
-                            <select 
+                            <Select
                               value={obsForm.speciesGroup}
-                              onChange={(e) => setObsForm(prev => ({ ...prev, speciesGroup: e.target.value }))}
-                              className="w-full p-2 rounded bg-slate-950 border border-white/10 text-white outline-none"
-                            >
-                              <option>Mammal</option>
-                              <option>Bird</option>
-                              <option>Plant</option>
-                              <option>Reptile</option>
-                            </select>
+                              onChange={(value) => setObsForm(prev => ({ ...prev, speciesGroup: value }))}
+                              options={[
+                                { value: 'Mammal', label: 'Mammal' },
+                                { value: 'Bird', label: 'Bird' },
+                                { value: 'Plant', label: 'Plant' },
+                                { value: 'Reptile', label: 'Reptile' },
+                              ]}
+                            />
                           </div>
                           <div>
                             <label className="block text-slate-400 mb-1">Observation Type</label>
-                            <select 
+                            <Select
                               value={obsForm.observationType}
-                              onChange={(e) => setObsForm(prev => ({ ...prev, observationType: e.target.value }))}
-                              className="w-full p-2 rounded bg-slate-950 border border-white/10 text-white outline-none"
-                            >
-                              {observationTypes.map(ot => <option key={ot}>{ot}</option>)}
-                            </select>
+                              onChange={(value) => setObsForm(prev => ({ ...prev, observationType: value }))}
+                              options={observationTypes.map(ot => ({ value: ot, label: ot }))}
+                            />
                           </div>
                         </div>
 
@@ -1163,17 +1163,17 @@ export default function TrailsAndSightingsPage() {
                           </div>
                           <div>
                             <label className="block text-slate-400 mb-1">Evidence Type</label>
-                            <select 
+                            <Select
                               value={obsForm.evidenceType}
-                              onChange={(e) => setObsForm(prev => ({ ...prev, evidenceType: e.target.value }))}
-                              className="w-full p-2 rounded bg-slate-950 border border-white/10 text-white outline-none"
-                            >
-                              <option value="Geotagged Photo">Geotagged Photo</option>
-                              <option value="Audio Recording">Audio Recording</option>
-                              <option value="Tracks/Scat/Signs">Tracks/Scat/Signs</option>
-                              <option value="Visual Confirmation">Visual Confirmation</option>
-                              <option value="Specimen Sample">Specimen Sample</option>
-                            </select>
+                              onChange={(value) => setObsForm(prev => ({ ...prev, evidenceType: value }))}
+                              options={[
+                                { value: 'Geotagged Photo', label: 'Geotagged Photo' },
+                                { value: 'Audio Recording', label: 'Audio Recording' },
+                                { value: 'Tracks/Scat/Signs', label: 'Tracks/Scat/Signs' },
+                                { value: 'Visual Confirmation', label: 'Visual Confirmation' },
+                                { value: 'Specimen Sample', label: 'Specimen Sample' },
+                              ]}
+                            />
                           </div>
                         </div>
 
@@ -1247,31 +1247,31 @@ export default function TrailsAndSightingsPage() {
                           </div>
                           <div>
                             <label className="block text-slate-400 mb-1">Observer Class</label>
-                            <select 
+                            <Select
                               value={obsForm.observerType}
-                              onChange={(e) => setObsForm(prev => ({ ...prev, observerType: e.target.value }))}
-                              className="w-full p-2 rounded bg-slate-950 border border-white/10 text-white outline-none"
-                            >
-                              <option value="Citizen Scientist">Citizen Scientist</option>
-                              <option value="Registered Ranger">Registered Ranger</option>
-                              <option value="Research Wildlife Biologist">Research Biologist</option>
-                              <option value="University Student">University Student</option>
-                            </select>
+                              onChange={(value) => setObsForm(prev => ({ ...prev, observerType: value }))}
+                              options={[
+                                { value: 'Citizen Scientist', label: 'Citizen Scientist' },
+                                { value: 'Registered Ranger', label: 'Registered Ranger' },
+                                { value: 'Research Wildlife Biologist', label: 'Research Biologist' },
+                                { value: 'University Student', label: 'University Student' },
+                              ]}
+                            />
                           </div>
                         </div>
 
                         <div className="grid grid-cols-2 gap-3">
                           <div>
                             <label className="block text-slate-400 mb-1">Geographic Masking</label>
-                            <select 
+                            <Select
                               value={obsForm.publicVisibility}
-                              onChange={(e) => setObsForm(prev => ({ ...prev, publicVisibility: e.target.value }))}
-                              className="w-full p-2 rounded bg-slate-950 border border-white/10 text-white outline-none"
-                            >
-                              <option value="Public">Public (Exact coordinates)</option>
-                              <option value="Generalized">Generalized (Fuzzed for safety)</option>
-                              <option value="Hidden">Hidden (Critical species only)</option>
-                            </select>
+                              onChange={(value) => setObsForm(prev => ({ ...prev, publicVisibility: value }))}
+                              options={[
+                                { value: 'Public', label: 'Public (Exact coordinates)' },
+                                { value: 'Generalized', label: 'Generalized (Fuzzed for safety)' },
+                                { value: 'Hidden', label: 'Hidden (Critical species only)' },
+                              ]}
+                            />
                           </div>
                           <div>
                             <label className="block text-slate-400 mb-1">Reference Image URL (Optional)</label>
@@ -1433,8 +1433,8 @@ export default function TrailsAndSightingsPage() {
             {activeMainTab === 'reports' && (
               <div className="space-y-6">
                 {/* Scope tabs + toolbar */}
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 p-1 glass-intense border border-white/10 rounded-xl">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 p-1 glass-intense border border-white/10 rounded-xl overflow-x-auto">
                     {[
                       { key: 'core', label: 'Kashmir Core' },
                       { key: 'trans', label: 'Trans-Divisional' },
@@ -1446,7 +1446,7 @@ export default function TrailsAndSightingsPage() {
                           setActiveScopeTab(tab.key as any);
                           setSelectedScope(tab.label);
                         }}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
+                        className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold transition-all whitespace-nowrap ${
                           activeScopeTab === tab.key
                             ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
                             : 'text-slate-400 hover:text-white hover:bg-white/5'
@@ -1457,16 +1457,16 @@ export default function TrailsAndSightingsPage() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-3 ml-auto">
-                    <Button variant="outline" size="sm" className="border-white/20 text-white" icon={<Filter className="w-4 h-4" />} onClick={() => setShowFilters(f => !f)}>
+                  <div className="flex items-center gap-2 sm:gap-3 ml-auto w-full sm:w-auto">
+                    <Button variant="outline" size="sm" className="border-white/20 text-white text-[11px] sm:text-xs flex-1 sm:flex-none justify-center" icon={<Filter className="w-3.5 h-3.5 sm:w-4 sm:h-4" />} onClick={() => setShowFilters(f => !f)}>
                       {showFilters ? 'Hide Filters' : 'Filters'}
                     </Button>
-                    <span className="text-xs text-slate-400 whitespace-nowrap">
-                      <strong className="text-white">{filteredReports.length}</strong> of <strong className="text-white">{allReports.length}</strong> documents
+                    <span className="text-[11px] sm:text-xs text-slate-400 whitespace-nowrap">
+                      <strong className="text-white">{filteredReports.length}</strong> of <strong className="text-white">{allReports.length}</strong>
                     </span>
                     <div className="flex items-center gap-1">
-                      <Button variant="ghost" size="sm" onClick={() => setViewMode('grid')} className={viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} icon={<Grid3X3 className="w-4 h-4" />} />
-                      <Button variant="ghost" size="sm" onClick={() => setViewMode('list')} className={viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} icon={<List className="w-4 h-4" />} />
+                      <Button variant="ghost" size="sm" onClick={() => setViewMode('grid')} className={`${viewMode === 'grid' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} !p-1.5`} icon={<Grid3X3 className="w-3.5 h-3.5" />} />
+                      <Button variant="ghost" size="sm" onClick={() => setViewMode('list')} className={`${viewMode === 'list' ? 'bg-emerald-500/20 text-emerald-400' : 'text-slate-400'} !p-1.5`} icon={<List className="w-3.5 h-3.5" />} />
                     </div>
                   </div>
                 </div>
@@ -1534,30 +1534,30 @@ export default function TrailsAndSightingsPage() {
                       >
                         <Card className={`${viewMode === 'grid' ? 'h-full flex flex-col justify-between' : ''} card-intelligence border border-white/10 bg-white/5 hover:border-emerald-500/30 transition-all duration-300`} padding="lg">
                           {viewMode === 'grid' ? (
-                            <div className="flex flex-col h-full justify-between">
+                            <div className="flex flex-col h-full justify-between p-4 sm:p-5">
                               <div>
-                                <div className="flex items-start gap-4 mb-4">
-                                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-500 bg-opacity-20 flex items-center justify-center flex-shrink-0">
-                                    <FileText className="w-6 h-6 text-emerald-400" />
+                                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-3">
+                                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-500 bg-opacity-20 flex items-center justify-center flex-shrink-0">
+                                    <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
                                   </div>
-                                  <div>
-                                    <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">{report.title}</h3>
-                                    <div className="flex flex-wrap gap-1.5 mt-2">
+                                  <div className="min-w-0">
+                                    <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2 leading-snug">{report.title}</h3>
+                                    <div className="flex flex-wrap gap-1.5 mt-1.5">
                                       <Badge variant="info" size="sm" className="capitalize">{report.type}</Badge>
                                       <Badge variant="default" size="sm">{report.year}</Badge>
                                     </div>
                                   </div>
                                 </div>
-                                <p className="text-xs text-slate-400 mb-3 line-clamp-3">{report.description}</p>
+                                <p className="text-xs sm:text-sm text-slate-400 mb-3 line-clamp-3 leading-relaxed">{report.description}</p>
                                 <div className="text-xs text-slate-500 mb-3">
                                   <span>Authors: <strong className="text-slate-300">{report.authors.slice(0, 2).join(', ')}{report.authors.length > 2 ? ' + more' : ''}</strong></span>
                                 </div>
                               </div>
-                              <div className="mt-4 pt-4 border-t border-white/[0.06] flex justify-end">
+                              <div className="mt-4 pt-4 border-t border-white/[0.06]">
                                 <Button
                                   variant="outline"
                                   size="sm"
-                                  className="border-white/20 text-white group-hover:border-emerald-500/50 transition-colors"
+                                  className="border-white/20 text-white hover:border-emerald-500/50 transition-colors w-full justify-center"
                                   icon={<Download className="w-4 h-4" />}
                                   onClick={(e) => handleReportDownload(e, report.slug)}
                                 >
@@ -1566,19 +1566,21 @@ export default function TrailsAndSightingsPage() {
                               </div>
                             </div>
                           ) : (
-                            <div className="flex items-start justify-between">
-                              <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-500 bg-opacity-20 flex items-center justify-center flex-shrink-0">
-                                  <FileText className="w-6 h-6 text-emerald-400" />
+                            <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
+                              <div className="flex items-start gap-3 sm:gap-4 min-w-0 flex-1">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-500 bg-opacity-20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                  <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
                                 </div>
-                                <div>
-                                  <div className="flex flex-wrap items-center gap-3 mb-2">
-                                    <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">{report.title}</h3>
-                                    <Badge variant="info" size="sm" className="capitalize">{report.type}</Badge>
-                                    <Badge variant="default" size="sm">{report.year}</Badge>
+                                <div className="min-w-0 flex-1">
+                                  <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 mb-1.5">
+                                    <h3 className="text-sm sm:text-lg font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug">{report.title}</h3>
+                                    <div className="flex flex-wrap items-center gap-1.5">
+                                      <Badge variant="info" size="sm" className="capitalize">{report.type}</Badge>
+                                      <Badge variant="default" size="sm">{report.year}</Badge>
+                                    </div>
                                   </div>
-                                  <p className="text-sm text-slate-400 mb-3">{report.description}</p>
-                                  <div className="flex items-center gap-4 text-xs text-slate-500">
+                                  <p className="text-xs sm:text-sm text-slate-400 mb-2 line-clamp-2">{report.description}</p>
+                                  <div className="text-xs text-slate-500">
                                     <span>Authors: <strong className="text-slate-300">{report.authors.slice(0, 2).join(', ')}{report.authors.length > 2 ? ' + more' : ''}</strong></span>
                                   </div>
                                 </div>
@@ -1586,7 +1588,7 @@ export default function TrailsAndSightingsPage() {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="border-white/20 text-white group-hover:border-emerald-500/50 transition-colors flex-shrink-0 ml-4"
+                                className="border-white/20 text-white group-hover:border-emerald-500/50 transition-colors w-full sm:w-auto shrink-0 justify-center"
                                 icon={<Download className="w-4 h-4" />}
                                 onClick={(e) => handleReportDownload(e, report.slug)}
                               >
@@ -1616,7 +1618,7 @@ export default function TrailsAndSightingsPage() {
         </AnimatePresence>
       </div>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

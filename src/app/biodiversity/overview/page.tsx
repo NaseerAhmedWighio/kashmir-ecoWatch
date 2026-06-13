@@ -80,7 +80,7 @@ export default function BiodiversityOverviewPage() {
         
         <div className="absolute inset-0 bg-[#160C27]" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function BiodiversityOverviewPage() {
                 Biodiversity Intelligence
               </span>
             </div>
-            <h1 className="max-w-xl text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-3 sm:mb-4 leading-tight tracking-tight">
+            <h1 className="max-w-xl text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-6xl font-black text-white mb-3 sm:mb-4 leading-tight tracking-tight">
               Species, Habitat & Observation Intelligence
             </h1>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-400 mb-6 leading-relaxed max-w-3xl">
@@ -132,14 +132,14 @@ export default function BiodiversityOverviewPage() {
       </div>
 
       {/* Live Metrics Bar */}
-      <div className="container mx-auto px-6 -mt-8 relative z-20">
+      <div className="container mx-auto px-4 sm:px-6 -mt-6 sm:-mt-8 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="glass-intense border-white/10 p-6" padding="none">
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+          <Card className="glass-intense border-white/10 p-3 sm:p-6" padding="none">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-4 lg:gap-6">
               {[
                 { label: 'Species Indexed', value: biodiversityMetrics.totalSpecies, icon: Activity },
                 { label: 'Birds', value: biodiversityMetrics.birds, icon: Bird },
@@ -150,12 +150,12 @@ export default function BiodiversityOverviewPage() {
                 { label: 'Threatened', value: biodiversityMetrics.threatened, icon: Shield },
                 { label: 'Active Migrations', value: activeMigrations.length, icon: Clock },
               ].map((metric, idx) => (
-                <div key={idx} className="text-center p-4 border-r border-white/5 even:border-r-0 md:even:border-r md:[&:nth-child(4n)]:border-r-0 lg:[&:nth-child(4n)]:border-r lg:last:border-r-0">
-                  <metric.icon className="w-5 h-5 text-slate-500 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-white tabular-nums">
+                <div key={idx} className="text-center p-2 sm:p-4 border-r border-white/5 even:border-r-0 sm:even:border-r sm:[&:nth-child(4n)]:border-r-0 lg:[&:nth-child(8n)]:border-r-0">
+                  <metric.icon className="w-4 h-4 sm:w-5 sm:h-5 text-slate-500 mx-auto mb-1 sm:mb-2" />
+                  <div className="text-base sm:text-2xl font-bold text-white tabular-nums">
                     {metric.value.toLocaleString()}
                   </div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">
+                  <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mt-0.5 sm:mt-1">
                     {metric.label}
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export default function BiodiversityOverviewPage() {
       </div>
 
       {/* Module Navigation - 3 Groups */}
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
         {/* Species Group */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -194,7 +194,7 @@ export default function BiodiversityOverviewPage() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               onClick={() => router.push(item.href)}
-              className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-emerald-500/30 transition-all text-left group"
+              className="bg-white/5 border border-white/10 rounded-xl p-3 sm:p-5 hover:bg-white/10 hover:border-emerald-500/30 transition-all text-left group"
             >
               <item.icon className="w-6 h-6 text-emerald-400 mb-3 group-hover:scale-110 transition-transform" />
               <div className="font-semibold text-white text-sm mb-1">{item.label}</div>
@@ -230,7 +230,7 @@ export default function BiodiversityOverviewPage() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               onClick={() => router.push(item.href)}
-              className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-5 hover:bg-white/10 hover:border-sky-500/30 transition-all text-left group"
+              className="bg-white/5 border border-white/10 rounded-xl p-3 sm:p-5 hover:bg-white/10 hover:border-sky-500/30 transition-all text-left group"
             >
               <item.icon className="w-6 h-6 text-sky-400 mb-3 group-hover:scale-110 transition-transform" />
               <div className="font-semibold text-white text-sm mb-1">{item.label}</div>
@@ -266,7 +266,7 @@ export default function BiodiversityOverviewPage() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               onClick={() => router.push(item.href)}
-              className="bg-white/5 border border-white/10 rounded-xl p-3 md:p-5 hover:bg-white/10 hover:border-violet-500/30 transition-all text-left group"
+              className="bg-white/5 border border-white/10 rounded-xl p-3 sm:p-5 hover:bg-white/10 hover:border-violet-500/30 transition-all text-left group"
             >
               <item.icon className="w-6 h-6 text-violet-400 mb-3 group-hover:scale-110 transition-transform" />
               <div className="font-semibold text-white text-sm mb-1">{item.label}</div>
@@ -277,15 +277,15 @@ export default function BiodiversityOverviewPage() {
       </div>
 
       {/* Active Migration Periods */}
-      <div className="container mx-auto px-6 py-16 bg-gradient-to-b from-slate-950 to-sky-950/20">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 bg-gradient-to-b from-slate-950 to-sky-950/20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex flex-col items-center gap-3 mb-3">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
+          <div className="flex flex-col gap-3 mb-3">
+            <div className="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center">
                 <Clock className="w-5 h-5 text-white" />
               </div>
@@ -306,7 +306,7 @@ export default function BiodiversityOverviewPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {migrationWindows.slice(0, 4).map((mw) => (
             <Card key={mw.id} className="border border-white/10 bg-slate-900/50" padding="md">
               <div className="flex items-start justify-between mb-3">
@@ -330,15 +330,15 @@ export default function BiodiversityOverviewPage() {
       </div>
 
       {/* Recent Phenology & Flowering */}
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex flex-col items-center gap-3 mb-3">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
+          <div className="flex flex-col gap-3 mb-3">
+            <div className="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                 <Flower2 className="w-5 h-5 text-white" />
               </div>
@@ -359,7 +359,7 @@ export default function BiodiversityOverviewPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {recentPhenology.map((record) => (
             <Card key={record.id} className="border border-white/10 bg-slate-900/50" padding="md">
               <div className="flex items-start justify-between mb-3">
@@ -385,15 +385,15 @@ export default function BiodiversityOverviewPage() {
       </div>
 
       {/* Habitat Signals Alert Band */}
-      <div className="container mx-auto px-6 py-16 bg-gradient-to-b from-slate-950 to-amber-950/10">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 bg-gradient-to-b from-slate-950 to-amber-950/10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex flex-col items-center gap-3 mb-3">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
+          <div className="flex flex-col gap-3 mb-3">
+            <div className="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
                 <AlertTriangle className="w-5 h-5 text-white" />
               </div>
@@ -433,15 +433,15 @@ export default function BiodiversityOverviewPage() {
       </div>
 
       {/* District Biodiversity Leaders */}
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex flex-col items-center gap-3 mb-3">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-2">
+          <div className="flex flex-col gap-3 mb-3">
+            <div className="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
                 <Building2 className="w-5 h-5 text-white" />
               </div>
@@ -462,14 +462,14 @@ export default function BiodiversityOverviewPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
           {getDistrictBiodiversity.all().slice(0, 8).map((district) => (
             <button
               key={district.district}
               onClick={() => router.push(`/biodiversity/district/${district.district.toLowerCase().replace(/\s+/g, '-')}`)}
-              className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all text-left"
+              className="bg-white/5 border border-white/10 rounded-lg p-3 sm:p-4 hover:bg-white/10 transition-all text-left"
             >
-              <div className="text-xl font-bold text-white">{district.totalSpecies}</div>
+              <div className="text-lg sm:text-xl font-bold text-white">{district.totalSpecies}</div>
               <div className="text-xs text-slate-400 truncate">{district.district}</div>
               <div className="text-xs text-slate-500 mt-1">
                 {district.threatenedSpecies} threatened

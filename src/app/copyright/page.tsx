@@ -473,6 +473,7 @@ export default function CopyrightPage() {
     </div>
   }
   badge={<Badge variant="info" size="lg">Legal Notice</Badge>}
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Copyright' }]}
 />
 
       {/* ─── Platform Nature ──────────────────────────────────────────────── */}

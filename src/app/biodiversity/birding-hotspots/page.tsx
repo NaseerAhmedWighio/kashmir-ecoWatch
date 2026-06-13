@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
+import { Select } from '@/components/ui/Select';
 import {
   MapPin, Bird, Eye, Mountain, ArrowRight, Filter, Clock, Shield, Footprints
 } from 'lucide-react';
@@ -128,47 +129,47 @@ export default function BirdingHotspotsPage() {
       <div className="container mx-auto px-6 py-8">
         <Card className="border border-white/10 bg-slate-900/50 mb-8" padding="md">
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center">
-            <select
+            <Select
               value={filterDistrict}
-              onChange={(e) => setFilterDistrict(e.target.value as KashmirDistrict | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-teal-500/50 outline-none"
-            >
-              <option value="all">All Districts</option>
-              {districts.map(d => <option key={d} value={d}>{d}</option>)}
-            </select>
-            <select
+              onChange={(value) => setFilterDistrict(value as KashmirDistrict | 'all')}
+              options={[
+                { value: 'all', label: 'All Districts' },
+                ...districts.map(d => ({ value: d, label: d })),
+              ]}
+            />
+            <Select
               value={filterAccess}
-              onChange={(e) => setFilterAccess(e.target.value as AccessStatus | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-teal-500/50 outline-none"
-            >
-              <option value="all">All Access</option>
-              <option value="open">Open</option>
-              <option value="restricted">Restricted</option>
-              <option value="permit-required">Permit Required</option>
-              <option value="closed">Closed</option>
-            </select>
-            <select
+              onChange={(value) => setFilterAccess(value as AccessStatus | 'all')}
+              options={[
+                { value: 'all', label: 'All Access' },
+                { value: 'open', label: 'Open' },
+                { value: 'restricted', label: 'Restricted' },
+                { value: 'permit-required', label: 'Permit Required' },
+                { value: 'closed', label: 'Closed' },
+              ]}
+            />
+            <Select
               value={filterDifficulty}
-              onChange={(e) => setFilterDifficulty(e.target.value as Difficulty | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-teal-500/50 outline-none"
-            >
-              <option value="all">All Difficulties</option>
-              <option value="easy">Easy</option>
-              <option value="moderate">Moderate</option>
-              <option value="difficult">Difficult</option>
-              <option value="technical">Technical</option>
-            </select>
-            <select
+              onChange={(value) => setFilterDifficulty(value as Difficulty | 'all')}
+              options={[
+                { value: 'all', label: 'All Difficulties' },
+                { value: 'easy', label: 'Easy' },
+                { value: 'moderate', label: 'Moderate' },
+                { value: 'difficult', label: 'Difficult' },
+                { value: 'technical', label: 'Technical' },
+              ]}
+            />
+            <Select
               value={filterSeason}
-              onChange={(e) => setFilterSeason(e.target.value as Season | 'all')}
-              className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white focus:border-teal-500/50 outline-none"
-            >
-              <option value="all">All Seasons</option>
-              <option value="spring">Spring</option>
-              <option value="summer">Summer</option>
-              <option value="autumn">Autumn</option>
-              <option value="winter">Winter</option>
-            </select>
+              onChange={(value) => setFilterSeason(value as Season | 'all')}
+              options={[
+                { value: 'all', label: 'All Seasons' },
+                { value: 'spring', label: 'Spring' },
+                { value: 'summer', label: 'Summer' },
+                { value: 'autumn', label: 'Autumn' },
+                { value: 'winter', label: 'Winter' },
+              ]}
+            />
           </div>
         </Card>
 

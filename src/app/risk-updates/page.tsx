@@ -172,6 +172,7 @@ export default function RiskUpdatesPage() {
     </div>
   }
   badge={<Badge variant="danger" size="lg">Risk &amp; Alerts</Badge>}
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Risk Updates' }]}
 />
 
       <section className="relative bg-[#160C27]">

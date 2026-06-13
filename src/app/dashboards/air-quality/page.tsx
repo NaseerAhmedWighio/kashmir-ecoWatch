@@ -373,7 +373,7 @@ export default function AirQualityDashboard() {
 
       </div>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

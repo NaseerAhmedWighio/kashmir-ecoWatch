@@ -67,8 +67,8 @@ export function Select({ value, onChange, options, placeholder = 'Select...', cl
       {open && typeof document !== 'undefined' && createPortal(
         <div
           id="select-dropdown"
-          style={{ position: 'fixed', top: pos.top, left: pos.left, width: pos.width, zIndex: 99999 }}
-          className="bg-slate-900 border border-white/10 rounded-lg shadow-xl shadow-black/50 overflow-hidden"
+          style={{ position: 'fixed', top: pos.top, left: pos.left, width: pos.width, zIndex: 40 }}
+          className="bg-slate-900 border border-white/10 rounded-lg shadow-xl shadow-black/50 max-h-48 overflow-y-auto"
         >
           {options.map(opt => (
             <button

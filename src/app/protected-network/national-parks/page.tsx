@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ProtectedCategoryPage } from '@/components/common/ProtectedCategoryPage';
 import { getProtectedAreas } from '@/data/protected-network';
 
@@ -15,6 +15,17 @@ type TabKey = 'core' | 'trans' | 'extended';
 export default function NationalParksPage() {
   const [activeTab, setActiveTab] = useState<TabKey>('core');
   const allParks = getProtectedAreas.nationalParks();
+
+  const allDistricts = useMemo(() => {
+    const allAreas = [
+      ...getProtectedAreas.nationalParks(),
+      ...getProtectedAreas.wildlifeSanctuaries(),
+      ...getProtectedAreas.wetlandReserves(),
+      ...getProtectedAreas.conservationReserves(),
+      ...getProtectedAreas.birdHabitatAreas(),
+    ];
+    return Array.from(new Set(allAreas.map(a => a.district).filter(Boolean))).sort();
+  }, []);
 
   const coreParks    = allParks.filter(p => p.scope === 'Kashmir Core');
   const transParks   = allParks.filter(p => p.scope === 'Trans-Divisional');
@@ -52,6 +63,7 @@ export default function NationalParksPage() {
       tabs={TABS as any}
       activeTab={activeTab}
       onTabChange={(tab) => setActiveTab(tab as TabKey)}
+      districtOptions={allDistricts}
     />
   );
 }

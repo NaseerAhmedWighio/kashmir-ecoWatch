@@ -269,6 +269,7 @@ export default function ModuleDirectoryPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Module Directory' }]}
       />
 
       {/* Stats Strip */}
@@ -366,7 +367,7 @@ export default function ModuleDirectoryPage() {
         </section>
       ))}
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

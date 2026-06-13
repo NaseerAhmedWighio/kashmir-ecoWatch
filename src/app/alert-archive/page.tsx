@@ -5,12 +5,13 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import {
   Archive, Search, Filter, Calendar, Clock, MapPin, AlertTriangle,
-  ChevronDown, BarChart3, FileText, ShieldAlert, Info
+  BarChart3, FileText, ShieldAlert, Info
 } from 'lucide-react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Select } from '@/components/ui/Select';
 import { Heading } from '@/components/common/Heading';
 
 interface ArchivedAlert {
@@ -290,6 +291,7 @@ export default function AlertArchivePage() {
         }
         title={<span className="bg-gradient-to-r from-indigo-400 to-slate-300 bg-clip-text text-transparent">Alert Archive</span>}
         subtitle="Searchable historical record of all alerts, advisories, and hazard warnings issued through Kashmir EcoWatch monitoring systems."
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Alert Archive' }]}
       />
 
       {/* Summary Strip */}
@@ -363,48 +365,41 @@ export default function AlertArchivePage() {
 
             {/* Severity Filter */}
             <div className="relative">
-              <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
-              <select
+              <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none z-10" />
+              <Select
                 value={severityFilter}
-                onChange={(e) => setSeverityFilter(e.target.value)}
-                className="appearance-none pl-9 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
-              >
-                <option value="all">All Severities</option>
-                <option value="critical">Critical</option>
-                <option value="serious">Serious</option>
-                <option value="moderate">Moderate</option>
-                <option value="low">Low</option>
-              </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                onChange={setSeverityFilter}
+                options={[
+                  { value: 'all', label: 'All Severities' },
+                  { value: 'critical', label: 'Critical' },
+                  { value: 'serious', label: 'Serious' },
+                  { value: 'moderate', label: 'Moderate' },
+                  { value: 'low', label: 'Low' },
+                ]}
+              />
             </div>
 
             {/* Status Filter */}
             <div className="relative">
-              <select
+              <Select
                 value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value)}
-                className="appearance-none px-4 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
-              >
-                <option value="all">All Statuses</option>
-                <option value="resolved">Resolved</option>
-                <option value="expired">Expired</option>
-                <option value="archived">Archived</option>
-              </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                onChange={setStatusFilter}
+                options={[
+                  { value: 'all', label: 'All Statuses' },
+                  { value: 'resolved', label: 'Resolved' },
+                  { value: 'expired', label: 'Expired' },
+                  { value: 'archived', label: 'Archived' },
+                ]}
+              />
             </div>
 
             {/* Category Filter */}
             <div className="relative">
-              <select
+              <Select
                 value={categoryFilter}
-                onChange={(e) => setCategoryFilter(e.target.value)}
-                className="appearance-none px-4 pr-10 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all cursor-pointer"
-              >
-                {categoryOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value}>{opt.label}</option>
-                ))}
-              </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                onChange={setCategoryFilter}
+                options={categoryOptions}
+              />
             </div>
           </motion.div>
 

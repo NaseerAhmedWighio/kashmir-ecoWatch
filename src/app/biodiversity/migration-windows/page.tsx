@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
+import { Select } from '@/components/ui/Select';
 import {
   Clock, Calendar, MapPin, Bird, ArrowRight, Filter, Eye, Waves
 } from 'lucide-react';
@@ -87,14 +88,22 @@ export default function MigrationWindowsPage() {
       <div className="container mx-auto px-6 py-8">
         <Card className="border border-white/10 bg-slate-900/50 mb-8" padding="md">
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <select value={filterDistrict} onChange={e => setFilterDistrict(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
-              <option value="all">All Districts</option>
-              {districts.map(d => <option key={d} value={d}>{d}</option>)}
-            </select>
-            <select value={filterType} onChange={e => setFilterType(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
-              <option value="all">All Types</option>
-              {migrationTypes.map(t => <option key={t} value={t}>{t}</option>)}
-            </select>
+            <Select
+              value={filterDistrict}
+              onChange={setFilterDistrict}
+              options={[
+                { value: 'all', label: 'All Districts' },
+                ...districts.map(d => ({ value: d, label: d })),
+              ]}
+            />
+            <Select
+              value={filterType}
+              onChange={setFilterType}
+              options={[
+                { value: 'all', label: 'All Types' },
+                ...migrationTypes.map(t => ({ value: t, label: t })),
+              ]}
+            />
           </div>
         </Card>
 

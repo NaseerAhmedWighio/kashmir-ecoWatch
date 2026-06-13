@@ -201,6 +201,7 @@ export default function GovernancePage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'About', href: '/about' }, { label: 'Governance' }]}
       />
 
       {/* ─── 2. Governance Statement ──────────────────────────────────────── */}
@@ -489,8 +490,8 @@ export default function GovernancePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl">
             {affiliatedTab === 'Affiliated Experts'
-              ? AFFILIATED_EXPERTS_PREVIEW.map(exp => (
-                  <Card key={exp.name} className="glass-intense border-white/10 p-4">
+              ? AFFILIATED_EXPERTS_PREVIEW.map((exp, idx) => (
+                  <Card key={`${exp.name}-${idx}`} className="glass-intense border-white/10 p-4">
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-xs font-bold text-white">{exp.name}</h3>
                       <span className={cn('text-xs px-1.5 py-0.5 rounded-full', visibilityBadge(exp.visibility))}>{exp.visibility}</span>
@@ -798,7 +799,7 @@ export default function GovernancePage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

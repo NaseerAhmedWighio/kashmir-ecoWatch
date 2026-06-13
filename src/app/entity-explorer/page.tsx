@@ -148,6 +148,7 @@ export default function EntityExplorerPage() {
         }
         title="Entity Explorer"
         subtitle="Browse and filter all ecological entities across Kashmir EcoWatch — protected areas, water bodies, species, districts, trails, and monitoring zones."
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Entity Explorer' }]}
       />
 
       {/* Filter Tabs & Search */}

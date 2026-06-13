@@ -5,6 +5,7 @@ import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
+import { Select } from '@/components/ui/Select';
 import { Calendar, Bird, Mountain, Fish, Flower2, ArrowRight, Activity, Clock, Sprout } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -125,14 +126,22 @@ export default function SeasonalActivityPage() {
         {/* Filters */}
         <Card className="border border-white/10 bg-slate-900/50 mb-8" padding="md">
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <select value={filterTaxon} onChange={e => setFilterTaxon(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
-              <option value="all">All Taxa</option>
-              {taxa.map(t => <option key={t} value={t}>{t}</option>)}
-            </select>
-            <select value={filterActivity} onChange={e => setFilterActivity(e.target.value)} className="px-3 py-2 text-sm rounded-lg bg-white/5 border border-white/10 text-white outline-none">
-              <option value="all">All Activity Types</option>
-              {activityTypes.map(t => <option key={t} value={t}>{t.replace(/-/g, ' ')}</option>)}
-            </select>
+            <Select
+              value={filterTaxon}
+              onChange={setFilterTaxon}
+              options={[
+                { value: 'all', label: 'All Taxa' },
+                ...taxa.map(t => ({ value: t, label: t })),
+              ]}
+            />
+            <Select
+              value={filterActivity}
+              onChange={setFilterActivity}
+              options={[
+                { value: 'all', label: 'All Activity Types' },
+                ...activityTypes.map(t => ({ value: t, label: t.replace(/-/g, ' ') })),
+              ]}
+            />
           </div>
         </Card>
 

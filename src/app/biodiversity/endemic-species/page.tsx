@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Select } from '@/components/ui/Select';
 import Link from 'next/link';
 import { getEndemicSpecies, getSpeciesCount } from '@/data/biodiversity-access';
 import type { EndemismStatus, TaxonomicGroup } from '@/types/biodiversity';
@@ -119,17 +120,17 @@ const EndemicSpeciesPage: React.FC = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Endemism Level
               </label>
-              <select
+              <Select
                 value={filterEndemism}
-                onChange={(e) => setFilterEndemism(e.target.value as EndemismStatus | 'all')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-              >
-                <option value="all">All Levels</option>
-                <option value="kashmir-endemic">Kashmir Endemic</option>
-                <option value="himalayan-endemic">Himalayan Endemic</option>
-                <option value="northwest-himalayan">NW Himalayan</option>
-                <option value="trans-himalayan">Trans-Himalayan</option>
-              </select>
+                onChange={(value) => setFilterEndemism(value as EndemismStatus | 'all')}
+                options={[
+                  { value: 'all', label: 'All Levels' },
+                  { value: 'kashmir-endemic', label: 'Kashmir Endemic' },
+                  { value: 'himalayan-endemic', label: 'Himalayan Endemic' },
+                  { value: 'northwest-himalayan', label: 'NW Himalayan' },
+                  { value: 'trans-himalayan', label: 'Trans-Himalayan' },
+                ]}
+              />
             </div>
 
             {/* Taxonomic Group Filter */}
@@ -137,18 +138,18 @@ const EndemicSpeciesPage: React.FC = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Taxonomic Group
               </label>
-              <select
+              <Select
                 value={filterTaxon}
-                onChange={(e) => setFilterTaxon(e.target.value as TaxonomicGroup | 'all')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-              >
-                <option value="all">All Groups</option>
-                <option value="mammals">Mammals</option>
-                <option value="birds">Birds</option>
-                <option value="fish">Fish</option>
-                <option value="plants">Plants</option>
-                <option value="medicinal-plants">Medicinal Plants</option>
-              </select>
+                onChange={(value) => setFilterTaxon(value as TaxonomicGroup | 'all')}
+                options={[
+                  { value: 'all', label: 'All Groups' },
+                  { value: 'mammals', label: 'Mammals' },
+                  { value: 'birds', label: 'Birds' },
+                  { value: 'fish', label: 'Fish' },
+                  { value: 'plants', label: 'Plants' },
+                  { value: 'medicinal-plants', label: 'Medicinal Plants' },
+                ]}
+              />
             </div>
           </div>
 

@@ -184,6 +184,7 @@ export default function AboutPage() {
             </Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
       />
 
       {/* 2. What Kashmir EcoWatch Is */}
@@ -562,7 +563,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <AdvancedFooter />
+       
     </main>
   );
 }

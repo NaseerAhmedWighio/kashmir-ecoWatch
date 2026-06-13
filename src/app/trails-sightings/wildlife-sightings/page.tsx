@@ -39,6 +39,7 @@ export default function WildlifeSightingsPage() {
             <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/submit-sighting')}><Camera className="w-5 h-5 mr-2" />Submit Sighting</Button>
           </div>
         }
+        breadcrumbs={[{ label: 'Trails & Sightings', href: '/trails-sightings' }, { label: 'Wildlife Sightings' }]}
       />
 
       <section className="py-8 border-y border-white/5">

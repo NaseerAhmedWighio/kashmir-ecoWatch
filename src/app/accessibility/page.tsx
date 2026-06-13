@@ -156,6 +156,7 @@ export default function AccessibilityPage() {
           </div>
         }
         badge={<Badge variant="info" size="lg">Accessibility & Inclusive Access</Badge>}
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Accessibility' }]}
       />
 
       {/* ─── Commitment & Conformance ─────────────────────────────────────── */}
@@ -504,7 +505,7 @@ export default function AccessibilityPage() {
       </section>
 
       {/* ─── Footer ───────────────────────────────────────────────────────── */}
-      <AdvancedFooter />
+       
     </main>
   );
 }

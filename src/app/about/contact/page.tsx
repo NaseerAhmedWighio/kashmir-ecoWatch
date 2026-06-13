@@ -851,7 +851,7 @@ export default function ContactPage() {
       </section>
 
       {/* ─── Footer ───────────────────────────────────────────────────────── */}
-      <AdvancedFooter />
+       
     </main>
   );
 }

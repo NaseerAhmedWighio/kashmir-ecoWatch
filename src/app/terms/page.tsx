@@ -441,6 +441,7 @@ export default function TermsPage() {
     </div>
   }
   badge={<Badge variant="info" size="lg">Legal & Platform Use</Badge>}
+  breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Terms of Use' }]}
 />
 
       {/* ─── Important Notice ─────────────────────────────────────────────── */}
