@@ -149,6 +149,7 @@ function RequestFormContent() {
                 
                 {trail ? (
                   <div className="space-y-4">
+                    <div className='flex flex-col'>
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
                         <Footprints className="w-5 h-5 text-emerald-400" />
@@ -157,9 +158,11 @@ function RequestFormContent() {
                         <h4 className="font-bold text-base text-white leading-tight">{trail.trail_name}</h4>
                         <div className="flex gap-2 mt-2">
                           <Badge variant="info" size="sm">{trail.route_type}</Badge>
-                          <Badge variant="default" size="sm">{trail.estimated_length_km} km</Badge>
+                  
                         </div>
                       </div>
+                    </div>
+                    <Badge variant="default" size="sm">{trail.estimated_length_km} km</Badge>
                     </div>
                     
                     <p className="text-xs text-slate-400 leading-relaxed pt-2 border-t border-white/5">
@@ -455,8 +458,8 @@ function RequestFormContent() {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3"
-                        icon={isSubmitting ? undefined : <Send className="w-4 h-4" />}
+                        className="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs md:text-sm font-semibold py-3"
+                        icon={isSubmitting ? undefined : <Send className="w-2 h-2 md:w-4 md:h-4" />}
                       >
                         {isSubmitting ? 'Authenticating and Registering...' : 'Submit Credentials & Request Access'}
                       </Button>
