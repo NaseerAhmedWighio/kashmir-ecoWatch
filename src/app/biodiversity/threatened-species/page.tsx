@@ -403,7 +403,7 @@ export default function ThreatenedSpeciesPage() {
                     size="sm"
                     className={`w-full ${
                       species.prioritySpecies 
-                        ? 'bg- emerald-700 hover:bg- emerald-500' 
+                        ? 'bg-emerald-700 hover:bg-emerald-500' 
                         : 'bg-gradient-to-r from-red-600 to-amber-600'
                     }`}
                     icon={<ArrowRight className="w-4 h-4" />}

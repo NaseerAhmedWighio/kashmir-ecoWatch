@@ -106,7 +106,7 @@ export default function HikingTrailsPage() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Button
               size="lg"
-              className="bg- emerald-700 hover:bg- emerald-500  text-white shadow-xl"
+              className="bg-emerald-700 hover:bg-emerald-500  text-white shadow-xl"
               onClick={() => router.push('/trails-sightings')}
             >
               <ArrowRight className="w-5 h-5 mr-2" />
@@ -254,7 +254,7 @@ export default function HikingTrailsPage() {
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <Button
                     size="lg"
-                    className="bg- emerald-700 hover:bg- emerald-500  text-white shadow-xl"
+                    className="bg-emerald-700 hover:bg-emerald-500  text-white shadow-xl"
                     onClick={() => router.push('/trails-sightings/trail-field-records')}
                   >
                     <Map className="w-5 h-5 mr-2" />

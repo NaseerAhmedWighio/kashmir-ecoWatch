@@ -142,6 +142,21 @@ export function WaterEntityDetailPageComponent({
                       <div className="text-lg font-bold text-white">{entity.district}</div>
                     </div>
                   </div>
+                  {entity.scope && (
+                    <div className="flex items-center gap-3">
+                      <div className="w-5 h-5" />
+                      <div>
+                        <div className="text-xs text-slate-500 uppercase">Geographic Tier</div>
+                        <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${
+                          entity.scope === 'Kashmir Core' ? 'bg-emerald-500/20 text-emerald-300' :
+                          entity.scope === 'Trans-Divisional' ? 'bg-blue-500/20 text-blue-300' :
+                          'bg-purple-500/20 text-purple-300'
+                        }`}>
+                          {entity.scope === 'Kashmir Core' ? 'Kashmir Core' : entity.scope === 'Trans-Divisional' ? 'Trans-Divisional' : 'Transboundary / Extended'}
+                        </span>
+                      </div>
+                    </div>
+                  )}
                   <div className="flex items-center gap-3">
                     <Ruler className="w-5 h-5 text-slate-400" />
                     <div>

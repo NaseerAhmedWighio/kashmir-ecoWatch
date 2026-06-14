@@ -153,7 +153,7 @@ export function EntityDrawer({ isOpen, onClose, entity }: EntityDrawerProps) {
               <div className="flex flex-col gap-3 pt-4 border-t border-white/[0.06]">
                 <Button
                   onClick={handleViewDetails}
-                  className="w-full bg- emerald-700 hover:bg- emerald-500"
+                  className="w-full bg-emerald-700 hover:bg-emerald-500"
                   icon={<ExternalLink className="w-4 h-4" />}
                 >
                   View Full Details

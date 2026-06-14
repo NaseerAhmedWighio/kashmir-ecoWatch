@@ -1581,13 +1581,13 @@ export default function ConservationIntelligencePage() {
                               <div className="flex border border-white/10 rounded overflow-hidden">
                                 <button
                                   onClick={() => setCompareYear(2025)}
-                                  className={`px-3 py-1 text-xs font-semibold ${compareYear === 2025 ? 'bg- emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
+                                  className={`px-3 py-1 text-xs font-semibold ${compareYear === 2025 ? 'bg-emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
                                 >
                                   2025 Baseline
                                 </button>
                                 <button
                                   onClick={() => setCompareYear(2026)}
-                                  className={`px-3 py-1 text-xs font-semibold ${compareYear === 2026 ? 'bg- emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
+                                  className={`px-3 py-1 text-xs font-semibold ${compareYear === 2026 ? 'bg-emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
                                 >
                                   2026 Detected
                                 </button>
@@ -1691,7 +1691,7 @@ export default function ConservationIntelligencePage() {
                                     onClick={() => setClimateScenario(sc.id as any)}
                                     className={`p-2 rounded text-xs font-bold border transition-colors ${
                                       climateScenario === sc.id
-                                        ? 'bg- emerald-700 border-emerald-500 text-white'
+                                        ? 'bg-emerald-700 border-emerald-500 text-white'
                                         : 'bg-black/30 border-white/5 text-slate-400 hover:border-white/10'
                                     }`}
                                   >
@@ -1743,13 +1743,13 @@ export default function ConservationIntelligencePage() {
                             <div className="flex border border-white/10 rounded overflow-hidden">
                               <button
                                 onClick={() => setResearchGapFocus('species')}
-                                className={`px-4 py-1 text-xs font-semibold ${researchGapFocus === 'species' ? 'bg- emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
+                                className={`px-4 py-1 text-xs font-semibold ${researchGapFocus === 'species' ? 'bg-emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
                               >
                                 Species Research Gaps
                               </button>
                               <button
                                 onClick={() => setResearchGapFocus('pa')}
-                                className={`px-4 py-1 text-xs font-semibold ${researchGapFocus === 'pa' ? 'bg- emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
+                                className={`px-4 py-1 text-xs font-semibold ${researchGapFocus === 'pa' ? 'bg-emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
                               >
                                 Protected Area Gaps
                               </button>
@@ -1883,7 +1883,7 @@ export default function ConservationIntelligencePage() {
               <div className="flex flex-wrap gap-2 text-xs">
                 <button
                   onClick={() => setSelectedTier('all')}
-                  className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === 'all' ? 'bg- emerald-700 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
+                  className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === 'all' ? 'bg-emerald-700 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
                 >
                   All Tiers
                 </button>
@@ -1891,7 +1891,7 @@ export default function ConservationIntelligencePage() {
                   <button
                     key={tier}
                     onClick={() => setSelectedTier(tier)}
-                    className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === tier ? 'bg- emerald-700 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
+                    className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === tier ? 'bg-emerald-700 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
                   >
                     Tier {tier}
                   </button>

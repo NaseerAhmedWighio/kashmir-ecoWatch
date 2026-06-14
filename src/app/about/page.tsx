@@ -173,7 +173,7 @@ export default function AboutPage() {
         badge={<Badge variant="info" size="lg">Institutional Overview</Badge>}
         actions={
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <Button size="lg" className="bg- emerald-700 hover:bg- emerald-500" onClick={() => router.push('/about/mission')}>
+            <Button size="lg" className="bg-emerald-700 hover:bg-emerald-500" onClick={() => router.push('/about/mission')}>
               Our Mission
             </Button>
             <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/about/data-sources')}>
@@ -551,7 +551,7 @@ export default function AboutPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8 pt-8 border-t border-white/5">
-                <Button size="lg" className="bg- emerald-700 hover:bg- emerald-500" onClick={() => router.push('/about/mission')}>
+                <Button size="lg" className="bg-emerald-700 hover:bg-emerald-500" onClick={() => router.push('/about/mission')}>
                   Our Mission
                 </Button>
                 <Button size="lg" variant="outline" className="border-white/20 text-white" onClick={() => router.push('/about/partners')}>

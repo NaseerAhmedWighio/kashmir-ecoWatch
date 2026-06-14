@@ -186,7 +186,7 @@ function EntityCard({ entity, onNavigate }: EntityCardProps) {
           <div className="mt-auto pt-4 border-t border-white/10 flex items-center gap-2">
             <Button
               variant="outline"
-              className="w-full text-sm py-2 mt-3 rounded-lg border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 hover:bg-forest-500/10 font-medium transition-all"
+              className="w-full text-sm py-2 mt-3 rounded-lg border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 hover:bg-forest-500/10 font-medium transition-all"
               onClick={() => onNavigate(entity.link)}
             >{/* responsive-md-fix */}
               View Details
@@ -322,7 +322,7 @@ export function FeaturedEntityStrip() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 hover:bg-forest-500/10 text-sm font-medium transition-all"
+                className="w-full sm:w-auto border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 hover:bg-forest-500/10 text-sm font-medium transition-all"
                 icon={<ArrowRight className="w-5 h-5" />}
                 onClick={() => router.push('/biodiversity')}
               >

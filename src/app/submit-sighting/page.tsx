@@ -556,7 +556,7 @@ export default function SubmitSightingPage() {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg- emerald-700 hover:bg- emerald-500" 
+                  className="w-full bg-emerald-700 hover:bg-emerald-500" 
                   disabled={!selectedCategory || !speciesName || !dateObserved || !locationText || !description || isSubmitting}
                 >
                   {isSubmitting ? (

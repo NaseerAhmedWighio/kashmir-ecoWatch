@@ -52,7 +52,7 @@ export function TabBar({
                 }}
                 className={`shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
                   activeTab === tab.key
-                    ? 'bg- emerald-700 hover:bg- emerald-500 text-white shadow'
+                    ? 'bg-emerald-700 hover:bg-emerald-500 text-white shadow'
                     : 'text-slate-400 hover:text-white hover:bg-white/5'
                 }`}
               >

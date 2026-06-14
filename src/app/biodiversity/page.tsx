@@ -200,7 +200,7 @@ export default function BiodiversityPage() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <Button
               size="lg"
-              className="bg- emerald-700 hover:bg- emerald-500"
+              className="bg-emerald-700 hover:bg-emerald-500"
               icon={<Leaf className="w-4 h-4" />}
             >
               Browse All Species

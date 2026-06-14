@@ -235,7 +235,7 @@ function RequestFormContent() {
                       {(report || threat) && (
                         <Button 
                           onClick={triggerMockDownload}
-                          className="bg- emerald-700 hover:bg-emerald-500 text-white font-medium animate-bounce" 
+                          className="bg-emerald-700 hover:bg-emerald-500 text-white font-medium animate-bounce" 
                           icon={<Download className="w-4 h-4" />}
                         >
                           Download PDF Document
@@ -375,7 +375,7 @@ function RequestFormContent() {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg- emerald-700 hover:bg-emerald-500 text-white font-semibold py-3"
+                        className="w-full bg-emerald-700 hover:bg-emerald-500 text-white font-semibold py-3"
                         icon={isSubmitting ? undefined : <Send className="w-4 h-4" />}
                       >
                         {isSubmitting ? 'Authenticating and Registering...' : 'Submit Credentials & Request Access'}

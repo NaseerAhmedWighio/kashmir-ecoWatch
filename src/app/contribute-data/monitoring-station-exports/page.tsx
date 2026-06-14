@@ -55,7 +55,7 @@ export default function MonitoringStationExportsPage() {
               </div>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
                 <Link href="/contribute-data"><Button variant="outline" className="border-white/20 text-white"><ArrowLeft className="w-4 h-4 mr-2" />Back to Contribute Data</Button></Link>
-                <Link href="/citizen-science"><Button className="bg- emerald-700 hover:bg- emerald-500 text-white">Explore Citizen Science<ExternalLink className="w-4 h-4 ml-2" /></Button></Link>
+                <Link href="/citizen-science"><Button className="bg-emerald-700 hover:bg-emerald-500 text-white">Explore Citizen Science<ExternalLink className="w-4 h-4 ml-2" /></Button></Link>
               </div>
             </Card>
           </motion.div>

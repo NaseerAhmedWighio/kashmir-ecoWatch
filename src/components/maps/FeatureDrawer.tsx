@@ -219,7 +219,7 @@ export function FeatureDrawer({ isOpen, onClose, feature }: FeatureDrawerProps) 
               <div className="flex flex-col gap-3 border-t border-white/10 pt-4">
                 <Button
                   onClick={handleViewDetails}
-                  className="w-full bg- emerald-700 hover:bg- emerald-500"
+                  className="w-full bg-emerald-700 hover:bg-emerald-500"
                   icon={<ExternalLink className="h-4 w-4" />}
                 >
                   View Full Details

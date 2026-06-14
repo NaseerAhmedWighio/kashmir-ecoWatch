@@ -294,7 +294,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap transition-all ${
                   activeTab === tab.id
-                    ? `bg- emerald-700 text-white shadow-lg shadow-emerald-900/30`
+                    ? `bg-emerald-700 text-white shadow-lg shadow-emerald-900/30`
                     : 'glass-light border border-white/10 text-slate-400 hover:text-white hover:border-white/20'
                 }`}
               >

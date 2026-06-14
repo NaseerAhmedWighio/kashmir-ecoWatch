@@ -314,7 +314,7 @@ function RequestFormContent() {
                       {(trail || report || corridor || species || isAtlas) && (
                         <Button 
                           onClick={triggerMockDownload}
-                          className="bg- emerald-700 hover:bg-emerald-500 text-white font-medium animate-bounce" 
+                          className="bg-emerald-700 hover:bg-emerald-500 text-white font-medium animate-bounce" 
                           icon={<Download className="w-4 h-4" />}
                         >
                           {trail ? 'Download GPX Map Route' : 
@@ -458,7 +458,7 @@ function RequestFormContent() {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg- emerald-700 hover:bg-emerald-500 text-white text-xs md:text-sm font-semibold py-3"
+                        className="w-full bg-emerald-700 hover:bg-emerald-500 text-white text-xs md:text-sm font-semibold py-3"
                         icon={isSubmitting ? undefined : <Send className="w-2 h-2 md:w-4 md:h-4" />}
                       >
                         {isSubmitting ? 'Authenticating and Registering...' : 'Submit Credentials & Request Access'}

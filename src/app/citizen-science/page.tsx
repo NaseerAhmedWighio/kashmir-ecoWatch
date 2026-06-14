@@ -101,7 +101,7 @@ export default function CitizenSciencePage() {
         actions={
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Link href="/submit-sighting">
-              <Button size="lg" className="bg- emerald-700 hover:bg- emerald-500">
+              <Button size="lg" className="bg-emerald-700 hover:bg-emerald-500">
                 <Camera className="w-5 h-5 mr-2" />
                 Start Contributing
               </Button>
@@ -368,7 +368,7 @@ export default function CitizenSciencePage() {
                 </p>
                 <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
                   <Link href="/submit-sighting">
-                    <Button size="lg" className="bg- emerald-700 hover:bg- emerald-500">
+                    <Button size="lg" className="bg-emerald-700 hover:bg-emerald-500">
                       <Camera className="w-5 h-5 mr-2" />
                       Submit Your First Sighting
                     </Button>

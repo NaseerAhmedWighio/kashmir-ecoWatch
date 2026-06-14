@@ -103,7 +103,7 @@ export function AlertResponseSystem() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">{/* responsive-md-fix */}
-              <Button variant="outline" size="sm" className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 w-full sm:w-auto text-xs sm:text-sm" icon={<Filter className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
+              <Button variant="outline" size="sm" className="border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 w-full sm:w-auto text-xs sm:text-sm" icon={<Filter className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
                 Filter
               </Button>
               <Button size="sm" className="bg-gradient-to-r from-red-600 to-red-500 w-full sm:w-auto text-xs sm:text-sm" icon={<Bell className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
@@ -215,7 +215,7 @@ export function AlertResponseSystem() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="mt-6 sm:mt-8"
             >
-              <Button variant="outline" className="w-full border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700" icon={<Bell className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
+              <Button variant="outline" className="w-full border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700" icon={<Bell className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
                 View All Alerts
               </Button>
             </motion.div>
@@ -310,7 +310,7 @@ export function AlertResponseSystem() {
                       </button>
                     ))}
                   </div>
-                  <Button className="w-full mt-3 sm:mt-4 bg- emerald-700 hover:bg- emerald-500 text-xs sm:text-sm" icon={<AlertTriangle className="w-4 h-4" />} onClick={() => router.push('/report-issue')}>
+                  <Button className="w-full mt-3 sm:mt-4 bg-emerald-700 hover:bg-emerald-500 text-xs sm:text-sm" icon={<AlertTriangle className="w-4 h-4" />} onClick={() => router.push('/report-issue')}>
                     Submit Report
                   </Button>
                 </CardContent>

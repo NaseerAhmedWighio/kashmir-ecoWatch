@@ -157,7 +157,7 @@ export function BiodiversityCard({ species, onQuickView, variant = 'default' }: 
         {/* View Details */}
         <Button
           onClick={() => window.location.href = `/biodiversity/species/${species.slug}`}
-          className="w-full py-2 text-sm rounded-lg mt-auto bg- emerald-700 hover:bg- emerald-500"
+          className="w-full py-2 text-sm rounded-lg mt-auto bg-emerald-700 hover:bg-emerald-500"
           icon={<ArrowRight className="w-4 h-4" />}
         >
           View Details

@@ -144,7 +144,7 @@ export default function SpeciesDetailPage() {
 
                 {/* Primary CTAs */}
                 <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-                  <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<Map className="w-5 h-5" />}>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500" icon={<Map className="w-5 h-5" />}>
                     Open Distribution Map
                   </Button>
                   <Button variant="outline" className="border-white/20 text-white" icon={<Eye className="w-5 h-5" />}>
@@ -440,7 +440,7 @@ export default function SpeciesDetailPage() {
                   <Eye className="w-6 h-6 text-purple-400" />
                   <h2 className="text-2xl font-bold text-white">Verified Sightings</h2>
                 </div>
-                <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<Eye className="w-4 h-4" />}>
+                <Button className="bg-emerald-700 hover:bg-emerald-500" icon={<Eye className="w-4 h-4" />}>
                   View All Sightings
                 </Button>
               </div>

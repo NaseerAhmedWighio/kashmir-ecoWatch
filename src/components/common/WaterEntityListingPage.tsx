@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -16,6 +16,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { WaterEntity } from '@/data/water-systems';
 import { Select } from '@/components/ui/Select';
+import { TabBar } from '@/components/common/TabBar';
 
 interface ListingPageProps {
   title: string;
@@ -57,6 +58,23 @@ export function WaterEntityListingPage({
   const [selectedDistrict, setSelectedDistrict] = useState<string>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedQuality, setSelectedQuality] = useState<string>('all');
+  const [selectedScope, setSelectedScope] = useState<string>('all');
+
+  const scopeTabs = useMemo(() => {
+    const availableScopes = Array.from(new Set(entities.map(e => e.scope).filter(Boolean))) as string[];
+    const tabs = [{ key: 'all', label: 'All', description: `All ${entityType.toLowerCase()}` }];
+    const scopeLabels: Record<string, string> = {
+      'Kashmir Core': 'Kashmir Core',
+      'Trans-Divisional': 'Trans-Divisional',
+      'Transboundary / Extended': 'Transboundary',
+    };
+    availableScopes.forEach(scope => {
+      if (scopeLabels[scope]) {
+        tabs.push({ key: scope, label: scopeLabels[scope], description: `${scope} ${entityType}` });
+      }
+    });
+    return tabs;
+  }, [entities, entityType]);
 
   const filteredEntities = entities.filter(entity => {
     const matchesSearch = entity.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -64,7 +82,8 @@ export function WaterEntityListingPage({
     const matchesDistrict = selectedDistrict === 'all' || entity.district === selectedDistrict;
     const matchesCategory = selectedCategory === 'all' || getCategory(entity) === selectedCategory;
     const matchesQuality = !filters.qualityStatuses || selectedQuality === 'all' || entity.waterQuality?.status === selectedQuality;
-    return matchesSearch && matchesDistrict && matchesCategory && matchesQuality;
+    const matchesScope = selectedScope === 'all' || entity.scope === selectedScope;
+    return matchesSearch && matchesDistrict && matchesCategory && matchesQuality && matchesScope;
   });
 
   const getQualityBadge = (status: string) => {
@@ -116,6 +135,26 @@ export function WaterEntityListingPage({
           </motion.div>
         </div>
       </div>
+
+      {/* Scope Tabs */}
+      {scopeTabs.length > 1 && (
+        <div className="container mx-auto px-6 py-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18 }}
+          >
+            <TabBar
+              tabs={scopeTabs}
+              activeTab={selectedScope}
+              onTabChange={setSelectedScope}
+              showFilters={false}
+              filteredCount={filteredEntities.length}
+              totalCount={entities.length}
+            />
+          </motion.div>
+        </div>
+      )}
 
       {/* Filters */}
       <div className="container mx-auto px-6 py-8">
@@ -204,6 +243,11 @@ export function WaterEntityListingPage({
                       <Badge variant="outline" size="sm" className="text-xs border-white/10 text-slate-400">
                         {getCategory(entity)}
                       </Badge>
+                      {entity.scope && (
+                        <Badge variant="info" size="sm">
+                          {entity.scope === 'Kashmir Core' ? 'Kashmir Core' : entity.scope === 'Trans-Divisional' ? 'Trans-Divisional' : 'Transboundary'}
+                        </Badge>
+                      )}
                       {entity.waterQuality && (
                         <Badge variant={getQualityBadge(entity.waterQuality.status)} size="sm">
                           {entity.waterQuality.status}

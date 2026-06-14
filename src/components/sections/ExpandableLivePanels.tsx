@@ -297,7 +297,7 @@ export function ExpandableLivePanels() {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 w-full sm:w-auto text-xs sm:text-sm"
+                              className="border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 w-full sm:w-auto text-xs sm:text-sm"
                               icon={<TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                               onClick={() => router.push('/risk-monitoring/dashboards')}
                             >
@@ -339,14 +339,14 @@ export function ExpandableLivePanels() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 w-full sm:w-auto text-xs sm:text-sm"
+                className="border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 w-full sm:w-auto text-xs sm:text-sm"
                 icon={<Settings className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                 onClick={() => router.push('/alerts')}
               >
                 Settings
               </Button>
               <Button
-                className="bg- emerald-700 hover:bg- emerald-500 w-full sm:w-auto text-xs sm:text-sm"
+                className="bg-emerald-700 hover:bg-emerald-500 w-full sm:w-auto text-xs sm:text-sm"
                 icon={<Bell className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                 onClick={() => router.push('/alerts')}
               >

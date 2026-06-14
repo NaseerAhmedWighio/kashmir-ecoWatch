@@ -136,7 +136,7 @@ export function MapIntelligenceCore() {
             <div className="flex items-center gap-2">
               <Button
                 size="sm"
-                className="bg- emerald-700 hover:bg- emerald-500 text-xs sm:text-sm"
+                className="bg-emerald-700 hover:bg-emerald-500 text-xs sm:text-sm"
                 icon={<Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                 onClick={() => window.location.href = '/atlas'}
               >
@@ -403,7 +403,7 @@ export function MapIntelligenceCore() {
                     <div className="flex gap-2 pt-2">
                       <Button
                         size="sm"
-                        className="flex-1 bg- emerald-700 hover:bg- emerald-500 text-xs"
+                        className="flex-1 bg-emerald-700 hover:bg-emerald-500 text-xs"
                         onClick={() => window.location.href = `/water-systems/lakes/${currentFeature.id}`}
                       >
                         View Details
@@ -411,7 +411,7 @@ export function MapIntelligenceCore() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 p-2"
+                        className="border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 p-2"
                         onClick={() => window.location.href = '/atlas'}
                       >
                         <MapIcon className="w-4 h-4" />
@@ -462,7 +462,7 @@ export function MapIntelligenceCore() {
               onClick={() => { setSelectedFeature(feature.id); setShowMiniDrawer(true); }}
               className="cursor-pointer"
             >
-              <Card className="glass-intense border-white/10 p-2.5 sm:p-3 md:p-4 lg:p-5 hover:border- emerald-700 hover:bg- emerald-700/50 transition-colors">
+              <Card className="glass-intense border-white/10 p-2.5 sm:p-3 md:p-4 lg:p-5 hover:border- emerald-700 hover:bg-emerald-700/50 transition-colors">
                 <div className="flex items-start justify-between mb-2 sm:mb-3">
                   <div className="flex items-center gap-2 sm:gap-3">
                     {feature.type === 'wetland' ? (

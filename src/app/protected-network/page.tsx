@@ -141,7 +141,7 @@ export default function ProtectedNetworkPage() {
         actions={
           <>
             <a href="/protected-network/atlas">
-              <Button size="lg" className="bg- emerald-700" icon={<Map className="w-5 h-5" />}>
+              <Button size="lg" className="bg-emerald-700" icon={<Map className="w-5 h-5" />}>
                 Open PA Atlas
               </Button>
             </a>
@@ -364,7 +364,7 @@ export default function ProtectedNetworkPage() {
                       </div>
                     </div>
                     <div className="mt-4 flex justify-end">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg- emerald-700 hover:bg- emerald-500  transition-all duration-300 text-sm font-medium text-white shadow-md shadow-emerald-500/20">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-500  transition-all duration-300 text-sm font-medium text-white shadow-md shadow-emerald-500/20">
                         View Details
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </span>

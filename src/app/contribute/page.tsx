@@ -325,7 +325,7 @@ export default function ContributeHubPage() {
                   </Button>
                   <Button
                     size="lg"
-                    className="bg- emerald-700 hover:bg- emerald-500"
+                    className="bg-emerald-700 hover:bg-emerald-500"
                     onClick={() => router.push('/submit-sighting')}
                   >
                     <Camera className="w-5 h-5 mr-2" />

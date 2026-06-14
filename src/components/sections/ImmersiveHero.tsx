@@ -220,7 +220,7 @@ export function ImmersiveHero() {
             <Button
               size="lg"
               icon={<Map className="w-4 h-4 sm:w-5 sm:h-5" />}
-              className="w-full sm:w-auto group relative overflow-hidden bg- emerald-700 hover:bg- emerald-500  text-white shadow-2xl glow-forest px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+              className="w-full sm:w-auto group relative overflow-hidden bg-emerald-700 hover:bg-emerald-500  text-white shadow-2xl glow-forest px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
               onClick={() => router.push('/atlas')}
             >
               <span className="relative z-10">Open Atlas</span>
@@ -232,7 +232,7 @@ export function ImmersiveHero() {
               size="lg"
               variant="outline"
               icon={<Leaf className="w-4 h-4 sm:w-5 sm:h-5" />}
-              className="w-full sm:w-auto border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 hover:text- emerald-700 glass-light backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+              className="w-full sm:w-auto border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 hover:text- emerald-700 glass-light backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
               onClick={() => router.push('/risk-monitoring')}
             >
               Explore Intelligence

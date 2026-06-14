@@ -284,7 +284,7 @@ const EndemicSpeciesPage: React.FC = () => {
                   setFilterTaxon('all');
                   setSearchQuery('');
                 }}
-                className="mt-4 px-6 py-2 bg- emerald-700 text-white rounded-lg hover:bg- emerald-500 transition-colors"
+                className="mt-4 px-6 py-2 bg-emerald-700 text-white rounded-lg hover:bg-emerald-500 transition-colors"
               >
                 Clear all filters
               </button>

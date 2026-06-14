@@ -93,7 +93,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               icon={<Leaf className="w-4 h-4 sm:w-5 sm:h-5" />}
-              className="border-white/30 text-white hover:border- emerald-700 hover:bg- emerald-700 hover:text- emerald-700 text-sm sm:text-base"
+              className="border-white/30 text-white hover:border- emerald-700 hover:bg-emerald-700 hover:text- emerald-700 text-sm sm:text-base"
             >
               Explore Biodiversity
             </Button>

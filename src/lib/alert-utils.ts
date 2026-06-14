@@ -221,7 +221,7 @@ export const CONFIDENCE_METADATA: Record<AlertConfidenceState, {
   [AlertConfidenceState.STRONGLY_CONFIRMED]: {
     label: 'Strongly Confirmed',
     color: 'text- emerald-700',
-    bgColor: 'bg- emerald-700/10',
+    bgColor: 'bg-emerald-700/10',
     borderColor: 'border- emerald-700/30',
     description: 'High confidence from multiple sources',
   },
@@ -303,7 +303,7 @@ export const PUBLIC_STATUS_METADATA: Record<AlertPublicStatus, {
   [AlertPublicStatus.CLEARED]: {
     label: 'Cleared',
     color: 'text- emerald-700',
-    bgColor: 'bg- emerald-700/10',
+    bgColor: 'bg-emerald-700/10',
     borderColor: 'border- emerald-700/30',
   },
   [AlertPublicStatus.RESOLVED]: {
@@ -364,7 +364,7 @@ export const RECONFIRMATION_ACTIONS: Record<ConfirmationActionType, {
     description: 'No longer present',
     icon: 'Check',
     color: 'text- emerald-700',
-    bgColor: 'bg- emerald-700/10',
+    bgColor: 'bg-emerald-700/10',
     requiresNote: false,
     requiresEvidence: false,
   },

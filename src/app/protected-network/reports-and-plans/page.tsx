@@ -157,7 +157,7 @@ export default function ReportsPage() {
         images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
         actions={
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
-            <Button className="bg- emerald-700 hover:bg- emerald-500 w-full sm:w-auto justify-center" icon={<Book className="w-5 h-5" />}>Publish Report</Button>
+            <Button className="bg-emerald-700 hover:bg-emerald-500 w-full sm:w-auto justify-center" icon={<Book className="w-5 h-5" />}>Publish Report</Button>
             <Button 
               variant="outline" 
               className="border-white/20 text-white w-full sm:w-auto justify-center" 

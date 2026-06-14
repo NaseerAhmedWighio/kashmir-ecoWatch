@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -14,22 +14,37 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { lakesData, WaterEntity } from '@/data/water-systems';
 import { Select } from '@/components/ui/Select';
+import { TabBar } from '@/components/common/TabBar';
 
 export default function LakesPage() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState<string>('all');
   const [selectedQuality, setSelectedQuality] = useState<string>('all');
+  const [selectedScope, setSelectedScope] = useState<string>('all');
 
   const districts = Array.from(new Set(lakesData.map(l => l.district)));
   const qualityStatuses = ['excellent', 'good', 'moderate', 'poor', 'critical'];
+
+  const scopeTabs = useMemo(() => {
+    const availableScopes = Array.from(new Set(lakesData.map(l => l.scope).filter(Boolean))) as string[];
+    const tabs = [{ key: 'all', label: 'All', description: 'All lakes' }];
+    const scopeLabels: Record<string, string> = {
+      'Kashmir Core': 'Kashmir Core', 'Trans-Divisional': 'Trans-Divisional', 'Transboundary / Extended': 'Transboundary',
+    };
+    availableScopes.forEach(scope => {
+      if (scopeLabels[scope]) tabs.push({ key: scope, label: scopeLabels[scope], description: `${scope} lakes` });
+    });
+    return tabs;
+  }, []);
 
   const filteredLakes = lakesData.filter(lake => {
     const matchesSearch = lake.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          lake.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesDistrict = selectedDistrict === 'all' || lake.district === selectedDistrict;
     const matchesQuality = selectedQuality === 'all' || lake.waterQuality?.status === selectedQuality;
-    return matchesSearch && matchesDistrict && matchesQuality;
+    const matchesScope = selectedScope === 'all' || lake.scope === selectedScope;
+    return matchesSearch && matchesDistrict && matchesQuality && matchesScope;
   });
 
   const getTypeColor = (category: string) => {
@@ -94,6 +109,26 @@ export default function LakesPage() {
           </motion.div>
         </div>
       </div>
+
+      {/* Scope Tabs */}
+      {scopeTabs.length > 1 && (
+        <div className="container mx-auto px-6 py-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18 }}
+          >
+            <TabBar
+              tabs={scopeTabs}
+              activeTab={selectedScope}
+              onTabChange={setSelectedScope}
+              showFilters={false}
+              filteredCount={filteredLakes.length}
+              totalCount={lakesData.length}
+            />
+          </motion.div>
+        </div>
+      )}
 
       {/* Filters */}
       <div className="container mx-auto px-6 py-8">
@@ -166,6 +201,11 @@ export default function LakesPage() {
                       <Badge variant="outline" size="sm" className="text-xs border-white/10 text-slate-400">
                         {lake.category}
                       </Badge>
+                      {lake.scope && (
+                        <Badge variant="info" size="sm">
+                          {lake.scope === 'Kashmir Core' ? 'Kashmir Core' : lake.scope === 'Trans-Divisional' ? 'Trans-Divisional' : 'Transboundary'}
+                        </Badge>
+                      )}
                       {lake.waterQuality && (
                         <Badge variant={getQualityBadge(lake.waterQuality.status)} size="sm">
                           {lake.waterQuality.status}

@@ -135,7 +135,7 @@ export function ProtectedCategoryPage({
         actions={
           <>
             <a href="/protected-network/atlas">
-              <Button size="lg" className={`bg- ${color}`} icon={<Search className="w-5 h-5" />}>
+              <Button size="lg" className={`bg-${color}`} icon={<Search className="w-5 h-5" />}>
                 Search
               </Button>
             </a>
@@ -323,7 +323,7 @@ export function ProtectedCategoryPage({
                           <div className="text-[10px] text-slate-500 italic mt-1">{(area as any).dataStatus}</div>
                         )}
                         <div className="mt-auto pt-4 border-t border-white/[0.06] flex justify-end">
-                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg- emerald-700 hover:bg- emerald-500  transition-all duration-300 text-sm font-medium text-white shadow-md shadow-emerald-500/20">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-500  transition-all duration-300 text-sm font-medium text-white shadow-md shadow-emerald-500/20">
                             View Details
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </span>

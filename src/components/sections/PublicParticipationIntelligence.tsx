@@ -108,7 +108,7 @@ export function PublicParticipationIntelligence() {
                 <AlertTriangle className="w-4 h-4 mr-2" />
                 Report Issue
               </Button>
-              <Button className="bg- emerald-700 hover:bg- emerald-500 w-full sm:w-auto text-xs sm:text-sm" onClick={() => router.push('/submit-sighting')}>
+              <Button className="bg-emerald-700 hover:bg-emerald-500 w-full sm:w-auto text-xs sm:text-sm" onClick={() => router.push('/submit-sighting')}>
                 <Eye className="w-4 h-4 mr-2" />
                 Submit Sighting
               </Button>

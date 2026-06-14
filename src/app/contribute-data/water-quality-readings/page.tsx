@@ -93,7 +93,7 @@ export default function WaterQualityReadingsPage() {
                     </Button>
                   </Link>
                   <Link href="/citizen-science">
-                    <Button className="bg- emerald-700 hover:bg- emerald-500 text-white">
+                    <Button className="bg-emerald-700 hover:bg-emerald-500 text-white">
                       Explore Citizen Science
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </Button>

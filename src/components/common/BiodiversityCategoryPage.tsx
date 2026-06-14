@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -8,6 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { EntityDrawer } from '@/components/common/EntityDrawer';
 import { BiodiversityCard } from '@/components/common/BiodiversityCard';
 import { BiodiversityFilters } from '@/components/common/BiodiversityFilters';
+import { TabBar } from '@/components/common/TabBar';
 import {
   Leaf, Map, Activity, Eye, TrendingUp, ArrowRight, Search,
   Grid3X3, List, MapPin, Shield, type LucideIcon
@@ -46,6 +47,23 @@ export function BiodiversityCategoryPage({
   const [activeFilters, setActiveFilters] = useState<any>({});
   const [selectedEntity, setSelectedEntity] = useState<any>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('all');
+
+  const scopeTabs = useMemo(() => {
+    const availableScopes = Array.from(new Set(species.map(s => s.scope).filter(Boolean))) as string[];
+    const tabs = [{ key: 'all', label: 'All', description: `All ${title.toLowerCase()}` }];
+    const scopeLabels: Record<string, string> = {
+      'Kashmir Core': 'Kashmir Core',
+      'Trans-Divisional': 'Trans-Divisional',
+      'Transboundary / Extended': 'Transboundary',
+    };
+    availableScopes.forEach(scope => {
+      if (scopeLabels[scope]) {
+        tabs.push({ key: scope, label: scopeLabels[scope], description: `${scope} ${title}` });
+      }
+    });
+    return tabs;
+  }, [species, title]);
 
   const handleFilterChange = (newFilters: any) => {
     setActiveFilters(newFilters);
@@ -71,7 +89,9 @@ export function BiodiversityCategoryPage({
     setDrawerOpen(true);
   };
 
-  const filteredSpecies = species; // Apply filters here based on activeFilters
+  const filteredSpecies = activeTab === 'all'
+    ? species
+    : species.filter(s => s.scope === activeTab);
 
   return (
     <main className="min-h-screen bg-slate-950">{/* Hero */}
@@ -145,6 +165,26 @@ export function BiodiversityCategoryPage({
           </Card>
         </motion.div>
       </div>
+
+      {/* Scope Tabs */}
+      {scopeTabs.length > 1 && (
+        <div className="container mx-auto px-6 py-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+          >
+            <TabBar
+              tabs={scopeTabs}
+              activeTab={activeTab}
+              onTabChange={setActiveTab}
+              showFilters={false}
+              filteredCount={filteredSpecies.length}
+              totalCount={species.length}
+            />
+          </motion.div>
+        </div>
+      )}
 
       {/* Content */}
       <div className="container mx-auto px-6 py-12 space-y-8">

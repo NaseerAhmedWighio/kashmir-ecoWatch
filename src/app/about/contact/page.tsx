@@ -403,7 +403,7 @@ export default function ContactPage() {
                       <Button variant="outline" className="border-white/20 text-white" onClick={() => { setFormSubmitted(false); setFormData({ name: '', email: '', organization: '', inquiryType: '', subject: '', message: '', region: '' }); setAttachment(null); }}>
                         Submit Another
                       </Button>
-                      <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => router.push('/')}>
+                      <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => router.push('/')}>
                         Return Home
                       </Button>
                     </div>
@@ -528,7 +528,7 @@ export default function ContactPage() {
 
                     <Button
                       type="submit"
-                      className="w-full bg- emerald-700 hover:bg- emerald-500 text-white h-12 text-base font-semibold"
+                      className="w-full bg-emerald-700 hover:bg-emerald-500 text-white h-12 text-base font-semibold"
                     >
                       <Send className="w-5 h-5 mr-2" />
                       Submit Inquiry

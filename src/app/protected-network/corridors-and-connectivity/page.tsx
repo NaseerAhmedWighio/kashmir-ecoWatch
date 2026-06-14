@@ -113,7 +113,7 @@ export default function CorridorsPage() {
         images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
         actions={
           <>
-            <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<Search className="w-5 h-5" />}>Search Corridors</Button>
+            <Button className="bg-emerald-700 hover:bg-emerald-500" icon={<Search className="w-5 h-5" />}>Search Corridors</Button>
             <Button variant="outline" className="border-white/20 text-white" icon={<Map className="w-5 h-5" />}>Connectivity Map</Button>
           </>
         }
@@ -250,7 +250,7 @@ export default function CorridorsPage() {
                         </div>
                       </div>
                       <div className="mt-4 pt-4 border-t border-white/[0.06] flex justify-end">
-                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg- emerald-700 hover:bg- emerald-500  shadow-md shadow-emerald-500/20 transition-colors text-sm font-medium text-white">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-500  shadow-md shadow-emerald-500/20 transition-colors text-sm font-medium text-white">
                           View Details
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </span>

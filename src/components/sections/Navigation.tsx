@@ -935,7 +935,7 @@ export function Navigation() {
                 <p className="text-xs text-slate-400 mt-1">Access your workspace and contributions</p>
               </div>
               <div className="p-4 space-y-2">
-                <Button className="w-full text-sm bg- emerald-700 hover:bg- emerald-500 text-white">
+                <Button className="w-full text-sm bg-emerald-700 hover:bg-emerald-500 text-white">
                   Sign In
                 </Button>
                 <Button variant="outline" className="w-full text-sm border-white/20 text-white">

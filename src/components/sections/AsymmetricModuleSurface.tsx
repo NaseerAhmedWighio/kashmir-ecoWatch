@@ -224,7 +224,7 @@ export function AsymmetricModuleSurface() {
           </div>
           <Button
             variant="outline"
-            className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 text-xs sm:text-sm md:text-base w-full sm:w-auto"
+            className="border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 text-xs sm:text-sm md:text-base w-full sm:w-auto"
             onClick={() => router.push('/risk-monitoring')}
           >
             Browse Directory

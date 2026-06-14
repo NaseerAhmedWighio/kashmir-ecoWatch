@@ -209,7 +209,7 @@ export default function PartnersPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-              <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => document.getElementById('pathways')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => document.getElementById('pathways')?.scrollIntoView({ behavior: 'smooth' })}>
                 Explore Partnership Paths <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -445,7 +445,7 @@ export default function PartnersPage() {
                     </button>
                   ))}
                 </div>
-                <Button className="mt-6 bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 2 })} disabled={!instForm.type}>Continue</Button>
+                <Button className="mt-6 bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 2 })} disabled={!instForm.type}>Continue</Button>
               </div>
             )}
 
@@ -462,7 +462,7 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 1 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 3 })} disabled={instForm.collaborationIntents.length === 0}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 3 })} disabled={instForm.collaborationIntents.length === 0}>Continue</Button>
                 </div>
               </div>
             )}
@@ -492,7 +492,7 @@ export default function PartnersPage() {
                 ))}
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 2 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 4 })}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 4 })}>Continue</Button>
                 </div>
               </div>
             )}
@@ -508,7 +508,7 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 3 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 5 })} disabled={!instForm.geoScope}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 5 })} disabled={!instForm.geoScope}>Continue</Button>
                 </div>
               </div>
             )}
@@ -525,7 +525,7 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 4 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 6 })}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 6 })}>Continue</Button>
                 </div>
               </div>
             )}
@@ -542,7 +542,7 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 5 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 7 })}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 7 })}>Continue</Button>
                 </div>
               </div>
             )}
@@ -557,7 +557,7 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 6 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 8 })} disabled={!instForm.verificationRole}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 8 })} disabled={!instForm.verificationRole}>Continue</Button>
                 </div>
               </div>
             )}
@@ -574,7 +574,7 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 7 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 9 })}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 9 })}>Continue</Button>
                 </div>
               </div>
             )}
@@ -589,7 +589,7 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 8 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 10 })} disabled={!instForm.publicationLevel}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 10 })} disabled={!instForm.publicationLevel}>Continue</Button>
                 </div>
               </div>
             )}
@@ -605,7 +605,7 @@ export default function PartnersPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 9 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 11 })}>Review & Submit</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setInstForm({ ...instForm, step: 11 })}>Review & Submit</Button>
                 </div>
               </div>
             )}
@@ -627,7 +627,7 @@ export default function PartnersPage() {
                 </Card>
                 <div className="flex gap-3">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setInstForm({ ...instForm, step: 10 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => { alert('Application submitted for review.'); setInstForm({ step: 1, name: '', type: '', website: '', yearEstablished: '', registrationRef: '', focalPerson: '', designation: '', email: '', phone: '', country: '', state: '', district: '', location: '', geoScope: '', collaborationIntents: [], domains: [], dataCapability: [], verificationRole: '', technicalReadiness: [], publicationLevel: '' }); }}>Submit Application</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => { alert('Application submitted for review.'); setInstForm({ step: 1, name: '', type: '', website: '', yearEstablished: '', registrationRef: '', focalPerson: '', designation: '', email: '', phone: '', country: '', state: '', district: '', location: '', geoScope: '', collaborationIntents: [], domains: [], dataCapability: [], verificationRole: '', technicalReadiness: [], publicationLevel: '' }); }}>Submit Application</Button>
                 </div>
               </div>
             )}

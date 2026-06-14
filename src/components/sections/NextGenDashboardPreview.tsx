@@ -65,7 +65,7 @@ export function NextGenDashboardPreview() {
                 predictive modeling, and spatial intelligence integration.
               </p>
             </div>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 w-full sm:w-auto text-xs sm:text-sm" icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />} onClick={() => router.push('/risk-monitoring/dashboards')}>
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border- emerald-700 hover:bg-emerald-700 w-full sm:w-auto text-xs sm:text-sm" icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />} onClick={() => router.push('/risk-monitoring/dashboards')}>
               All Dashboards
             </Button>
           </div>

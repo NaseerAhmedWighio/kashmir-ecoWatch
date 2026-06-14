@@ -222,7 +222,7 @@ export default function DistrictPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
           className="flex items-center gap-4 pt-8 border-t border-white/5">
-          <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<ArrowRight className="w-4 h-4" />}>
+          <Button className="bg-emerald-700 hover:bg-emerald-500" icon={<ArrowRight className="w-4 h-4" />}>
             View All Data
           </Button>
           <Button variant="outline" className="border-white/20 text-white">

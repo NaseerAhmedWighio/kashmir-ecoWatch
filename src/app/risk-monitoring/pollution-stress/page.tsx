@@ -100,7 +100,7 @@ export default function PollutionStressPage() {
           <>
             <Button
               size="lg"
-              className="bg- emerald-700 hover:bg- emerald-500  text-white shadow-xl"
+              className="bg-emerald-700 hover:bg-emerald-500  text-white shadow-xl"
               onClick={() => router.push('/risk-monitoring/environmental-monitoring')}
             >
               <Activity className="w-5 h-5 mr-2" />

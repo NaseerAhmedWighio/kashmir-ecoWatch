@@ -179,7 +179,7 @@ export default function SupportSponsorshipPage() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => document.getElementById('support-structure')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => document.getElementById('support-structure')?.scrollIntoView({ behavior: 'smooth' })}>
                 View Support Structure <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <Button variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => document.getElementById('pathways')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -477,7 +477,7 @@ export default function SupportSponsorshipPage() {
                     <button key={cat} onClick={() => setSupportForm({ ...supportForm, category: cat })} className={cn('px-4 py-3 rounded-lg text-sm text-left transition-colors border', supportForm.category === cat ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10')}>{cat}</button>
                   ))}
                 </div>
-                <Button className="mt-6 bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 2 })} disabled={!supportForm.category}>Continue</Button>
+                <Button className="mt-6 bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 2 })} disabled={!supportForm.category}>Continue</Button>
               </div>
             )}
 
@@ -492,7 +492,7 @@ export default function SupportSponsorshipPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setSupportForm({ ...supportForm, step: 1 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 3 })} disabled={!supportForm.applicantType}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 3 })} disabled={!supportForm.applicantType}>Continue</Button>
                 </div>
               </div>
             )}
@@ -517,7 +517,7 @@ export default function SupportSponsorshipPage() {
                 ))}
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setSupportForm({ ...supportForm, step: 2 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 4 })}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 4 })}>Continue</Button>
                 </div>
               </div>
             )}
@@ -535,7 +535,7 @@ export default function SupportSponsorshipPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setSupportForm({ ...supportForm, step: 3 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 5 })}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 5 })}>Continue</Button>
                 </div>
               </div>
             )}
@@ -553,7 +553,7 @@ export default function SupportSponsorshipPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setSupportForm({ ...supportForm, step: 4 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 6 })}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 6 })}>Continue</Button>
                 </div>
               </div>
             )}
@@ -569,7 +569,7 @@ export default function SupportSponsorshipPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setSupportForm({ ...supportForm, step: 5 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 7 })} disabled={!supportForm.scope}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 7 })} disabled={!supportForm.scope}>Continue</Button>
                 </div>
               </div>
             )}
@@ -585,7 +585,7 @@ export default function SupportSponsorshipPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setSupportForm({ ...supportForm, step: 6 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 8 })} disabled={!supportForm.visibility}>Continue</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 8 })} disabled={!supportForm.visibility}>Continue</Button>
                 </div>
               </div>
             )}
@@ -613,7 +613,7 @@ export default function SupportSponsorshipPage() {
                 </div>
                 <div className="flex gap-3 mt-6">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setSupportForm({ ...supportForm, step: 7 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 9 })}>Review & Submit</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => setSupportForm({ ...supportForm, step: 9 })}>Review & Submit</Button>
                 </div>
               </div>
             )}
@@ -636,7 +636,7 @@ export default function SupportSponsorshipPage() {
                 </Card>
                 <div className="flex gap-3">
                   <Button variant="outline" className="border-white/20 text-white" onClick={() => setSupportForm({ ...supportForm, step: 8 })}>Back</Button>
-                  <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => { alert('Support interest submitted for review.'); setSupportForm({ step: 1, category: '', applicantType: '', name: '', designation: '', affiliation: '', country: '', email: '', phone: '', profileUrl: '', instName: '', instType: '', focalPerson: '', website: '', instEmail: '', instGeography: '', instDomain: '', relevance: [], intendedSupport: [], scope: '', visibility: '', message: '', priorWork: '', referenceLinks: '', nominatorNote: '' }); }}>Submit Support Interest</Button>
+                  <Button className="bg-emerald-700 hover:bg-emerald-500 text-white" onClick={() => { alert('Support interest submitted for review.'); setSupportForm({ step: 1, category: '', applicantType: '', name: '', designation: '', affiliation: '', country: '', email: '', phone: '', profileUrl: '', instName: '', instType: '', focalPerson: '', website: '', instEmail: '', instGeography: '', instDomain: '', relevance: [], intendedSupport: [], scope: '', visibility: '', message: '', priorWork: '', referenceLinks: '', nominatorNote: '' }); }}>Submit Support Interest</Button>
                 </div>
               </div>
             )}

@@ -390,7 +390,7 @@ export default function TrailsAndSightingsPage() {
         images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
         actions={
           <>
-            <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<Activity className="w-5 h-5" />} onClick={() => setActiveMainTab('citizen')}>
+            <Button className="bg-emerald-700 hover:bg-emerald-500" icon={<Activity className="w-5 h-5" />} onClick={() => setActiveMainTab('citizen')}>
               Log Field Observation
             </Button>
             <Button variant="outline" className="border-white/20 text-white" icon={<Database className="w-5 h-5" />} onClick={() => setActiveMainTab('spatial')}>
@@ -442,7 +442,7 @@ export default function TrailsAndSightingsPage() {
               }}
               className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold tracking-wide transition-all whitespace-nowrap ${
                 activeMainTab === tab.key
-                  ? 'bg- emerald-700 hover:bg- emerald-500 text-white shadow-md'
+                  ? 'bg-emerald-700 hover:bg-emerald-500 text-white shadow-md'
                   : 'text-slate-400 hover:text-white hover:bg-white/5'
               }`}
             >
@@ -584,7 +584,7 @@ export default function TrailsAndSightingsPage() {
                         }}
                         className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold transition-all whitespace-nowrap ${
                           activeScopeTab === tab.key
-                            ? 'bg- emerald-700 hover:bg- emerald-500 text-white shadow'
+                            ? 'bg-emerald-700 hover:bg-emerald-500 text-white shadow'
                             : 'text-slate-400 hover:text-white hover:bg-white/5'
                         }`}
                       >
@@ -1300,7 +1300,7 @@ export default function TrailsAndSightingsPage() {
                         </div>
                       </div>
 
-                      <Button type="submit" className="w-full bg- emerald-700 hover:bg- emerald-500  shadow-md shadow-emerald-500/20 mt-2">
+                      <Button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-500  shadow-md shadow-emerald-500/20 mt-2">
                         Submit Sighting to Verification Queue
                       </Button>
                     </form>
@@ -1448,7 +1448,7 @@ export default function TrailsAndSightingsPage() {
                         }}
                         className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-semibold transition-all whitespace-nowrap ${
                           activeScopeTab === tab.key
-                            ? 'bg- emerald-700 hover:bg- emerald-500 text-white shadow'
+                            ? 'bg-emerald-700 hover:bg-emerald-500 text-white shadow'
                             : 'text-slate-400 hover:text-white hover:bg-white/5'
                         }`}
                       >
