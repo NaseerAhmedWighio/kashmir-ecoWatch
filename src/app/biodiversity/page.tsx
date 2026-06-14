@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -70,7 +70,7 @@ const categoryCards = [
     icon: Flower2,
     count: biodiversityMetrics.plants,
     description: 'Vascular plants, flora across forest, alpine, and wetland ecosystems',
-    color: 'from-green-500 to-emerald-600',
+    color: 'from-green-500 to- emerald-700',
     href: '/biodiversity/plants',
     habitats: ['Forests', 'Alpine', 'Wetlands'],
   },
@@ -195,12 +195,12 @@ export default function BiodiversityPage() {
         label="Biodiversity Intelligence"
         title="Species, Habitats & Ecological Intelligence"
         subtitle="Comprehensive species database with distribution, habitat associations, seasonal patterns, conservation status, and ecological relevance across Kashmir"
-        icon={<Leaf className="w-4 h-4 text-forest-400" />}
+        icon={<Leaf className="w-4 h-4 text-emerald-400" />}
         actions={
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-forest-600 to-forest-500"
+              className="bg- emerald-700 hover:bg- emerald-500"
               icon={<Leaf className="w-4 h-4" />}
             >
               Browse All Species
@@ -294,7 +294,7 @@ export default function BiodiversityPage() {
                     <category.icon className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-1 group-hover:text-forest-300 transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-1 group-hover:text- emerald-700 transition-colors">
                       {category.title}
                     </h3>
                     <div className="text-2xl md:text-3xl font-bold text-white">
@@ -313,7 +313,7 @@ export default function BiodiversityPage() {
                     </Badge>
                   ))}
                 </div>
-                <div className="flex items-center gap-2 text-sm font-medium text-forest-400 group-hover:text-forest-300 transition-colors">
+                <div className="flex items-center gap-2 text-sm font-medium text-emerald-400 group-hover:text- emerald-700 transition-colors">
                   <span>Explore {category.title}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -38,7 +38,7 @@ const conservationNetworks = [
         acronym: 'CWPR',
         description: 'Wildlife species protection, research coordination, and conservation policy development.',
         icon: Shield,
-        color: 'from-green-500 to-emerald-600',
+        color: 'from-green-500 to- emerald-700',
       },
       {
         name: 'Council for Plant Protection & Research',
@@ -982,7 +982,7 @@ export default function ConservationIntelligencePage() {
           <div className="flex flex-wrap gap-3 mb-8">
             <Button
               size="lg"
-              className={`${activeTab === 'playground' ? 'bg-gradient-to-r from-emerald-600 to-teal-600' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'}`}
+              className={`${activeTab === 'playground' ? 'bg-gradient-to-r from- emerald-700 to-teal-600' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'}`}
               onClick={() => setActiveTab('playground')}
               icon={<Sliders className="w-5 h-5" />}
             >
@@ -990,7 +990,7 @@ export default function ConservationIntelligencePage() {
             </Button>
             <Button
               size="lg"
-              className={`${activeTab === 'registry' ? 'bg-gradient-to-r from-emerald-600 to-teal-600' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'}`}
+              className={`${activeTab === 'registry' ? 'bg-gradient-to-r from- emerald-700 to-teal-600' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'}`}
               onClick={() => setActiveTab('registry')}
               icon={<Database className="w-5 h-5" />}
             >
@@ -998,7 +998,7 @@ export default function ConservationIntelligencePage() {
             </Button>
             <Button
               size="lg"
-              className={`${activeTab === 'esro' ? 'bg-gradient-to-r from-emerald-600 to-teal-600' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'}`}
+              className={`${activeTab === 'esro' ? 'bg-gradient-to-r from- emerald-700 to-teal-600' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'}`}
               onClick={() => setActiveTab('esro')}
               icon={<BookOpen className="w-5 h-5" />}
             >
@@ -1581,13 +1581,13 @@ export default function ConservationIntelligencePage() {
                               <div className="flex border border-white/10 rounded overflow-hidden">
                                 <button
                                   onClick={() => setCompareYear(2025)}
-                                  className={`px-3 py-1 text-xs font-semibold ${compareYear === 2025 ? 'bg-emerald-600 text-white' : 'bg-black/30 text-slate-400'}`}
+                                  className={`px-3 py-1 text-xs font-semibold ${compareYear === 2025 ? 'bg- emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
                                 >
                                   2025 Baseline
                                 </button>
                                 <button
                                   onClick={() => setCompareYear(2026)}
-                                  className={`px-3 py-1 text-xs font-semibold ${compareYear === 2026 ? 'bg-emerald-600 text-white' : 'bg-black/30 text-slate-400'}`}
+                                  className={`px-3 py-1 text-xs font-semibold ${compareYear === 2026 ? 'bg- emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
                                 >
                                   2026 Detected
                                 </button>
@@ -1691,7 +1691,7 @@ export default function ConservationIntelligencePage() {
                                     onClick={() => setClimateScenario(sc.id as any)}
                                     className={`p-2 rounded text-xs font-bold border transition-colors ${
                                       climateScenario === sc.id
-                                        ? 'bg-emerald-600 border-emerald-500 text-white'
+                                        ? 'bg- emerald-700 border-emerald-500 text-white'
                                         : 'bg-black/30 border-white/5 text-slate-400 hover:border-white/10'
                                     }`}
                                   >
@@ -1743,13 +1743,13 @@ export default function ConservationIntelligencePage() {
                             <div className="flex border border-white/10 rounded overflow-hidden">
                               <button
                                 onClick={() => setResearchGapFocus('species')}
-                                className={`px-4 py-1 text-xs font-semibold ${researchGapFocus === 'species' ? 'bg-emerald-600 text-white' : 'bg-black/30 text-slate-400'}`}
+                                className={`px-4 py-1 text-xs font-semibold ${researchGapFocus === 'species' ? 'bg- emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
                               >
                                 Species Research Gaps
                               </button>
                               <button
                                 onClick={() => setResearchGapFocus('pa')}
-                                className={`px-4 py-1 text-xs font-semibold ${researchGapFocus === 'pa' ? 'bg-emerald-600 text-white' : 'bg-black/30 text-slate-400'}`}
+                                className={`px-4 py-1 text-xs font-semibold ${researchGapFocus === 'pa' ? 'bg- emerald-700 text-white' : 'bg-black/30 text-slate-400'}`}
                               >
                                 Protected Area Gaps
                               </button>
@@ -1883,7 +1883,7 @@ export default function ConservationIntelligencePage() {
               <div className="flex flex-wrap gap-2 text-xs">
                 <button
                   onClick={() => setSelectedTier('all')}
-                  className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === 'all' ? 'bg-emerald-600 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
+                  className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === 'all' ? 'bg- emerald-700 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
                 >
                   All Tiers
                 </button>
@@ -1891,7 +1891,7 @@ export default function ConservationIntelligencePage() {
                   <button
                     key={tier}
                     onClick={() => setSelectedTier(tier)}
-                    className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === tier ? 'bg-emerald-600 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
+                    className={`px-3 py-1.5 rounded-lg border transition-all ${selectedTier === tier ? 'bg- emerald-700 text-white border-emerald-500' : 'bg-white/5 border-white/5 text-slate-400'}`}
                   >
                     Tier {tier}
                   </button>

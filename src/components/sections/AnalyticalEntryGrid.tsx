@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
@@ -85,7 +85,7 @@ export function AnalyticalEntryGrid() {
 
                 {/* Content */}
                 <CardHeader className="mb-4">
-                  <CardTitle className="text-lg group-hover:text-forest-600 dark:group-hover:text-forest-400 transition-colors">
+                  <CardTitle className="text-lg group-hover:text- emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                     {card.title}
                   </CardTitle>
                   <CardDescription className="text-sm leading-relaxed">
@@ -109,7 +109,7 @@ export function AnalyticalEntryGrid() {
                   </div>
 
                   {/* Action */}
-                  <div className="flex items-center gap-2 text-sm font-medium text-forest-600 dark:text-forest-400 group-hover:gap-3 transition-all">
+                  <div className="flex items-center gap-2 text-sm font-medium text- emerald-700 dark:text-emerald-400 group-hover:gap-3 transition-all">
                     <span>Explore Module</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
@@ -130,7 +130,7 @@ export function AnalyticalEntryGrid() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-12 text-center"
         >
-          <button className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-forest-600 dark:hover:text-forest-400 transition-colors group">
+          <button className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text- emerald-700 dark:hover:text-emerald-400 transition-colors group">
             View All Intelligence Modules
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -144,7 +144,7 @@ export default function SpeciesDetailPage() {
 
                 {/* Primary CTAs */}
                 <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-                  <Button className="bg-gradient-to-r from-forest-600 to-forest-500" icon={<Map className="w-5 h-5" />}>
+                  <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<Map className="w-5 h-5" />}>
                     Open Distribution Map
                   </Button>
                   <Button variant="outline" className="border-white/20 text-white" icon={<Eye className="w-5 h-5" />}>
@@ -203,7 +203,7 @@ export default function SpeciesDetailPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-4 py-4 text-sm font-medium whitespace-nowrap transition-colors border-b-2 ${
                   activeTab === tab.id
-                    ? 'text-forest-400 border-forest-500'
+                    ? 'text-emerald-400 border-forest-500'
                     : 'text-slate-400 border-transparent hover:text-white'
                 }`}
               >
@@ -281,7 +281,7 @@ export default function SpeciesDetailPage() {
                         className="flex items-center justify-between w-full p-2 rounded-lg hover:bg-white/5 transition-colors text-left group"
                       >
                         <span className="text-slate-300 group-hover:text-white transition-colors">{district}</span>
-                        <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
+                        <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors" />
                       </button>
                     ))}
                   </div>
@@ -342,7 +342,7 @@ export default function SpeciesDetailPage() {
                 {species.habitats.map((habitat, idx) => (
                   <div key={idx} className="p-4 rounded-xl glass-light border border-white/5">
                     <div className="flex items-center gap-3">
-                      <MapPin className="w-5 h-5 text-forest-400" />
+                      <MapPin className="w-5 h-5 text-emerald-400" />
                       <span className="text-white font-medium">{habitat}</span>
                     </div>
                   </div>
@@ -360,7 +360,7 @@ export default function SpeciesDetailPage() {
           >
             <Card className="glass-light border-white/10 p-8" padding="none">
               <div className="flex items-center gap-3 mb-6">
-                <Calendar className="w-6 h-6 text-forest-400" />
+                <Calendar className="w-6 h-6 text-emerald-400" />
                 <h2 className="text-2xl font-bold text-white">Seasonality & Phenology</h2>
               </div>
               <p className="text-slate-300 leading-relaxed">{species.seasonality}</p>
@@ -440,7 +440,7 @@ export default function SpeciesDetailPage() {
                   <Eye className="w-6 h-6 text-purple-400" />
                   <h2 className="text-2xl font-bold text-white">Verified Sightings</h2>
                 </div>
-                <Button className="bg-gradient-to-r from-forest-600 to-forest-500" icon={<Eye className="w-4 h-4" />}>
+                <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<Eye className="w-4 h-4" />}>
                   View All Sightings
                 </Button>
               </div>

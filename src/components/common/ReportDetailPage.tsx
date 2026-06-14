@@ -38,7 +38,7 @@ export function ReportDetailPage({ report, relatedReports = [] }: ReportDetailPa
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'Management Plan': return 'from-emerald-500 to-emerald-600';
+      case 'Management Plan': return 'from-emerald-500 to- emerald-700';
       case 'Scientific Report': return 'from-purple-500 to-purple-600';
       case 'Monitoring Data': return 'from-blue-500 to-blue-600';
       case 'Assessment': return 'from-amber-500 to-amber-600';

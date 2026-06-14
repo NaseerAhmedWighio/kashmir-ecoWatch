@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -2279,7 +2279,7 @@ export function ProtectedAreaDetailPage({ area, relatedAreas = [] }: ProtectedAr
                         <span>{related.district}</span>
                       </div>
                       <div className="mt-auto flex justify-end">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 shadow-md shadow-emerald-500/20 transition-colors text-xs font-medium text-white">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg- emerald-700 hover:bg- emerald-500  shadow-md shadow-emerald-500/20 transition-colors text-xs font-medium text-white">
                           View Details <ArrowRight className="w-3.5 h-3.5" />
                         </span>
                       </div>

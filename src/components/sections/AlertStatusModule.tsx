@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/Card';
@@ -117,7 +117,7 @@ export function AlertStatusModule() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-4 mb-2">
                           <div>
-                            <h4 className="font-semibold text-slate-900 dark:text-white group-hover:text-forest-600 dark:group-hover:text-forest-400 transition-colors">
+                            <h4 className="font-semibold text-slate-900 dark:text-white group-hover:text- emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                               {alert.title}
                             </h4>
                             <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">

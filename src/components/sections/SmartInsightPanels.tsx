@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
@@ -213,7 +213,7 @@ export function SmartInsightPanels() {
 
                           {/* View all link */}
                           <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
-                            <button className="text-sm font-medium text-forest-600 dark:text-forest-400 hover:text-forest-700 dark:hover:text-forest-300 transition-colors flex items-center gap-1">
+                            <button className="text-sm font-medium text- emerald-700 dark:text-emerald-400 hover:text- emerald-700 dark:hover:text- emerald-700 transition-colors flex items-center gap-1">
                               View All {panel.title.toLowerCase()}
                               <ChevronDown className="w-4 h-4 -rotate-90" />
                             </button>

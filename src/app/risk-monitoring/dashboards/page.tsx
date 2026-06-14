@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -210,7 +210,7 @@ const DASHBOARDS: DashboardCard[] = [
     status: 'Under Expansion',
     feeds: ['Environmental Monitoring', 'Alerts', 'Water Systems'],
     route: '/risk-monitoring/environmental-monitoring',
-    color: 'from-emerald-600 to-teal-700',
+    color: 'from- emerald-700 to-teal-700',
   },
 
   // Operational Dashboards

@@ -174,7 +174,7 @@ export default function PipedWaterSupplyPage() {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to- emerald-700 flex items-center justify-center">
                 <Droplets className="w-7 h-7 text-white" />
               </div>
               <Badge variant="outline" className="border-green-400/30 text-green-400 text-xs">Piped Supply Intelligence</Badge>

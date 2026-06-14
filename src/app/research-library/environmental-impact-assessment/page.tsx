@@ -251,7 +251,7 @@ const reportSections = [
     number: 4,
     title: 'Forest Degradation',
     icon: Trees,
-    gradient: 'from-emerald-600 to-green-500',
+    gradient: 'from- emerald-700 to-green-500',
     content: (
       <div className="space-y-4 text-slate-300">
         <p>

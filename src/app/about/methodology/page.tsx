@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -74,7 +74,7 @@ const steps = [
     description:
       'Kashmir EcoWatch is not a static archive. Existing records, mapped features, community-supported evidence, and environmental intelligence layers may be revisited, updated, corrected, or reclassified over time as new information, expert review, institutional inputs, or field-based verification becomes available.',
     icon: RefreshCw,
-    color: 'from-teal-500 to-emerald-600',
+    color: 'from-teal-500 to- emerald-700',
   },
 ];
 

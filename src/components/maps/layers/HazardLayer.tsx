@@ -94,7 +94,7 @@ export function HazardLayer({ visible = true, onFeatureClick }: HazardLayerProps
                   <p>Location: {alert.location}</p>
                   <p>District: {alert.district}</p>
                   <p>Severity: <span className="font-medium" style={{ color }}>{alert.severity}</span></p>
-                  <p>Status: <span className="font-medium text-emerald-600">{alert.status}</span></p>
+                  <p>Status: <span className="font-medium text- emerald-700">{alert.status}</span></p>
                 </div>
                 {alert.affectedEntity && (
                   <div className="mt-2 pt-2 border-t border-slate-200">

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
@@ -136,7 +136,7 @@ export function MapIntelligenceCore() {
             <div className="flex items-center gap-2">
               <Button
                 size="sm"
-                className="bg-gradient-to-r from-forest-600 to-forest-500 text-xs sm:text-sm"
+                className="bg- emerald-700 hover:bg- emerald-500 text-xs sm:text-sm"
                 icon={<Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                 onClick={() => window.location.href = '/atlas'}
               >
@@ -215,7 +215,7 @@ export function MapIntelligenceCore() {
               <Card className="glass-intense border-white/10 p-0.5" padding="none">
                 <button
                   onClick={() => setShowLayers(!showLayers)}
-                  className={`p-2 sm:p-2.5 md:p-3 rounded-lg transition-colors ${showLayers ? 'bg-forest-500/20 text-forest-400' : 'hover:bg-white/5 text-white'}`}
+                  className={`p-2 sm:p-2.5 md:p-3 rounded-lg transition-colors ${showLayers ? 'bg-forest-500/20 text-emerald-400' : 'hover:bg-white/5 text-white'}`}
                   aria-label="Toggle layers"
                 >
                   <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -300,7 +300,7 @@ export function MapIntelligenceCore() {
                   {/* Drawer header */}
                   <div className={`p-2.5 sm:p-3 md:p-4 bg-gradient-to-r ${
                     currentFeature.type === 'wetland' ? 'from-blue-600/20 to-blue-800/10' :
-                    currentFeature.type === 'protected' ? 'from-emerald-600/20 to-emerald-800/10' :
+                    currentFeature.type === 'protected' ? 'from- emerald-700/20 to-emerald-800/10' :
                     'from-slate-600/20 to-slate-800/10'
                   }`}>
                     <div className="flex items-start justify-between">
@@ -403,7 +403,7 @@ export function MapIntelligenceCore() {
                     <div className="flex gap-2 pt-2">
                       <Button
                         size="sm"
-                        className="flex-1 bg-gradient-to-r from-forest-600 to-forest-500 text-xs"
+                        className="flex-1 bg- emerald-700 hover:bg- emerald-500 text-xs"
                         onClick={() => window.location.href = `/water-systems/lakes/${currentFeature.id}`}
                       >
                         View Details
@@ -411,7 +411,7 @@ export function MapIntelligenceCore() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="border-white/20 text-white hover:border-forest-400 p-2"
+                        className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 p-2"
                         onClick={() => window.location.href = '/atlas'}
                       >
                         <MapIcon className="w-4 h-4" />
@@ -462,7 +462,7 @@ export function MapIntelligenceCore() {
               onClick={() => { setSelectedFeature(feature.id); setShowMiniDrawer(true); }}
               className="cursor-pointer"
             >
-              <Card className="glass-intense border-white/10 p-2.5 sm:p-3 md:p-4 lg:p-5 hover:border-forest-400/50 transition-colors">
+              <Card className="glass-intense border-white/10 p-2.5 sm:p-3 md:p-4 lg:p-5 hover:border- emerald-700 hover:bg- emerald-700/50 transition-colors">
                 <div className="flex items-start justify-between mb-2 sm:mb-3">
                   <div className="flex items-center gap-2 sm:gap-3">
                     {feature.type === 'wetland' ? (

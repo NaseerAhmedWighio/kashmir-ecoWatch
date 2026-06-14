@@ -52,7 +52,7 @@ export function TrailDetailPage({ trail, relatedTrails = [] }: TrailDetailPagePr
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'Birding Trail': return 'from-purple-500 to-purple-600';
-      case 'Eco-Trail': return 'from-emerald-500 to-emerald-600';
+      case 'Eco-Trail': return 'from-emerald-500 to- emerald-700';
       case 'Interpretation Trail': return 'from-blue-500 to-blue-600';
       case 'Trekking Route': return 'from-amber-500 to-amber-600';
       default: return 'from-slate-500 to-slate-600';

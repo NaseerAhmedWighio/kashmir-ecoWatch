@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -333,7 +333,7 @@ export default function FieldReportsPage() {
 
               <Card className="glass-intense border-white/10 p-6">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500 to- emerald-700 flex items-center justify-center flex-shrink-0">
                     <Shield className="w-5 h-5 text-white" />
                   </div>
                   <div>

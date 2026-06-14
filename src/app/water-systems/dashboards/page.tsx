@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -63,7 +63,7 @@ const dashboardModules = [
     title: 'Watershed Intelligence',
     description: 'Catchment-scale analysis of water availability, quality, and ecological health',
     icon: Map,
-    color: 'from-green-500 to-emerald-600',
+    color: 'from-green-500 to- emerald-700',
     metrics: ['Catchment Area', 'Runoff Volume', 'Groundwater Recharge', 'Land Use'],
     status: 'Live' as const,
     statusVariant: 'success' as const,

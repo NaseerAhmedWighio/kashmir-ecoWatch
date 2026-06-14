@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -198,7 +198,7 @@ const RiskDashboardPage: React.FC = () => {
         {/* Risk by Habitat */}
         <section>
           <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to- emerald-700 flex items-center justify-center">
               <Mountain className="w-4 h-4 text-white" />
             </div>
             <div>

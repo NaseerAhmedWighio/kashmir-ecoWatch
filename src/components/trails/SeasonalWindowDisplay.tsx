@@ -1,4 +1,4 @@
-// Seasonal Window Display Component
+﻿// Seasonal Window Display Component
 // Shows seasonal access windows and route conditions
 
 import React from 'react';

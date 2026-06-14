@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
 import { Button } from '@/components/ui/Button';
@@ -29,7 +29,7 @@ export default function EnvironmentalMonitoringPage() {
         badge={<Badge variant="success" size="md">Environmental Health</Badge>}
         actions={
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-green-600" onClick={() => router.push('/risk-monitoring/pollution-stress')}><ArrowRight className="w-5 h-5 mr-2" />Back to Pollution & Stress</Button>
+            <Button size="lg" className="bg- emerald-700 hover:bg- emerald-500" onClick={() => router.push('/risk-monitoring/pollution-stress')}><ArrowRight className="w-5 h-5 mr-2" />Back to Pollution & Stress</Button>
             <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => router.push('/risk-monitoring')}>Overview</Button>
           </div>
         }

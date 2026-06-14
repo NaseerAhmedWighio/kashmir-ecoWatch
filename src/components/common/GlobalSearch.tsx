@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, ArrowRight, FileText, MapPin, Activity, Shield, Droplet, Footprints, AlertTriangle, Book } from 'lucide-react';
@@ -195,12 +195,12 @@ export function GlobalSearch() {
                               className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                             >
                               <div>
-                                <div className="font-medium text-white group-hover:text-forest-300 transition-colors">
+                                <div className="font-medium text-white group-hover:text- emerald-700 transition-colors">
                                   {item.name}
                                 </div>
                                 <div className="text-sm text-slate-500">{item.scientificName}</div>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
+                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors" />
                             </button>
                           ))}
                         </div>
@@ -224,12 +224,12 @@ export function GlobalSearch() {
                               className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                             >
                               <div>
-                                <div className="font-medium text-white group-hover:text-forest-300 transition-colors">
+                                <div className="font-medium text-white group-hover:text- emerald-700 transition-colors">
                                   {item.name}
                                 </div>
                                 <div className="text-sm text-slate-500">{item.district}</div>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
+                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors" />
                             </button>
                           ))}
                         </div>
@@ -253,12 +253,12 @@ export function GlobalSearch() {
                               className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                             >
                               <div>
-                                <div className="font-medium text-white group-hover:text-forest-300 transition-colors">
+                                <div className="font-medium text-white group-hover:text- emerald-700 transition-colors">
                                   {item.name}
                                 </div>
                                 <div className="text-sm text-slate-500">{item.district}</div>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
+                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors" />
                             </button>
                           ))}
                         </div>
@@ -282,12 +282,12 @@ export function GlobalSearch() {
                               className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                             >
                               <div>
-                                <div className="font-medium text-white group-hover:text-forest-300 transition-colors">
+                                <div className="font-medium text-white group-hover:text- emerald-700 transition-colors">
                                   {item.name}
                                 </div>
                                 <div className="text-sm text-slate-500">District</div>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
+                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors" />
                             </button>
                           ))}
                         </div>
@@ -311,12 +311,12 @@ export function GlobalSearch() {
                               className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                             >
                               <div>
-                                <div className="font-medium text-white group-hover:text-forest-300 transition-colors">
+                                <div className="font-medium text-white group-hover:text- emerald-700 transition-colors">
                                   {item.title}
                                 </div>
                                 <div className="text-sm text-slate-500">{item.location}</div>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
+                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors" />
                             </button>
                           ))}
                         </div>
@@ -340,12 +340,12 @@ export function GlobalSearch() {
                               className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                             >
                               <div>
-                                <div className="font-medium text-white group-hover:text-forest-300 transition-colors">
+                                <div className="font-medium text-white group-hover:text- emerald-700 transition-colors">
                                   {item.title}
                                 </div>
                                 <div className="text-sm text-slate-500">{item.year}</div>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
+                              <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors" />
                             </button>
                           ))}
                         </div>

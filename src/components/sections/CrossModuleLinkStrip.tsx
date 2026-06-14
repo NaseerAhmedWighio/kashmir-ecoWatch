@@ -1,4 +1,4 @@
-// Cross-Module Link Strip Component
+﻿// Cross-Module Link Strip Component
 // Navigation to related modules (Protected Areas, Biodiversity, Water Systems, etc.)
 
 import React from 'react';

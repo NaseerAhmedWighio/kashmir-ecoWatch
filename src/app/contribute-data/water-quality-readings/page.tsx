@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -93,7 +93,7 @@ export default function WaterQualityReadingsPage() {
                     </Button>
                   </Link>
                   <Link href="/citizen-science">
-                    <Button className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white">
+                    <Button className="bg- emerald-700 hover:bg- emerald-500 text-white">
                       Explore Citizen Science
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </Button>

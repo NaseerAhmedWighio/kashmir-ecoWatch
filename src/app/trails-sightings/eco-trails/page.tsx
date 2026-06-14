@@ -55,13 +55,13 @@ export default function EcoTrailsPage() {
         title={<>Eco <span className="text-emerald-400">Trails</span></>}
         subtitle="Nature-focused trails highlighting Kashmir's ecological diversity, conservation areas, and environmental education opportunities"
         icon={
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-2xl">
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-green-500 to- emerald-700 flex items-center justify-center shadow-2xl">
             <Trees className="w-5 h-5 md:w-8 md:h-8 text-white" />
           </div>
         }
         badge={<Badge variant="success" size="md">Nature-Focused Routes</Badge>}
         actions={
-          <Button size="lg" className="bg-gradient-to-r from-green-500 to-emerald-600" onClick={() => router.push('/trails-sightings')}>
+          <Button size="lg" className="bg-gradient-to-r from-green-500 to- emerald-700" onClick={() => router.push('/trails-sightings')}>
             <ArrowRight className="w-5 h-5 mr-2" />
             Back to Trails & Sightings
           </Button>
@@ -76,7 +76,7 @@ export default function EcoTrailsPage() {
               <motion.div key={trail.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.05 }}>
                 <Card className="glass-intense border-white/10 hover:border-green-500/30 transition-all p-5">
                   <div className="flex items-start gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to- emerald-700 flex items-center justify-center">
                       <Leaf className="w-6 h-6 text-white" />
                     </div>
                     <div>

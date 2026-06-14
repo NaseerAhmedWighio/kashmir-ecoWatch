@@ -1,4 +1,4 @@
-// Trail Intelligence Card Component
+﻿// Trail Intelligence Card Component
 // Enhanced trail card with full ecological metadata
 
 import React from 'react';

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -68,7 +68,7 @@ function computeSightingsBySeason() {
 function computeSpeciesByTaxon() {
   return [
     { label: 'Mammals', count: biodiversityMetrics.mammals, icon: Mountain, color: 'from-blue-500 to-blue-600', bgBar: 'bg-blue-500' },
-    { label: 'Birds', count: biodiversityMetrics.birds, icon: Bird, color: 'from-emerald-500 to-emerald-600', bgBar: 'bg-emerald-500' },
+    { label: 'Birds', count: biodiversityMetrics.birds, icon: Bird, color: 'from-emerald-500 to- emerald-700', bgBar: 'bg-emerald-500' },
     { label: 'Fish', count: biodiversityMetrics.fish, icon: Fish, color: 'from-cyan-500 to-cyan-600', bgBar: 'bg-cyan-500' },
     { label: 'Plants', count: biodiversityMetrics.plants, icon: Sprout, color: 'from-green-500 to-green-600', bgBar: 'bg-green-500' },
     { label: 'Medicinal', count: biodiversityMetrics.medicinalPlants, icon: Leaf, color: 'from-teal-500 to-teal-600', bgBar: 'bg-teal-500' },
@@ -673,7 +673,7 @@ export default function BiodiversityDashboardsPage() {
         {/* ================================================================ */}
         <section>
           <div className="flex flex-col md:flex-row items-center gap-3 mb-6">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to- emerald-700 flex items-center justify-center">
               <Mountain className="w-4 h-4 text-white" />
             </div>
             <div>

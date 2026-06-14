@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -175,7 +175,7 @@ export const SeasonalDetailPage: React.FC<SeasonalDetailPageProps> = ({
       migration: 'from-sky-500 to-blue-600',
       pollinator: 'from-amber-500 to-orange-600',
       phenology: 'from-violet-500 to-purple-600',
-      habitat: 'from-green-500 to-emerald-600',
+      habitat: 'from-green-500 to- emerald-700',
       water: 'from-cyan-500 to-blue-600',
       species: 'from-rose-500 to-red-600',
       climate: 'from-yellow-500 to-amber-600',

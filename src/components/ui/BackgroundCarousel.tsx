@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useImperativeHandle, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
 
 interface BackgroundCarouselProps {
@@ -8,29 +8,46 @@ interface BackgroundCarouselProps {
   interval?: number;
   className?: string;
   overlayClassName?: string;
+  onIndexChange?: (index: number) => void;
 }
 
-export function BackgroundCarousel({
+export interface CarouselHandle {
+  goTo: (index: number) => void;
+  total: number;
+}
+
+export const BackgroundCarousel = forwardRef<CarouselHandle, BackgroundCarouselProps>(function BackgroundCarousel({
   images,
   interval = 5000,
   className,
   overlayClassName,
-}: BackgroundCarouselProps) {
+  onIndexChange,
+}, ref) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goTo = useCallback((index: number) => {
     setCurrentIndex(index);
-  }, []);
+    onIndexChange?.(index);
+  }, [onIndexChange]);
 
   const next = useCallback(() => {
-    setCurrentIndex(prev => (prev + 1) % images.length);
-  }, [images.length]);
+    setCurrentIndex(prev => {
+      const nextIdx = (prev + 1) % images.length;
+      onIndexChange?.(nextIdx);
+      return nextIdx;
+    });
+  }, [images.length, onIndexChange]);
 
   useEffect(() => {
     if (images.length <= 1) return;
     const timer = setInterval(next, interval);
     return () => clearInterval(timer);
   }, [next, interval, images.length]);
+
+  useImperativeHandle(ref, () => ({
+    goTo,
+    total: images.length,
+  }), [goTo, images.length]);
 
   return (
     <>
@@ -47,7 +64,7 @@ export function BackgroundCarousel({
       <div className={cn("absolute inset-0 bg-gradient-to-b from-[#160C27]/80 via-[#160C27]/60 to-[#160C27]/80", overlayClassName)} />
 
       {images.length > 1 && (
-        <div className={cn('absolute z-20 flex gap-3 left-1/2 -translate-x-1/2 bottom-4 lg:left-auto lg:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:flex-col', className)}>
+        <div className={cn('hidden lg:flex absolute z-20 gap-3 right-6 top-1/2 -translate-y-1/2 flex-col', className)}>
           {images.map((_, i) => (
             <button
               key={i}
@@ -66,4 +83,4 @@ export function BackgroundCarousel({
       )}
     </>
   );
-}
+});

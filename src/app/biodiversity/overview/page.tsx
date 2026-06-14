@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -87,7 +87,7 @@ export default function BiodiversityOverviewPage() {
             className="max-w-4xl"
           >
             <div className="flex items-center gap-2 mb-3">
-              <Leaf className="w-4 h-4 text-forest-400" />
+              <Leaf className="w-4 h-4 text-emerald-400" />
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">
                 Biodiversity Intelligence
               </span>
@@ -102,7 +102,7 @@ export default function BiodiversityOverviewPage() {
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-forest-600 to-forest-500"
+                className="bg- emerald-700 hover:bg- emerald-500"
                 icon={<Leaf className="w-4 h-4" />}
                 onClick={() => router.push('/biodiversity')}
               >

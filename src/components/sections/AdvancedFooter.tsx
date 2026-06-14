@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import {
@@ -89,15 +89,15 @@ export function AdvancedFooter() {
             {/* Contact info */}
             <div className="space-y-2 mb-4">
               <div className="flex items-center gap-2 sm:gap-3">
-                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-400 flex-shrink-0" />
+                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 flex-shrink-0" />
                 <span className="text-xs sm:text-sm text-slate-400 truncate">contact@kashmir-ecowatch.com</span>
               </div>
               <div className="flex items-center gap-2 sm:gap-3">
-                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-400 flex-shrink-0" />
+                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 flex-shrink-0" />
                 <span className="text-xs sm:text-sm text-slate-400 truncate">+91 194 2XXX XXX</span>
               </div>
               <div className="flex items-center gap-2 sm:gap-3">
-                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-400 flex-shrink-0" />
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 flex-shrink-0" />
                 <span className="text-xs sm:text-sm text-slate-400 truncate">Srinagar, Jammu & Kashmir</span>
               </div>
             </div>
@@ -127,7 +127,7 @@ export function AdvancedFooter() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-emerald-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -146,7 +146,7 @@ export function AdvancedFooter() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-emerald-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -165,7 +165,7 @@ export function AdvancedFooter() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-emerald-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -184,7 +184,7 @@ export function AdvancedFooter() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-emerald-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -203,7 +203,7 @@ export function AdvancedFooter() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-xs sm:text-sm text-slate-400 hover:text-forest-400 transition-colors break-words"
+                    className="text-xs sm:text-sm text-slate-400 hover:text-emerald-400 transition-colors break-words"
                   >
                     {link.label}
                   </a>
@@ -222,20 +222,20 @@ export function AdvancedFooter() {
             <div className="text-xs sm:text-sm text-slate-500">
               © {new Date().getFullYear()} Kashmir EcoWatch.
               All rights reserved.{' '}
-              <a href="/copyright" className="hover:text-forest-400 transition-colors underline decoration-transparent hover:decoration-current">
+              <a href="/copyright" className="hover:text-emerald-400 transition-colors underline decoration-transparent hover:decoration-current">
                 Copyright & IP
               </a>
             </div>
 
             {/* Legal links */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
-              <a href="/privacy" className="text-slate-500 hover:text-forest-400 transition-colors">
+              <a href="/privacy" className="text-slate-500 hover:text-emerald-400 transition-colors">
                 Privacy
               </a>
-              <a href="/terms" className="text-slate-500 hover:text-forest-400 transition-colors">
+              <a href="/terms" className="text-slate-500 hover:text-emerald-400 transition-colors">
                 Terms
               </a>
-              <a href="/accessibility" className="text-slate-500 hover:text-forest-400 transition-colors">
+              <a href="/accessibility" className="text-slate-500 hover:text-emerald-400 transition-colors">
                 Accessibility
               </a>
             </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -111,13 +111,7 @@ export function ProtectedCategoryPage({
     if (match && match.key !== activeTab) onTabChange(match.key);
   }, [selectedScope, tabs, activeTab, onTabChange]);
 
-  // Sync tab change with scope filter
-  const handleTabChange = (key: string) => {
-    onTabChange?.(key);
-    const tab = tabs?.find(t => t.key === key);
-    if (tab) setSelectedScope(tab.label);
-    else setSelectedScope('all');
-  };
+  // Sync tab change with scope filter — handled inline in <TabBar> onTabChange
 
   const getCategoryIcon = (category: string) => {
     const map: Record<string, string> = {
@@ -141,7 +135,7 @@ export function ProtectedCategoryPage({
         actions={
           <>
             <a href="/protected-network/atlas">
-              <Button size="lg" className={`bg-gradient-to-r ${color}`} icon={<Search className="w-5 h-5" />}>
+              <Button size="lg" className={`bg- ${color}`} icon={<Search className="w-5 h-5" />}>
                 Search
               </Button>
             </a>
@@ -189,7 +183,8 @@ export function ProtectedCategoryPage({
         onTabChange={(key) => {
           onTabChange?.(key);
           const tab = tabs?.find(t => t.key === key);
-          if (tab) setSelectedScope(tab.label);
+          if (tab && key !== 'all') setSelectedScope(tab.label);
+          else setSelectedScope('all');
         }}
         onScopeSync={(label) => setSelectedScope(label)}
         showFilters={showFilters}
@@ -328,7 +323,7 @@ export function ProtectedCategoryPage({
                           <div className="text-[10px] text-slate-500 italic mt-1">{(area as any).dataStatus}</div>
                         )}
                         <div className="mt-auto pt-4 border-t border-white/[0.06] flex justify-end">
-                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 transition-all duration-300 text-sm font-medium text-white shadow-md shadow-emerald-500/20">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg- emerald-700 hover:bg- emerald-500  transition-all duration-300 text-sm font-medium text-white shadow-md shadow-emerald-500/20">
                             View Details
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </span>

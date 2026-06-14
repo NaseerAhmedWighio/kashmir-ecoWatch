@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -11,12 +11,12 @@ import { getCorridors } from '@/data/protected-network';
 import { Heading } from '@/components/common/Heading';
 import { Pagination } from '@/components/ui/Pagination';
 import { Select } from '@/components/ui/Select';
-import { TabBar } from '@/components/common/TabBar';
+import { ScopeTabBar } from '@/components/common/ScopeTabBar';
 
 export default function CorridorsPage() {
   const corridors = getCorridors.all();
 
-  const [activeTab, setActiveTab] = useState<'core' | 'trans' | 'extended'>('core');
+  const [activeTab, setActiveTab] = useState<'all' | 'core' | 'trans' | 'extended'>('all');
   const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('all');
@@ -37,23 +37,12 @@ export default function CorridorsPage() {
 
   const scopesList = ['Kashmir Core', 'Trans-Divisional', 'Transboundary / Extended'];
 
-  const scopeToTabMap: Record<string, 'core' | 'trans' | 'extended'> = {
-    'Kashmir Core': 'core',
-    'Trans-Divisional': 'trans',
-    'Transboundary / Extended': 'extended',
-  };
-
-  useEffect(() => {
-    if (selectedScope !== 'all' && scopeToTabMap[selectedScope]) {
-      setActiveTab(scopeToTabMap[selectedScope]);
-    }
-  }, [selectedScope]);
-
   const coreCount = useMemo(() => corridors.filter(c => c.scope === 'Kashmir Core').length, [corridors]);
   const transCount = useMemo(() => corridors.filter(c => c.scope === 'Trans-Divisional').length, [corridors]);
   const extendedCount = useMemo(() => corridors.filter(c => c.scope === 'Transboundary / Extended').length, [corridors]);
 
   const TABS = [
+    { key: 'all', label: 'All', description: 'Show all items across all ecological zones' },
     { key: 'core', label: 'Kashmir Core', description: `Valley core protected areas, wetland networks, and high-density zones — ${coreCount} corridors` },
     { key: 'trans', label: 'Trans-Divisional', description: `Jammu, Pir Panjal, Kishtwar, and Ladakh sectors — ${transCount} corridors` },
     { key: 'extended', label: 'Transboundary / Extended', description: `Extended Himalayan and Karakoram zones, Neelum, AJK, and Gilgit — ${extendedCount} corridors` },
@@ -66,8 +55,7 @@ export default function CorridorsPage() {
                      : activeTab === 'trans' ? 'Trans-Divisional'
                      : 'Transboundary / Extended';
       
-      const corridorScope = corridor.scope;
-      const matchesTab = corridorScope === tabScope;
+      const matchesTab = activeTab === 'all' || corridor.scope === tabScope;
 
       // 2. Search Text
       const query = searchQuery.toLowerCase().trim();
@@ -125,7 +113,7 @@ export default function CorridorsPage() {
         images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
         actions={
           <>
-            <Button className="bg-gradient-to-r from-emerald-600 to-emerald-500" icon={<Search className="w-5 h-5" />}>Search Corridors</Button>
+            <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<Search className="w-5 h-5" />}>Search Corridors</Button>
             <Button variant="outline" className="border-white/20 text-white" icon={<Map className="w-5 h-5" />}>Connectivity Map</Button>
           </>
         }
@@ -162,11 +150,11 @@ export default function CorridorsPage() {
       </div>
 
       {/* Tab + Filters — single row */}
-      <TabBar
+      <ScopeTabBar
         tabs={TABS as any}
         activeTab={activeTab}
-        onTabChange={(key) => setActiveTab(key as 'core' | 'trans' | 'extended')}
-        onScopeSync={(label) => setSelectedScope(label)}
+        onTabChange={(key) => setActiveTab(key as 'all' | 'core' | 'trans' | 'extended')}
+        onScopeChange={setSelectedScope}
         showFilters={showFilters}
         onToggleFilters={() => setShowFilters(f => !f)}
         filteredCount={filteredCorridors.length}
@@ -262,7 +250,7 @@ export default function CorridorsPage() {
                         </div>
                       </div>
                       <div className="mt-4 pt-4 border-t border-white/[0.06] flex justify-end">
-                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 shadow-md shadow-emerald-500/20 transition-colors text-sm font-medium text-white">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg- emerald-700 hover:bg- emerald-500  shadow-md shadow-emerald-500/20 transition-colors text-sm font-medium text-white">
                           View Details
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </span>

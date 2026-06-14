@@ -43,7 +43,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
     if (status.includes('EN')) return 'from-orange-500 to-red-600';
     if (status.includes('VU')) return 'from-amber-500 to-orange-600';
     if (status.includes('NT')) return 'from-blue-500 to-cyan-600';
-    return 'from-emerald-500 to-emerald-600';
+    return 'from-emerald-500 to- emerald-700';
   };
 
   const getStatusBadge = (status: string) => {
@@ -294,7 +294,7 @@ export function SpeciesDetailPage({ species, relatedSpecies = [] }: SpeciesDetai
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap transition-all ${
                   activeTab === tab.id
-                    ? `bg-emerald-600 text-white shadow-lg shadow-emerald-900/30`
+                    ? `bg- emerald-700 text-white shadow-lg shadow-emerald-900/30`
                     : 'glass-light border border-white/10 text-slate-400 hover:text-white hover:border-white/20'
                 }`}
               >

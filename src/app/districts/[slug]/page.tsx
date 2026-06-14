@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -84,7 +84,7 @@ export default function DistrictPage() {
               </div>
               <div className="flex items-center gap-6">
                 <div className="text-center">
-                  <div className="text-6xl font-black text-forest-400 mb-2">{district.environmentalScore}</div>
+                  <div className="text-6xl font-black text-emerald-400 mb-2">{district.environmentalScore}</div>
                   <div className="text-sm text-slate-500 uppercase tracking-wider">out of 100</div>
                 </div>
                 <div className="w-32 h-32 relative">
@@ -222,7 +222,7 @@ export default function DistrictPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
           className="flex items-center gap-4 pt-8 border-t border-white/5">
-          <Button className="bg-gradient-to-r from-forest-600 to-forest-500" icon={<ArrowRight className="w-4 h-4" />}>
+          <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<ArrowRight className="w-4 h-4" />}>
             View All Data
           </Button>
           <Button variant="outline" className="border-white/20 text-white">

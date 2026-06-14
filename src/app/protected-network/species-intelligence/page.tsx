@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -11,12 +11,12 @@ import { getSpeciesProfiles, getProtectedAreas } from '@/data/protected-network'
 import { Heading } from '@/components/common/Heading';
 import { Pagination } from '@/components/ui/Pagination';
 import { Select } from '@/components/ui/Select';
-import { TabBar } from '@/components/common/TabBar';
+import { ScopeTabBar } from '@/components/common/ScopeTabBar';
 
 export default function SpeciesIntelligencePage() {
   const speciesList = getSpeciesProfiles.all();
 
-  const [activeTab, setActiveTab] = useState<'core' | 'trans' | 'extended'>('core');
+  const [activeTab, setActiveTab] = useState<'all' | 'core' | 'trans' | 'extended'>('all');
   const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('all');
@@ -46,18 +46,6 @@ export default function SpeciesIntelligencePage() {
 
   const scopesList = ['Kashmir Core', 'Trans-Divisional', 'Transboundary / Extended'];
 
-  const scopeToTabMap: Record<string, 'core' | 'trans' | 'extended'> = {
-    'Kashmir Core': 'core',
-    'Trans-Divisional': 'trans',
-    'Transboundary / Extended': 'extended',
-  };
-
-  useEffect(() => {
-    if (selectedScope !== 'all' && scopeToTabMap[selectedScope]) {
-      setActiveTab(scopeToTabMap[selectedScope]);
-    }
-  }, [selectedScope]);
-
   const coreCount = useMemo(() => {
     return speciesList.filter(s => s.protectedAreas.some(slug => paLookup.get(slug)?.scope === 'Kashmir Core')).length;
   }, [speciesList, paLookup]);
@@ -71,6 +59,7 @@ export default function SpeciesIntelligencePage() {
   }, [speciesList, paLookup]);
 
   const TABS = [
+    { key: 'all', label: 'All', description: 'Show all items across all ecological zones' },
     { key: 'core', label: 'Kashmir Core', description: `Valley core protected areas, wetland networks, and high-density zones — ${coreCount} species` },
     { key: 'trans', label: 'Trans-Divisional', description: `Jammu, Pir Panjal, Kishtwar, and Ladakh sectors — ${transCount} species` },
     { key: 'extended', label: 'Transboundary / Extended', description: `Extended Himalayan and Karakoram zones, Neelum, AJK, and Gilgit — ${extendedCount} species` },
@@ -86,10 +75,11 @@ export default function SpeciesIntelligencePage() {
       });
       if (scopesOfSpecies.length === 0) scopesOfSpecies.push('Kashmir Core');
       
-      const tabScope = activeTab === 'core' ? 'Kashmir Core' 
-                     : activeTab === 'trans' ? 'Trans-Divisional' 
-                     : 'Transboundary / Extended';
-      const matchesTab = scopesOfSpecies.includes(tabScope);
+      const matchesTab = activeTab === 'all' || scopesOfSpecies.includes(
+        activeTab === 'core' ? 'Kashmir Core' 
+        : activeTab === 'trans' ? 'Trans-Divisional' 
+        : 'Transboundary / Extended'
+      );
 
       // 2. Search Text
       const query = searchQuery.toLowerCase().trim();
@@ -143,7 +133,7 @@ export default function SpeciesIntelligencePage() {
         images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
         actions={
           <>
-            <Button className="bg-gradient-to-r from-emerald-600 to-emerald-500" icon={<Search className="w-5 h-5" />}>
+            <Button className="bg- emerald-700 hover:bg- emerald-500" icon={<Search className="w-5 h-5" />}>
               Search Species
             </Button>
             <Button variant="outline" className="border-white/20 text-white" icon={<MapIcon className="w-5 h-5" />}>
@@ -188,11 +178,11 @@ export default function SpeciesIntelligencePage() {
       </div>
 
       {/* Tab + Filters — single row */}
-      <TabBar
+      <ScopeTabBar
         tabs={TABS as any}
         activeTab={activeTab}
-        onTabChange={(key) => setActiveTab(key as 'core' | 'trans' | 'extended')}
-        onScopeSync={(label) => setSelectedScope(label)}
+        onTabChange={(key) => setActiveTab(key as 'all' | 'core' | 'trans' | 'extended')}
+        onScopeChange={setSelectedScope}
         showFilters={showFilters}
         onToggleFilters={() => setShowFilters(f => !f)}
         filteredCount={filteredSpecies.length}
@@ -310,7 +300,7 @@ export default function SpeciesIntelligencePage() {
                   </div>
 
                   <div className="mt-4 pt-4 border-t border-white/[0.06] flex justify-end">
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 shadow-md shadow-emerald-500/20 transition-colors text-sm font-medium text-white">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg- emerald-700 hover:bg- emerald-500  shadow-md shadow-emerald-500/20 transition-colors text-sm font-medium text-white">
                       View Species Details
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>

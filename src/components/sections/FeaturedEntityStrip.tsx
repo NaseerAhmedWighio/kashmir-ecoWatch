@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/Card';
@@ -30,7 +30,7 @@ const typeConfig: Record<string, {
     color: 'text-emerald-400',
     bgColor: 'bg-emerald-500',
     label: 'Protected Area',
-    gradient: 'bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800',
+    gradient: 'bg-gradient-to-br from- emerald-700 via- emerald-500 to-teal-800',
   },
   lake: {
     icon: <Droplet className="w-4 h-4" />,
@@ -165,7 +165,7 @@ function EntityCard({ entity, onNavigate }: EntityCardProps) {
               <div key={idx} className="text-center p-2 rounded-lg bg-slate-800/50 border border-white/5">
                 <div className="flex items-center justify-center gap-1 mb-1">
                   {metric.unit === 'km²' || metric.unit === 'km' ? (
-                    <Ruler className="w-3 h-3 text-forest-400" />
+                    <Ruler className="w-3 h-3 text-emerald-400" />
                   ) : metric.unit === '%' ? (
                     <TrendingUp className="w-3 h-3 text-blue-400" />
                   ) : (
@@ -186,7 +186,7 @@ function EntityCard({ entity, onNavigate }: EntityCardProps) {
           <div className="mt-auto pt-4 border-t border-white/10 flex items-center gap-2">
             <Button
               variant="outline"
-              className="w-full text-sm py-2 mt-3 rounded-lg border-white/20 text-white hover:border-forest-400 hover:bg-forest-500/10 font-medium transition-all"
+              className="w-full text-sm py-2 mt-3 rounded-lg border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 hover:bg-forest-500/10 font-medium transition-all"
               onClick={() => onNavigate(entity.link)}
             >{/* responsive-md-fix */}
               View Details
@@ -197,7 +197,7 @@ function EntityCard({ entity, onNavigate }: EntityCardProps) {
               aria-label={`More info about ${entity.name}`}
               type="button"
             >
-              <Info className="w-4 h-4 text-slate-400 group-hover/btn:text-forest-400 transition-colors" />
+              <Info className="w-4 h-4 text-slate-400 group-hover/btn:text-emerald-400 transition-colors" />
             </button>
           </div>
         </div>
@@ -234,7 +234,7 @@ function CategorySummary({ tab, isActive, count, onClick }: CategorySummaryProps
       type="button"
     >
       <tab.icon className={`w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2 transition-colors ${
-        isActive ? 'text-forest-400' : 'text-slate-500'
+        isActive ? 'text-emerald-400' : 'text-slate-500'
       }`} />
       <div className="text-xl sm:text-2xl font-bold text-white tabular-nums">{count}</div>
       <div className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mt-1">
@@ -322,7 +322,7 @@ export function FeaturedEntityStrip() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-white/20 text-white hover:border-forest-400 hover:bg-forest-500/10 text-sm font-medium transition-all"
+                className="w-full sm:w-auto border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 hover:bg-forest-500/10 text-sm font-medium transition-all"
                 icon={<ArrowRight className="w-5 h-5" />}
                 onClick={() => router.push('/biodiversity')}
               >
@@ -356,7 +356,7 @@ export function FeaturedEntityStrip() {
                     role="tab"
                     aria-selected={isActive}
                     aria-controls={`panel-${tab.id}`}
-                    className={`px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-forest-500 focus:ring-offset-2 focus:ring-offset-slate-900 ${
+                    className={`px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-900 ${
                       isActive
                         ? 'bg-forest-500 text-white shadow-lg shadow-forest-500/30 border border-forest-400'
                         : 'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'

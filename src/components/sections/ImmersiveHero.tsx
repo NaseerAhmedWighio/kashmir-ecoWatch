@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
@@ -220,7 +220,7 @@ export function ImmersiveHero() {
             <Button
               size="lg"
               icon={<Map className="w-4 h-4 sm:w-5 sm:h-5" />}
-              className="w-full sm:w-auto group relative overflow-hidden bg-gradient-to-r from-forest-600 to-forest-500 hover:from-forest-500 hover:to-forest-400 text-white shadow-2xl glow-forest px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+              className="w-full sm:w-auto group relative overflow-hidden bg- emerald-700 hover:bg- emerald-500  text-white shadow-2xl glow-forest px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
               onClick={() => router.push('/atlas')}
             >
               <span className="relative z-10">Open Atlas</span>
@@ -232,7 +232,7 @@ export function ImmersiveHero() {
               size="lg"
               variant="outline"
               icon={<Leaf className="w-4 h-4 sm:w-5 sm:h-5" />}
-              className="w-full sm:w-auto border-white/20 text-white hover:border-forest-400 hover:text-forest-300 glass-light backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
+              className="w-full sm:w-auto border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 hover:text- emerald-700 glass-light backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
               onClick={() => router.push('/risk-monitoring')}
             >
               Explore Intelligence
@@ -328,12 +328,12 @@ export function ImmersiveHero() {
                                     className="w-full flex items-center justify-between p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                                   >
                                     <div className="min-w-0 flex-1">
-                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text-forest-300 transition-colors truncate">
+                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text- emerald-700 transition-colors truncate">
                                         {item.name}
                                       </div>
                                       <div className="text-xs sm:text-sm text-slate-500 truncate">{item.scientificName}</div>
                                     </div>
-                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors flex-shrink-0 ml-2" />
+                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors flex-shrink-0 ml-2" />
                                   </button>
                                 ))}
                               </div>
@@ -357,12 +357,12 @@ export function ImmersiveHero() {
                                     className="w-full flex items-center justify-between p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                                   >
                                     <div className="min-w-0 flex-1">
-                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text-forest-300 transition-colors truncate">
+                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text- emerald-700 transition-colors truncate">
                                         {item.name}
                                       </div>
                                       <div className="text-xs sm:text-sm text-slate-500 truncate">{item.district}</div>
                                     </div>
-                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors flex-shrink-0 ml-2" />
+                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors flex-shrink-0 ml-2" />
                                   </button>
                                 ))}
                               </div>
@@ -386,12 +386,12 @@ export function ImmersiveHero() {
                                     className="w-full flex items-center justify-between p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                                   >
                                     <div className="min-w-0 flex-1">
-                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text-forest-300 transition-colors truncate">
+                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text- emerald-700 transition-colors truncate">
                                         {item.name}
                                       </div>
                                       <div className="text-xs sm:text-sm text-slate-500 truncate">{item.district}</div>
                                     </div>
-                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors flex-shrink-0 ml-2" />
+                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors flex-shrink-0 ml-2" />
                                   </button>
                                 ))}
                               </div>
@@ -415,12 +415,12 @@ export function ImmersiveHero() {
                                     className="w-full flex items-center justify-between p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                                   >
                                     <div className="min-w-0 flex-1">
-                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text-forest-300 transition-colors truncate">
+                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text- emerald-700 transition-colors truncate">
                                         {item.name}
                                       </div>
                                       <div className="text-xs sm:text-sm text-slate-500 truncate">District</div>
                                     </div>
-                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors flex-shrink-0 ml-2" />
+                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors flex-shrink-0 ml-2" />
                                   </button>
                                 ))}
                               </div>
@@ -444,12 +444,12 @@ export function ImmersiveHero() {
                                     className="w-full flex items-center justify-between p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                                   >
                                     <div className="min-w-0 flex-1">
-                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text-forest-300 transition-colors truncate">
+                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text- emerald-700 transition-colors truncate">
                                         {item.title}
                                       </div>
                                       <div className="text-xs sm:text-sm text-slate-500 truncate">{item.location}</div>
                                     </div>
-                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors flex-shrink-0 ml-2" />
+                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors flex-shrink-0 ml-2" />
                                   </button>
                                 ))}
                               </div>
@@ -473,12 +473,12 @@ export function ImmersiveHero() {
                                     className="w-full flex items-center justify-between p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                                   >
                                     <div className="min-w-0 flex-1">
-                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text-forest-300 transition-colors truncate">
+                                      <div className="font-medium text-white text-sm sm:text-base group-hover:text- emerald-700 transition-colors truncate">
                                         {item.title}
                                       </div>
                                       <div className="text-xs sm:text-sm text-slate-500 truncate">{item.year}</div>
                                     </div>
-                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-forest-400 transition-colors flex-shrink-0 ml-2" />
+                                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 transition-colors flex-shrink-0 ml-2" />
                                   </button>
                                 ))}
                               </div>
@@ -520,9 +520,9 @@ export function ImmersiveHero() {
                                   }}
                                   className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors text-left group"
                                 >
-                                  <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-500 group-hover:text-forest-400 transition-colors flex-shrink-0" />
+                                  <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-500 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                                   <div className="min-w-0 flex-1">
-                                    <div className="text-xs sm:text-sm font-medium text-white group-hover:text-forest-300 transition-colors truncate">
+                                    <div className="text-xs sm:text-sm font-medium text-white group-hover:text- emerald-700 transition-colors truncate">
                                       {example.label}
                                     </div>
                                     <div className="text-[10px] sm:text-xs text-slate-500 truncate">{example.type}</div>

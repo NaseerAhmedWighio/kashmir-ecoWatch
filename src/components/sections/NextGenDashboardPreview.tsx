@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Card } from '@/components/ui/Card';
@@ -65,7 +65,7 @@ export function NextGenDashboardPreview() {
                 predictive modeling, and spatial intelligence integration.
               </p>
             </div>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border-forest-400 w-full sm:w-auto text-xs sm:text-sm" icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />} onClick={() => router.push('/risk-monitoring/dashboards')}>
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 w-full sm:w-auto text-xs sm:text-sm" icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />} onClick={() => router.push('/risk-monitoring/dashboards')}>
               All Dashboards
             </Button>
           </div>
@@ -198,7 +198,7 @@ export function NextGenDashboardPreview() {
                     <div className="text-xs text-slate-500 uppercase mb-1">Avg pH Level</div>
                     <div className="text-2xl font-bold text-white">7.1</div>
                   </div>
-                  <Button variant="ghost" size="sm" className="text-forest-400 flex-shrink-0" icon={<ArrowRight className="w-4 h-4" />} />
+                  <Button variant="ghost" size="sm" className="text-emerald-400 flex-shrink-0" icon={<ArrowRight className="w-4 h-4" />} />
                 </div>
               </div>
             </Card>
@@ -365,7 +365,7 @@ export function NextGenDashboardPreview() {
                   <div key={idx}>
                     <div className="text-xs text-slate-500 uppercase mb-1">{item.label}</div>
                     <div className="text-xs sm:text-sm text-white font-medium truncate">{item.district}</div>
-                    <div className="text-2xl font-bold text-forest-400">{item.score}</div>
+                    <div className="text-2xl font-bold text-emerald-400">{item.score}</div>
                   </div>
                 ))}
               </div>

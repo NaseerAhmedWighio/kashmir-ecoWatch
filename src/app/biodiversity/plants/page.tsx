@@ -24,7 +24,7 @@ export default function PlantsPage() {
       title="Plants & Flora"
       subtitle="Vascular plants and flora across forest, alpine, wetland, and meadow ecosystems with seasonal flowering patterns"
       icon="Flower2"
-      color="from-green-500 to-emerald-600"
+      color="from-green-500 to- emerald-700"
       species={species}
       metrics={metrics}
       filters={filters}

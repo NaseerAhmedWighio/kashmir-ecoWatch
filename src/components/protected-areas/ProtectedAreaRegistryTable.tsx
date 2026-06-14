@@ -1,4 +1,4 @@
-// Protected Area Registry Table Component
+﻿// Protected Area Registry Table Component
 // Full registry table view with management, threat, and access status
 
 import React from 'react';

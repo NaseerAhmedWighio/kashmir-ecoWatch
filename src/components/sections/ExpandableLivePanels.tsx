@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
@@ -141,7 +141,7 @@ export function ExpandableLivePanels() {
                   onClick={() => setActiveTab(tab.id as typeof activeTab)}
                   className={`px-3 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
                     activeTab === tab.id
-                      ? 'bg-forest-500/20 text-forest-400'
+                      ? 'bg-forest-500/20 text-emerald-400'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -259,7 +259,7 @@ export function ExpandableLivePanels() {
                                   {/* Content */}
                                   <div className="flex-1 min-w-0">
                                     <div className="flex items-start justify-between gap-2 sm:gap-4 mb-2 flex-wrap">
-                                      <h4 className="text-sm flex-1 min-w-0 truncate font-semibold text-white group-hover:text-forest-300 transition-colors">{/* responsive-md-fix */}
+                                      <h4 className="text-sm flex-1 min-w-0 truncate font-semibold text-white group-hover:text- emerald-700 transition-colors">{/* responsive-md-fix */}
                                         {item.title}
                                       </h4>
                                       {getSeverityBadge(item.severity)}
@@ -279,7 +279,7 @@ export function ExpandableLivePanels() {
                                   </div>
 
                                   {/* Action */}
-                                  <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600 group-hover:text-forest-400 transition-colors flex-shrink-0" />
+                                  <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                                 </div>
                               </motion.div>
                             ))}
@@ -289,7 +289,7 @@ export function ExpandableLivePanels() {
                           <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                             <button
                               onClick={() => router.push('/risk-monitoring/live-alerts-advisories')}
-                              className="text-xs mt-3 block text-right font-medium text-forest-400 hover:text-forest-300 transition-colors group w-full"
+                              className="text-xs mt-3 block text-right font-medium text-emerald-400 hover:text- emerald-700 transition-colors group w-full"
                             >{/* responsive-md-fix */}
                               View All {panel.title.toLowerCase()}
                               <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 -rotate-90 group-hover:translate-x-1 transition-transform" />
@@ -297,7 +297,7 @@ export function ExpandableLivePanels() {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="border-white/20 text-white hover:border-forest-400 w-full sm:w-auto text-xs sm:text-sm"
+                              className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 w-full sm:w-auto text-xs sm:text-sm"
                               icon={<TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                               onClick={() => router.push('/risk-monitoring/dashboards')}
                             >
@@ -339,14 +339,14 @@ export function ExpandableLivePanels() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:border-forest-400 w-full sm:w-auto text-xs sm:text-sm"
+                className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 w-full sm:w-auto text-xs sm:text-sm"
                 icon={<Settings className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                 onClick={() => router.push('/alerts')}
               >
                 Settings
               </Button>
               <Button
-                className="bg-gradient-to-r from-forest-600 to-forest-500 w-full sm:w-auto text-xs sm:text-sm"
+                className="bg- emerald-700 hover:bg- emerald-500 w-full sm:w-auto text-xs sm:text-sm"
                 icon={<Bell className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                 onClick={() => router.push('/alerts')}
               >

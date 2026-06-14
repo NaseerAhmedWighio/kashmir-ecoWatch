@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { BackgroundCarousel } from '@/components/ui/BackgroundCarousel';
+import { BackgroundCarousel, CarouselHandle } from '@/components/ui/BackgroundCarousel';
 
 interface Breadcrumb {
   label: string;
@@ -25,6 +25,28 @@ interface HeadingProps {
   contentClassName?: string;
 }
 
+function DotsRow({ index, total, onGoTo }: { index: number; total: number; onGoTo: (i: number) => void }) {
+  if (total <= 1) return null;
+  return (
+    <div className="flex items-center justify-center gap-3 py-4">
+      {Array.from({ length: total }, (_, i) => (
+        <button
+          key={i}
+          onClick={() => onGoTo(i)}
+          className={cn(
+            'w-2.5 h-2.5 rounded-full transition-all duration-300',
+            i === index
+              ? 'bg-white scale-125 shadow-[0_0_8px_rgba(255,255,255,0.5)]'
+              : 'bg-white/40 hover:bg-white/60'
+          )}
+          aria-label={`Slide ${i + 1}`}
+          type="button"
+        />
+      ))}
+    </div>
+  );
+}
+
 export function Heading({
   title,
   subtitle,
@@ -39,16 +61,22 @@ export function Heading({
   contentClassName,
 }: HeadingProps) {
   const router = useRouter();
+  const carouselRef = useRef<CarouselHandle>(null);
+  const [carouselIndex, setCarouselIndex] = useState(0);
 
   return (
     <div className={cn('relative bg-[#160C27] overflow-hidden', className)}>
-      <BackgroundCarousel images={images} />
+      <BackgroundCarousel
+        ref={carouselRef}
+        images={images}
+        onIndexChange={setCarouselIndex}
+      />
 
       {gridOverlay && (
         <div className="absolute inset-0 bg-grid" />
       )}
 
-      <div className={cn('relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-4 sm:pb-8 md:pb-12 lg:pb-20 container mx-auto px-6', contentClassName)}>
+      <div className={cn('relative pt-20 sm:pt-24 md:pt-28 lg:pt-48 pb-0 lg:pb-20 container mx-auto px-6', contentClassName)}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,6 +129,14 @@ export function Heading({
             </div>
           )}
         </motion.div>
+
+        <div className="lg:hidden">
+          <DotsRow
+            index={carouselIndex}
+            total={images.length}
+            onGoTo={(i) => carouselRef.current?.goTo(i)}
+          />
+        </div>
       </div>
     </div>
   );

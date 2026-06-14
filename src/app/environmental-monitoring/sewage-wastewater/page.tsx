@@ -460,7 +460,7 @@ export default function SewageWastewaterPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { label: 'Water Systems — Lakes', href: '/water-systems/lakes', desc: 'Lake ecosystem intelligence', icon: ExternalLink, color: 'from-cyan-500 to-blue-600' },
-              { label: 'Water Systems — Wetlands', href: '/water-systems/wetlands', desc: 'Wetland monitoring & health', icon: ExternalLink, color: 'from-teal-500 to-emerald-600' },
+              { label: 'Water Systems — Wetlands', href: '/water-systems/wetlands', desc: 'Wetland monitoring & health', icon: ExternalLink, color: 'from-teal-500 to- emerald-700' },
               { label: 'Environmental Health', href: '/environmental-monitoring/environmental-health', desc: 'Health signal monitoring', icon: ExternalLink, color: 'from-amber-500 to-orange-600' },
               { label: 'Drinking Water', href: '/environmental-monitoring/drinking-water', desc: 'Potable water quality', icon: ExternalLink, color: 'from-blue-500 to-indigo-600' },
             ].map((link, i) => (

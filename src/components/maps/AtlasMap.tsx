@@ -40,6 +40,17 @@ function MapController({ onMapReady }: { onMapReady?: (map: L.Map) => void }) {
 export function AtlasMap({ children, className, onMapReady }: AtlasMapProps) {
   const [mapInstance, setMapInstance] = React.useState<L.Map | null>(null);
 
+  // Dynamically load Leaflet CSS only when map mounts
+  React.useEffect(() => {
+    if (!document.getElementById('leaflet-css')) {
+      const link = document.createElement('link');
+      link.id = 'leaflet-css';
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(link);
+    }
+  }, []);
+
   // Pass map instance to parent via onMapReady callback
   React.useEffect(() => {
     if (mapInstance && onMapReady) {

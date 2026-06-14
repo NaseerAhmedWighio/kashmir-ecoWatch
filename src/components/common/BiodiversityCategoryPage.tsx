@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -166,14 +166,14 @@ export function BiodiversityCategoryPage({
               variant="ghost"
               size="sm"
               onClick={() => setViewMode('grid')}
-              className={viewMode === 'grid' ? 'bg-forest-500/20 text-forest-400' : 'text-slate-400'}
+              className={viewMode === 'grid' ? 'bg-forest-500/20 text-emerald-400' : 'text-slate-400'}
               icon={<Grid3X3 className="w-4 h-4" />}
             />
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setViewMode('list')}
-              className={viewMode === 'list' ? 'bg-forest-500/20 text-forest-400' : 'text-slate-400'}
+              className={viewMode === 'list' ? 'bg-forest-500/20 text-emerald-400' : 'text-slate-400'}
               icon={<List className="w-4 h-4" />}
             />
           </div>

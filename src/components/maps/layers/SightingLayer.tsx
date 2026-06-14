@@ -121,7 +121,7 @@ export function SightingLayer({ visible = true, onFeatureClick }: SightingLayerP
                   <p>Date: {new Date(sighting.timestamp).toLocaleDateString()}</p>
                   <p>
                     Status:{' '}
-                    <span className={`font-medium ${sighting.verified ? 'text-emerald-600' : 'text-amber-600'}`}>
+                    <span className={`font-medium ${sighting.verified ? 'text- emerald-700' : 'text-amber-600'}`}>
                       {sighting.verified ? 'Verified' : 'Unverified'}
                     </span>
                   </p>

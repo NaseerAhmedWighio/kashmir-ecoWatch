@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -11,12 +11,12 @@ import { getReports, getProtectedAreas } from '@/data/protected-network';
 import { Heading } from '@/components/common/Heading';
 import { Pagination } from '@/components/ui/Pagination';
 import { Select } from '@/components/ui/Select';
-import { TabBar } from '@/components/common/TabBar';
+import { ScopeTabBar } from '@/components/common/ScopeTabBar';
 
 export default function ReportsPage() {
   const reports = getReports.all();
 
-  const [activeTab, setActiveTab] = useState<'core' | 'trans' | 'extended'>('core');
+  const [activeTab, setActiveTab] = useState<'all' | 'core' | 'trans' | 'extended'>('all');
   const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('all');
@@ -61,18 +61,6 @@ export default function ReportsPage() {
 
   const scopesList = ['Kashmir Core', 'Trans-Divisional', 'Transboundary / Extended'];
 
-  const scopeToTabMap: Record<string, 'core' | 'trans' | 'extended'> = {
-    'Kashmir Core': 'core',
-    'Trans-Divisional': 'trans',
-    'Transboundary / Extended': 'extended',
-  };
-
-  useEffect(() => {
-    if (selectedScope !== 'all' && scopeToTabMap[selectedScope]) {
-      setActiveTab(scopeToTabMap[selectedScope]);
-    }
-  }, [selectedScope]);
-
   const coreCount = useMemo(() => {
     return reports.filter(r => r.linkedAreas.some(slug => paLookup.get(slug)?.scope === 'Kashmir Core') || r.linkedAreas.length === 0).length;
   }, [reports, paLookup]);
@@ -86,6 +74,7 @@ export default function ReportsPage() {
   }, [reports, paLookup]);
 
   const TABS = [
+    { key: 'all', label: 'All', description: 'Show all items across all ecological zones' },
     { key: 'core', label: 'Kashmir Core', description: `Valley core protected areas, wetland networks, and high-density zones — ${coreCount} documents` },
     { key: 'trans', label: 'Trans-Divisional', description: `Jammu, Pir Panjal, Kishtwar, and Ladakh high-altitude sectors — ${transCount} documents` },
     { key: 'extended', label: 'Transboundary / Extended', description: `Extended Himalayan and Karakoram zones, Neelum, AJK, and Gilgit — ${extendedCount} documents` },
@@ -101,11 +90,11 @@ export default function ReportsPage() {
       });
       if (scopesOfReport.length === 0) scopesOfReport.push('Kashmir Core'); // fallback
       
-      const tabScope = activeTab === 'core' ? 'Kashmir Core'
-                     : activeTab === 'trans' ? 'Trans-Divisional'
-                     : 'Transboundary / Extended';
-      
-      const matchesTab = scopesOfReport.includes(tabScope);
+      const matchesTab = activeTab === 'all' || scopesOfReport.includes(
+        activeTab === 'core' ? 'Kashmir Core'
+        : activeTab === 'trans' ? 'Trans-Divisional'
+        : 'Transboundary / Extended'
+      );
 
       // 2. Search Text
       const query = searchQuery.toLowerCase().trim();
@@ -142,7 +131,7 @@ export default function ReportsPage() {
   }, [searchQuery, selectedDistrict, selectedScope, activeTab]);
 
   const getTypeColor = (_type: string) => {
-    return 'from-emerald-600 to-emerald-500';
+    return 'from- emerald-700 to-emerald-500';
   };
 
   const handleBulkExport = (e: React.MouseEvent) => {
@@ -168,7 +157,7 @@ export default function ReportsPage() {
         images={['/images/protected-network.png', '/images/bear.png', '/images/tiger.png', '/images/markhor.png']}
         actions={
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
-            <Button className="bg-gradient-to-r from-emerald-600 to-emerald-500 w-full sm:w-auto justify-center" icon={<Book className="w-5 h-5" />}>Publish Report</Button>
+            <Button className="bg- emerald-700 hover:bg- emerald-500 w-full sm:w-auto justify-center" icon={<Book className="w-5 h-5" />}>Publish Report</Button>
             <Button 
               variant="outline" 
               className="border-white/20 text-white w-full sm:w-auto justify-center" 
@@ -211,11 +200,11 @@ export default function ReportsPage() {
       </div>
 
       {/* Tab + Filters — single row */}
-      <TabBar
+      <ScopeTabBar
         tabs={TABS as any}
         activeTab={activeTab}
-        onTabChange={(key) => setActiveTab(key as 'core' | 'trans' | 'extended')}
-        onScopeSync={(label) => setSelectedScope(label)}
+        onTabChange={(key) => setActiveTab(key as 'all' | 'core' | 'trans' | 'extended')}
+        onScopeChange={setSelectedScope}
         showFilters={showFilters}
         onToggleFilters={() => setShowFilters(f => !f)}
         filteredCount={filteredReports.length}

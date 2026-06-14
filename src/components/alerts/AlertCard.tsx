@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -388,7 +388,7 @@ export function AlertCard({
                 e.stopPropagation();
                 onViewDetails?.(alert.id);
               }}
-              className="text-sm text-forest-600 dark:text-forest-400 hover:text-forest-700 dark:hover:text-forest-300 font-medium flex items-center gap-1"
+              className="text-sm text- emerald-700 dark:text-emerald-400 hover:text- emerald-700 dark:hover:text- emerald-700 font-medium flex items-center gap-1"
             >
               View Details
               <ChevronRight className="w-4 h-4" />

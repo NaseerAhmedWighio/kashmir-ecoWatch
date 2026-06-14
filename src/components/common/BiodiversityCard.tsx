@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Badge } from '@/components/ui/Badge';
@@ -57,7 +57,7 @@ export function BiodiversityCard({ species, onQuickView, variant = 'default' }: 
             variant="ghost"
             size="sm"
             onClick={() => onQuickView?.(species)}
-            className="text-slate-400 hover:text-forest-400"
+            className="text-slate-400 hover:text-emerald-400"
           >
             <ExternalLink className="w-4 h-4" />
           </Button>
@@ -157,7 +157,7 @@ export function BiodiversityCard({ species, onQuickView, variant = 'default' }: 
         {/* View Details */}
         <Button
           onClick={() => window.location.href = `/biodiversity/species/${species.slug}`}
-          className="w-full py-2 text-sm rounded-lg mt-auto bg-gradient-to-r from-forest-600 to-forest-500"
+          className="w-full py-2 text-sm rounded-lg mt-auto bg- emerald-700 hover:bg- emerald-500"
           icon={<ArrowRight className="w-4 h-4" />}
         >
           View Details

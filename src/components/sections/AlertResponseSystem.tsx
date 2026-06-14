@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/Card';
@@ -103,7 +103,7 @@ export function AlertResponseSystem() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">{/* responsive-md-fix */}
-              <Button variant="outline" size="sm" className="border-white/20 text-white hover:border-forest-400 w-full sm:w-auto text-xs sm:text-sm" icon={<Filter className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
+              <Button variant="outline" size="sm" className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 w-full sm:w-auto text-xs sm:text-sm" icon={<Filter className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
                 Filter
               </Button>
               <Button size="sm" className="bg-gradient-to-r from-red-600 to-red-500 w-full sm:w-auto text-xs sm:text-sm" icon={<Bell className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
@@ -129,7 +129,7 @@ export function AlertResponseSystem() {
                 onClick={() => setActiveFilter(filter.id as typeof activeFilter)}
                 className={`px-3 py-2 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center gap-2 whitespace-nowrap flex-shrink-0 ${
                   activeFilter === filter.id
-                    ? 'bg-forest-500/20 text-forest-400'
+                    ? 'bg-forest-500/20 text-emerald-400'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -172,7 +172,7 @@ export function AlertResponseSystem() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between gap-2 flex-wrap mb-2">{/* responsive-md-fix */}
                             <div className="flex-1 min-w-[200px]">
-                              <h4 className="text-sm font-medium flex-1 min-w-0 truncate text-white group-hover:text-forest-300 transition-colors">{/* responsive-md-fix */}
+                              <h4 className="text-sm font-medium flex-1 min-w-0 truncate text-white group-hover:text- emerald-700 transition-colors">{/* responsive-md-fix */}
                                 {alert.title}
                               </h4>
                               <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
@@ -215,7 +215,7 @@ export function AlertResponseSystem() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="mt-6 sm:mt-8"
             >
-              <Button variant="outline" className="w-full border-white/20 text-white hover:border-forest-400" icon={<Bell className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
+              <Button variant="outline" className="w-full border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700" icon={<Bell className="w-4 h-4" />} onClick={() => router.push('/alerts')}>
                 View All Alerts
               </Button>
             </motion.div>
@@ -301,16 +301,16 @@ export function AlertResponseSystem() {
                         className="text-xs px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-white/5 transition-colors flex items-center justify-between group"
                       >{/* responsive-md-fix */}
                         <div className="flex items-center gap-2 sm:gap-3">
-                          <category.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-500 group-hover:text-forest-400 transition-colors" />
+                          <category.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-500 group-hover:text-emerald-400 transition-colors" />
                           <span className="text-xs sm:text-sm text-slate-300 group-hover:text-white transition-colors">
                             {category.label}
                           </span>
                         </div>
-                        <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600 group-hover:text-forest-400 transition-colors" />
+                        <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600 group-hover:text-emerald-400 transition-colors" />
                       </button>
                     ))}
                   </div>
-                  <Button className="w-full mt-3 sm:mt-4 bg-gradient-to-r from-forest-600 to-forest-500 text-xs sm:text-sm" icon={<AlertTriangle className="w-4 h-4" />} onClick={() => router.push('/report-issue')}>
+                  <Button className="w-full mt-3 sm:mt-4 bg- emerald-700 hover:bg- emerald-500 text-xs sm:text-sm" icon={<AlertTriangle className="w-4 h-4" />} onClick={() => router.push('/report-issue')}>
                     Submit Report
                   </Button>
                 </CardContent>

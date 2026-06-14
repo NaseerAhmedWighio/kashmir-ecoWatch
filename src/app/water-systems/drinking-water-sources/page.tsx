@@ -77,7 +77,7 @@ const subPages = [
     title: 'Water Quality Testing',
     description: 'Testing protocols, parameters, and contamination monitoring',
     icon: Beaker,
-    color: 'from-teal-500 to-emerald-600',
+    color: 'from-teal-500 to- emerald-700',
     route: '/water-systems/drinking-water-sources/water-quality-testing',
   },
   {
@@ -101,7 +101,7 @@ const subPages = [
     title: 'Piped Water Supply',
     description: 'PHED network coverage, supply monitoring, and service levels',
     icon: Droplets,
-    color: 'from-green-500 to-emerald-600',
+    color: 'from-green-500 to- emerald-700',
     route: '/water-systems/drinking-water-sources/piped-water-supply',
   },
 ];

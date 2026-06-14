@@ -55,7 +55,7 @@ const responseModules = [
     title: 'Shelters, Closures & Emergency Routes',
     description: 'Emergency shelter locations, road closures, and evacuation route planning',
     icon: Map,
-    color: 'from-green-500 to-emerald-600',
+    color: 'from-green-500 to- emerald-700',
     route: '/risk-monitoring/shelters-closures-emergency-routes',
     features: ['Shelter Maps', 'Road Closures', 'Evacuation Routes', 'Emergency Planning']
   },

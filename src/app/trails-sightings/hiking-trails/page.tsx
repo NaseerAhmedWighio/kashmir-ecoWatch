@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -106,7 +106,7 @@ export default function HikingTrailsPage() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-xl"
+              className="bg- emerald-700 hover:bg- emerald-500  text-white shadow-xl"
               onClick={() => router.push('/trails-sightings')}
             >
               <ArrowRight className="w-5 h-5 mr-2" />
@@ -171,7 +171,7 @@ export default function HikingTrailsPage() {
                 <Card className="glass-intense border-white/10 hover:border-emerald-500/30 transition-all overflow-hidden group">
                   <div className="aspect-video bg-gradient-to-br from-emerald-900/50 to-teal-900/50 relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <Mountain className="w-16 h-16 text-emerald-600/50" />
+                      <Mountain className="w-16 h-16 text- emerald-700/50" />
                     </div>
                     <div className="absolute top-3 left-3">
                       <Badge
@@ -254,7 +254,7 @@ export default function HikingTrailsPage() {
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-xl"
+                    className="bg- emerald-700 hover:bg- emerald-500  text-white shadow-xl"
                     onClick={() => router.push('/trails-sightings/trail-field-records')}
                   >
                     <Map className="w-5 h-5 mr-2" />

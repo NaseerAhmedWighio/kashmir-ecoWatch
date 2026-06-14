@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -57,7 +57,7 @@ export default function BiodiversityRiskIntelligencePage() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white shadow-xl"
+              className="bg- emerald-700 hover:bg- emerald-500  text-white shadow-xl"
               onClick={() => router.push('/risk-monitoring/dashboards')}
             >
               <Activity className="w-5 h-5 mr-2" />
@@ -348,7 +348,7 @@ export default function BiodiversityRiskIntelligencePage() {
                   <p className="text-slate-400 mb-4">Interactive biodiversity map with protected areas and species ranges</p>
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-emerald-500 to-green-600"
+                    className="bg- emerald-700 hover:bg- emerald-500"
                     onClick={() => router.push('/risk-monitoring/dashboards')}
                   >
                     <Map className="w-5 h-5 mr-2" />

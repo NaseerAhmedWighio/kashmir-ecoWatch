@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -75,7 +75,7 @@ export default function WildlifeMonitoringPage() {
               </div>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <Link href="/submit-sighting">
-                  <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white">
+                  <Button size="lg" className="bg- emerald-700 hover:bg- emerald-500 text-white">
                     <Camera className="w-5 h-5 mr-2" />
                     Submit a Sighting
                   </Button>

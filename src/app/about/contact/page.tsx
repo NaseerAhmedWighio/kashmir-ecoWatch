@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -79,7 +79,7 @@ const CONTACT_PATHWAYS = [
     title: 'Citizen Science & Sightings',
     email: 'citizenscience@kashmir-ecowatch.com',
     description: 'For sightings, contributor support, public participation, and community science queries',
-    color: 'from-green-500 to-emerald-600',
+    color: 'from-green-500 to- emerald-700',
     bgColor: 'bg-green-500/10',
     borderColor: 'border-green-500/20',
     iconColor: 'text-green-400',
@@ -172,7 +172,7 @@ const INQUIRY_MICROCOPY: Record<string, { email: string; guidance: string; cta?:
 
 const ACTION_SHORTCUTS = [
   { label: 'Report an Issue', href: '/report-issue', icon: Siren, color: 'from-red-500 to-rose-600', description: 'File a structured environmental incident report' },
-  { label: 'Submit Sighting', href: '/submit-sighting', icon: Binoculars, color: 'from-green-500 to-emerald-600', description: 'Log a wildlife or plant species observation' },
+  { label: 'Submit Sighting', href: '/submit-sighting', icon: Binoculars, color: 'from-green-500 to- emerald-700', description: 'Log a wildlife or plant species observation' },
   { label: 'Contribute Data', href: '/contribute-data', icon: Database, color: 'from-amber-500 to-orange-600', description: 'Share datasets, monitoring records, or research' },
   { label: 'Institutional Onboarding', href: '/about/partners', icon: Building2, color: 'from-blue-500 to-cyan-600', description: 'Begin structured partnership engagement' },
   { label: 'Expert Participation', href: '/about/partners', icon: Users, color: 'from-violet-500 to-purple-600', description: 'Join as an affiliated expert or reviewer' },
@@ -403,7 +403,7 @@ export default function ContactPage() {
                       <Button variant="outline" className="border-white/20 text-white" onClick={() => { setFormSubmitted(false); setFormData({ name: '', email: '', organization: '', inquiryType: '', subject: '', message: '', region: '' }); setAttachment(null); }}>
                         Submit Another
                       </Button>
-                      <Button className="bg-emerald-600 hover:bg-emerald-700 text-white" onClick={() => router.push('/')}>
+                      <Button className="bg- emerald-700 hover:bg- emerald-500 text-white" onClick={() => router.push('/')}>
                         Return Home
                       </Button>
                     </div>
@@ -528,7 +528,7 @@ export default function ContactPage() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white h-12 text-base font-semibold"
+                      className="w-full bg- emerald-700 hover:bg- emerald-500 text-white h-12 text-base font-semibold"
                     >
                       <Send className="w-5 h-5 mr-2" />
                       Submit Inquiry

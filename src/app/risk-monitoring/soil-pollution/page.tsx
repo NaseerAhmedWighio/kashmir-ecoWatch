@@ -107,7 +107,7 @@ const regionalProfiles = [
     nitrogen: 'Low to moderate — cold climate limits mineralization',
     micronutrients: 'Zinc deficient in 48%; micro-nutrient deficiency >60% (except Cu)',
     overall: 'Superior to Leh in nutrient status across all parameters',
-    color: 'from-emerald-700 to-teal-800',
+    color: 'from- emerald-500 to-teal-800',
   },
   {
     region: 'Kashmir Valley',

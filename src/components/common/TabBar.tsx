@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Filter, Grid3X3, List } from 'lucide-react';
@@ -48,11 +48,11 @@ export function TabBar({
                 key={tab.key}
                 onClick={() => {
                   onTabChange(tab.key);
-                  onScopeSync?.(tab.label);
+                  onScopeSync?.(tab.key === 'all' ? 'all' : tab.label);
                 }}
                 className={`shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
                   activeTab === tab.key
-                    ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow'
+                    ? 'bg- emerald-700 hover:bg- emerald-500 text-white shadow'
                     : 'text-slate-400 hover:text-white hover:bg-white/5'
                 }`}
               >

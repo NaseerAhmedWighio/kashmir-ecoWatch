@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -30,7 +30,7 @@ export default function TrailFieldRecordsPage() {
         }
         badge={<Badge variant="info" size="lg">Field Documentation</Badge>}
         actions={
-          <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-teal-600" onClick={() => router.push('/trails-sightings')}><ArrowRight className="w-5 h-5 mr-2" />Back to Trails</Button>
+          <Button size="lg" className="bg- emerald-700 hover:bg- emerald-500" onClick={() => router.push('/trails-sightings')}><ArrowRight className="w-5 h-5 mr-2" />Back to Trails</Button>
         }
         breadcrumbs={[{ label: 'Trails & Sightings', href: '/trails-sightings' }, { label: 'Trail Field Records' }]}
       />

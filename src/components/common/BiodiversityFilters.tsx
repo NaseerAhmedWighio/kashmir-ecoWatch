@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Badge } from '@/components/ui/Badge';
@@ -126,7 +126,7 @@ export function BiodiversityFilters({ filters, onFilterChange, onReset, resultCo
                   onClick={() => toggleConservationStatus(status.id)}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
                     filters.conservationStatus?.includes(status.id)
-                      ? 'bg-forest-500/20 text-forest-400 border border-forest-500/50'
+                      ? 'bg-forest-500/20 text-emerald-400 border border-forest-500/50'
                       : 'glass-light border border-white/10 text-slate-400 hover:text-white'
                   }`}
                 >
@@ -149,7 +149,7 @@ export function BiodiversityFilters({ filters, onFilterChange, onReset, resultCo
                   onClick={() => toggleHabitat(habitat)}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                     filters.habitat?.includes(habitat)
-                      ? 'bg-forest-500/20 text-forest-400 border border-forest-500/50'
+                      ? 'bg-forest-500/20 text-emerald-400 border border-forest-500/50'
                       : 'glass-light border border-white/10 text-slate-400 hover:text-white'
                   }`}
                 >
@@ -171,7 +171,7 @@ export function BiodiversityFilters({ filters, onFilterChange, onReset, resultCo
                   onClick={() => toggleHabitat(district)}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                     filters.district?.includes(district)
-                      ? 'bg-forest-500/20 text-forest-400 border border-forest-500/50'
+                      ? 'bg-forest-500/20 text-emerald-400 border border-forest-500/50'
                       : 'glass-light border border-white/10 text-slate-400 hover:text-white'
                   }`}
                 >
@@ -197,7 +197,7 @@ export function BiodiversityFilters({ filters, onFilterChange, onReset, resultCo
                   onClick={() => onFilterChange({ ...filters, elevation: range.id })}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                     filters.elevation === range.id
-                      ? 'bg-forest-500/20 text-forest-400 border border-forest-500/50'
+                      ? 'bg-forest-500/20 text-emerald-400 border border-forest-500/50'
                       : 'glass-light border border-white/10 text-slate-400 hover:text-white'
                   }`}
                 >
@@ -216,7 +216,7 @@ export function BiodiversityFilters({ filters, onFilterChange, onReset, resultCo
             <Badge
               key={status}
               variant="default"
-              className="bg-forest-500/20 text-forest-400 border border-forest-500/30 cursor-pointer"
+              className="bg-forest-500/20 text-emerald-400 border border-forest-500/30 cursor-pointer"
               onClick={() => toggleConservationStatus(status)}
             >
               {status}
@@ -227,7 +227,7 @@ export function BiodiversityFilters({ filters, onFilterChange, onReset, resultCo
             <Badge
               key={habitat}
               variant="default"
-              className="bg-forest-500/20 text-forest-400 border border-forest-500/30 cursor-pointer"
+              className="bg-forest-500/20 text-emerald-400 border border-forest-500/30 cursor-pointer"
               onClick={() => toggleHabitat(habitat)}
             >
               {habitat}

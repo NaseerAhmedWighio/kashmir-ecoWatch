@@ -1,4 +1,4 @@
-import { SeasonalListingPage } from '@/components/common/SeasonalListingPage';
+﻿import { SeasonalListingPage } from '@/components/common/SeasonalListingPage';
 import { getSeasonalEcologyData, seasonalEcologyMetrics } from '@/data/seasonal-ecology';
 
 export default function SeasonalLandscapesPage() {

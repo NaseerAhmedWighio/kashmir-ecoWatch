@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -212,7 +212,7 @@ export function Carousel({
               'flex items-center justify-center',
               'transition-all duration-300 ease-out',
               'hover:bg-forest-600 hover:border-forest-500 hover:scale-110',
-              'focus:outline-none focus:ring-2 focus:ring-forest-500 focus:ring-offset-2 focus:ring-offset-slate-900',
+              'focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-900',
               'shadow-lg',
               isAtStart && 'opacity-0 cursor-not-allowed pointer-events-none',
               'group-hover:opacity-100 opacity-0'
@@ -233,7 +233,7 @@ export function Carousel({
               'flex items-center justify-center',
               'transition-all duration-300 ease-out',
               'hover:bg-forest-600 hover:border-forest-500 hover:scale-110',
-              'focus:outline-none focus:ring-2 focus:ring-forest-500 focus:ring-offset-2 focus:ring-offset-slate-900',
+              'focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-900',
               'shadow-lg',
               isAtEnd && 'opacity-50 cursor-not-allowed',
               'group-hover:opacity-100 opacity-0'

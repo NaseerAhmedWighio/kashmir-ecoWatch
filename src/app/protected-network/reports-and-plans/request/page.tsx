@@ -235,7 +235,7 @@ function RequestFormContent() {
                       {(report || threat) && (
                         <Button 
                           onClick={triggerMockDownload}
-                          className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium animate-bounce" 
+                          className="bg- emerald-700 hover:bg-emerald-500 text-white font-medium animate-bounce" 
                           icon={<Download className="w-4 h-4" />}
                         >
                           Download PDF Document
@@ -363,7 +363,7 @@ function RequestFormContent() {
                           name="joinNetwork"
                           checked={formData.joinNetwork}
                           onChange={handleCheckboxChange}
-                          className="mt-1 h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 bg-white/5 accent-emerald-500"
+                          className="mt-1 h-4 w-4 rounded border-gray-300 text- emerald-700 focus:ring-emerald-500 bg-white/5 accent-emerald-500"
                         />
                         <label htmlFor="joinNetwork" className="text-xs text-slate-400 leading-normal select-none">
                           <strong className="text-slate-300">Join Kashmir EcoWatch Academic Network</strong> as a verified member. This grants you instant key credentials to bypass registration forms on all future document downloads.
@@ -375,7 +375,7 @@ function RequestFormContent() {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3"
+                        className="w-full bg- emerald-700 hover:bg-emerald-500 text-white font-semibold py-3"
                         icon={isSubmitting ? undefined : <Send className="w-4 h-4" />}
                       >
                         {isSubmitting ? 'Authenticating and Registering...' : 'Submit Credentials & Request Access'}

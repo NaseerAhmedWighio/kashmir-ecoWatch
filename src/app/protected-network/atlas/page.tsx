@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -64,7 +64,7 @@ export default function ProtectedAreaAtlasPage() {
             >
               Export
             </Button>
-            <Button size="sm" className="bg-gradient-to-r from-emerald-600 to-emerald-500" icon={<Maximize2 className="w-4 h-4" />}>
+            <Button size="sm" className="bg- emerald-700 hover:bg- emerald-500" icon={<Maximize2 className="w-4 h-4" />}>
               Full Screen
             </Button>
           </div>

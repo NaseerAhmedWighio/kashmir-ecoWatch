@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import type { LakeHealthScorecard, HealthClassification } from '@/data/hydrological-intelligence';
@@ -35,7 +35,7 @@ const LakeHealthScorecardComponent: React.FC<LakeHealthScorecardProps> = ({
   };
 
   const getScoreColor = (score: number) => {
-    if (score >= 90) return 'text-emerald-600';
+    if (score >= 90) return 'text- emerald-700';
     if (score >= 75) return 'text-green-600';
     if (score >= 60) return 'text-yellow-600';
     if (score >= 40) return 'text-orange-600';
@@ -214,7 +214,7 @@ const ComponentBar: React.FC<{
   description?: string;
 }> = ({ label, score, description }) => {
   const getScoreColor = (score: number) => {
-    if (score >= 90) return 'text-emerald-600';
+    if (score >= 90) return 'text- emerald-700';
     if (score >= 75) return 'text-green-600';
     if (score >= 60) return 'text-yellow-600';
     if (score >= 40) return 'text-orange-600';

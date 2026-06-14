@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -100,7 +100,7 @@ export function Pagination({
                   'flex items-center justify-center w-9 h-9 rounded-lg text-sm font-medium transition-all duration-200',
                   'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
                   page === currentPage
-                    ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-md shadow-emerald-500/20'
+                    ? 'bg- emerald-700 hover:bg- emerald-500 text-white shadow-md shadow-emerald-500/20'
                     : 'text-slate-400 hover:text-white hover:bg-white/10'
                 )}
                 aria-label={`Page ${page}`}

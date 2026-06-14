@@ -1,4 +1,4 @@
-// Conservation Analytics Panel Component
+﻿// Conservation Analytics Panel Component
 // Enhanced Red Data Book section with threat patterns and legal status
 
 import React from 'react';

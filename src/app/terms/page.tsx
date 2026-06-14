@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -407,7 +407,7 @@ const CONTRIBUTION_TYPES = [
   {
     icon: Binoculars,
     title: 'Biodiversity Sightings',
-    color: 'from-green-500 to-emerald-600',
+    color: 'from-green-500 to- emerald-700',
     description: 'Species observations may be verified, generalized, delayed, or restricted for sensitivity reasons. Location precision may be reduced for vulnerable taxa.',
   },
   {

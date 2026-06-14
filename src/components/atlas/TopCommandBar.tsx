@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Search, Share2, Download, Maximize2, SlidersHorizontal, X } from 'lucide-react';
@@ -77,7 +77,7 @@ export function TopCommandBar({ onSearch, onToggleLayers, layerCount, onFeatureS
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="Search places, districts, lakes, species, trails..."
-              className="w-full h-10 pl-10 pr-10 rounded-lg bg-slate-800/50 border border-white/10 text-sm text-white placeholder-slate-500 outline-none focus:border-forest-500/50 focus:ring-1 focus:ring-forest-500/20 transition-all"
+              className="w-full h-10 pl-10 pr-10 rounded-lg bg-slate-800/50 border border-white/10 text-sm text-white placeholder-slate-500 outline-none focus:border-forest-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-all"
             />
             {searchQuery && (
               <button

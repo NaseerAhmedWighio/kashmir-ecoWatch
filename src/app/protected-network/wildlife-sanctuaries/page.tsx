@@ -1,19 +1,20 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { ProtectedCategoryPage } from '@/components/common/ProtectedCategoryPage';
 import { getProtectedAreas } from '@/data/protected-network';
 
 const TABS = [
+  { key: 'all', label: 'All', description: 'Show all items across all ecological zones' },
   { key: 'core', label: 'Kashmir Core', description: 'Kashmir Valley sanctuaries — 9 records' },
   { key: 'trans', label: 'Trans-Divisional', description: 'Jammu & Ladakh sanctuary belt — 7 records' },
   { key: 'extended', label: 'Transboundary / Extended', description: 'Azad Kashmir, Gilgit-Baltistan, and broader historical Kashmir belt — 4 records' },
 ] as const;
 
-type TabKey = 'core' | 'trans' | 'extended';
+type TabKey = 'all' | 'core' | 'trans' | 'extended';
 
 export default function WildlifeSanctuariesPage() {
-  const [activeTab, setActiveTab] = useState<TabKey>('core');
+  const [activeTab, setActiveTab] = useState<TabKey>('all');
   const allAreas = getProtectedAreas.wildlifeSanctuaries();
 
   const coreSanctuaries    = allAreas.filter(p => p.scope === 'Kashmir Core');
@@ -21,6 +22,7 @@ export default function WildlifeSanctuariesPage() {
   const extendedSanctuaries = allAreas.filter(p => p.scope === 'Transboundary / Extended');
 
   const activeAreas =
+    activeTab === 'all'      ? allAreas :
     activeTab === 'core'     ? coreSanctuaries :
     activeTab === 'trans'    ? transSanctuaries :
     extendedSanctuaries;
@@ -41,8 +43,8 @@ export default function WildlifeSanctuariesPage() {
       title={<><span className="block whitespace-nowrap">Kashmir Wildlife</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Sanctuary Network</span></>}
       subtitle="Protected forest and alpine habitats supporting Kashmir's mammals, birds, and mountain biodiversity. Integrates species data, seasonal movement patterns, habitat condition, and conservation monitoring for each sanctuary."
       icon="Shield"
-      color="from-emerald-600 to-emerald-500"
-      areas={allAreas}
+      color="from- emerald-700 to-emerald-500"
+      areas={activeAreas}
       metrics={metrics}
       tabs={TABS as any}
       activeTab={activeTab}

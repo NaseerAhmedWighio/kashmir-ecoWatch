@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useRef } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -556,7 +556,7 @@ export default function SubmitSightingPage() {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-600" 
+                  className="w-full bg- emerald-700 hover:bg- emerald-500" 
                   disabled={!selectedCategory || !speciesName || !dateObserved || !locationText || !description || isSubmitting}
                 >
                   {isSubmitting ? (

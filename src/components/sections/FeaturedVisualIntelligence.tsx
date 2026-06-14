@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/Card';
@@ -164,7 +164,7 @@ export function FeaturedVisualIntelligence() {
                     <Button 
                       variant="outline" 
                       size="sm" 
-                      className="w-full group-hover:border-forest-500 group-hover:text-forest-600 dark:group-hover:text-forest-400 transition-colors"
+                      className="w-full group-hover:border-forest-500 group-hover:text- emerald-700 dark:group-hover:text-emerald-400 transition-colors"
                     >
                       View Details
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

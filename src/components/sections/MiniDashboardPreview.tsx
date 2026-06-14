@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
@@ -141,7 +141,7 @@ export function MiniDashboardPreview() {
                       Current AQI: <strong className="text-slate-900 dark:text-white">156</strong>
                     </span>
                   </div>
-                  <button className="text-sm font-medium text-forest-600 dark:text-forest-400 hover:text-forest-700">
+                  <button className="text-sm font-medium text- emerald-700 dark:text-emerald-400 hover:text- emerald-700">
                     Details →
                   </button>
                 </div>
@@ -203,7 +203,7 @@ export function MiniDashboardPreview() {
                       Avg pH: <strong className="text-slate-900 dark:text-white">7.1</strong>
                     </span>
                   </div>
-                  <button className="text-sm font-medium text-forest-600 dark:text-forest-400 hover:text-forest-700">
+                  <button className="text-sm font-medium text- emerald-700 dark:text-emerald-400 hover:text- emerald-700">
                     Details →
                   </button>
                 </div>
@@ -263,7 +263,7 @@ export function MiniDashboardPreview() {
                       Active: <strong className="text-slate-900 dark:text-white">67 zones</strong>
                     </span>
                   </div>
-                  <button className="text-sm font-medium text-forest-600 dark:text-forest-400 hover:text-forest-700">
+                  <button className="text-sm font-medium text- emerald-700 dark:text-emerald-400 hover:text- emerald-700">
                     Details →
                   </button>
                 </div>
@@ -331,7 +331,7 @@ export function MiniDashboardPreview() {
                       Total: <strong className="text-slate-900 dark:text-white">4,521</strong>
                     </span>
                   </div>
-                  <button className="text-sm font-medium text-forest-600 dark:text-forest-400 hover:text-forest-700">
+                  <button className="text-sm font-medium text- emerald-700 dark:text-emerald-400 hover:text- emerald-700">
                     Details →
                   </button>
                 </div>
@@ -390,7 +390,7 @@ export function MiniDashboardPreview() {
                       Avg Score: <strong className="text-slate-900 dark:text-white">77.7</strong>
                     </span>
                   </div>
-                  <button className="text-sm font-medium text-forest-600 dark:text-forest-400 hover:text-forest-700">
+                  <button className="text-sm font-medium text- emerald-700 dark:text-emerald-400 hover:text- emerald-700">
                     Details →
                   </button>
                 </div>

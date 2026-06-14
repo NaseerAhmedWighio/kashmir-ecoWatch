@@ -19,9 +19,9 @@ export function Button({
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap';
 
   const variants = {
-    primary: 'bg-gradient-to-r from-forest-600 to-glacier-600 hover:from-forest-700 hover:to-glacier-700 text-white shadow-lg hover:shadow-xl focus:ring-forest-500',
+    primary: 'bg- emerald-700 hover:bg- emerald-500 text-white shadow-lg hover:shadow-xl focus:ring-emerald-500',
     secondary: 'bg-slate-800 hover:bg-slate-700 text-white shadow-md hover:shadow-lg focus:ring-slate-500',
-    outline: 'border-2 border-slate-300 dark:border-slate-600 hover:border-forest-500 dark:hover:border-forest-400 text-slate-700 dark:text-slate-200 hover:text-forest-600 dark:hover:text-forest-400 bg-transparent',
+    outline: 'border-2 border- emerald-700/30 text- emerald-700 hover:bg- emerald-700 hover:text-white bg-transparent transition-all duration-200',
     ghost: 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200',
   };
 

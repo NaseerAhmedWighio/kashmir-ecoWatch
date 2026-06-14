@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -38,7 +38,7 @@ export default function DistrictRiskProfilesPage() {
         badge={<Badge variant="success" size="md">District-Wise Operational Risk</Badge>}
         actions={
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-xl" onClick={() => router.push('/risk-monitoring/live-alerts')}>
+            <Button size="lg" className="bg- emerald-700 hover:bg- emerald-500 text-white shadow-xl" onClick={() => router.push('/risk-monitoring/live-alerts')}>
               <Bell className="w-5 h-5 mr-2" />View Live Alerts
             </Button>
             <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5" onClick={() => router.push('/risk-monitoring')}>Back to Overview</Button>

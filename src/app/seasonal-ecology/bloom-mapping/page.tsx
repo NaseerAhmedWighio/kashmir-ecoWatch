@@ -1,4 +1,4 @@
-import { SeasonalListingPage } from '@/components/common/SeasonalListingPage';
+﻿import { SeasonalListingPage } from '@/components/common/SeasonalListingPage';
 import { getSeasonalEcologyData } from '@/data/seasonal-ecology';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';

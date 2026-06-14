@@ -12,7 +12,7 @@ export default function HabitatSignalsPage() {
       title="All Seasonal Habitat Signals"
       subtitle="Seasonal habitat changes and transitions across Kashmir"
       icon="Radar"
-      color="from-green-500 to-emerald-600"
+      color="from-green-500 to- emerald-700"
       entities={signals}
       entityVariant="habitat"
       metrics={[

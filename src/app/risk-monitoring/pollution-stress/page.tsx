@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -100,7 +100,7 @@ export default function PollutionStressPage() {
           <>
             <Button
               size="lg"
-              className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white shadow-xl"
+              className="bg- emerald-700 hover:bg- emerald-500  text-white shadow-xl"
               onClick={() => router.push('/risk-monitoring/environmental-monitoring')}
             >
               <Activity className="w-5 h-5 mr-2" />

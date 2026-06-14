@@ -548,7 +548,7 @@ export const RECONFIRMATION_ACTIONS: Record<ConfirmationActionType, Reconfirmati
     label: 'Still Active',
     description: 'The situation remains unchanged',
     icon: 'CircleCheck',
-    color: 'text-emerald-600 dark:text-emerald-400',
+    color: 'text- emerald-700 dark:text-emerald-400',
     bgColor: 'bg-emerald-500/10',
     borderColor: 'border-emerald-500/30',
     requiresNote: false,

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { BiodiversityCategoryPage } from '@/components/common/BiodiversityCategoryPage';
 import { getBiodiversityData, biodiversityMetrics } from '@/data/biodiversity';

@@ -151,7 +151,7 @@ export function ProtectedAreaMapPage({ area, backHref, categoryLabel, categoryHr
               onClick={() => setActiveLayer(layer)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                 activeLayer === layer
-                  ? 'bg-emerald-600 text-white shadow'
+                  ? 'bg- emerald-700 text-white shadow'
                   : 'bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10'
               }`}
             >

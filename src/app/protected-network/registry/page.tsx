@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -343,7 +343,7 @@ export default function ProtectedAreasRegistryPage() {
 
                   <Button
                     size="sm"
-                    className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500"
+                    className="w-full bg- emerald-700 hover:bg- emerald-500"
                     icon={<ArrowRight className="w-4 h-4" />}
                     onClick={() => router.push(`/protected-network/${getCategoryPath(pa.categoryCode)}/${pa.slug}`)}
                   >

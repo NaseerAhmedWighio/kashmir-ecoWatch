@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
@@ -205,7 +205,7 @@ export function Navigation() {
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
-                        <Leaf className="w-4 h-4 text-forest-400" />
+                        <Leaf className="w-4 h-4 text-emerald-400" />
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                           Biodiversity Intelligence
                         </span>
@@ -304,7 +304,7 @@ export function Navigation() {
                   >
                     <div className="p-3 border-b border-white/5">
                       <div className="flex items-center gap-2">
-                        <Shield className="w-4 h-4 text-forest-400" />
+                        <Shield className="w-4 h-4 text-emerald-400" />
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                           Protected Areas
                         </span>
@@ -935,7 +935,7 @@ export function Navigation() {
                 <p className="text-xs text-slate-400 mt-1">Access your workspace and contributions</p>
               </div>
               <div className="p-4 space-y-2">
-                <Button className="w-full text-sm bg-emerald-600 hover:bg-emerald-700 text-white">
+                <Button className="w-full text-sm bg- emerald-700 hover:bg- emerald-500 text-white">
                   Sign In
                 </Button>
                 <Button variant="outline" className="w-full text-sm border-white/20 text-white">

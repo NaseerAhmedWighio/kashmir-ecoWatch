@@ -5,15 +5,16 @@ import { ProtectedCategoryPage } from '@/components/common/ProtectedCategoryPage
 import { getProtectedAreas } from '@/data/protected-network';
 
 const TABS = [
+  { key: 'all', label: 'All', description: 'Show all items across all ecological zones' },
   { key: 'core', label: 'Kashmir Core', description: 'Kashmir Valley / J&K official protected area system — 3 national parks' },
   { key: 'trans', label: 'Trans-Divisional', description: 'Jammu & Ladakh / Chenab / Pir Panjal / adjoining divisions — 2 national parks' },
   { key: 'extended', label: 'Transboundary / Extended', description: 'Gilgit-Baltistan, AJK, and broader Himalayan ecological scope — 7 parks' },
 ] as const;
 
-type TabKey = 'core' | 'trans' | 'extended';
+type TabKey = 'all' | 'core' | 'trans' | 'extended';
 
 export default function NationalParksPage() {
-  const [activeTab, setActiveTab] = useState<TabKey>('core');
+  const [activeTab, setActiveTab] = useState<TabKey>('all');
   const allParks = getProtectedAreas.nationalParks();
 
   const allDistricts = useMemo(() => {
@@ -32,6 +33,7 @@ export default function NationalParksPage() {
   const extendedParks = allParks.filter(p => p.scope === 'Transboundary / Extended');
 
   const activeParks =
+    activeTab === 'all'      ? allParks :
     activeTab === 'core'     ? coreParks :
     activeTab === 'trans'    ? transParks :
     extendedParks;
@@ -57,8 +59,8 @@ export default function NationalParksPage() {
       title={<><span className="block whitespace-nowrap">Kashmir National</span><span className="block whitespace-nowrap bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">Park Network</span></>}
       subtitle="Mountain and temperate forest conservation landscapes spanning Kashmir's protected, trans-divisional, and transboundary ecological zones. Integrates species profiles, boundary data, habitat intelligence, and conservation monitoring for each park."
       icon="Mountain"
-      color="from-emerald-600 to-emerald-500"
-      areas={allParks}
+      color="emerald-400"
+      areas={activeParks}
       metrics={metrics}
       tabs={TABS as any}
       activeTab={activeTab}

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { liveMetrics } from '@/lib/data';
@@ -75,7 +75,7 @@ export function CommandBand() {
           size="sm"
           onClick={() => scroll('left')}
           disabled={!canScrollLeft}
-          className={`rounded-lg glass-light border-white/10 text-white hover:border-forest-400 transition-all ${
+          className={`rounded-lg glass-light border-white/10 text-white hover:border- emerald-700 hover:bg- emerald-700 transition-all ${
             !canScrollLeft && 'opacity-0 pointer-events-none'
           }`}
         >
@@ -89,7 +89,7 @@ export function CommandBand() {
           size="sm"
           onClick={() => scroll('right')}
           disabled={!canScrollRight}
-          className={`rounded-lg glass-light border-white/10 text-white hover:border-forest-400 transition-all ${
+          className={`rounded-lg glass-light border-white/10 text-white hover:border- emerald-700 hover:bg- emerald-700 transition-all ${
             !canScrollRight && 'opacity-0 pointer-events-none'
           }`}
         >

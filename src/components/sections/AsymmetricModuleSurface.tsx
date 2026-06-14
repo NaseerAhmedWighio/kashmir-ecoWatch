@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { intelligenceCards } from '@/lib/data';
@@ -147,7 +147,7 @@ export function AsymmetricModuleSurface() {
 
                       {/* Title and description */}
                       <div className="mb-2 sm:mb-3 md:mb-4">
-                        <h3 className="text-base font-semibold line-clamp-1 text-white group-hover:text-forest-300 transition-colors">{/* responsive-md-fix */}
+                        <h3 className="text-base font-semibold line-clamp-1 text-white group-hover:text- emerald-700 transition-colors">{/* responsive-md-fix */}
                           {card.title}
                         </h3>
                         <p className="text-sm leading-relaxed line-clamp-3 text-slate-400">{/* responsive-md-fix */}
@@ -176,7 +176,7 @@ export function AsymmetricModuleSurface() {
                         {/* Action bar with top border - Access Module button on left, arrow on right */}
                         <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-white/5 mt-auto">{/* responsive-md-fix */}
                           <button
-                            className="mt-auto w-full text-sm py-2 rounded-lg flex items-center justify-center gap-2 font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
+                            className="mt-auto w-full text-sm py-2 rounded-lg flex items-center justify-center gap-2 font-medium text-emerald-400 hover:text- emerald-700 transition-colors group/btn"
                           >
                             <span>Access Module</span>
                             <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -188,7 +188,7 @@ export function AsymmetricModuleSurface() {
                     {/* Access Module Button - for non-featured cards only */}
                     {!isFeaturedCard(index) && (
                       <button
-                        className="mt-auto w-full text-sm py-2 rounded-lg flex items-center justify-center gap-2 font-medium text-forest-400 hover:text-forest-300 transition-colors group/btn"
+                        className="mt-auto w-full text-sm py-2 rounded-lg flex items-center justify-center gap-2 font-medium text-emerald-400 hover:text- emerald-700 transition-colors group/btn"
                       >
                         <span>Access Module</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -224,7 +224,7 @@ export function AsymmetricModuleSurface() {
           </div>
           <Button
             variant="outline"
-            className="border-white/20 text-white hover:border-forest-400 text-xs sm:text-sm md:text-base w-full sm:w-auto"
+            className="border-white/20 text-white hover:border- emerald-700 hover:bg- emerald-700 text-xs sm:text-sm md:text-base w-full sm:w-auto"
             onClick={() => router.push('/risk-monitoring')}
           >
             Browse Directory

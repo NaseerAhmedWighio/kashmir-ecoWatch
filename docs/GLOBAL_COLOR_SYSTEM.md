@@ -85,7 +85,7 @@ These **override all other colors** when status communication is needed.
 
 | Status | Token | Background | Border | Text | Usage |
 |--------|-------|------------|--------|------|-------|
-| **Stable** | `status-stable` | `bg-emerald-900/20` | `border-emerald-700` | `text-emerald-400` | Normal operations, verified data, good quality |
+| **Stable** | `status-stable` | `bg-emerald-900/20` | `border- emerald-500` | `text-emerald-400` | Normal operations, verified data, good quality |
 | **Monitoring** | `status-monitoring` | `bg-amber-900/20` | `border-amber-700` | `text-amber-400` | Active watch, quality decline, moderate risk |
 | **Warning** | `status-warning` | `bg-orange-900/20` | `border-orange-700` | `text-orange-400` | Elevated risk, deteriorating conditions |
 | **Critical** | `status-critical` | `bg-red-900/20` | `border-red-700` | `text-red-400` | Emergency, severe events, immediate action |
@@ -230,7 +230,7 @@ A **deep observatory dark base** for scientific readability.
 **Variant Mapping**
 ```tsx
 const badgeVariants = {
-  stable: 'bg-emerald-900/30 text-emerald-400 border border-emerald-700/50',
+  stable: 'bg-emerald-900/30 text-emerald-400 border border- emerald-500/50',
   monitoring: 'bg-amber-900/30 text-amber-400 border border-amber-700/50',
   warning: 'bg-orange-900/30 text-orange-400 border border-orange-700/50',
   critical: 'bg-red-900/30 text-red-400 border border-red-700/50',

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { AdvancedFooter } from '@/components/sections/AdvancedFooter';
@@ -79,7 +79,7 @@ export default function WildlifeSightingsPage() {
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-emerald-600 to-emerald-500"
+                className="bg- emerald-700 hover:bg- emerald-500"
                 icon={<Eye className="w-5 h-5" />}
                 onClick={() => router.push('/submit-sighting')}
               >

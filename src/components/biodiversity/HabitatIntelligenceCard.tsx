@@ -1,4 +1,4 @@
-// Habitat Intelligence Card Component
+﻿// Habitat Intelligence Card Component
 // Displays habitat system biodiversity with metrics and linkages
 
 import React from 'react';
